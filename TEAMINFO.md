@@ -14,7 +14,7 @@ Die App soll die Kommunikation zwischen Schichten verebessern, Arbeitsprozesse t
 
 | Name | Studiengang | Rolle | Git-Handle (optional) |
 |---|---|---|---|
-| Luisa Cordes | WI B.Sc. | Projektleiter:in | GitHub: luisacordes |
+| Luisa Cordes | WI B.Sc. | Projektleiter:in | GitHub: luisacordes2002-droid |
 | Natnael Keleta| WI B.Sc. | Teammitglied | - |
 | Souhaib Boujemaoui | WI B.Sc. | Teammitglied | - |
 | Omid Asgharzada | WI B.Sc. | Teammitglied | - |
