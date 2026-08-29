@@ -6,43 +6,39 @@ Reportify
 
 ## Kurzbeschreibung
 
-Entwicklung einer Web- oder Mobile-App, mit der Mitarbeitende während ihrer Schicht digitale Reports erstellen können. Die nächste Schicht erhält sofort einen Überblick über: erledigte Aufagben, offene Aufgaben, aktuelle Probleme odre Incidents, Prioritäten und wichitge Hinweise und Übergaben. 
-Die Anwedung kombiniert Funktionen aus: Aufgabenevrwaltung, Schichtübergabe, Protokollsysteme.
-Die App soll die Kommunikation zwischen Schichten verebessern, Arbeitsprozesse transparenter machen und sicherstellen, dass wichtige Informationen nicht verloren gehen.
+Reportify ist eine Webanwendung, mit der Mitarbeitende während oder am Ende ihrer Schicht digitale Übergabereports erstellen können. Die nachfolgende Schicht erhält einen strukturierten Überblick über erledigte und offene Aufgaben, aktuelle Probleme beziehungsweise Incidents, Prioritäten und wichtige Hinweise. Dadurch soll die Kommunikation zwischen den Schichten verbessert und der Verlust wichtiger Informationen verhindert werden.
 
 ## Team
 
 | Name | Studiengang | Rolle | Git-Handle (optional) |
 |---|---|---|---|
-| Luisa Cordes | WI B.Sc. | Projektleiter:in | GitHub: luisacordes2002-droid |
-| Natnael Keleta| WI B.Sc. | Teammitglied | - |
-| Souhaib Boujemaoui | WI B.Sc. | Teammitglied | - |
-| Omid Asgharzada | WI B.Sc. | Teammitglied | - |
-| Yasin Portukal | WI B.Sc. | Teammitglied | - |
+| Luisa Cordes | WI B.Sc. | Projektleiterin | GitHub: `luisacordes2002-droid` |
+| Natnael Keleta | WI B.Sc. | Teammitglied | — |
+| Souhaib Boujemaoui | WI B.Sc. | Teammitglied | — |
+| Omid Asgharzada | WI B.Sc. | Teammitglied | — |
+| Yasin Portukal | WI B.Sc. | Teammitglied | — |
 
-> **Spalte „Git-Handle" (optional):** Nur ausfüllen, wenn die Git-Commit-Identität nicht auf den Klarnamen gesetzt ist und Commits unter einem Plattform-Username (GitHub/GitLab) laufen. Damit bleibt die Zuordnung Commit → Person nachvollziehbar. Details und Alternativen: [`tutorials/git-identity.md`](tutorials/git-identity.md).
+> **Spalte „Git-Handle“ (optional):** Nur ausfüllen, wenn die Git-Commit-Identität nicht auf den Klarnamen gesetzt ist und Commits unter einem Plattform-Username laufen.
 
-> **Datenschutz-Hinweis:** Im öffentlichen Repository erscheinen hier ausschließlich Name, Studiengang, Rolle und (optional) der ohnehin öffentliche Git-Plattform-Handle. **Keine** Matrikel-Nummern, **keine** privaten Telefonnummern, **keine** individuellen E-Mail-Adressen. Die **vollständige Mitgliederliste** mit Matrikel-Nummern und THM-E-Mails wird durch die/den Projektleiter:in **per Mail** an den Betreuer übermittelt — spätestens zu **M0+**, bei Änderungen aktualisiert spätestens zur **M3**-Abgabe.
-
-**Rollen-Empfehlung (frei änderbar):** Projektleiter:in, Software Architect, Spec/Requirements Lead, Implementation Lead, QA/Test Lead, DevOps/Build Lead.
+> **Datenschutz-Hinweis:** Im öffentlichen Repository erscheinen ausschließlich Name, Studiengang, Rolle und optional der öffentliche Git-Plattform-Handle. Matrikelnummern und persönliche E-Mail-Adressen werden nicht im Repository veröffentlicht.
 
 ## Technologien (voraussichtlich)
 
-- **Sprache(n):** z.B. Java 21, TypeScript 5
-- **Frameworks:** z.B. Spring Boot, React, Vue
-- **Persistenz:** z.B. PostgreSQL, SQLite
-- **Build/Tooling:** z.B. Maven, Gradle, Vite
-- **Sonstiges:** z.B. Docker, Auth-Provider, externe APIs
+- **Sprache:** Java 21
+- **Frameworks:** Spring Boot, Thymeleaf
+- **Persistenz:** H2 Database, Spring Data JPA
+- **Build/Tooling:** Maven, Git, GitHub
+- **Sonstiges:** HTML und CSS
 
-> Diese Liste ist eine Momentaufnahme — Änderungen im Projektverlauf sind erlaubt und in der Architekturbeschreibung (M2) endgültig festzulegen.
+> Diese Liste ist eine Momentaufnahme. Änderungen im Projektverlauf sind möglich und werden in der Architekturbeschreibung festgehalten.
 
 ## Repository
 
-- **URL:** <https://github.com/…  bzw.  https://git.thm.de/…>
-- **Sichtbarkeit:** öffentlich · privat (Betreuer als Member: `carstenlucke` / `clucke`)
+- **URL:** <https://github.com/luisacordes2002-droid/Projekt-1->
+- **Sichtbarkeit:** öffentlich
 
 ## Eingesetzte KI-Werkzeuge (vorläufige Planung)
 
-- z.B. GitHub Copilot für Code-Vervollständigung
-- z.B. Claude Code / ChatGPT für Refactoring und Doku-Entwürfe
-- …ich habe jetzt diese vorlage einfach 
+- ChatGPT und Codex für Projektplanung, Lernunterstützung und Dokumentationsentwürfe
+- KI-Unterstützung für Code-Erklärungen, Refactoring und Testvorschläge
+- Sämtliche KI-generierten Inhalte werden durch das Team geprüft und nachvollzogen
