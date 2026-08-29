@@ -51,6 +51,7 @@ erDiagram
         string erstelltVon FK
     }
 
+```
 Ein:e Nutzer:in kann keinen, einen oder mehrere Reports erstellen. Jeder Report
 gehört genau zu einer erstellenden Person.
 
