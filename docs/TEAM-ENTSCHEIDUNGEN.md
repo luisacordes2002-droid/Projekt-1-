@@ -41,6 +41,9 @@ Architekturdatei enthält anschließend die verbindliche Beschreibung.
 | TD-010 | Projektrollen | Wer übernimmt dauerhaft welche Projektrolle? | Bestehende TEAMINFO gilt bis zur gemeinsamen Abstimmung | TEAMINFO | `OFFEN` |
 | TD-011 | Sprache | Welche Sprache verwendet die Benutzeroberfläche? | Deutsche Benutzeroberfläche | B1, N1 | `OFFEN` |
 | TD-012 | Git-Arbeitsweise | Wie gelangen Feature- und Dokumentationsbranches nach `main`? | Branch, Prüfung, Pull Request und anschließend Merge | README, Teamarbeitsweise | `OFFEN` |
+| TD-013 | Textlänge | Welche maximale Länge darf ein Report-Textfeld besitzen? | Höchstens 4.000 Zeichen je Textfeld | D2, B1, N1 | `OFFEN` |
+| TD-014 | Passwortregel | Welche Mindest- und Höchstlänge gilt für Passwörter? | Mindestens 8 und höchstens 128 Zeichen | F2, D2, B1, N1, Architektur | `OFFEN` |
+
 
 ## 4. Priorität für das nächste Teamtreffen
 
@@ -55,6 +58,8 @@ Implementierung direkt beeinflussen:
 6. `TD-008` – Anlage der Benutzerkonten
 7. `TD-009` – endgültige Datenbank
 8. `TD-010` – Projektrollen
+9. `TD-013` – maximale Länge der Report-Textfelder
+10. `TD-014` – Passwortregel
 
 **Zieltermin für diese Entscheidungen:** 01.09.2026
 
@@ -66,7 +71,7 @@ Implementierung direkt beeinflussen:
 
 ## 6. Neue Entscheidung aufnehmen
 
-Neue offene Fragen erhalten die nächste freie Kennung `TD-013`, `TD-014` usw.
+Neue offene Fragen erhalten die nächste freie Kennung `TD-015`, `TD-016` usw.
 
 Jeder neue Eintrag benötigt:
 
