@@ -41,6 +41,8 @@ zusammen mit den offenen Teamentscheidungen zu lesen.
 | D1 | [Datenmodell](D1-datenmodell.md) | Nutzer:in, Report, Beziehungen und Datenregeln |
 | D2 | [Datentypenverzeichnis](D2-datentypen.md) | Zulässige Werte, Formate und Validierungsregeln |
 | B1 | [Dialogspezifikation](B1-dialogspezifikationen.md) | Seiten, Eingaben, Navigation und Rückmeldungen |
+| B2 | [Batch](B2-batch.md) | Nicht anwendbar im MVP; Begründung und Abgrenzung |
+| B3 | [Druckausgaben](B3-druckausgaben.md) | Nicht anwendbar im MVP; Abgrenzung zu Browserdruck und Export |
 | N1 | [Nichtfunktionale Anforderungen](N1-nichtfunktional.md) | Qualitätsziele und überprüfbare Akzeptanzkriterien |
 | E2 | [Glossar](E2-glossar.md) | Gemeinsame Fachbegriffe und verwendete Kennungen |
 
@@ -75,8 +77,6 @@ eigene Kapitel ausgearbeitet. Diese Übersicht ist keine Vollständigkeitsfreiga
 
 | Baustein | Noch zu dokumentieren |
 |---|---|
-| B2 – Batch | Einordnen und begründen, dass im bisherigen MVP keine fachlichen Stapelverarbeitungsabläufe vorgesehen sind. |
-| B3 – Druckausgaben | Festhalten, dass im bisherigen MVP keine anwendungseigenen Druck- oder Exportfunktionen vorgesehen sind. |
 | S1 – Nachbarsysteme | Die Abgrenzung gegenüber externen Fachsystemen und Schnittstellen dokumentieren. |
 | S2 – Datenmigration | Eine Übernahme von Altdaten abgrenzen und von der erstmaligen Bereitstellung von Benutzerkonten unterscheiden. |
 | S3 – Inbetriebnahme | Fachliche Bedingungen für Einrichtung und ersten Einsatz beschreiben und mit der späteren ausführbaren Installationsanleitung verbinden. |
