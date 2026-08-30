@@ -274,7 +274,8 @@ Datum und Uhrzeit, zu denen ein Report gespeichert wurde.
 ### Beispielanzeige
 
 ```text
-30.08.2026, 14:35 Uhr```
+30.08.2026, 14:35 Uhr
+```
 
 ## 15. Allgemeine Validierungsregeln
 
