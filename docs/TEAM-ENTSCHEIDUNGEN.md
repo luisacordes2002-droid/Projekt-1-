@@ -43,6 +43,9 @@ Architekturdatei enthält anschließend die verbindliche Beschreibung.
 | TD-012 | Git-Arbeitsweise | Wie gelangen Feature- und Dokumentationsbranches nach `main`? | Branch, Prüfung, Pull Request und anschließend Merge | README, Teamarbeitsweise | `OFFEN` |
 | TD-013 | Textlänge | Welche maximale Länge darf ein Report-Textfeld besitzen? | Höchstens 4.000 Zeichen je Textfeld | D2, B1, N1 | `OFFEN` |
 | TD-014 | Passwortregel | Welche Mindest- und Höchstlänge gilt für Passwörter? | Mindestens 8 und höchstens 128 Zeichen | F2, D2, B1, N1, Architektur | `OFFEN` |
+| TD-015 | Leistungs- und Mengenziele | Welche Antwortzeit-, Mengen- und Testbedingungen sollen für die erste Version verbindlich gelten? | Mindestens 95 Prozent von 20 Aufrufen innerhalb von zwei Sekunden bei 1.000 Testreports; Mengenziele von mindestens 50 Benutzerkonten und 10.000 Reports | N1, Architektur, Tests | `OFFEN` |
+| TD-016 | Browser und Bildschirmbreite | Welche Browser und Versionen werden unterstützt und welche kleinste Bildschirmbreite muss bedienbar sein? | Prüfung mit aktuellen Versionen von Chrome und Safari; Bedienbarkeit ab 360 Pixeln Breite | B1, N1, Architektur, Tests | `OFFEN` |
+| TD-017 | Schichtauswahl | Wird die Schicht in einem eigenen Schritt als Sitzungskontext oder direkt im Reportformular ausgewählt? | Noch uneinheitlich: F2 beschreibt einen vorgelagerten Sitzungskontext; B1 beschreibt die Auswahl im Reportformular | F1, F2, F3, B1, Architektur | `OFFEN` |
 
 
 ## 4. Priorität für das nächste Teamtreffen
@@ -60,6 +63,9 @@ Implementierung direkt beeinflussen:
 8. `TD-010` – Projektrollen
 9. `TD-013` – maximale Länge der Report-Textfelder
 10. `TD-014` – Passwortregel
+11. `TD-015` – Leistungs- und Mengenziele
+12. `TD-016` – unterstützte Browser und kleinste Bildschirmbreite
+13. `TD-017` – Schichtauswahl und Arbeitskontext
 
 **Zieltermin für diese Entscheidungen:** 01.09.2026
 
@@ -71,7 +77,7 @@ Implementierung direkt beeinflussen:
 
 ## 6. Neue Entscheidung aufnehmen
 
-Neue offene Fragen erhalten die nächste freie Kennung `TD-015`, `TD-016` usw.
+Neue offene Fragen erhalten die nächste freie Kennung `TD-018`, `TD-019` usw.
 
 Jeder neue Eintrag benötigt:
 
