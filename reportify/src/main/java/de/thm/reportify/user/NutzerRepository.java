@@ -8,4 +8,6 @@ public interface NutzerRepository extends JpaRepository<Nutzer, Long> {
 
     Optional<Nutzer> findByBenutzernameIgnoreCaseAndAktivTrue(
             String benutzername);
+
+            boolean existsByBenutzernameIgnoreCase(String benutzername);
 }
