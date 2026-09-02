@@ -97,16 +97,15 @@ Arbeitsschicht.
 |---|---|---|
 | `reportId` | Eindeutige und unveränderliche Kennung | Ja |
 | `schicht` | Schicht, auf die sich der Report bezieht | Ja |
-| `erledigteAufgaben` | Während der Schicht abgeschlossene Aufgaben | Bedingt |
-| `offeneAufgaben` | Noch nicht abgeschlossene Aufgaben | Bedingt |
-| `problemeIncidents` | Aktuelle Probleme oder Incidents | Bedingt |
+| `erledigteAufgaben` | Während der Schicht abgeschlossene Aufgaben | Ja |
+| `offeneAufgaben` | Noch nicht abgeschlossene Aufgaben | Nein |
+| `problemeIncidents` | Aktuelle Probleme oder Incidents | Nein |
 | `prioritaet` | Dringlichkeit der enthaltenen Probleme | Bedingt |
-| `wichtigeHinweise` | Informationen für die nachfolgende Schicht | Bedingt |
+| `wichtigeHinweise` | Informationen für die nachfolgende Schicht | Nein |
 | `erstelltAm` | Datum und Uhrzeit der Speicherung | Ja |
 | `erstelltVon` | Verweis auf die erstellende Person | Ja |
 
-**Bedingt** bedeutet, dass ein Feld einzeln leer bleiben darf. Mindestens eines der
-fachlichen Textfelder muss jedoch einen Inhalt besitzen.
+**Bedingt** bedeutet, dass ein Feld einzeln leer bleiben darf. 
 
 ## 6. Fachliche Wertetypen
 
@@ -147,7 +146,7 @@ Weitere Rollen sind für die erste Version nicht vorgesehen.
 | DM-01 | Jeder Benutzername ist eindeutig. |
 | DM-02 | Jeder Report besitzt genau eine erstellende Person. |
 | DM-03 | Der Erstellungszeitpunkt wird beim Speichern durch das System vergeben. |
-| DM-04 | Mindestens eines der fachlichen Textfelder eines Reports ist ausgefüllt. |
+| DM-04 | Jeder Report besitzt eine Schicht und einen nichtleeren Eintrag im Feld "Erledigte Aufgaben". |
 | DM-05 | Bei einem Problem oder Incident ist eine Priorität verpflichtend. |
 | DM-06 | Ein gespeicherter Report wird in der ersten Version nicht nachträglich bearbeitet. |
 | DM-07 | Ein gespeicherter Report wird in der ersten Version nicht gelöscht. |
