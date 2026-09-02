@@ -156,7 +156,7 @@ Eine angemeldete Person erfasst einen neuen Report für eine Schichtübergabe.
 | Element | Typ | Pflicht | Beschreibung |
 |---|---|---|---|
 | Schicht | Auswahlliste | Ja | Früh-, Spät- oder Nachtschicht |
-| Erledigte Aufgaben | Mehrzeiliges Textfeld | Bedingt | Abgeschlossene Aufgaben |
+| Erledigte Aufgaben | Mehrzeiliges Textfeld | Ja | Abgeschlossene Aufgaben |
 | Offene Aufgaben | Mehrzeiliges Textfeld | Bedingt | Noch ausstehende Aufgaben |
 | Probleme/Incidents | Mehrzeiliges Textfeld | Bedingt | Aktuelle Störungen und Probleme |
 | Priorität | Auswahlliste | Bedingt | Niedrig, Mittel oder Hoch |
@@ -168,7 +168,7 @@ Eine angemeldete Person erfasst einen neuen Report für eine Schichtübergabe.
 ### 6.3 Feldregeln
 
 - Eine Schicht muss ausgewählt sein.
-- Mindestens eines der vier fachlichen Textfelder muss ausgefüllt sein.
+- Das Feld "Erledigte Aufgaben" muss ausgefüllt sein.
 - Reine Leerzeichen gelten nicht als Inhalt.
 - Bei einem Problem oder Incident muss eine Priorität ausgewählt sein.
 - Jedes Textfeld besitzt vorläufig eine Maximallänge von 4.000 Zeichen.
@@ -195,7 +195,7 @@ Daten bleiben sichtbar.
 Mögliche Meldungen:
 
 - **„Bitte wählen Sie eine Schicht aus.“**
-- **„Bitte füllen Sie mindestens ein Report-Feld aus.“**
+- **„Bitte füllen Sie das Pflichtfeld 'Erledigte Aufgaben' aus.“**
 - **„Bitte wählen Sie für das Problem eine Priorität aus.“**
 - **„Das Feld darf höchstens 4.000 Zeichen enthalten.“**
 
