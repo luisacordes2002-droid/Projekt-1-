@@ -189,10 +189,10 @@ strukturierten Report.
 10. Das System speichert den Report.
 11. Das System zeigt eine Erfolgsbestätigung beziehungsweise den gespeicherten Report an.
 
-### Vorläufige Validierungsregel
+### Validierungsregel
 
-Mindestens eines der fachlichen Eingabefelder muss einen Inhalt besitzen.
-Diese Regel muss beim Teamtermin bestätigt werden. -> 31.08.2026
+Die Felder "Schicht" und "Erledigte Aufgaben" sind Pflichtfelder.
+Ein Report darf nur gespeichert werden, wenn eine Schicht ausgewählt und das Feld "erledigte Aufgaben ausgefüllt ist.
 
 ### Alternativabläufe und Fehlerfälle
 
