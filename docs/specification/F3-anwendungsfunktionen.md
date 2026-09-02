@@ -111,8 +111,8 @@ Prüfen, ob ein Report fachlich gültig und speicherbar ist.
 **Validierungsregeln:**
 
 1. Eine gültige Schicht muss ausgewählt sein.
-2. Mindestens eines der fachlichen Textfelder muss einen Inhalt besitzen.
-3. Reine Leerzeichen gelten nicht als Inhalt.
+2. Das Feld "Erledigte Aufgaben" muss einen Inhalt besitzen.
+3. Reine Leerzeichen im Feld "Erledigte Aufgaben" gelten nicht als Inhalt.
 4. Wenn ein Problem oder Incident eingetragen wurde, muss eine Priorität angegeben sein.
 5. Die zulässigen Prioritäten sind `NIEDRIG`, `MITTEL` und `HOCH`.
 6. Fehlerhafte Felder werden verständlich gekennzeichnet.
@@ -122,8 +122,6 @@ Prüfen, ob ein Report fachlich gültig und speicherbar ist.
 - gültige Report-Daten oder
 - konkrete Validierungsfehler
 
-> **Vorläufige Regel:** Die Pflichtfelder müssen vom Team noch abschließend bestätigt
-> werden.
 
 ### AF-05 – Report speichern
 
