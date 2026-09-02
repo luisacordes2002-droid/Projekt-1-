@@ -29,7 +29,7 @@ Architekturdatei enthält anschließend die verbindliche Beschreibung.
 
 | ID | Thema | Zu entscheidende Frage | Aktuelle Arbeitsannahme | Betroffene Dokumente | Status |
 |---|---|---|---|---|---|
-| TD-001 | Report-Pflichtfelder | Welche Report-Felder müssen ausgefüllt werden? | Schicht ist Pflicht; zusätzlich mindestens ein fachliches Textfeld | F2, F3, D1, B1 | `OFFEN` |
+| TD-001 | Report-Pflichtfelder | Welche Report-Felder müssen ausgefüllt werden? | Schicht ist Pflicht; zusätzlich mindestens ein fachliches Textfeld | F2, F3, D1, B1 | `EINGEARBEITET` |
 | TD-002 | Priorität | Gilt die Priorität für den gesamten Report oder nur für Probleme und Incidents? | Priorität ist nur bei Problemen oder Incidents verpflichtend | F3, D1, B1 | `OFFEN` |
 | TD-003 | Bearbeitung | Dürfen bereits gespeicherte Reports bearbeitet werden? | In Version 1 nicht vorgesehen | P1, F1, F2, F3, D1 | `OFFEN` |
 | TD-004 | Löschung | Dürfen Reports gelöscht werden? | In Version 1 nicht vorgesehen | P1, F1, F2, F3, D1 | `OFFEN` |
