@@ -148,7 +148,7 @@ Weitere Rollen sind für die erste Version nicht vorgesehen.
 | DM-03 | Der Erstellungszeitpunkt wird beim Speichern durch das System vergeben. |
 | DM-04 | Jeder Report besitzt eine Schicht und einen nichtleeren Eintrag im Feld "Erledigte Aufgaben". |
 | DM-05 | Bei einem Problem oder Incident ist eine Priorität verpflichtend. |
-| DM-06 | Ein gespeicherter Report wird in der ersten Version nicht nachträglich bearbeitet. |
+| DM-06 | Ein gespeicherter Report darf nachträglich bearbeitet werden. Bei der Bearbeitung gelten weiterhin die fachlichen Validierungsregeln. |
 | DM-07 | Ein gespeicherter Report wird in der ersten Version nicht gelöscht. |
 | DM-08 | Ein deaktiviertes Benutzerkonto kann keine neuen Reports erstellen. |
 | DM-09 | Reports deaktivierter Benutzerkonten bleiben in der Historie erhalten. |
@@ -164,6 +164,8 @@ Ein Report durchläuft in der ersten Version folgende fachliche Schritte:
 4. Bei gültigen Eingaben wird der Report gespeichert.
 5. Der gespeicherte Report erscheint in der aktuellen Übergabe und in der
    Report-Historie.
+6. Ein gespeicherter Report kann nachträglich bearbeitet werden.
+7. Geänderte Report-Daten werden erneut validiert und anschließend gespeichert.
 
 Nicht gespeicherte Eingaben sind noch kein Report im Sinne dieses Datenmodells.
 Ein gesonderter Entwurfsstatus ist für die erste Version nicht vorgesehen.
@@ -194,7 +196,6 @@ Folgende Datenobjekte sind in der ersten Version nicht vorgesehen:
 Folgende Punkte müssen vom Team abschließend bestätigt werden:
 
 1. Soll die Priorität für den gesamten Report oder nur für Probleme gelten?
-2. Soll ein gespeicherter Report später bearbeitet werden dürfen?
 3. Wie lange sollen Reports aufbewahrt werden?
 4. Soll die aktuelle Übergabe ausschließlich anhand des Erstellungszeitpunkts
    bestimmt werden?
