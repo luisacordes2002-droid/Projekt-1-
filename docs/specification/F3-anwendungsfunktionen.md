@@ -27,6 +27,7 @@ beziehungsweise im Quellcode beschrieben.
 | AF-07 | Report-Historie bereitstellen | UC-06 |
 | AF-08 | Report-Details bereitstellen | UC-05, UC-06 |
 | AF-09 | Gespeicherten Report bearbeiten | UC-07 |
+| AF-10 | Gespeicherten Report löschen | UC-08 |
 
 
 ## 3. Funktionsbeschreibungen
@@ -235,11 +236,34 @@ Einen bereits gespeicherten Report nachträglich ändern.
 - aktualisierter Report oder
 - konkrete Validierungsfehler
 
+### AF-10 – Gespeicherten Report löschen
+
+**Zweck:**  
+
+Einen gespeicherten Report durch eine berechtigte Schichtleitung löschen.
+
+**Eingaben:**
+
+- Kennung des Reports
+- angemeldete Person
+
+**Verarbeitung:**
+
+1. Das System prüft, ob der Report existiert.
+2. Das System prüft, ob die angemeldete Person die Rolle `SCHICHTLEITUNG` besitzt.
+3. Besitzt die Person nicht die erforderliche Rolle, wird die Löschung abgelehnt.
+4. Die Löschung muss durch die Schichtleitung bestätigt werden.
+5. Nach erfolgreicher Bestätigung wird der Report gelöscht.
+
+**Ergebnis:**
+
+- erfolgreich gelöschter Report oder
+- Ablehnung der Löschung
+
 ## 4. Abgrenzung
 
 Folgende Funktionen sind für die erste Version nicht vorgesehen:
 
-- Löschen gespeicherter Reports
 - Datei- oder Bildanhänge
 - automatische Benachrichtigungen
 - Chat zwischen Mitarbeitenden
@@ -251,7 +275,7 @@ werden, bevor sie implementiert werden.
 
 ## 5. Nachverfolgbarkeit
 
-Die Kennungen `AF-01` bis `AF-09` bleiben stabil. Sie werden später in folgenden
+Die Kennungen `AF-01` bis `AF-10` bleiben stabil. Sie werden später in folgenden
 Dokumenten wiederverwendet:
 
 - Datenmodell
