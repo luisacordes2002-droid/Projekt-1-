@@ -29,23 +29,23 @@ Architekturdatei enthält anschließend die verbindliche Beschreibung.
 
 | ID | Thema | Zu entscheidende Frage | Aktuelle Arbeitsannahme | Betroffene Dokumente | Status |
 |---|---|---|---|---|---|
-| TD-001 | Report-Pflichtfelder | Welche Report-Felder müssen ausgefüllt werden? | Schicht ist Pflicht; zusätzlich mindestens ein fachliches Textfeld | F2, F3, D1, B1 | `EINGEARBEITET` |
+| TD-001 | Report-Pflichtfelder | Welche Report-Felder müssen ausgefüllt werden? | Schicht ist und erledigte Aufgaben sind Pflicht | F2, F3, D1, B1 | `EINGEARBEITET` |
 | TD-002 | Priorität | Gilt die Priorität für den gesamten Report oder nur für Probleme und Incidents? | Priorität ist nur bei Problemen oder Incidents verpflichtend | F3, D1, B1 | `EINGEARBEITET` |
-| TD-003 | Bearbeitung | Dürfen bereits gespeicherte Reports bearbeitet werden? | In Version 1 nicht vorgesehen | P1, F1, F2, F3, D1, B1 | `OFFEN` |
-| TD-004 | Löschung | Dürfen Reports gelöscht werden? | In Version 1 nicht vorgesehen | P1, F1, F2, F3, D1 | `OFFEN` |
+| TD-003 | Bearbeitung | Dürfen bereits gespeicherte Reports bearbeitet werden? | Bereits gespeicherte Reports dürfen gespeichert werden | P1, F1, F2, F3, D1, B1 | `OFFEN` |
+| TD-004 | Löschung | Dürfen Reports gelöscht werden? | Reports dürfen nur von der Schichtleitung gelöscht werden | P1, F1, F2, F3, D1 | `OFFEN` |
 | TD-005 | Aktuelle Übergabe | Wie wird der aktuelle Übergabereport bestimmt? | Der zuletzt gespeicherte Report wird angezeigt | F1, F3, D1 | `OFFEN` |
-| TD-006 | Berechtigungen | Erhält die Schichtleitung zusätzliche Berechtigungen? | Beide Rollen besitzen in Version 1 dieselben Kernrechte | P1, F2, D1, N1 | `OFFEN` |
+| TD-006 | Berechtigungen | Erhält die Schichtleitung zusätzliche Berechtigungen? | Die Schichtleitung ist dazu berechtigt, Reports zu löschen | P1, F2, D1, N1 | `OFFEN` |
 | TD-007 | Aufbewahrung | Wie lange werden Reports gespeichert? | Während der ersten Version keine automatische Löschung | D1, N1, S3 | `OFFEN` |
 | TD-008 | Benutzerkonten | Wie werden Benutzerkonten angelegt und verwaltet? | Vorbereitete Benutzerkonten; keine Selbstregistrierung | F2, D1, B1, Architektur | `OFFEN` |
 | TD-009 | Datenbank | Welche Datenbank wird für die finale Version eingesetzt? | H2 für Entwicklung; endgültige Entscheidung in der Architektur | TEAMINFO, Architektur, Inbetriebnahme | `OFFEN` |
 | TD-010 | Projektrollen | Wer übernimmt dauerhaft welche Projektrolle? | Bestehende TEAMINFO gilt bis zur gemeinsamen Abstimmung | TEAMINFO | `OFFEN` |
-| TD-011 | Sprache | Welche Sprache verwendet die Benutzeroberfläche? | Deutsche Benutzeroberfläche | B1, N1 | `OFFEN` |
+| TD-011 | Sprache | Welche Sprache verwendet die Benutzeroberfläche? | Deutsche und englische Benutzeroberfläche | B1, N1 | `OFFEN` |
 | TD-012 | Git-Arbeitsweise | Wie gelangen Feature- und Dokumentationsbranches nach `main`? | Branch, Prüfung, Pull Request und anschließend Merge | README, Teamarbeitsweise | `OFFEN` |
 | TD-013 | Textlänge | Welche maximale Länge darf ein Report-Textfeld besitzen? | Höchstens 4.000 Zeichen je Textfeld | D2, B1, N1 | `OFFEN` |
-| TD-014 | Passwortregel | Welche Mindest- und Höchstlänge gilt für Passwörter? | Mindestens 8 und höchstens 128 Zeichen | F2, D2, B1, N1, Architektur | `OFFEN` |
+| TD-014 | Passwortregel | Welche Mindest- und Höchstlänge gilt für Passwörter? | Mindestens 8 und höchstens 128 Zeichen, werden selbst erstellt | F2, D2, B1, N1, Architektur | `OFFEN` |
 | TD-015 | Leistungs- und Mengenziele | Welche Antwortzeit-, Mengen- und Testbedingungen sollen für die erste Version verbindlich gelten? | Mindestens 95 Prozent von 20 Aufrufen innerhalb von zwei Sekunden bei 1.000 Testreports; Mengenziele von mindestens 50 Benutzerkonten und 10.000 Reports | N1, Architektur, Tests | `OFFEN` |
 | TD-016 | Browser und Bildschirmbreite | Welche Browser und Versionen werden unterstützt und welche kleinste Bildschirmbreite muss bedienbar sein? | Prüfung mit aktuellen Versionen von Chrome und Safari; Bedienbarkeit ab 360 Pixeln Breite | B1, N1, Architektur, Tests | `OFFEN` |
-| TD-017 | Schichtauswahl | Wird die Schicht in einem eigenen Schritt als Sitzungskontext oder direkt im Reportformular ausgewählt? | Noch uneinheitlich: F2 beschreibt einen vorgelagerten Sitzungskontext; B1 beschreibt die Auswahl im Reportformular | F1, F2, F3, B1, Architektur | `OFFEN` |
+| TD-017 | Schichtauswahl | Die Schicht wird direkt im Reportformular ausgewählt | Noch uneinheitlich: F2 beschreibt einen vorgelagerten Sitzungskontext; B1 beschreibt die Auswahl im Reportformular | F1, F2, F3, B1, Architektur | `OFFEN` |
 
 
 ## 4. Priorität für das nächste Teamtreffen
