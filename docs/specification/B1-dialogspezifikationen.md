@@ -335,14 +335,21 @@ angezeigt wird.
 | Aktion | Ergebnis |
 |---|---|
 | Bearbeiten | Öffnet den ausgewählten Report zur Bearbeitung |
+| Löschen | Fordert die Schichtleitung zur Bestätigung der Löschung auf |
 | Zurück zur Historie | Öffnet DLG-05 |
 | Zur Startseite | Öffnet DLG-02 |
-| Neue Übergabe | Öffnet DLG-03 |
 | Neue Übergabe | Öffnet DLG-03 |
 
 
 Eine Schaltfläche "Bearbeiten" ermöglicht die Bearbeitung des gespeicherten Reports.
-Eine Löschen-Schaltfläche ist in der ersten Version nicht vorgesehen.
+Die Schaltfläche „Löschen“ wird ausschließlich der Schichtleitung angeboten.
+Mitarbeiter:innen können gespeicherte Reports nicht löschen.
+
+Vor der Löschung muss eine Bestätigung erfolgen:
+
+„Möchten Sie diesen Report wirklich löschen?“
+
+Wird die Löschung nicht bestätigt, bleibt der Report unverändert gespeichert.
 
 ### 9.4 Nicht gefundener Report
 
