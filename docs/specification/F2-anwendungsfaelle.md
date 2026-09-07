@@ -14,6 +14,7 @@
 | UC-05 | Übergabe einsehen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-06 | Report-Historie anzeigen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-07 | Gespeicherten Report bearbeiten | Mitarbeiter:in, Schichtleitung | Muss |
+| UC-08 | Gespeicherten Report löschen | Schichtleitung | Muss |
 
 
 ## 2. UC-01 – Anmelden
@@ -358,11 +359,56 @@ Eine angemeldete Person bearbeitet einen bereits gespeicherten Report.
 | AK-21 | Ein gespeicherter Report existiert und die Person ist zur Bearbeitung berechtigt | die Person bearbeitet den Report und speichert gültige Änderungen | die Änderungen werden dauerhaft gespeichert und der aktualisierte Report wird angezeigt |
 | AK-22 | Ein gespeicherter Report wird bearbeitet | die geänderten Angaben erfüllen die Validierungsregeln nicht | die Änderungen werden nicht gespeichert und die fehlerhaften Felder werden gekennzeichnet |
 
-## 9. Nicht enthaltene Anwendungsfälle
+## 9. UC-08 – Gespeicherten Report löschen
+
+### Ziel
+
+Eine Schichtleitung löscht einen gespeicherten Report.
+
+### Primäre Akteur:innen
+
+- Schichtleitung
+
+### Vorbedingungen
+
+- Die Schichtleitung ist angemeldet.
+- Der zu löschende Report existiert.
+
+### Standardablauf
+
+1. Die Schichtleitung öffnet einen gespeicherten Report.
+2. Die Schichtleitung wählt „Löschen“.
+3. Das System fordert eine Bestätigung der Löschung an.
+4. Die Schichtleitung bestätigt die Löschung.
+5. Das System prüft die Berechtigung.
+6. Das System löscht den Report.
+7. Das System bestätigt die erfolgreiche Löschung.
+
+### Alternativablauf – Löschung abbrechen
+
+1. Die Schichtleitung wählt „Löschen“.
+2. Das System fordert eine Bestätigung an.
+3. Die Schichtleitung bricht den Vorgang ab.
+4. Der Report bleibt unverändert gespeichert.
+
+### Nachbedingungen bei Erfolg
+
+- Der Report ist nicht mehr im System vorhanden.
+- Der gelöschte Report wird nicht mehr in der Historie oder als aktuelle Übergabe angezeigt.
+
+### Akzeptanzkriterien
+
+| ID | Gegeben | Wenn | Dann |
+|---|---|---|---|
+| AK-23 | Eine Schichtleitung ist angemeldet und ein Report existiert | die Schichtleitung bestätigt die Löschung | der Report wird gelöscht |
+| AK-24 | Ein:e Mitarbeiter:in ist angemeldet | die Person versucht einen Report zu löschen | die Löschung wird nicht durchgeführt |
+| AK-25 | Eine Schichtleitung startet eine Löschung | die Löschung wird nicht bestätigt | der Report bleibt gespeichert |
+
+
+## 10. Nicht enthaltene Anwendungsfälle
 
 Folgende Funktionen gehören nicht zum verbindlichen Minimalumfang:
 
-- Reports löschen
 - Benutzerkonten über die Oberfläche verwalten
 - Reports exportieren
 - Benachrichtigungen versenden
