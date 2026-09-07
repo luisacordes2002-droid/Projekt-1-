@@ -26,6 +26,7 @@ betrieblichen Aufgaben findet außerhalb der Anwendung statt.
 
 - besitzt die Funktionen einer Mitarbeiterin beziehungsweise eines Mitarbeiters,
 - kann Reports und dringende Probleme überblicken,
+- darf gespeicherte Reports löschen,
 - übernimmt im Minimalumfang keine Benutzerverwaltung.
 
 ## 3. Eingaben und Ergebnis
@@ -124,6 +125,11 @@ Hinweis statt einer leeren oder fehlerhaften Seite an.
 Gespeicherte Reports dürfen nachträglich bearbeitet werden.
 Bei jeder Bearbeitung gelten weiterhin die festgelegten Validierungsregeln.
 
+### GR-10 - löschen gespeicherter Reports 
+
+Gespeicherte Reports dürfen ausschließlich durch die Schichtleitung gelöscht werden.
+Mitarbeiter:innen dürfen keine Reports löschen.
+
 ## 6. Ausnahmefälle
 
 ### Ungültige Zugangsdaten
@@ -160,8 +166,7 @@ Das System informiert die Person, dass noch kein Report vorhanden ist. Die
 
 Die folgenden Punkte müssen beim nächsten Teamtermin festgelegt werden:
 
-1. Welche Eingaben eines Reports sind verpflichtend?
 2. Wird die aktuelle Übergabe ausschließlich über den Speicherzeitpunkt oder
    zusätzlich über eine feste Schichtreihenfolge bestimmt?
-3. Darf nur die Schichtleitung Reports anderer Personen ändern oder löschen?
-4. Soll das Löschen von Reports im Minimalumfang vollständig ausgeschlossen werden?
+
+
