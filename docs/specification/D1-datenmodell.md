@@ -76,8 +76,9 @@ Für die erste Version sind folgende Rollen vorgesehen:
 - `MITARBEITER`
 - `SCHICHTLEITUNG`
 
-Beide Rollen dürfen die Kernfunktionen der ersten Version verwenden. Erweiterte
-Berechtigungen für die Schichtleitung sind zunächst nicht vorgesehen.
+Beide Rollen dürfen die allgemeinen Kernfunktionen der ersten Version verwenden. 
+Die Schichtleitung besitzt zusätzlich die Berechtigung, gespeicherte Reports zu löschen.
+Mitarbeiter:innen dürfen keine Reports löschen.
 
 ### 4.2 Sicherheitsregeln
 
@@ -149,7 +150,7 @@ Weitere Rollen sind für die erste Version nicht vorgesehen.
 | DM-04 | Jeder Report besitzt eine Schicht und einen nichtleeren Eintrag im Feld "Erledigte Aufgaben". |
 | DM-05 | Bei einem Problem oder Incident ist eine Priorität verpflichtend. |
 | DM-06 | Ein gespeicherter Report darf nachträglich bearbeitet werden. Bei der Bearbeitung gelten weiterhin die fachlichen Validierungsregeln. |
-| DM-07 | Ein gespeicherter Report wird in der ersten Version nicht gelöscht. |
+| DM-07 | Ein gespeicherter Report darf ausschließlich durch die Schichtleitung gelöscht werden. |
 | DM-08 | Ein deaktiviertes Benutzerkonto kann keine neuen Reports erstellen. |
 | DM-09 | Reports deaktivierter Benutzerkonten bleiben in der Historie erhalten. |
 | DM-10 | Die aktuelle Übergabe ist vorläufig der zuletzt gespeicherte Report. |
@@ -166,6 +167,8 @@ Ein Report durchläuft in der ersten Version folgende fachliche Schritte:
    Report-Historie.
 6. Ein gespeicherter Report kann nachträglich bearbeitet werden.
 7. Geänderte Report-Daten werden erneut validiert und anschließend gespeichert.
+8. Ein gespeicherter Report kann durch die Schichtleitung gelöscht werden.
+9. Nach der Löschung steht der Report nicht mehr in der Historie und als Übergabe zur Verfügung.
 
 Nicht gespeicherte Eingaben sind noch kein Report im Sinne dieses Datenmodells.
 Ein gesonderter Entwurfsstatus ist für die erste Version nicht vorgesehen.
@@ -195,11 +198,9 @@ Folgende Datenobjekte sind in der ersten Version nicht vorgesehen:
 
 Folgende Punkte müssen vom Team abschließend bestätigt werden:
 
-1. Soll die Priorität für den gesamten Report oder nur für Probleme gelten?
 3. Wie lange sollen Reports aufbewahrt werden?
 4. Soll die aktuelle Übergabe ausschließlich anhand des Erstellungszeitpunkts
    bestimmt werden?
-5. Benötigt die Schichtleitung später zusätzliche Berechtigungen?
 
 Bis zur Entscheidung gelten die in diesem Dokument beschriebenen Regeln als
 Arbeitsgrundlage.
