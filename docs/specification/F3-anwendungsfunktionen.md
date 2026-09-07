@@ -26,6 +26,8 @@ beziehungsweise im Quellcode beschrieben.
 | AF-06 | Aktuelle Übergabe bestimmen | UC-05 |
 | AF-07 | Report-Historie bereitstellen | UC-06 |
 | AF-08 | Report-Details bereitstellen | UC-05, UC-06 |
+| AF-09 | Gespeicherten Report bearbeiten | UC-07 |
+
 
 ## 3. Funktionsbeschreibungen
 
@@ -210,12 +212,34 @@ Den vollständigen Inhalt eines ausgewählten Reports anzeigen.
 - vollständige Report-Details oder
 - Meldung, dass der Report nicht gefunden wurde
 
+### AF-09 - Gespeicherten Report bearbeiten 
+
+**Zweck:** 
+Einen bereits gespeicherten Report nachträglich ändern.
+
+**Eingaben:**
+
+- Kennung des Reports
+- geänderte Report-Daten
+
+**Verarbeitung:**
+
+1. Das System lädt den zu bearbeitenden Report.
+2. Die vorhandenen Report-Daten werden zur Bearbeitung bereitgestellt.
+3. Die geänderten Daten werden gemäß AF-04 validiert.
+4. Bei gültigen Eingaben werden die Änderungen dauerhaft gespeichert.
+5. Bei ungültigen Eingaben wird der Report nicht geändert und die fehlerhaften Felder werden gekennzeichnet.
+
+**Ergebnis:**
+
+- aktualisierter Report oder
+- konkrete Validierungsfehler
+
 ## 4. Abgrenzung
 
 Folgende Funktionen sind für die erste Version nicht vorgesehen:
 
 - Löschen gespeicherter Reports
-- nachträgliches Bearbeiten gespeicherter Reports
 - Datei- oder Bildanhänge
 - automatische Benachrichtigungen
 - Chat zwischen Mitarbeitenden
@@ -227,7 +251,7 @@ werden, bevor sie implementiert werden.
 
 ## 5. Nachverfolgbarkeit
 
-Die Kennungen `AF-01` bis `AF-08` bleiben stabil. Sie werden später in folgenden
+Die Kennungen `AF-01` bis `AF-09` bleiben stabil. Sie werden später in folgenden
 Dokumenten wiederverwendet:
 
 - Datenmodell
