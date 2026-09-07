@@ -13,6 +13,8 @@
 | UC-04 | Report erstellen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-05 | Übergabe einsehen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-06 | Report-Historie anzeigen | Mitarbeiter:in, Schichtleitung | Muss |
+| UC-07 | Gespeicherten Report bearbeiten | Mitarbeiter:in, Schichtleitung | Muss |
+
 
 ## 2. UC-01 – Anmelden
 
@@ -314,12 +316,53 @@ Eine angemeldete Person kann vergangene Reports nachvollziehen.
 | AK-19 | Die Historie wird angezeigt | ein Report wird ausgewählt | sämtliche Inhalte des Reports werden angezeigt |
 | AK-20 | Es existiert kein Report | die Historie wird geöffnet | ein verständlicher Hinweis wird angezeigt |
 
-## 8. Nicht enthaltene Anwendungsfälle
+## 8. UC-07 – Gespeicherten Report bearbeiten
+
+### Ziel 
+
+Eine angemeldete Person bearbeitet einen bereits gespeicherten Report.
+
+### Vorbedingungen 
+
+- Die Person ist angemeldet.
+- Der zu bearbeitende Report existiert.
+- Die Person ist zur Bearbeitung des Reports berechtigt.
+
+### Standardablauf 
+
+1. Die Person öffnet einen gespeicherten Report.
+2. Die Person wählt "Bearbeiten"
+3. Das System zeigt die vorhandenen Report-Daten in einem bearbeitbaren Formular an.
+4. Die Person ändert die gewünschten Angaben.
+5. Die Person bestätigt die Speicherung.
+6. Das System validiert die geänderten Angaben.
+7. Das System speichert die Änderungen.
+8. Das System zeigt den aktualisierten Report an.
+
+### Alternativablauf 
+
+1. Die geänderten Angaben erfüllen die Validierungsregeln nicht.
+2. Das System speichert die Änderungen nicht.
+3. Das System kennzeichnet die fehlerhaften Felder.
+4. Die Person kann die Eingaben korrigieren.
+
+### Nachbedingungen bei Erfolg
+
+- Die Änderungen am Report sind dauerhaft gespeichert.
+- Der aktualisierte Report kann in Übergabe und Historie angezeigt werden.
+
+### Akzeptanzkriterien
+
+| ID | Gegeben | Wenn | Dann |
+|---|---|---|---|
+| AK-21 | Ein gespeicherter Report existiert und die Person ist zur Bearbeitung berechtigt | die Person bearbeitet den Report und speichert gültige Änderungen | die Änderungen werden dauerhaft gespeichert und der aktualisierte Report wird angezeigt |
+| AK-22 | Ein gespeicherter Report wird bearbeitet | die geänderten Angaben erfüllen die Validierungsregeln nicht | die Änderungen werden nicht gespeichert und die fehlerhaften Felder werden gekennzeichnet |
+
+## 9. Nicht enthaltene Anwendungsfälle
 
 Folgende Funktionen gehören nicht zum verbindlichen Minimalumfang:
 
 - Reports löschen
-- gespeicherte Reports nachträglich bearbeiten
 - Benutzerkonten über die Oberfläche verwalten
 - Reports exportieren
 - Benachrichtigungen versenden
