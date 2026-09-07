@@ -334,12 +334,15 @@ angezeigt wird.
 
 | Aktion | Ergebnis |
 |---|---|
+| Bearbeiten | Öffnet den ausgewählten Report zur Bearbeitung |
 | Zurück zur Historie | Öffnet DLG-05 |
 | Zur Startseite | Öffnet DLG-02 |
 | Neue Übergabe | Öffnet DLG-03 |
+| Neue Übergabe | Öffnet DLG-03 |
 
-Eine Bearbeiten- oder Löschen-Schaltfläche ist in der ersten Version nicht
-vorgesehen.
+
+Eine Schaltfläche "Bearbeiten" ermöglicht die Bearbeitung des gespeicherten Reports.
+Eine Löschen-Schaltfläche ist in der ersten Version nicht vorgesehen.
 
 ### 9.4 Nicht gefundener Report
 
