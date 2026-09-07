@@ -28,7 +28,7 @@ Protokollierung in einem gemeinsamen System.
 | Stakeholder | Interesse beziehungsweise Aufgabe |
 |---|---|
 | Mitarbeiter:innen | Reports erstellen und Informationen der vorherigen Schicht einsehen |
-| Schichtleitung | Übergaben überblicken und dringende Probleme erkennen |
+| Schichtleitung | Übergaben überblicken, dringende Probleme erkennen und gespeicherte Reports löschen |
 | Nachfolgende Schicht | Offene Aufgaben, Probleme und Hinweise zuverlässig übernehmen |
 | Projektteam | Reportify spezifizieren, entwickeln, testen und dokumentieren |
 | Betreuer | Spezifikation, Architektur und Implementierung bewerten |
@@ -56,6 +56,7 @@ Der verbindliche Minimalumfang umfasst:
 4. Letzte Übergabe einsehen
 5. Report-Historie anzeigen
 6. Gespeicherte Reports bearbeiten
+7. Gespeicherte Reports durch die Schichtleitung löschen
 
 Zusätzliche Funktionen werden nur umgesetzt, wenn der vollständige
 Minimalumfang funktioniert, getestet und dokumentiert ist.
@@ -84,6 +85,7 @@ Diese Punkte können als mögliche Weiterentwicklung dokumentiert werden.
 - Probleme können die Priorität niedrig, mittel oder hoch besitzen.
 - Ein Report enthält Erstellungszeitpunkt und verantwortliche Person.
 - Die Historie zeigt vergangene Reports in zeitlicher Reihenfolge.
+- Nur die Schichtleitung darf gespeicherte Reports löschen
 
 ## 8. Technische Rahmenbedingungen
 
@@ -110,7 +112,7 @@ Diese Punkte können als mögliche Weiterentwicklung dokumentiert werden.
 
 Reportify gilt im vereinbarten Umfang als erfolgreich umgesetzt, wenn:
 
-- alle sechs Funktionen des Minimalumfangs Ende-zu-Ende funktionieren,
+- alle sieben Funktionen des Minimalumfangs Ende-zu-Ende funktionieren,
 - die wichtigsten Abläufe durch automatisierte oder dokumentierte Tests geprüft sind,
 - keine kritischen Fehler den Kernprozess der Schichtübergabe verhindern,
 - eine fremde Person die Anwendung mithilfe der Installationsanleitung starten kann,
