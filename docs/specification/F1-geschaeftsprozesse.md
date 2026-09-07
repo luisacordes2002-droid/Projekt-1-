@@ -19,7 +19,7 @@ betrieblichen Aufgaben findet außerhalb der Anwendung statt.
 
 - meldet sich bei Reportify an,
 - wählt eine Schicht aus,
-- erstellt einen Report,
+- erstellt und bearbeitet Reports,
 - sieht den letzten Report und die Historie ein.
 
 ### Schichtleitung
@@ -118,6 +118,12 @@ In der Übergabeansicht wird der zuletzt gespeicherte Report angezeigt.
 Existiert noch kein vorheriger Report, zeigt das System einen verständlichen
 Hinweis statt einer leeren oder fehlerhaften Seite an.
 
+
+### GR-09 – Bearbeitung gespeicherter Reports
+
+Gespeicherte Reports dürfen nachträglich bearbeitet werden.
+Bei jeder Bearbeitung gelten weiterhin die festgelegten Validierungsregeln.
+
 ## 6. Ausnahmefälle
 
 ### Ungültige Zugangsdaten
@@ -154,9 +160,8 @@ Das System informiert die Person, dass noch kein Report vorhanden ist. Die
 
 Die folgenden Punkte müssen beim nächsten Teamtermin festgelegt werden:
 
-1. Darf ein bereits gespeicherter Report nachträglich bearbeitet werden?
-2. Welche Eingaben eines Reports sind verpflichtend?
-3. Wird die aktuelle Übergabe ausschließlich über den Speicherzeitpunkt oder
+1. Welche Eingaben eines Reports sind verpflichtend?
+2. Wird die aktuelle Übergabe ausschließlich über den Speicherzeitpunkt oder
    zusätzlich über eine feste Schichtreihenfolge bestimmt?
-4. Darf nur die Schichtleitung Reports anderer Personen ändern oder löschen?
-5. Soll das Löschen von Reports im Minimalumfang vollständig ausgeschlossen werden?
+3. Darf nur die Schichtleitung Reports anderer Personen ändern oder löschen?
+4. Soll das Löschen von Reports im Minimalumfang vollständig ausgeschlossen werden?
