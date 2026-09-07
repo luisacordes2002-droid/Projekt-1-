@@ -46,6 +46,8 @@ Architekturdatei enthält anschließend die verbindliche Beschreibung.
 | TD-015 | Leistungs- und Mengenziele | Welche Antwortzeit-, Mengen- und Testbedingungen sollen für die erste Version verbindlich gelten? | Mindestens 95 Prozent von 20 Aufrufen innerhalb von zwei Sekunden bei 1.000 Testreports; Mengenziele von mindestens 50 Benutzerkonten und 10.000 Reports | N1, Architektur, Tests | `OFFEN` |
 | TD-016 | Browser und Bildschirmbreite | Welche Browser und Versionen werden unterstützt und welche kleinste Bildschirmbreite muss bedienbar sein? | Prüfung mit aktuellen Versionen von Chrome und Safari; Bedienbarkeit ab 360 Pixeln Breite | B1, N1, Architektur, Tests | `OFFEN` |
 | TD-017 | Schichtauswahl | Die Schicht wird direkt im Reportformular ausgewählt | Noch uneinheitlich: F2 beschreibt einen vorgelagerten Sitzungskontext; B1 beschreibt die Auswahl im Reportformular | F1, F2, F3, B1, Architektur | `OFFEN` |
+| TD-018 | Änderungsnachverfolgung | Soll bei der Bearbeitung eines Reports gespeichert werden, wann und von wem er zuletzt geändert wurde? | Änderungszeitpunkt und ändernde Person werden gespeichert | D1, F2, F3, B1, Architektur | `OFFEN` |
+
 
 
 ## 4. Priorität für das nächste Teamtreffen
