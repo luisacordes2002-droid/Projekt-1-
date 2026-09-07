@@ -32,7 +32,7 @@ Architekturdatei enthält anschließend die verbindliche Beschreibung.
 | TD-001 | Report-Pflichtfelder | Welche Report-Felder müssen ausgefüllt werden? | Schicht ist und erledigte Aufgaben sind Pflicht | F2, F3, D1, B1 | `EINGEARBEITET` |
 | TD-002 | Priorität | Gilt die Priorität für den gesamten Report oder nur für Probleme und Incidents? | Priorität ist nur bei Problemen oder Incidents verpflichtend | F3, D1, B1 | `EINGEARBEITET` |
 | TD-003 | Bearbeitung | Dürfen bereits gespeicherte Reports bearbeitet werden? | Bereits gespeicherte Reports dürfen gespeichert werden | P1, F1, F2, F3, D1, B1 | `EINGEARBEITET` |
-| TD-004 | Löschung | Dürfen Reports gelöscht werden? | Reports dürfen nur von der Schichtleitung gelöscht werden | P1, F1, F2, F3, D1 | `OFFEN` |
+| TD-004 | Löschung | Dürfen Reports gelöscht werden? | Reports dürfen nur von der Schichtleitung gelöscht werden | P1, F1, F2, F3, D1 | `EINGEARBEITET` |
 | TD-005 | Aktuelle Übergabe | Wie wird der aktuelle Übergabereport bestimmt? | Der zuletzt gespeicherte Report wird angezeigt | F1, F3, D1 | `OFFEN` |
 | TD-006 | Berechtigungen | Erhält die Schichtleitung zusätzliche Berechtigungen? | Die Schichtleitung ist dazu berechtigt, Reports zu löschen | P1, F2, D1, N1 | `OFFEN` |
 | TD-007 | Aufbewahrung | Wie lange werden Reports gespeichert? | Während der ersten Version keine automatische Löschung | D1, N1, S3 | `OFFEN` |
