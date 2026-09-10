@@ -118,3 +118,4 @@ Die Sicherheitskonfiguration soll anschließend in einem eigenen Konfigurationsb
 de.thm.reportify
 └── config
     └── SecurityConfig
+    ```
