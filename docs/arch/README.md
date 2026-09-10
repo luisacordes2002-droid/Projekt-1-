@@ -198,7 +198,7 @@ flowchart LR
 
 Die Spring-Boot-Anwendung wird als eine deploybare Einheit ausgeführt. Dadurch bleibt das Deployment für den Projektumfang einfach. Eine Aufteilung auf mehrere unabhängig deploybare Dienste ist für Version 1 nicht vorgesehen.
 
-Die H2-Abhängigkeit ist bereits im Projekt vorhanden. Eine konkrete Konfiguration als dateibasierte Datenbank ist im aktuellen Stand von `application.properties` jedoch noch nicht vorhanden und muss bei einer entsprechenden Umsetzung ergänzt werden.
+Die H2-Abhängigkeit ist bereits im Projekt vorhanden. Die H2-Datenbank ist im aktuellen Projektstand als dateibasierte Persistenz konfiguriert. Die Konfiguration erfolgt über `application.properties`. Dadurch bleiben die gespeicherten Daten auch nach einem Neustart der Anwendung erhalten. Die Konfiguration wurde mit dem aktuellen Spring-Boot-Build erfolgreich getestet. ist im aktuellen Stand von `application.properties` jedoch noch nicht vorhanden und muss bei einer entsprechenden Umsetzung ergänzt werden.
 
 ## 8. Querschnittskonzepte
 
