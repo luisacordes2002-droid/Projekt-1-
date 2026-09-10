@@ -292,7 +292,7 @@ Der aktuelle Entwicklungsstand weist insbesondere folgende Risiken beziehungswei
 - Das endgültige Datenmodell muss mit der Architektur und den JPA-Entitäten abgestimmt werden.
 - Die geplante Paketstruktur ist im Code noch nicht vollständig umgesetzt.
 - Spring Security ist noch nicht integriert.
-- Die H2-Datenbank ist als Dependency vorhanden, aber noch nicht als dateibasierte Persistenz konfiguriert.
+- Die H2-Datenbank ist als dateibasierte Persistenz konfiguriert und wurde im aktuellen Projektstand erfolgreich mit dem Spring-Boot-Build getestet.
 - Laufzeitsichten müssen nach Fertigstellung der Anwendungsfälle erneut mit der Spezifikation abgeglichen werden.
 
 Diese Punkte werden im weiteren Projektverlauf überprüft und die Dokumentation entsprechend aktualisiert.
