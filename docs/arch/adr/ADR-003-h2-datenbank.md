@@ -12,7 +12,7 @@ Für die erste Version des Systems soll die Datenhaltung möglichst einfach in d
 
 Im aktuellen Projekt sind Spring Data JPA und H2 bereits als Dependencies eingebunden. Dadurch kann H2 ohne zusätzliche externe Datenbankinstallation zusammen mit der Anwendung verwendet werden.
 
-Zum aktuellen Zeitpunkt ist in `application.properties` jedoch noch keine konkrete dateibasierte H2-Persistenz konfiguriert. Diese Architekturentscheidung legt deshalb zunächst H2 als Datenbanktechnologie für Version 1 fest, ohne eine bereits umgesetzte Dateikonfiguration zu behaupten.
+Im aktuellen Projekt sind Spring Data JPA und H2 bereits als Dependencies eingebunden. H2 ist in `application.properties` als dateibasierte Persistenz konfiguriert. Die Konfiguration wurde mit dem aktuellen Spring-Boot-Build erfolgreich getestet. Diese Architekturentscheidung legt H2 als Datenbanktechnologie für Version 1 fest.
 
 ## Betrachtete Alternativen
 
