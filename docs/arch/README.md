@@ -198,7 +198,7 @@ flowchart LR
 
 Die Spring-Boot-Anwendung wird als eine deploybare Einheit ausgeführt. Dadurch bleibt das Deployment für den Projektumfang einfach. Eine Aufteilung auf mehrere unabhängig deploybare Dienste ist für Version 1 nicht vorgesehen.
 
-Die H2-Abhängigkeit ist bereits im Projekt vorhanden. Die H2-Datenbank ist im aktuellen Projektstand als dateibasierte Persistenz konfiguriert. Die Konfiguration erfolgt über `application.properties`. Dadurch bleiben die gespeicherten Daten auch nach einem Neustart der Anwendung erhalten. Die Konfiguration wurde mit dem aktuellen Spring-Boot-Build erfolgreich getestet. ist im aktuellen Stand von `application.properties` jedoch noch nicht vorhanden und muss bei einer entsprechenden Umsetzung ergänzt werden.
+Die H2-Abhängigkeit ist bereits im Projekt vorhanden. Die H2-Datenbank ist im aktuellen Projektstand als dateibasierte Persistenz konfiguriert. Die Konfiguration erfolgt über `application.properties`. Dadurch bleiben die gespeicherten Daten auch nach einem Neustart der Anwendung erhalten. Die Konfiguration wurde mit dem aktuellen Spring-Boot-Build erfolgreich getestet.
 
 ## 8. Querschnittskonzepte
 
@@ -309,7 +309,7 @@ Architekturentscheidungen und technische Aussagen müssen vor der Übernahme in 
 |---|---|
 | ADR | Architecture Decision Record; Dokumentation einer wesentlichen Architekturentscheidung |
 | Controller | Komponente zur Verarbeitung von HTTP-Anfragen |
-| H2 | Relationale Java-Datenbank, die in Reportify für die erste Version vorgesehen ist |
+| H2 | Relationale Java-Datenbank, die in Reportify für die erste Version als dateibasierte Persistenz verwendet wird |
 | JPA | Java Persistence API; Schnittstelle zur Abbildung von Java-Objekten auf relationale Daten |
 | Repository | Komponente für den Zugriff auf persistente Daten |
 | Service | Komponente zur Kapselung der Geschäftslogik |
