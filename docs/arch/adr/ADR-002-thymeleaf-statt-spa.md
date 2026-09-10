@@ -86,3 +86,33 @@ Thymeleaf Template
     | HTML
     v
 Webbrowser
+```
+
+## Begründung
+
+
+Thymeleaf ist für Reportify geeignet, da die Anwendung überwiegend klassische Weboberflächen mit Formularen und Übersichten benötigt. Durch die serverseitige Darstellung kann die Benutzeroberfläche direkt in die bestehende Spring-Boot-Anwendung integriert werden.
+
+Eine separate Single-Page-Application würde zusätzliche technische Komplexität verursachen, ohne für die derzeit vorgesehenen Anforderungen einen ausreichenden Mehrwert zu bieten. Da Thymeleaf bereits im Projekt eingebunden und für die Startseite verwendet wird, kann außerdem auf der bestehenden technischen Grundlage aufgebaut werden.
+
+## Konsequenzen
+
+### Positive Konsequenzen
+
+- kein separates Frontend-Projekt erforderlich
+- gemeinsames Build und Deployment mit der Spring-Boot-Anwendung
+- direkte Integration mit Spring MVC
+- geringere technische Komplexität
+- bestehende Thymeleaf-Struktur kann weiterverwendet werden
+
+### Negative Konsequenzen
+
+- komplexe clientseitige Interaktionen sind schwieriger umzusetzen als mit einer SPA
+- Änderungen der dargestellten Inhalte können neue HTTP-Anfragen erfordern
+- Frontend und Backend können nicht unabhängig voneinander deployt werden
+
+## Auswirkungen auf die Implementierung
+
+HTML-Seiten werden unter `src/main/resources/templates` als Thymeleaf-Templates abgelegt. Spring-MVC-Controller verarbeiten die HTTP-Anfragen und liefern die für die Darstellung benötigten Daten an die jeweiligen Templates.
+
+Die bestehende Startseite unter `templates/startseite.html` verwendet bereits diesen Ansatz. Weitere Benutzeroberflächen sollen entsprechend derselben Struktur umgesetzt werden.
