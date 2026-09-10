@@ -210,7 +210,7 @@ Spring Security ist im aktuellen Projektstand noch nicht als Dependency eingebun
 
 ### 8.2 Persistenz
 
-Für die Persistenz wird Spring Data JPA verwendet. Der Datenzugriff erfolgt über Repository-Komponenten. Als Datenbank ist für die erste Version H2 vorgesehen.
+Für die Persistenz wird Spring Data JPA verwendet. Der Datenzugriff erfolgt über Repository-Komponenten. Als Datenbank wird in der ersten Version H2 verwendet. Die H2-Datenbank ist als dateibasierte Persistenz konfiguriert, sodass die gespeicherten Daten auch nach einem Neustart der Anwendung erhalten bleiben.
 
 Dadurch bleibt die Persistenzlogik von der Web- und Geschäftslogik getrennt. Eine spätere Umstellung auf ein anderes relationales Datenbanksystem wird dadurch erleichtert.
 
