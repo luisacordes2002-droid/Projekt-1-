@@ -251,7 +251,7 @@ de.thm.reportify
 └── ReportifyApplication
 ```
 
-Diese Struktur stellt die Zielarchitektur dar. Im aktuellen Implementierungsstand befinden sich `ReportifyApplication` und `StartseiteController` noch direkt im Package `de.thm.reportify`. Die Paketstruktur muss deshalb im weiteren Projektverlauf schrittweise mit der Architektur synchronisiert werden.
+Diese Struktur stellt die Zielarchitektur dar. Der `StartseiteController` wurde bereits in das vorgesehene Package `de.thm.reportify.controller` verschoben. `ReportifyApplication` verbleibt als zentrale Startklasse im Basis-Package `de.thm.reportify`. Die weiteren vorgesehenen Packages und Komponenten werden im Verlauf der Implementierung ergänzt. Architektur und Quellcode müssen dabei weiterhin synchron gehalten werden.
 
 ## 10. Architektur und Implementierung
 
