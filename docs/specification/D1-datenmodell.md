@@ -154,7 +154,7 @@ Weitere Rollen sind für die erste Version nicht vorgesehen.
 | DM-08 | Ein deaktiviertes Benutzerkonto kann keine neuen Reports erstellen. |
 | DM-09 | Reports deaktivierter Benutzerkonten bleiben in der Historie erhalten. |
 | DM-10 | Die aktuelle Übergabe ist der zuletzt gespeicherte Report. |
-
+| DM-11 | Reports werden nicht automatisch gelöscht. Sie bleiben gespeichert, bis eine berechtigte Schichtleitung sie manuell löscht. |
 ## 8. Lebenszyklus eines Reports
 
 Ein Report durchläuft in der ersten Version folgende fachliche Schritte:
@@ -194,16 +194,8 @@ Folgende Datenobjekte sind in der ersten Version nicht vorgesehen:
 - Entwürfe nicht gespeicherter Reports
 - statistische Auswertungen
 
-## 11. Offene Teamentscheidungen
 
-Folgende Punkte müssen vom Team abschließend bestätigt werden:
-
-3. Wie lange sollen Reports aufbewahrt werden?
-
-Bis zur Entscheidung gelten die in diesem Dokument beschriebenen Regeln als
-Arbeitsgrundlage.
-
-## 12. Nachverfolgbarkeit
+## 11. Nachverfolgbarkeit
 
 Dieses Datenmodell unterstützt insbesondere:
 
