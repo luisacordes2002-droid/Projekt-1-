@@ -167,9 +167,7 @@ Den für die nächste Schicht aktuellsten Übergabereport bereitstellen.
 - aktuellster Report oder
 - Hinweis, dass noch keine Übergabe vorhanden ist
 
-> **Vorläufige Regel:** Der aktuelle Report wird zunächst über den
-> Erstellungszeitpunkt bestimmt. Das Team muss noch prüfen, ob zusätzlich die
-> Reihenfolge der Schichten berücksichtigt werden soll.
+> **Fachliche Regel:** Als aktuelle Übergabe wird der zuletzt gespeicherte Report verwendet. Eine zusätzliche Schichtreihenfolge wird für diese Bestimmung nicht berücksichtigt.
 
 ### AF-07 – Report-Historie bereitstellen
 
