@@ -69,7 +69,12 @@ berechtigte Person.
 | `rolle` | Fachliche Rolle innerhalb von Reportify | Ja |
 | `aktiv` | Kennzeichnet, ob eine Anmeldung erlaubt ist | Ja |
 
-### 4.1 Rolle
+### 4.1 Anlage von Benutzerkonten
+
+Benutzerkonten werden für die erste Version vorab bereitgestellt.
+Eine Selbstregistrierung durch Nutzer:innen ist nicht vorgesehen.
+
+### 4.2 Rolle
 
 Für die erste Version sind folgende Rollen vorgesehen:
 
@@ -80,7 +85,7 @@ Beide Rollen dürfen die allgemeinen Kernfunktionen der ersten Version verwenden
 Die Schichtleitung besitzt zusätzlich die Berechtigung, gespeicherte Reports zu löschen.
 Mitarbeiter:innen dürfen keine Reports löschen.
 
-### 4.2 Sicherheitsregeln
+### 4.3 Sicherheitsregeln
 
 - Benutzernamen müssen eindeutig sein.
 - Passwörter dürfen niemals im Klartext gespeichert werden.
@@ -155,6 +160,8 @@ Weitere Rollen sind für die erste Version nicht vorgesehen.
 | DM-09 | Reports deaktivierter Benutzerkonten bleiben in der Historie erhalten. |
 | DM-10 | Die aktuelle Übergabe ist der zuletzt gespeicherte Report. |
 | DM-11 | Reports werden nicht automatisch gelöscht. Sie bleiben gespeichert, bis eine berechtigte Schichtleitung sie manuell löscht. |
+| DM-12 | Benutzerkonten werden vorab bereitgestellt. Nutzer:innen können sich nicht selbst registrieren. |
+
 ## 8. Lebenszyklus eines Reports
 
 Ein Report durchläuft in der ersten Version folgende fachliche Schritte:
