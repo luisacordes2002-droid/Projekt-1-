@@ -153,7 +153,7 @@ Weitere Rollen sind für die erste Version nicht vorgesehen.
 | DM-07 | Ein gespeicherter Report darf ausschließlich durch die Schichtleitung gelöscht werden. |
 | DM-08 | Ein deaktiviertes Benutzerkonto kann keine neuen Reports erstellen. |
 | DM-09 | Reports deaktivierter Benutzerkonten bleiben in der Historie erhalten. |
-| DM-10 | Die aktuelle Übergabe ist vorläufig der zuletzt gespeicherte Report. |
+| DM-10 | Die aktuelle Übergabe ist der zuletzt gespeicherte Report. |
 
 ## 8. Lebenszyklus eines Reports
 
@@ -199,8 +199,6 @@ Folgende Datenobjekte sind in der ersten Version nicht vorgesehen:
 Folgende Punkte müssen vom Team abschließend bestätigt werden:
 
 3. Wie lange sollen Reports aufbewahrt werden?
-4. Soll die aktuelle Übergabe ausschließlich anhand des Erstellungszeitpunkts
-   bestimmt werden?
 
 Bis zur Entscheidung gelten die in diesem Dokument beschriebenen Regeln als
 Arbeitsgrundlage.
