@@ -79,6 +79,9 @@ Diese Punkte können als mögliche Weiterentwicklung dokumentiert werden.
 ## 7. Fachliche Rahmenbedingungen
 
 - Es gibt die Rollen Mitarbeiter:in und Schichtleitung.
+- - Beide Rollen dürfen die allgemeinen Funktionen von Reportify verwenden.
+- Die Schichtleitung besitzt zusätzlich die Berechtigung, gespeicherte Reports zu löschen.
+- Mitarbeiter:innen dürfen keine Reports löschen.
 - Eine Übergabe gehört zu einer bestimmten Schicht.
 - Reports enthalten erledigte Aufgaben, offene Aufgaben, Probleme
   beziehungsweise Incidents sowie wichtige Hinweise.
