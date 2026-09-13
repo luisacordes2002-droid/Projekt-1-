@@ -384,11 +384,20 @@ Eine Schichtleitung löscht einen gespeicherten Report.
 6. Das System löscht den Report.
 7. Das System bestätigt die erfolgreiche Löschung.
 
-### Alternativablauf – Löschung abbrechen
+### Alternativablauf
+
+#### A1 – Löschung abbrechen
 
 1. Die Schichtleitung wählt „Löschen“.
 2. Das System fordert eine Bestätigung an.
 3. Die Schichtleitung bricht den Vorgang ab.
+4. Der Report bleibt unverändert gespeichert.
+
+#### A2 - Keine Löschberechtigung 
+
+1. Ein:e Mitarbeiter:in versucht, einen Report zu löschen.
+2. Das System erkennt, dass die Person nicht die Rolle `SCHICHTLEITUNG` besitzt.
+3. Das System führt die Löschung nicht durch.
 4. Der Report bleibt unverändert gespeichert.
 
 ### Nachbedingungen bei Erfolg
