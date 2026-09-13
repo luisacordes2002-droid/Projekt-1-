@@ -34,7 +34,7 @@ Architekturdatei enthält anschließend die verbindliche Beschreibung.
 | TD-003 | Bearbeitung | Dürfen bereits gespeicherte Reports bearbeitet werden? | Bereits gespeicherte Reports dürfen gespeichert werden | P1, F1, F2, F3, D1, B1 | `EINGEARBEITET` |
 | TD-004 | Löschung | Dürfen Reports gelöscht werden? | Reports dürfen nur von der Schichtleitung gelöscht werden | P1, F1, F2, F3, D1 | `EINGEARBEITET` |
 | TD-005 | Aktuelle Übergabe | Wie wird der aktuelle Übergabereport bestimmt? | Der zuletzt gespeicherte Report wird angezeigt | F1, F3, D1 | `EINGEARBEITET` |
-| TD-006 | Berechtigungen | Erhält die Schichtleitung zusätzliche Berechtigungen? | Die Schichtleitung ist dazu berechtigt, Reports zu löschen | P1, F2, D1, N1 | `ENTSCHIEDEN` |
+| TD-006 | Berechtigungen | Erhält die Schichtleitung zusätzliche Berechtigungen? | Die Schichtleitung ist dazu berechtigt, Reports zu löschen | P1, F2, D1, N1 | `EINGEARBEITET` |
 | TD-007 | Aufbewahrung | Wie lange werden Reports gespeichert? | Während der ersten Version keine automatische Löschung | D1, N1, S3 | `ENTSCHIEDEN` |
 | TD-008 | Benutzerkonten | Wie werden Benutzerkonten angelegt und verwaltet? | Vorbereitete Benutzerkonten; keine Selbstregistrierung | F2, D1, B1, Architektur | `ENTSCHIEDEN` |
 | TD-009 | Datenbank | Welche Datenbank wird für die finale Version eingesetzt? | H2 für Entwicklung; endgültige Entscheidung in der Architektur | TEAMINFO, Architektur, Inbetriebnahme | `ENTSCHIEDEN` |
