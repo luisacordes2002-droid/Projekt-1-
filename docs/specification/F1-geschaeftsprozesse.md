@@ -162,11 +162,6 @@ Das System informiert die Person, dass noch kein Report vorhanden ist. Die
 - UC-05 – Übergabe einsehen
 - UC-06 – Report-Historie anzeigen
 
-## 8. Offene Teamentscheidungen
 
-Die folgenden Punkte müssen beim nächsten Teamtermin festgelegt werden:
-
-2. Wird die aktuelle Übergabe ausschließlich über den Speicherzeitpunkt oder
-   zusätzlich über eine feste Schichtreihenfolge bestimmt?
 
 
