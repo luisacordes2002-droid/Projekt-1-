@@ -60,15 +60,27 @@ Der MVP umfasst:
 5. Report-Historie anzeigen – `UC-06`.
 6. Report-Details anzeigen – Bestandteil von `UC-06`, konkretisiert durch
    `AF-08` und `DLG-06`.
+7. Gespeicherte Reports bearbeiten.
+8. Gespeicherte Reports durch die Schichtleitung löschen.
 
 Die unterschiedliche Gruppierung der Funktionen und Anwendungsfälle begründet
 keinen zusätzlichen Anwendungsfall: Der Detailaufruf ist bereits in UC-06 enthalten.
 
+Die unterschiedliche Gruppierung der Funktionen und Anwendungsfälle begründet
+keinen zusätzlichen Anwendungsfall: Der Detailaufruf ist bereits in `UC-06`
+enthalten.
+
+Der zuletzt gespeicherte Report wird als aktuelle Übergabe angezeigt.
+Gespeicherte Reports werden in der ersten Version nicht automatisch gelöscht.
+
+Für die Löschung gilt eine rollenabhängige Berechtigung: Nur Nutzer:innen mit
+der Rolle `SCHICHTLEITUNG` dürfen gespeicherte Reports löschen.
+Mitarbeiter:innen besitzen diese Berechtigung nicht.
+
 Nicht zum MVP gehören eine native Mobile-App, Chat, Benachrichtigungen,
-Dateianhänge, externe APIs, Statistiken und eine komplexe Rollenverwaltung.
-Gespeicherte Reports werden im aktuellen Umfang weder bearbeitet noch gelöscht.
-Eine spätere Einführung von Bearbeitung oder Löschung muss über `TD-003` beziehungsweise
-`TD-004` abgestimmt und in den betroffenen Dokumenten nachvollzogen werden.
+Dateianhänge, externe APIs, Statistiken, Selbstregistrierung und eine komplexe
+Rollenverwaltung. Benutzerkonten werden für die erste Version vorbereitet
+bereitgestellt.
 
 ## 4. Noch auszuarbeitende Bausteine
 
@@ -95,9 +107,15 @@ Offene fachliche, technische und organisatorische Fragen werden zentral in
 [TEAM-ENTSCHEIDUNGEN.md](../TEAM-ENTSCHEIDUNGEN.md) geführt. Eine Arbeitsannahme
 ist keine bestätigte Teamentscheidung. Maßgeblich ist der dort dokumentierte Status.
 
-Insbesondere muss `TD-017` die unterschiedliche Beschreibung der Schichtauswahl
-in F2 und B1 klären. Die vorläufigen Leistungs- und Mengenziele sowie Browser und
-Bildschirmbreite werden über `TD-015` und `TD-016` abgestimmt.
+Die bereits getroffenen Teamentscheidungen werden in den jeweils betroffenen
+Spezifikationskapiteln eingearbeitet. Dazu gehören insbesondere die Regeln zur
+Bearbeitung und Löschung gespeicherter Reports, zur Bestimmung der aktuellen
+Übergabe, zu den Rollen und Berechtigungen, zur Aufbewahrung von Reports sowie
+zur Bereitstellung vorbereiteter Benutzerkonten.
+
+Noch offene Entscheidungen werden weiterhin zentral in
+[TEAM-ENTSCHEIDUNGEN.md](../TEAM-ENTSCHEIDUNGEN.md) geführt und nach ihrer
+Entscheidung in allen betroffenen Dokumenten nachvollziehbar eingearbeitet.
 
 Die Kennungen ermöglichen Verweise zwischen den Kapiteln. Beispielsweise wird
 die Reporterstellung aus `UC-04` durch `AF-03` bis `AF-05` konkretisiert.
