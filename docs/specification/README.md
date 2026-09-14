@@ -47,6 +47,7 @@ zusammen mit den offenen Teamentscheidungen zu lesen.
 | E2 | [Glossar](E2-glossar.md) | Gemeinsame Fachbegriffe und verwendete Kennungen |
 | S1 | [Nachbarsysteme](S1-nachbarsysteme.md) | Abgrenzung gegenüber externen Fachsystemen und Schnittstellen |
 | S2 – Datenmigration | [Datenmigration](S2-datenmigration.md) | Keine Altdatenmigration; Abgrenzung zur erstmaligen Bereitstellung vorbereiteter Benutzerkonten |
+| S3 | [Inbetriebnahme](S3-inbetriebnahme.md) | Fachliche Voraussetzungen und Ausgangszustand für den ersten Einsatz |
 
 
 Die Leseanleitung E1 steht in Abschnitt 1 dieses README. Die zentrale
@@ -92,7 +93,6 @@ eigene Kapitel ausgearbeitet. Diese Übersicht ist keine Vollständigkeitsfreiga
 
 | Baustein | Noch zu dokumentieren |
 |---|---|
-| S3 – Inbetriebnahme | Fachliche Bedingungen für Einrichtung und ersten Einsatz beschreiben und mit der späteren ausführbaren Installationsanleitung verbinden. |
 | N2 – Querschnittskonzepte | Übergreifende fachliche Regeln zu Zugriff, Validierung und Fehlerbehandlung zusammenführen und auf bestehende Definitionen verweisen. |
 
 Nicht benötigte Bausteine werden ausdrücklich als nicht anwendbar gekennzeichnet
