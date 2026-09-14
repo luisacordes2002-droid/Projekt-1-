@@ -17,10 +17,11 @@ Einstieg, Navigation und Bearbeitungsstand an einer Stelle stehen.
 Für den Einstieg empfiehlt sich folgende Reihenfolge:
 
 1. **P1 und P2:** Ziele, Umfang, Systemgrenze und geplanter fachlicher Aufbau.
-2. **F1 und F2:** Geschäftsprozess und Abläufe aus Sicht der nutzenden Personen.
-3. **F3, D1 und D2:** Systemfunktionen, benötigte Daten und fachliche Datenregeln.
-4. **B1 und N1:** Dialoge, Rückmeldungen und überprüfbare Qualitätsanforderungen.
-5. **E2:** Fachbegriffe bei Bedarf nachschlagen.
+2. **S1 bis S3:** Abgrenzung zu Nachbarsystemen und Datenmigration sowie Voraussetzungen für die Inbetriebnahme.
+3. **F1 und F2:** Geschäftsprozess und Abläufe aus Sicht der nutzenden Personen.
+4. **F3, D1 und D2:** Systemfunktionen, benötigte Daten und fachliche Datenregeln.
+5. **B1, N1 und N2:** Dialoge, Rückmeldungen, Qualitätsanforderungen und übergreifende fachliche Regeln.
+6. **E2:** Fachbegriffe bei Bedarf nachschlagen.
 
 Die Kapitel beschreiben Anforderungen und Planungen. Eine vorhandene Beschreibung
 ist kein Nachweis einer bereits implementierten oder erfolgreich getesteten Funktion.
@@ -44,10 +45,13 @@ zusammen mit den offenen Teamentscheidungen zu lesen.
 | B2 | [Batch](B2-batch.md) | Nicht anwendbar im MVP; Begründung und Abgrenzung |
 | B3 | [Druckausgaben](B3-druckausgaben.md) | Nicht anwendbar im MVP; Abgrenzung zu Browserdruck und Export |
 | N1 | [Nichtfunktionale Anforderungen](N1-nichtfunktional.md) | Qualitätsziele und überprüfbare Akzeptanzkriterien |
+| N2 | [Querschnittskonzepte](N2-querschnittskonzepte.md) | Übergreifende Regeln zu Zugriff, Berechtigungen, Validierung und Fehlerbehandlung |
 | E2 | [Glossar](E2-glossar.md) | Gemeinsame Fachbegriffe und verwendete Kennungen |
 | S1 | [Nachbarsysteme](S1-nachbarsysteme.md) | Abgrenzung gegenüber externen Fachsystemen und Schnittstellen |
 | S2 – Datenmigration | [Datenmigration](S2-datenmigration.md) | Keine Altdatenmigration; Abgrenzung zur erstmaligen Bereitstellung vorbereiteter Benutzerkonten |
 | S3 | [Inbetriebnahme](S3-inbetriebnahme.md) | Fachliche Voraussetzungen und Ausgangszustand für den ersten Einsatz |
+
+
 
 
 Die Leseanleitung E1 steht in Abschnitt 1 dieses README. Die zentrale
@@ -86,21 +90,32 @@ Dateianhänge, externe APIs, Statistiken, Selbstregistrierung und eine komplexe
 Rollenverwaltung. Benutzerkonten werden für die erste Version vorbereitet
 bereitgestellt.
 
-## 4. Noch auszuarbeitende Bausteine
+## 4. Bearbeitungsstand und ausstehende Arbeiten
 
-Die folgenden Bausteine der im Kurs empfohlenen Struktur sind noch nicht als
-eigene Kapitel ausgearbeitet. Diese Übersicht ist keine Vollständigkeitsfreigabe.
+Die für die Spezifikation vorgesehenen Bausteine sind als eigene Kapitel
+beziehungsweise als Bestandteil dieses README angelegt.
 
-| Baustein | Noch zu dokumentieren |
-|---|---|
-| N2 – Querschnittskonzepte | Übergreifende fachliche Regeln zu Zugriff, Validierung und Fehlerbehandlung zusammenführen und auf bestehende Definitionen verweisen. |
+Die Bausteine S1 bis S3 und N2 ergänzen die bisherige Spezifikation:
 
-Nicht benötigte Bausteine werden ausdrücklich als nicht anwendbar gekennzeichnet
-und projektbezogen begründet. Die technische Umsetzung der Querschnittskonzepte
-wird in der Architektur beschrieben.
+- S1 grenzt Reportify gegenüber externen Fachsystemen und Schnittstellen ab.
+- S2 dokumentiert, dass keine Altdatenmigration vorgesehen ist, und grenzt
+  diese von der erstmaligen Bereitstellung vorbereiteter Benutzerkonten ab.
+- S3 beschreibt die fachlichen Voraussetzungen für die erstmalige
+  Inbetriebnahme.
+- N2 führt übergreifende fachliche Regeln zu Zugriff, Berechtigungen,
+  Validierung und Fehlerbehandlung zusammen.
 
-Zusätzlich stehen die Teamprüfung, die Abstimmung offener Regeln, die in B1
-vorgesehenen Darstellungen und der Abgleich mit Architektur, Code und Tests aus.
+Bausteine, die für Reportify nicht benötigt werden, werden weiterhin
+ausdrücklich als nicht anwendbar gekennzeichnet und projektbezogen begründet.
+Dies betrifft insbesondere Bausteine, deren vorgesehene Funktion im Umfang
+der ersten Version nicht benötigt wird.
+
+Die technische Umsetzung der Querschnittskonzepte wird in der
+Architekturdokumentation beschrieben.
+
+Vor der fachlichen Freigabe stehen weiterhin die Teamprüfung, die Abstimmung
+noch offener Entscheidungen, die in B1 vorgesehenen Darstellungen sowie der
+Abgleich der Spezifikation mit Architektur, Quellcode und Tests aus.
 
 ## 5. Entscheidungen und Nachverfolgbarkeit
 
