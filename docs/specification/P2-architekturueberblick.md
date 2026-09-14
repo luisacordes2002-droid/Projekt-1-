@@ -130,23 +130,22 @@ technische Ausarbeitung besonders relevant:
 Die Prioritäten und vollständigen Akzeptanzkriterien bleiben in N1 maßgeblich.
 Ihre Nennung in P2 ändert weder ihre Priorität noch den Status als Arbeitsentwurf.
 
-## 6. Offene Entscheidungen und ihre Auswirkungen
+## 6. Teamentscheidungen und ihre Auswirkungen
 
-Der jeweils aktuelle Status steht in
+Der jeweils aktuelle Status der Teamentscheidungen steht in
 [TEAM-ENTSCHEIDUNGEN.md](../TEAM-ENTSCHEIDUNGEN.md). Für diesen Überblick sind
-insbesondere folgende Abstimmungen relevant:
+insbesondere folgende Entscheidungen und noch offene Abstimmungen relevant:
 
 - `TD-001`, `TD-002` und `TD-013`: beeinflussen Pflichtangaben, die Bedeutung
   der Priorität und die Validierung der Report-Texte.
-- `TD-003` und `TD-004`: betreffen eine mögliche spätere Bearbeitung oder
-  Löschung. Beides ist im aktuellen MVP nicht vorgesehen.
-- `TD-005`: legt die Auswahl der aktuellen Übergabe fest. Arbeitsannahme ist
-  weiterhin der zuletzt gespeicherte Report anhand seines Erstellungszeitpunkts.
-- `TD-006` und `TD-008`: betreffen Berechtigungen und die Bereitstellung von
-  Benutzerkonten. Arbeitsannahmen sind gleiche Kernrechte für beide Rollen
-  und vorbereitete Konten ohne Selbstregistrierung.
-- `TD-007` und `TD-009`: beeinflussen Aufbewahrung und Datenhaltung. Die
-  endgültige Datenbank und die Aufbewahrungsdauer sind noch nicht beschlossen.
+- `TD-003` und `TD-004`: Gespeicherte Reports dürfen nachträglich bearbeitet werden.     Das Löschen gespeicherter Reports ist ausschließlich durch die Schichtleitung      zulässig.
+- `TD-005`: Die aktuelle Übergabe ist der zuletzt gespeicherte Report.
+- `TD-006` und `TD-008`: Mitarbeiter:innen und Schichtleitungen dürfen die
+  allgemeinen Funktionen von Reportify verwenden. Die Schichtleitung besitzt
+  zusätzlich die Berechtigung, gespeicherte Reports zu löschen.
+  Benutzerkonten werden vorbereitet bereitgestellt; eine Selbstregistrierung ist nicht   vorgesehen.
+- `TD-007`: In der ersten Version findet keine automatische Löschung gespeicherter n Reports statt.
+- `TD-009`: Die Festlegung der Datenbank und ihre technische Ausgestaltung werden in  der Architektur beziehungsweise Inbetriebnahme dokumentiert.
 - `TD-014`: betrifft die Passwortregel und ihre technische Umsetzung.
 - `TD-015` und `TD-016`: bestimmen die zu bestätigenden Qualitäts- und Testziele.
 - `TD-017`: betrifft die Schichtauswahl und den Zusammenhang zwischen den Dialogen.
