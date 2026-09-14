@@ -45,6 +45,8 @@ zusammen mit den offenen Teamentscheidungen zu lesen.
 | B3 | [Druckausgaben](B3-druckausgaben.md) | Nicht anwendbar im MVP; Abgrenzung zu Browserdruck und Export |
 | N1 | [Nichtfunktionale Anforderungen](N1-nichtfunktional.md) | Qualitätsziele und überprüfbare Akzeptanzkriterien |
 | E2 | [Glossar](E2-glossar.md) | Gemeinsame Fachbegriffe und verwendete Kennungen |
+| S1 | [Nachbarsysteme](S1-nachbarsysteme.md) | Abgrenzung gegenüber externen Fachsystemen und Schnittstellen |
+
 
 Die Leseanleitung E1 steht in Abschnitt 1 dieses README. Die zentrale
 [Übersicht offener Teamentscheidungen](../TEAM-ENTSCHEIDUNGEN.md) ergänzt die Kapitel.
@@ -89,7 +91,6 @@ eigene Kapitel ausgearbeitet. Diese Übersicht ist keine Vollständigkeitsfreiga
 
 | Baustein | Noch zu dokumentieren |
 |---|---|
-| S1 – Nachbarsysteme | Die Abgrenzung gegenüber externen Fachsystemen und Schnittstellen dokumentieren. |
 | S2 – Datenmigration | Eine Übernahme von Altdaten abgrenzen und von der erstmaligen Bereitstellung von Benutzerkonten unterscheiden. |
 | S3 – Inbetriebnahme | Fachliche Bedingungen für Einrichtung und ersten Einsatz beschreiben und mit der späteren ausführbaren Installationsanleitung verbinden. |
 | N2 – Querschnittskonzepte | Übergreifende fachliche Regeln zu Zugriff, Validierung und Fehlerbehandlung zusammenführen und auf bestehende Definitionen verweisen. |
