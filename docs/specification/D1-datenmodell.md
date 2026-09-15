@@ -161,6 +161,7 @@ Weitere Rollen sind für die erste Version nicht vorgesehen.
 | DM-10 | Die aktuelle Übergabe ist der zuletzt gespeicherte Report. |
 | DM-11 | Reports werden nicht automatisch gelöscht. Sie bleiben gespeichert, bis eine berechtigte Schichtleitung sie manuell löscht. |
 | DM-12 | Benutzerkonten werden vorab bereitgestellt. Nutzer:innen können sich nicht selbst registrieren. |
+| DM-13 | Jedes Textfeld eines Reports darf maximal 4.000 Zeichen enthalten. |
 
 ## 8. Lebenszyklus eines Reports
 
