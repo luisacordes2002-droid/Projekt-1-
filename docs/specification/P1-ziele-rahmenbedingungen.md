@@ -88,7 +88,6 @@ Diese Punkte können als mögliche Weiterentwicklung dokumentiert werden.
 - Probleme können die Priorität niedrig, mittel oder hoch besitzen.
 - Ein Report enthält Erstellungszeitpunkt und verantwortliche Person.
 - Die Historie zeigt vergangene Reports in zeitlicher Reihenfolge.
-- Nur die Schichtleitung darf gespeicherte Reports löschen
 
 ## 8. Technische Rahmenbedingungen
 
