@@ -116,8 +116,9 @@ die benötigten Softwarevoraussetzungen, der Bezug des Projekts, notwendige
 Konfigurationen, der Start der Anwendung und der Aufruf im Webbrowser.
 
 Technische Details zur Datenbank, zu Entwicklungswerkzeugen oder zu
-Startbefehlen werden dort beziehungsweise in der Architekturdokumentation
-festgelegt und sollen in S3 nicht doppelt gepflegt werden.
+Startbefehlen werden in der Installations- beziehungsweise
+Architekturdokumentation beschrieben und sollen in S3 nicht doppelt gepflegt
+werden. Für Version 1 ist H2 als relationale Datenbank festgelegt.
 
 ## 8. Abgrenzung
 
