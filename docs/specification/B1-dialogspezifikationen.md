@@ -405,10 +405,18 @@ Die Anwendung muss auf aktuellen Desktop- und Mobilbrowsern verwendbar sein.
 
 ### 10.5 Sprache
 
-Die vorläufige Sprache der Benutzeroberfläche ist Deutsch. Technische Schlüssel wie
-`FRUEHSCHICHT` werden Nutzer:innen nicht angezeigt.
+Die Benutzeroberfläche von Reportify wird in deutscher und englischer Sprache
+bereitgestellt.
 
-Die endgültige Sprache ist Gegenstand von `TD-011`.
+Alle für Nutzer:innen sichtbaren Bezeichnungen, Schaltflächen, Hinweise,
+Erfolgs- und Fehlermeldungen müssen in beiden Sprachen verfügbar sein.
+
+Technische Schlüssel wie `FRUEHSCHICHT` werden Nutzer:innen nicht angezeigt.
+Stattdessen werden verständliche Bezeichnungen in der jeweils ausgewählten
+Sprache verwendet.
+
+Die fachliche Bedeutung von Feldern, Meldungen und Aktionen bleibt unabhängig
+von der gewählten Sprache gleich.
 
 ## 11. Navigation zwischen den Dialogen
 
