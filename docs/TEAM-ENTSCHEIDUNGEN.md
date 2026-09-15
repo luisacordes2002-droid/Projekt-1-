@@ -42,7 +42,7 @@ Die Datenbankentscheidung ist in ADR-003 der Architekturdokumentation festgelegt
 | TD-010 | Projektrollen | Wer übernimmt dauerhaft welche Projektrolle? | Bestehende TEAMINFO gilt bis zur gemeinsamen Abstimmung | TEAMINFO | `ENTSCHIEDEN` |
 | TD-011 | Sprache | Welche Sprache verwendet die Benutzeroberfläche? | Deutsche und englische Benutzeroberfläche | B1, N1 | `EINGEARBEITET` |
 | TD-012 | Git-Arbeitsweise | Wie gelangen Feature- und Dokumentationsbranches nach `main`? | Branch, Prüfung, Pull Request und anschließend Merge | README, Teamarbeitsweise | `EINGEARBEITET` |
-| TD-013 | Textlänge | Welche maximale Länge darf ein Report-Textfeld besitzen? | Höchstens 4.000 Zeichen je Textfeld | D2, B1, N1 | `ENTSCHIEDEN` |
+| TD-013 | Textlänge | Welche maximale Länge darf ein Report-Textfeld besitzen? | Höchstens 4.000 Zeichen je Textfeld | D2, B1, N1 | `EINGEARBEITET` |
 | TD-014 | Passwortregel | Welche Mindest- und Höchstlänge gilt für Passwörter? | Mindestens 8 und höchstens 128 Zeichen, werden selbst erstellt | F2, D2, B1, N1, Architektur | `ENTSCHIEDEN` |
 | TD-015 | Leistungs- und Mengenziele | Welche Antwortzeit-, Mengen- und Testbedingungen sollen für die erste Version verbindlich gelten? | Mindestens 95 Prozent von 20 Aufrufen innerhalb von zwei Sekunden bei 1.000 Testreports; Mengenziele von mindestens 50 Benutzerkonten und 10.000 Reports | N1, Architektur, Tests | `ENTSCHIEDEN` |
 | TD-016 | Browser und Bildschirmbreite | Welche Browser und Versionen werden unterstützt und welche kleinste Bildschirmbreite muss bedienbar sein? | Prüfung mit aktuellen Versionen von Chrome und Safari; Bedienbarkeit ab 360 Pixeln Breite | B1, N1, Architektur, Tests | `ENTSCHIEDEN |
