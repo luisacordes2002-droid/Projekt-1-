@@ -423,17 +423,23 @@ Für jeden Report muss nachvollziehbar sein, wann und durch wen er erstellt wurd
 
 ## 16. Sprache und kulturelle Anforderungen
 
-### NFR-16a-01 – Einheitliche Sprache
+### NFR-16a-01 – Deutsche und englische Benutzeroberfläche
 
 **Anforderung:**  
-Die Benutzeroberfläche verwendet eine einheitliche Sprache.
+Die Benutzeroberfläche von Reportify muss in deutscher und englischer Sprache
+bereitgestellt werden.
 
 **Akzeptanzkriterien:**
 
-- Beschriftungen, Hinweise und Fehlermeldungen sind in der final gewählten Sprache.
-- Innerhalb eines Dialogs werden Deutsch und Englisch nicht ohne Grund gemischt.
-- Technische Schlüssel wie `FRUEHSCHICHT` werden nicht direkt angezeigt.
-- Die endgültige Sprache wird über `TD-011` festgelegt.
+- Alle zentralen Dialoge sind in deutscher und englischer Sprache verfügbar.
+- Navigation, Feldbezeichnungen, Schaltflächen und fachliche Rückmeldungen
+  werden in beiden Sprachen verständlich dargestellt.
+- Die fachliche Bedeutung von Meldungen und Aktionen ist in beiden Sprachen
+  gleich.
+- Ein Wechsel der Sprache verändert keine fachlichen Funktionen oder
+  Berechtigungen.
+- Die Sprachdarstellung wird für die zentralen Dialoge in beiden Sprachen
+  geprüft.
 
 **Priorität:** B
 
