@@ -82,7 +82,7 @@ Insbesondere gelten folgende übergreifende Regeln:
 - die erledigten Aufgaben müssen angegeben werden,
 - bei einem erfassten Problem beziehungsweise Incident muss eine Priorität
   angegeben werden,
-- für Report-Textfelder gelten die festgelegten maximalen Längen,
+- jedes Report-Textfeld darf maximal 4.000 Zeichen enthalten,
 - unzulässige oder unvollständige Eingaben dürfen nicht als gültiger Report
   gespeichert werden.
 
