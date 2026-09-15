@@ -38,7 +38,7 @@ Architekturdatei enthält anschließend die verbindliche Beschreibung.
 | TD-007 | Aufbewahrung | Wie lange werden Reports gespeichert? | Während der ersten Version keine automatische Löschung | D1, N1, S3 | `EINGEARBEITET` |
 | TD-008 | Benutzerkonten | Wie werden Benutzerkonten angelegt und verwaltet? | Vorbereitete Benutzerkonten; keine Selbstregistrierung | F2, D1, B1, Architektur | `EINGEARBEITET` |
 | TD-009 | Datenbank | Welche Datenbank wird für die finale Version eingesetzt? | Für Version 1 wird H2 als relationale Datenbank verwendet.
-Die Datenbankentscheidung ist in ADR-003 der Architekturdokumentation festgelegt. | TEAMINFO, Architektur, Inbetriebnahme | `ENTSCHIEDEN` |
+Die Datenbankentscheidung ist in ADR-003 der Architekturdokumentation festgelegt. | TEAMINFO, Architektur, Inbetriebnahme | `EINGEARBEITET` |
 | TD-010 | Projektrollen | Wer übernimmt dauerhaft welche Projektrolle? | Bestehende TEAMINFO gilt bis zur gemeinsamen Abstimmung | TEAMINFO | `ENTSCHIEDEN` |
 | TD-011 | Sprache | Welche Sprache verwendet die Benutzeroberfläche? | Deutsche und englische Benutzeroberfläche | B1, N1 | `EINGEARBEITET` |
 | TD-012 | Git-Arbeitsweise | Wie gelangen Feature- und Dokumentationsbranches nach `main`? | Branch, Prüfung, Pull Request und anschließend Merge | README, Teamarbeitsweise | `EINGEARBEITET` |
