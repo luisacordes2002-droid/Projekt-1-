@@ -196,7 +196,10 @@ strukturierten Report.
 ### Validierungsregel
 
 Die Felder "Schicht" und "Erledigte Aufgaben" sind Pflichtfelder.
-Ein Report darf nur gespeichert werden, wenn eine Schicht ausgewählt und das Feld "erledigte Aufgaben ausgefüllt ist.
+Ein Report darf nur gespeichert werden, wenn eine Schicht ausgewählt und das
+Feld "Erledigte Aufgaben" ausgefüllt ist.
+
+Jedes Report-Textfeld darf maximal 4.000 Zeichen enthalten.
 
 ### Alternativabläufe und Fehlerfälle
 
@@ -212,7 +215,15 @@ Ein Report darf nur gespeichert werden, wenn eine Schicht ausgewählt und das Fe
 2. Das System speichert den Report nicht.
 3. Das System fordert zur Auswahl einer Priorität auf.
 
-#### A3 – Technischer Speicherfehler
+#### A3 – Maximale Textlänge überschritten
+
+1. Mindestens ein Report-Textfeld enthält mehr als 4.000 Zeichen.
+2. Das System speichert den Report nicht.
+3. Das System kennzeichnet das betroffene Feld und weist auf die maximale
+   Länge von 4.000 Zeichen hin.
+4. Die Person kann die Eingabe korrigieren.
+
+#### A4 – Technischer Speicherfehler
 
 1. Der Report kann technisch nicht gespeichert werden.
 2. Das System zeigt eine verständliche Fehlermeldung an.
