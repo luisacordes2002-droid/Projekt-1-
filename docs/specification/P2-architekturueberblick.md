@@ -145,7 +145,9 @@ insbesondere folgende Entscheidungen und noch offene Abstimmungen relevant:
   zusätzlich die Berechtigung, gespeicherte Reports zu löschen.
   Benutzerkonten werden vorbereitet bereitgestellt; eine Selbstregistrierung ist nicht   vorgesehen.
 - `TD-007`: In der ersten Version findet keine automatische Löschung gespeicherter n Reports statt.
-- `TD-009`: Die Festlegung der Datenbank und ihre technische Ausgestaltung werden in  der Architektur beziehungsweise Inbetriebnahme dokumentiert.
+- `TD-009`: Für Version 1 wird H2 als relationale Datenbank verwendet.
+  Die Architekturentscheidung ist in `ADR-003 – H2-Datenbank für Version 1`
+  dokumentiert. Der Datenzugriff erfolgt über Spring Data JPA.
 - `TD-014`: betrifft die Passwortregel und ihre technische Umsetzung.
 - `TD-015` und `TD-016`: bestimmen die zu bestätigenden Qualitäts- und Testziele.
 - `TD-017`: betrifft die Schichtauswahl und den Zusammenhang zwischen den Dialogen.
