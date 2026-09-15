@@ -105,7 +105,10 @@ Diese Punkte können als mögliche Weiterentwicklung dokumentiert werden.
 
 - Projektteam mit fünf Mitgliedern
 - Dokumentation und Quellcode werden im gemeinsamen GitHub-Repository verwaltet.
-- Änderungen werden über nachvollziehbare Git-Commits dokumentiert.
+- Änderungen an Dokumentation und Quellcode erfolgen in einem eigenen Branch.
+  Vor der Übernahme werden die Änderungen geprüft und anschließend über einen
+  Pull Request in den vorgesehenen Ziel-Branch eingebracht und gemergt.
+  Die Änderungen bleiben durch Git-Commits nachvollziehbar.
 - Die finale Abgabe erfolgt spätestens am 25. September 2026.
 - Die Anwendung muss lokal anhand einer Installationsanleitung gestartet werden können.
 - KI-generierte Inhalte werden durch das Team geprüft und verstanden.
