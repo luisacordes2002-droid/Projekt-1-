@@ -248,7 +248,7 @@ Dieser Datentyp wird verwendet für:
 
 - Vor und nach dem Text stehende Leerzeichen werden entfernt.
 - Ein Text, der nur aus Leerzeichen besteht, gilt als leer.
-- Vorläufige Maximallänge: 4.000 Zeichen je Feld.
+- Maximallänge: 4.000 Zeichen je Feld.
 - Zeilenumbrüche sind zulässig.
 - HTML- oder Skriptcode darf nicht als ausführbarer Inhalt interpretiert werden.
 - Passwörter und andere Zugangsdaten dürfen nicht in Report-Texten erfasst werden.
@@ -313,8 +313,9 @@ Besonders relevant sind:
 - `TD-007` – Aufbewahrungsdauer
 - `TD-008` – Anlage der Benutzerkonten
 
-Zusätzlich muss das Team die vorläufige Maximallänge von 4.000 Zeichen und die
-Passwort-Mindestlänge bestätigen.
+Die maximale Länge der Report-Textfelder wurde mit `TD-013` auf 4.000 Zeichen
+je Feld festgelegt. Noch offene Entscheidungen werden zentral in
+[`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
 
 ## 18. Nachverfolgbarkeit
 
