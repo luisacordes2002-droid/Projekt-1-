@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Reportify</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .login-box {
+            text-align: center;
+        }
+
+        .login-box div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 8px;
+            width: 250px;
+        }
+
+        button {
+            padding: 8px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <h1>Reportify</h1>
+        <h2>Anmelden</h2>
+
+        <form th:action="@{/login}" method="post">
+
+            <div>
+                <label for="username">Benutzername</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    required>
+            </div>
+
+            <div>
+                <label for="password">Passwort</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required>
+            </div>
+
+            <button type="submit">Anmelden</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
