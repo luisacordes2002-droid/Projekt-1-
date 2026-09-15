@@ -118,7 +118,10 @@ Prüfen, ob ein Report fachlich gültig und speicherbar ist.
 3. Reine Leerzeichen im Feld "Erledigte Aufgaben" gelten nicht als Inhalt.
 4. Wenn ein Problem oder Incident eingetragen wurde, muss eine Priorität angegeben sein.
 5. Die zulässigen Prioritäten sind `NIEDRIG`, `MITTEL` und `HOCH`.
-6. Fehlerhafte Felder werden verständlich gekennzeichnet.
+6. Jedes Report-Textfeld darf maximal 4.000 Zeichen enthalten.
+7. Überschreitet ein Report-Textfeld die maximale Länge, ist die Eingabe
+   ungültig und darf nicht gespeichert werden.
+8. Fehlerhafte Felder werden verständlich gekennzeichnet.
 
 **Ergebnis:**
 
