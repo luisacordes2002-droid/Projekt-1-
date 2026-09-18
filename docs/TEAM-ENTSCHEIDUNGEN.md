@@ -1,0 +1,93 @@
+# Offene Teamentscheidungen – Reportify
+
+> **Stand:** 30.08.2026  
+> Diese Datei ist die zentrale Übersicht für fachliche, technische und
+> organisatorische Entscheidungen, die das Team noch abstimmen muss.
+
+## 1. Verwendung
+
+Vor jedem Teamtreffen werden alle Einträge mit dem Status `OFFEN` besprochen.
+
+Nach einer Entscheidung wird:
+
+1. das Ergebnis in der Entscheidungshistorie eingetragen,
+2. die Entscheidung in den betroffenen Dokumenten eingearbeitet,
+3. der Status auf `EINGEARBEITET` gesetzt.
+
+Diese Datei dient als Übersicht. Die jeweils betroffene Spezifikations- oder
+Architekturdatei enthält anschließend die verbindliche Beschreibung.
+
+## 2. Status
+
+| Status | Bedeutung |
+|---|---|
+| `OFFEN` | Das Team muss den Punkt noch besprechen. |
+| `ENTSCHIEDEN` | Das Team hat entschieden, die Dokumente wurden aber noch nicht angepasst. |
+| `EINGEARBEITET` | Die Entscheidung wurde in allen betroffenen Dokumenten übernommen. |
+
+## 3. Entscheidungsübersicht
+
+| ID | Thema | Zu entscheidende Frage | Aktuelle Arbeitsannahme | Betroffene Dokumente | Status |
+|---|---|---|---|---|---|
+| TD-001 | Report-Pflichtfelder | Welche Report-Felder müssen ausgefüllt werden? | Schicht ist und erledigte Aufgaben sind Pflicht | F2, F3, D1, B1 | `EINGEARBEITET` |
+| TD-002 | Priorität | Gilt die Priorität für den gesamten Report oder nur für Probleme und Incidents? | Priorität ist nur bei Problemen oder Incidents verpflichtend | F3, D1, B1 | `EINGEARBEITET` |
+| TD-003 | Bearbeitung | Dürfen bereits gespeicherte Reports bearbeitet werden? | Bereits gespeicherte Reports dürfen bearbeitet werden | P1, F1, F2, F3, D1, B1 | `EINGEARBEITET` |
+| TD-004 | Löschung | Dürfen Reports gelöscht werden? | Reports dürfen nur von der Schichtleitung gelöscht werden | P1, F1, F2, F3, D1 | `EINGEARBEITET` |
+| TD-005 | Aktuelle Übergabe | Wie wird der aktuelle Übergabereport bestimmt? | Der zuletzt gespeicherte Report wird angezeigt | F1, F3, D1 | `EINGEARBEITET` |
+| TD-006 | Berechtigungen | Erhält die Schichtleitung zusätzliche Berechtigungen? | Die Schichtleitung ist dazu berechtigt, Reports zu löschen | P1, F2, D1, N1 | `EINGEARBEITET` |
+| TD-007 | Aufbewahrung | Wie lange werden Reports gespeichert? | Während der ersten Version keine automatische Löschung | D1, N1, S3 | `EINGEARBEITET` |
+| TD-008 | Benutzerkonten | Wie werden Benutzerkonten angelegt und verwaltet? | Vorbereitete Benutzerkonten; keine Selbstregistrierung | F2, D1, B1, Architektur | `EINGEARBEITET` |
+| TD-009 | Datenbank | Welche Datenbank wird für die finale Version eingesetzt? | Für Version 1 wird H2 als relationale Datenbank verwendet.
+Die Datenbankentscheidung ist in ADR-003 der Architekturdokumentation festgelegt. | TEAMINFO, Architektur, Inbetriebnahme | `EINGEARBEITET` |
+| TD-010 | Projektrollen | Wer übernimmt dauerhaft welche Projektrolle? | Bestehende TEAMINFO gilt bis zur gemeinsamen Abstimmung | TEAMINFO | `ENTSCHIEDEN` |
+| TD-011 | Sprache | Welche Sprache verwendet die Benutzeroberfläche? | Deutsche und englische Benutzeroberfläche | B1, N1 | `EINGEARBEITET` |
+| TD-012 | Git-Arbeitsweise | Wie gelangen Feature- und Dokumentationsbranches nach `main`? | Branch, Prüfung, Pull Request und anschließend Merge | README, Teamarbeitsweise | `EINGEARBEITET` |
+| TD-013 | Textlänge | Welche maximale Länge darf ein Report-Textfeld besitzen? | Höchstens 4.000 Zeichen je Textfeld | D2, B1, N1 | `EINGEARBEITET` |
+| TD-014 | Passwortregel | Welche Mindest- und Höchstlänge gilt für Passwörter? | Mindestens 8 und höchstens 128 Zeichen, werden selbst erstellt | F2, D2, B1, N1, Architektur | `ENTSCHIEDEN` |
+| TD-015 | Leistungs- und Mengenziele | Welche Antwortzeit-, Mengen- und Testbedingungen sollen für die erste Version verbindlich gelten? | Mindestens 95 Prozent von 20 Aufrufen innerhalb von zwei Sekunden bei 1.000 Testreports; Mengenziele von mindestens 50 Benutzerkonten und 10.000 Reports | N1, Architektur, Tests | `ENTSCHIEDEN` |
+| TD-016 | Browser und Bildschirmbreite | Welche Browser und Versionen werden unterstützt und welche kleinste Bildschirmbreite muss bedienbar sein? | Prüfung mit aktuellen Versionen von Chrome und Safari; Bedienbarkeit ab 360 Pixeln Breite | B1, N1, Architektur, Tests | `ENTSCHIEDEN |
+| TD-017 | Schichtauswahl | Die Schicht wird direkt im Reportformular ausgewählt | Noch uneinheitlich: F2 beschreibt einen vorgelagerten Sitzungskontext; B1 beschreibt die Auswahl im Reportformular | F1, F2, F3, B1, Architektur | `ENTSCHIEDEN` |
+| TD-018 | Änderungsnachverfolgung | Soll bei der Bearbeitung eines Reports gespeichert werden, wann und von wem er zuletzt geändert wurde? | Änderungszeitpunkt und ändernde Person werden gespeichert | D1, F2, F3, B1, Architektur | `OFFEN` |
+
+
+
+## 4. Priorität für das nächste Teamtreffen
+
+Folgende Entscheidungen müssen zuerst getroffen werden, weil sie die weitere
+Implementierung direkt beeinflussen:
+
+1. `TD-001` – Report-Pflichtfelder
+2. `TD-002` – Bedeutung der Priorität
+3. `TD-003` – Bearbeitung gespeicherter Reports
+4. `TD-005` – Bestimmung der aktuellen Übergabe
+5. `TD-006` – Berechtigungen der Rollen
+6. `TD-008` – Anlage der Benutzerkonten
+7. `TD-009` – endgültige Datenbank
+8. `TD-010` – Projektrollen
+9. `TD-013` – maximale Länge der Report-Textfelder
+10. `TD-014` – Passwortregel
+11. `TD-015` – Leistungs- und Mengenziele
+12. `TD-016` – unterstützte Browser und kleinste Bildschirmbreite
+13. `TD-017` – Schichtauswahl und Arbeitskontext
+
+**Zieltermin für diese Entscheidungen:** 01.09.2026
+
+## 5. Entscheidungshistorie
+
+| ID | Entscheidung | Kurze Begründung | Datum | Beteiligte |
+|---|---|---|---|---|
+| – | Noch keine Teamentscheidung eingetragen | – | – | – |
+
+## 6. Neue Entscheidung aufnehmen
+
+Neue offene Fragen erhalten die nächste freie Kennung `TD-018`, `TD-019` usw.
+
+Jeder neue Eintrag benötigt:
+
+- eine konkrete Entscheidungsfrage,
+- eine vorläufige Arbeitsannahme,
+- die betroffenen Dokumente,
+- den Status `OFFEN`.
+
+Architekturentscheidungen mit technischen Alternativen werden zusätzlich als
+Architecture Decision Record mit einer Kennung wie `ADR-001` dokumentiert.
