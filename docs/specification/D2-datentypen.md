@@ -125,7 +125,8 @@ Geheime Eingabe, mit der sich eine Person authentifiziert.
 
 ### Regeln
 
-- Das Passwort wird von der nutzenden Person selbst festgelegt.
+- Das persönliche Passwort wird von der nutzenden Person selbst festgelegt.
+- Bei der ersten Anmeldung muss die Person ein eigenes Passwort festlegen.
 - Das Passwort muss mindestens 8 Zeichen lang sein.
 - Das Passwort darf höchstens 126 Zeichen lang sein.
 - Das Passwort wird bei der Eingabe nicht sichtbar angezeigt.
