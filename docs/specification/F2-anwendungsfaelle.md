@@ -13,8 +13,9 @@
 | UC-04 | Report erstellen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-05 | Übergabe einsehen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-06 | Report-Historie anzeigen | Mitarbeiter:in, Schichtleitung | Muss |
-| UC-07 | Gespeicherten Report bearbeiten | Mitarbeiter:in, Schichtleitung | Muss |
+| UC-07 | Gespeicherten Report bearbeiten | Mitarbeiter:in, Schichtleitung | Muss 
 | UC-08 | Gespeicherten Report löschen | Schichtleitung | Muss |
+| UC-09 | Passwort bei Erstanmeldung festlegen | Mitarbeiter:in, Schichtleitung | Muss |
 
 
 ## 2. UC-01 – Anmelden
@@ -67,6 +68,16 @@ Seite aufzurufen.
 3. Das System zeigt eine allgemeine Fehlermeldung an.
 4. Das System verrät nicht, ob Benutzername oder Passwort falsch war.
 5. Die Person kann die Eingabe erneut versuchen.
+
+#### A3 – Erstmalige Passwortvergabe erforderlich
+
+1. Die Zugangsdaten für die Erstanmeldung sind gültig.
+2. Das System erkennt, dass die Person noch kein eigenes persönliches Passwort
+   festgelegt hat.
+3. Das System leitet die Person zur erstmaligen Passwortvergabe gemäß UC-09
+   weiter.
+4. Erst nach erfolgreicher Passwortvergabe kann die Person die geschützten
+   Funktionen von Reportify regulär verwenden.
 
 ### Nachbedingungen bei Erfolg
 
@@ -425,8 +436,73 @@ Eine Schichtleitung löscht einen gespeicherten Report.
 | AK-24 | Ein:e Mitarbeiter:in ist angemeldet | die Person versucht einen Report zu löschen | die Löschung wird nicht durchgeführt |
 | AK-25 | Eine Schichtleitung startet eine Löschung | die Löschung wird nicht bestätigt | der Report bleibt gespeichert |
 
+## 10. UC-09 – Passwort bei Erstanmeldung festlegen
 
-## 10. Nicht enthaltene Anwendungsfälle
+### Ziel
+
+Eine Person legt bei der ersten Anmeldung für ihr vorbereitetes Benutzerkonto
+ein eigenes persönliches Passwort fest.
+
+### Primäre Akteur:innen
+
+- Mitarbeiter:in
+- Schichtleitung
+
+### Vorbedingungen
+
+- Für die Person wurde ein Benutzerkonto vorbereitet.
+- Für das Benutzerkonto ist eine erstmalige Passwortvergabe erforderlich.
+- Die Person hat sich mit dem für die Erstanmeldung vorgesehenen Zugang
+  authentifiziert.
+
+### Standardablauf
+
+1. Das System erkennt, dass für das Benutzerkonto eine erstmalige
+   Passwortvergabe erforderlich ist.
+2. Das System fordert die Person auf, ein eigenes Passwort festzulegen.
+3. Die Person gibt das gewünschte Passwort ein.
+4. Die Person wiederholt das Passwort zur Bestätigung.
+5. Das System prüft die Passwörter.
+6. Das System prüft, ob das Passwort mindestens 8 und höchstens 126 Zeichen
+   lang ist.
+7. Bei gültiger Eingabe wird das persönliche Passwort sicher übernommen.
+8. Die erstmalige Passwortvergabe wird als abgeschlossen gekennzeichnet.
+9. Die Person kann Reportify anschließend mit ihrem persönlichen Passwort
+   verwenden.
+
+### Alternativabläufe und Fehlerfälle
+
+#### A1 – Ungültige Passwortlänge
+
+1. Das eingegebene Passwort enthält weniger als 8 oder mehr als 126 Zeichen.
+2. Das System übernimmt das Passwort nicht.
+3. Das System weist auf die zulässige Länge von 8 bis 126 Zeichen hin.
+4. Die Person kann ein neues Passwort eingeben.
+
+#### A2 – Passwörter stimmen nicht überein
+
+1. Passwort und Passwortbestätigung stimmen nicht überein.
+2. Das System übernimmt das Passwort nicht.
+3. Das System weist auf die Abweichung hin.
+4. Die Person kann die Eingaben korrigieren.
+
+### Nachbedingungen bei Erfolg
+
+- Die Person besitzt ein selbst festgelegtes persönliches Passwort.
+- Die erstmalige Passwortvergabe ist abgeschlossen.
+- Das Passwort wird nicht als Klartext gespeichert.
+
+### Akzeptanzkriterien
+
+| ID | Gegeben | Wenn | Dann |
+|---|---|---|---|
+| AK-26 | Ein vorbereitetes Konto benötigt die erstmalige Passwortvergabe | die Person meldet sich erstmals an | sie wird zur Festlegung eines eigenen Passworts aufgefordert |
+| AK-27 | Die Person legt ein Passwort fest | das Passwort enthält 8 bis 126 Zeichen und beide Eingaben stimmen überein | das Passwort wird übernommen |
+| AK-28 | Die Person legt ein Passwort fest | das Passwort enthält weniger als 8 oder mehr als 126 Zeichen | das Passwort wird nicht übernommen und eine verständliche Meldung wird angezeigt |
+| AK-29 | Passwort und Bestätigung unterscheiden sich | die Person bestätigt die Eingabe | das Passwort wird nicht übernommen |
+
+
+## 11. Nicht enthaltene Anwendungsfälle
 
 Folgende Funktionen gehören nicht zum verbindlichen Minimalumfang:
 
