@@ -28,6 +28,7 @@ Architektur und Implementierung beschrieben.
 | DLG-04 | Aktuelle Übergabe | Neuesten Report anzeigen | Ja |
 | DLG-05 | Report-Historie | Gespeicherte Reports durchsuchen | Ja |
 | DLG-06 | Report-Details | Vollständigen Report anzeigen | Ja |
+| DLG-07 | Passwort bei Erstanmeldung festlegen | Eigenes persönliches Passwort festlegen | Ja |
 
 ## 3. Grundlegende Navigation
 
@@ -366,15 +367,65 @@ Die Person kann anschließend zur Historie oder Startseite wechseln.
 - `TD-003` – Bearbeitung gespeicherter Reports
 - `TD-004` – Löschen gespeicherter Reports
 
-## 10. Dialogübergreifende Regeln
+## 10. DLG-07 – Passwort bei Erstanmeldung festlegen
 
-### 10.1 Zugriffsschutz
+### 10.1 Zweck
+
+Eine Person legt bei der ersten Anmeldung für ihr vorbereitetes Benutzerkonto
+ein eigenes persönliches Passwort fest.
+
+### 10.2 Dialogelemente
+
+| Element | Typ | Pflicht | Beschreibung |
+|---|---|---|---|
+| Neues Passwort | Passwortfeld | Ja | Persönliches Passwort mit 8 bis 126 Zeichen |
+| Passwort bestätigen | Passwortfeld | Ja | Wiederholung des neuen Passworts |
+| Passwort festlegen | Schaltfläche | – | Prüft und übernimmt das neue Passwort |
+| Fehlerbereich | Hinweisbereich | – | Zeigt Validierungsfehler verständlich an |
+
+### 10.3 Feldregeln
+
+- Das Passwort muss mindestens 8 Zeichen lang sein.
+- Das Passwort darf höchstens 126 Zeichen lang sein.
+- Beide Passworteingaben müssen übereinstimmen.
+- Die eingegebenen Passwörter werden verdeckt dargestellt.
+- Das Passwort darf nicht als Klartext gespeichert werden.
+
+### 10.4 Verhalten
+
+1. Die Person gibt ihr gewünschtes Passwort zweimal ein.
+2. Sie wählt „Passwort festlegen“.
+3. Reportify prüft beide Eingaben.
+4. Bei gültigen Eingaben wird das persönliche Passwort übernommen.
+5. Die erstmalige Passwortvergabe wird als abgeschlossen gekennzeichnet.
+6. Die Person wird anschließend in den geschützten Bereich von Reportify
+   weitergeleitet.
+
+### 10.5 Validierungsfehler
+
+Mögliche Meldungen:
+
+- **„Das Passwort muss mindestens 8 Zeichen enthalten.“**
+- **„Das Passwort darf höchstens 126 Zeichen enthalten.“**
+- **„Die eingegebenen Passwörter stimmen nicht überein.“**
+
+### 10.6 Bezug
+
+- `UC-09` – Passwort bei Erstanmeldung festlegen
+- `AF-11` – Persönliches Passwort erstmalig festlegen
+- `DT-05` – PasswortDT
+- `TD-008` – Anlage der Benutzerkonten
+- `TD-014` – Passwortregel
+
+## 11. Dialogübergreifende Regeln
+
+### 11.1 Zugriffsschutz
 
 - DLG-02 bis DLG-06 benötigen eine gültige Sitzung.
 - Ohne gültige Sitzung wird DLG-01 geöffnet.
 - Nach der Abmeldung dürfen zuvor geschützte Seiten nicht mehr verwendet werden.
 
-### 10.2 Rückmeldungen
+### 11.2 Rückmeldungen
 
 Reportify unterscheidet:
 
@@ -386,7 +437,7 @@ Reportify unterscheidet:
 Meldungen werden verständlich formuliert und enthalten, wenn möglich, eine
 nächste sinnvolle Aktion.
 
-### 10.3 Formulare
+### 11.3 Formulare
 
 - Jedes Eingabefeld besitzt eine sichtbare Beschriftung.
 - Pflichtfelder werden erkennbar gekennzeichnet.
@@ -394,7 +445,7 @@ nächste sinnvolle Aktion.
 - Die Bedienung ist mit Tastatur möglich.
 - Die Reihenfolge der Eingabefelder ist logisch und vorhersehbar.
 
-### 10.4 Responsive Darstellung
+### 11.4 Responsive Darstellung
 
 Die Anwendung muss auf aktuellen Desktop- und Mobilbrowsern verwendbar sein.
 
@@ -403,7 +454,7 @@ Die Anwendung muss auf aktuellen Desktop- und Mobilbrowsern verwendbar sein.
 - Tabellen dürfen auf kleinen Bildschirmen durch Karten ersetzt werden.
 - Texte und Fehlermeldungen müssen ohne Vergrößerung lesbar sein.
 
-### 10.5 Sprache
+### 11.5 Sprache
 
 Die Benutzeroberfläche von Reportify wird in deutscher und englischer Sprache
 bereitgestellt.
@@ -418,7 +469,7 @@ Sprache verwendet.
 Die fachliche Bedeutung von Feldern, Meldungen und Aktionen bleibt unabhängig
 von der gewählten Sprache gleich.
 
-## 11. Navigation zwischen den Dialogen
+## 12. Navigation zwischen den Dialogen
 
 | Ausgang | Aktion | Ziel |
 |---|---|---|
@@ -432,7 +483,7 @@ von der gewählten Sprache gleich.
 | DLG-06 | Zurück zur Historie | DLG-05 |
 | DLG-02 bis DLG-06 | Abmelden | DLG-01 |
 
-## 12. Noch zu ergänzende Darstellungen
+## 13. Noch zu ergänzende Darstellungen
 
 Sobald die ersten Seiten implementiert sind, werden diesem Dokument geprüfte
 Screenshots oder Wireframes hinzugefügt für:
@@ -448,7 +499,7 @@ Screenshots oder Wireframes hinzugefügt für:
 Die Screenshots müssen mit den beschriebenen Dialogen und dem tatsächlichen
 Programmstand übereinstimmen.
 
-## 13. Offene Entscheidungen
+## 14. Offene Entscheidungen
 
 Die offenen UI-Fragen werden zentral in
 [`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
@@ -466,7 +517,7 @@ Für B1 sind besonders relevant:
 - `TD-013` – Textlänge
 - `TD-014` – Passwortregel
 
-## 14. Nachverfolgbarkeit
+## 15. Nachverfolgbarkeit
 
 Diese Dialogspezifikation konkretisiert insbesondere:
 
