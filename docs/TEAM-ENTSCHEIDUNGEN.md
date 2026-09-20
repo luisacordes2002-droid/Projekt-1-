@@ -45,7 +45,7 @@ Die Datenbankentscheidung ist in ADR-003 der Architekturdokumentation festgelegt
 | TD-013 | Textlänge | Welche maximale Länge darf ein Report-Textfeld besitzen? | Höchstens 4.000 Zeichen je Textfeld | D2, B1, N1 | `EINGEARBEITET` |
 | TD-014 | Passwortregel | Welche Mindest- und Höchstlänge gilt für Passwörter? | Benutzerkonten werden vorab bereitgestellt. Bei der ersten Anmeldung legt die
 nutzende Person ihr eigenes Passwort fest. Das Passwort muss mindestens 8 und
-darf höchstens 126 Zeichen lang sein. | F2, D2, B1, N1, Architektur | `ENTSCHIEDEN` |
+darf höchstens 126 Zeichen lang sein. | F2, D2, B1, N1, Architektur | `EINGEARBEITET` |
 | TD-015 | Leistungs- und Mengenziele | Welche Antwortzeit-, Mengen- und Testbedingungen sollen für die erste Version verbindlich gelten? | Mindestens 95 Prozent von 20 Aufrufen innerhalb von zwei Sekunden bei 1.000 Testreports; Mengenziele von mindestens 50 Benutzerkonten und 10.000 Reports | N1, Architektur, Tests | `ENTSCHIEDEN` |
 | TD-016 | Browser und Bildschirmbreite | Welche Browser und Versionen werden unterstützt und welche kleinste Bildschirmbreite muss bedienbar sein? | Prüfung mit aktuellen Versionen von Chrome und Safari; Bedienbarkeit ab 360 Pixeln Breite | B1, N1, Architektur, Tests | `ENTSCHIEDEN |
 | TD-017 | Schichtauswahl | Die Schicht wird direkt im Reportformular ausgewählt | Noch uneinheitlich: F2 beschreibt einen vorgelagerten Sitzungskontext; B1 beschreibt die Auswahl im Reportformular | F1, F2, F3, B1, Architektur | `ENTSCHIEDEN` |
