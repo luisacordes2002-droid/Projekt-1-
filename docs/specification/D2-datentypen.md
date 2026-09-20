@@ -125,15 +125,13 @@ Geheime Eingabe, mit der sich eine Person authentifiziert.
 
 ### Regeln
 
+- Das Passwort wird von der nutzenden Person selbst festgelegt.
+- Das Passwort muss mindestens 8 Zeichen lang sein.
+- Das Passwort darf höchstens 126 Zeichen lang sein.
 - Das Passwort wird bei der Eingabe nicht sichtbar angezeigt.
-- Vorläufige Mindestlänge: 8 Zeichen.
-- Vorläufige Höchstlänge: 128 Zeichen.
 - Leerzeichen innerhalb eines Passworts sind zulässig.
 - Das Passwort darf weder protokolliert noch als Klartext gespeichert werden.
 - Bei einer fehlgeschlagenen Anmeldung wird das eingegebene Passwort verworfen.
-
-> Die endgültige Passwortregel wird zusammen mit den Sicherheitsanforderungen
-> festgelegt.
 
 ## 8. DT-06 – PasswortNachweisDT
 
