@@ -279,7 +279,7 @@ Benutzerkonto ein eigenes persönliches Passwort festzulegen.
 1. Das System prüft, ob für das Benutzerkonto eine erstmalige Passwortvergabe
    erforderlich ist.
 2. Das System prüft, ob das neue Passwort mindestens 8 und höchstens
-   126 Zeichen lang ist.
+   128 Zeichen lang ist.
 3. Das System prüft, ob Passwort und Passwortbestätigung übereinstimmen.
 4. Bei ungültigen Eingaben wird das Passwort nicht übernommen.
 5. Bei gültigen Eingaben wird das Passwort sicher verarbeitet und darf nicht
