@@ -15,6 +15,12 @@ Bereits umgesetzt sind:
 - Passwortregeln
 - lokale H2-Datenbank
 - automatische Tests für zentrale Authentifizierungsbestandteile
+- Reportübersicht und Reportdetailansicht
+- Erstellen von Schichtreports mit Priorität
+- Kennzeichnen von Reports als erledigt
+- dauerhafte Speicherung der Reports in der H2-Datenbank
+- direkte Weiterleitung zur Reportübersicht nach erfolgreicher Anmeldung
+- automatisierte Service- und Controller-Tests für die Reportverwaltung
 
 Die fachlichen Funktionen zur Erstellung, Anzeige und Verwaltung von Schichtreports werden schrittweise ergänzt.
 
