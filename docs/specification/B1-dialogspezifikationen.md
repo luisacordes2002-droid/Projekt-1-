@@ -447,9 +447,13 @@ nächste sinnvolle Aktion.
 
 ### 11.4 Responsive Darstellung
 
-Die Anwendung muss auf aktuellen Desktop- und Mobilbrowsern verwendbar sein.
+Die Anwendung muss ab einer Bildschirmbreite von 360 Pixeln vollständig
+bedienbar sein. Der Kernablauf wird mit aktuellen Versionen von Chrome und
+Safari geprüft.
 
-- Inhalte dürfen nicht horizontal aus dem sichtbaren Bereich laufen.
+- Inhalte dürfen bei einer Breite ab 360 Pixeln nicht horizontal aus dem
+  sichtbaren Bereich laufen.
+- Alle Kernfunktionen müssen ab 360 Pixeln Breite erreichbar und bedienbar sein.
 - Schaltflächen müssen auf Touch-Geräten ausreichend groß sein.
 - Tabellen dürfen auf kleinen Bildschirmen durch Karten ersetzt werden.
 - Texte und Fehlermeldungen müssen ohne Vergrößerung lesbar sein.
