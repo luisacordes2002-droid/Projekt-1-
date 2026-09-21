@@ -172,7 +172,7 @@ Weitere Rollen sind für die erste Version nicht vorgesehen.
 | DM-12 | Benutzerkonten werden vorab bereitgestellt. Nutzer:innen können sich nicht selbst registrieren. |
 | DM-13 | Jedes Textfeld eines Reports darf maximal 4.000 Zeichen enthalten. |
 | DM-14 | Benutzerkonten werden vorab bereitgestellt. Bei der ersten Anmeldung muss die nutzende Person ein eigenes Passwort festlegen. |
-| DM-15 | Das selbst festgelegte Passwort muss mindestens 8 und darf höchstens 126 Zeichen lang sein. |
+| DM-15 | Das selbst festgelegte Passwort muss mindestens 8 und darf höchstens 128 Zeichen lang sein. |
 
 ## 8. Lebenszyklus eines Reports
 
