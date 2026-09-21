@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuer Report – Reportify</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #f3f6f9;
+            color: #1f2937;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #17324d;
+            color: white;
+            padding: 18px 24px;
+        }
+
+        .header-content {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header a {
+            border-radius: 7px;
+            padding: 10px 14px;
+            background: white;
+            color: #17324d;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .form-card {
+            border: 1px solid #dbe2ea;
+            border-radius: 12px;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 5px 18px rgba(15, 23, 42, 0.08);
+        }
+
+        h2 {
+            margin: 0 0 8px;
+            font-size: 30px;
+        }
+
+        .intro {
+            margin: 0 0 25px;
+            color: #64748b;
+        }
+
+        .error-message {
+            margin-bottom: 20px;
+            border: 1px solid #fca5a5;
+            border-radius: 8px;
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 13px 16px;
+        }
+
+        .field {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 12px;
+            background: white;
+            color: #1f2937;
+            font: inherit;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #2563eb;
+            outline: 3px solid #dbeafe;
+        }
+
+        textarea {
+            min-height: 220px;
+            resize: vertical;
+        }
+
+        .help {
+            display: block;
+            margin-top: 7px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .button {
+            border: 0;
+            border-radius: 8px;
+            padding: 12px 18px;
+            font: inherit;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .button-secondary {
+            border: 1px solid #cbd5e1;
+            background: white;
+            color: #334155;
+        }
+
+        .button-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .header-content,
+            .actions {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .form-card {
+                padding: 22px;
+            }
+
+            .button {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="header-content">
+        <h1>Reportify</h1>
+        <a th:href="@{/reports}">Zur Reportübersicht</a>
+    </div>
+</header>
+
+<main>
+    <section class="form-card">
+        <h2>Neuen Report erstellen</h2>
+
+        <p class="intro">
+            Erfasse die wichtigsten Informationen für die nächste Schicht.
+        </p>
+
+        <div
+            class="error-message"
+            th:if="${errorMessage}"
+            th:text="${errorMessage}">
+        </div>
+
+        <form th:action="@{/reports}" method="post">
+            <input
+                type="hidden"
+                th:name="${_csrf.parameterName}"
+                th:value="${_csrf.token}">
+
+            <div class="field">
+                <label for="title">Titel</label>
+
+                <input
+                    id="title"
+                    name="title"
+                    type="text"
+                    maxlength="120"
+                    required
+                    autofocus
+                    placeholder="Zum Beispiel: Übergabe Spätschicht"
+                    th:value="${title}">
+
+                <span class="help">
+                    Maximal 120 Zeichen.
+                </span>
+            </div>
+
+            <div class="field">
+                <label for="priority">Priorität</label>
+
+                <select id="priority" name="priority" required>
+                    <option
+                        th:each="priority : ${priorities}"
+                        th:value="${priority}"
+                        th:text="${priority}"
+                        th:selected="${(selectedPriority == null and priority.name() == 'MITTEL') or selectedPriority == priority}"
+                    </option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="content">Inhalt der Übergabe</label>
+
+                <textarea
+                    id="content"
+                    name="content"
+                    maxlength="4000"
+                    required
+                    placeholder="Offene Aufgaben, Probleme und wichtige Hinweise..."
+                    th:text="${content}"></textarea>
+
+                <span class="help">
+                    Maximal 4000 Zeichen.
+                </span>
+            </div>
+
+            <div class="actions">
+                <a
+                    class="button button-secondary"
+                    th:href="@{/reports}">
+                    Abbrechen
+                </a>
+
+                <button
+                    class="button button-primary"
+                    type="submit">
+                    Report speichern
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+</body>
+</html>
