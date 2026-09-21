@@ -378,7 +378,7 @@ ein eigenes persönliches Passwort fest.
 
 | Element | Typ | Pflicht | Beschreibung |
 |---|---|---|---|
-| Neues Passwort | Passwortfeld | Ja | Persönliches Passwort mit 8 bis 126 Zeichen |
+| Neues Passwort | Passwortfeld | Ja | Persönliches Passwort mit 8 bis 128 Zeichen |
 | Passwort bestätigen | Passwortfeld | Ja | Wiederholung des neuen Passworts |
 | Passwort festlegen | Schaltfläche | – | Prüft und übernimmt das neue Passwort |
 | Fehlerbereich | Hinweisbereich | – | Zeigt Validierungsfehler verständlich an |
@@ -386,7 +386,7 @@ ein eigenes persönliches Passwort fest.
 ### 10.3 Feldregeln
 
 - Das Passwort muss mindestens 8 Zeichen lang sein.
-- Das Passwort darf höchstens 126 Zeichen lang sein.
+- Das Passwort darf höchstens 128 Zeichen lang sein.
 - Beide Passworteingaben müssen übereinstimmen.
 - Die eingegebenen Passwörter werden verdeckt dargestellt.
 - Das Passwort darf nicht als Klartext gespeichert werden.
@@ -406,7 +406,7 @@ ein eigenes persönliches Passwort fest.
 Mögliche Meldungen:
 
 - **„Das Passwort muss mindestens 8 Zeichen enthalten.“**
-- **„Das Passwort darf höchstens 126 Zeichen enthalten.“**
+- **„Das Passwort darf höchstens 128 Zeichen enthalten.“**
 - **„Die eingegebenen Passwörter stimmen nicht überein.“**
 
 ### 10.6 Bezug
