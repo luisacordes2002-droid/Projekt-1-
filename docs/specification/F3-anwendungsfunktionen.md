@@ -90,9 +90,10 @@ Die auswählbaren Arbeitsschichten für einen Report bereitstellen.
 
 **Verarbeitung:**
 
-1. Das System stellt die verfügbaren Schichten zur Auswahl.
-2. Die ausgewählte Schicht wird für die weitere Reporterstellung übernommen.
-3. Ohne gültige Schichtauswahl kann kein Report gespeichert werden.
+1. Das System stellt die verfügbaren Schichten direkt im Reportformular zur Auswahl.
+2. Die Person wählt die Schicht aus, der der neue Report zugeordnet werden soll.
+3. Die ausgewählte Schicht wird dem Report zugeordnet.
+4. Ohne gültige Schichtauswahl kann der Report nicht gespeichert werden.
 
 **Ergebnis:**
 
