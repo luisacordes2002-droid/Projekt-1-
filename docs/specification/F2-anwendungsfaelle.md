@@ -9,7 +9,7 @@
 |---|---|---|---|
 | UC-01 | Anmelden | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-02 | Abmelden | Angemeldete Nutzer:innen | Muss |
-| UC-03 | Schicht auswählen | Mitarbeiter:in, Schichtleitung | Muss |
+| UC-03 | Schicht auswählen | – | Entfällt gemäß TD-017; in UC-04 integriert |
 | UC-04 | Report erstellen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-05 | Übergabe einsehen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-06 | Report-Historie anzeigen | Mitarbeiter:in, Schichtleitung | Muss |
@@ -131,47 +131,13 @@ Gerät weiterhin auf geschützte Informationen zugreifen kann.
 
 ## 4. UC-03 – Schicht auswählen
 
-### Ziel
+Dieser ursprünglich vorgesehene eigenständige Anwendungsfall entfällt.
 
-Eine angemeldete Person wählt die Schicht aus, für die sie Informationen
-einsehen beziehungsweise einen Report erstellen möchte.
+Gemäß `TD-017` wird die Schicht nicht vorab als Arbeits- oder Sitzungskontext
+ausgewählt. Die Schichtauswahl erfolgt direkt während der Reporterstellung im
+Reportformular gemäß `UC-04`.
 
-### Primäre Akteur:innen
-
-- Mitarbeiter:in
-- Schichtleitung
-
-### Vorbedingungen
-
-- Die Person ist angemeldet.
-- Die auswählbaren Schichten sind im System vorhanden.
-
-### Standardablauf
-
-1. Das System zeigt die verfügbaren Schichten an.
-2. Die Person wählt Frühschicht, Spätschicht oder Nachtschicht.
-3. Die Person bestätigt ihre Auswahl.
-4. Das System übernimmt die gewählte Schicht als aktuellen Arbeitskontext.
-5. Das System zeigt die zugehörige Übersichtsseite an.
-
-### Alternativablauf – Keine Schicht ausgewählt
-
-1. Die Person bestätigt das Formular ohne Auswahl.
-2. Das System übernimmt keine Schicht.
-3. Das System fordert zur Auswahl einer Schicht auf.
-
-### Nachbedingungen bei Erfolg
-
-- Für die aktuelle Sitzung ist eine Schicht ausgewählt.
-- Ein neu erstellter Report kann dieser Schicht zugeordnet werden.
-
-### Akzeptanzkriterien
-
-| ID | Gegeben | Wenn | Dann |
-|---|---|---|---|
-| AK-08 | Die Person ist angemeldet | eine gültige Schicht wird ausgewählt | die Schicht wird als aktueller Arbeitskontext übernommen |
-| AK-09 | Keine Schicht wurde ausgewählt | die Auswahl wird bestätigt | das System fordert zur Auswahl einer Schicht auf |
-| AK-10 | Eine Schicht wurde ausgewählt | die Report-Erfassung wird geöffnet | die ausgewählte Schicht ist dem neuen Report zugeordnet |
+Die Kennung `UC-03` bleibt aus Gründen der Nachverfolgbarkeit bestehen.
 
 ## 5. UC-04 – Report erstellen
 
@@ -188,21 +154,22 @@ strukturierten Report.
 ### Vorbedingungen
 
 - Die Person ist angemeldet.
-- Eine Schicht ist ausgewählt.
+- Die auswählbaren Schichten sind im System vorhanden.
 
 ### Standardablauf
 
 1. Die Person wählt „Report erstellen“.
 2. Das System zeigt das Report-Formular an.
-3. Die Person erfasst erledigte Aufgaben.
-4. Die Person erfasst offene Aufgaben.
-5. Die Person erfasst vorhandene Probleme oder Incidents und deren Priorität.
-6. Die Person ergänzt bei Bedarf wichtige Hinweise.
-7. Die Person bestätigt die Speicherung.
-8. Das System prüft die Eingaben.
-9. Das System ergänzt automatisch Schicht, Autor:in und Erstellungszeitpunkt.
-10. Das System speichert den Report.
-11. Das System zeigt eine Erfolgsbestätigung beziehungsweise den gespeicherten Report an.
+3. Die Person wählt im Reportformular die zugehörige Schicht aus.
+4. Die Person erfasst erledigte Aufgaben.
+5. Die Person erfasst offene Aufgaben.
+6. Die Person erfasst vorhandene Probleme oder Incidents und deren Priorität.
+7. Die Person ergänzt bei Bedarf wichtige Hinweise.
+8. Die Person bestätigt die Speicherung.
+9. Das System prüft die Eingaben.
+10. Das System ergänzt automatisch Autor:in und Erstellungszeitpunkt.
+11. Das System speichert den Report einschließlich der ausgewählten Schicht.
+12. Das System zeigt eine Erfolgsbestätigung beziehungsweise den gespeicherten Report an.
 
 ### Validierungsregel
 
