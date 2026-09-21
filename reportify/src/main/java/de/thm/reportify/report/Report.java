@@ -1,6 +1,7 @@
 package de.thm.reportify.report;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,6 +16,9 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "reports")
 public class Report {
+
+        private static final DateTimeFormatter DISPLAY_FORMAT =
+            DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
 
     public enum Priority {
         NIEDRIG,
@@ -123,4 +127,8 @@ public class Report {
     public String getCreatedBy() {
         return createdBy;
     }
+    public String getFormattedCreatedAt() {
+        return createdAt == null ? "" : createdAt.format(DISPLAY_FORMAT);
+    }
+
 }
