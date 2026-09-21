@@ -66,13 +66,22 @@ berechtigte Person.
 | `benutzername` | Eindeutiger Name für die Anmeldung | Ja |
 | `anzeigename` | Name, der in Report und Historie angezeigt wird | Ja |
 | `passwortNachweis` | Sicher gespeicherter Nachweis des Passworts | Ja |
+| `passwortwechselErforderlich` | Kennzeichnet, ob bei der nächsten Anmeldung ein eigenes Passwort festgelegt werden muss | Ja |
 | `rolle` | Fachliche Rolle innerhalb von Reportify | Ja |
 | `aktiv` | Kennzeichnet, ob eine Anmeldung erlaubt ist | Ja |
 
 ### 4.1 Anlage von Benutzerkonten
 
-Benutzerkonten werden für die erste Version vorab bereitgestellt.
-Eine Selbstregistrierung durch Nutzer:innen ist nicht vorgesehen.
+Benutzerkonten werden für die erste Version vorab bereitgestellt. Eine
+Selbstregistrierung durch Nutzer:innen ist nicht vorgesehen.
+
+Bei der ersten Anmeldung muss die nutzende Person ein eigenes persönliches
+Passwort festlegen. Bis diese erstmalige Passwortvergabe abgeschlossen ist,
+wird das Benutzerkonto durch `passwortwechselErforderlich` entsprechend
+gekennzeichnet.
+
+Nach erfolgreicher Festlegung des persönlichen Passworts ist kein
+Passwortwechsel mehr für die Erstanmeldung erforderlich.
 
 ### 4.2 Rolle
 
@@ -162,6 +171,8 @@ Weitere Rollen sind für die erste Version nicht vorgesehen.
 | DM-11 | Reports werden nicht automatisch gelöscht. Sie bleiben gespeichert, bis eine berechtigte Schichtleitung sie manuell löscht. |
 | DM-12 | Benutzerkonten werden vorab bereitgestellt. Nutzer:innen können sich nicht selbst registrieren. |
 | DM-13 | Jedes Textfeld eines Reports darf maximal 4.000 Zeichen enthalten. |
+| DM-14 | Benutzerkonten werden vorab bereitgestellt. Bei der ersten Anmeldung muss die nutzende Person ein eigenes Passwort festlegen. |
+| DM-15 | Das selbst festgelegte Passwort muss mindestens 8 und darf höchstens 128 Zeichen lang sein. |
 
 ## 8. Lebenszyklus eines Reports
 

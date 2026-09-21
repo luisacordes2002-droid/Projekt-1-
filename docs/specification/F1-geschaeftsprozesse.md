@@ -52,8 +52,7 @@ flowchart TD
     B --> C{Zugangsdaten gültig?}
     C -- Nein --> D[Fehlermeldung anzeigen]
     D --> B
-    C -- Ja --> E[UC-03 Schicht auswählen]
-    E --> F[UC-05 Letzte Übergabe einsehen]
+   C -- Ja --> F[UC-05 Letzte Übergabe einsehen]
     F --> G[Arbeit während der Schicht]
     G --> H[UC-04 Report erstellen]
     H --> I{Pflichtangaben vollständig?}
@@ -69,10 +68,11 @@ flowchart TD
 
 1. Eine Person meldet sich bei Reportify an.
 2. Bei ungültigen Zugangsdaten bleibt der Zugriff auf die Anwendung gesperrt.
-3. Nach erfolgreicher Anmeldung wählt die Person ihre aktuelle Schicht aus.
-4. Das System zeigt den zuletzt gespeicherten Report als vorherige Übergabe an.
-5. Die Person kann während beziehungsweise am Ende der Schicht einen neuen
+3. Nach erfolgreicher Anmeldung kann die Person den zuletzt gespeicherten
+   Report als vorherige Übergabe einsehen.
+4. Die Person kann während beziehungsweise am Ende der Schicht einen neuen
    Report erstellen.
+5. Die zugehörige Schicht wird direkt im Reportformular ausgewählt.
 6. Das System prüft die erforderlichen Angaben.
 7. Ein gültiger Report wird mit Schicht, verantwortlicher Person und
    Erstellungszeitpunkt gespeichert.

@@ -9,12 +9,13 @@
 |---|---|---|---|
 | UC-01 | Anmelden | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-02 | Abmelden | Angemeldete Nutzer:innen | Muss |
-| UC-03 | Schicht auswählen | Mitarbeiter:in, Schichtleitung | Muss |
+| UC-03 | Schicht auswählen | – | Entfällt gemäß TD-017; in UC-04 integriert |
 | UC-04 | Report erstellen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-05 | Übergabe einsehen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-06 | Report-Historie anzeigen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-07 | Gespeicherten Report bearbeiten | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-08 | Gespeicherten Report löschen | Schichtleitung | Muss |
+| UC-09 | Passwort bei Erstanmeldung festlegen | Mitarbeiter:in, Schichtleitung | Muss |
 
 
 ## 2. UC-01 – Anmelden
@@ -68,6 +69,16 @@ Seite aufzurufen.
 4. Das System verrät nicht, ob Benutzername oder Passwort falsch war.
 5. Die Person kann die Eingabe erneut versuchen.
 
+#### A3 – Erstmalige Passwortvergabe erforderlich
+
+1. Die Zugangsdaten für die Erstanmeldung sind gültig.
+2. Das System erkennt, dass die Person noch kein eigenes persönliches Passwort
+   festgelegt hat.
+3. Das System leitet die Person zur erstmaligen Passwortvergabe gemäß UC-09
+   weiter.
+4. Erst nach erfolgreicher Passwortvergabe kann die Person die geschützten
+   Funktionen von Reportify regulär verwenden.
+
 ### Nachbedingungen bei Erfolg
 
 - Die Person ist eindeutig authentifiziert.
@@ -120,47 +131,13 @@ Gerät weiterhin auf geschützte Informationen zugreifen kann.
 
 ## 4. UC-03 – Schicht auswählen
 
-### Ziel
+Dieser ursprünglich vorgesehene eigenständige Anwendungsfall entfällt.
 
-Eine angemeldete Person wählt die Schicht aus, für die sie Informationen
-einsehen beziehungsweise einen Report erstellen möchte.
+Gemäß `TD-017` wird die Schicht nicht vorab als Arbeits- oder Sitzungskontext
+ausgewählt. Die Schichtauswahl erfolgt direkt während der Reporterstellung im
+Reportformular gemäß `UC-04`.
 
-### Primäre Akteur:innen
-
-- Mitarbeiter:in
-- Schichtleitung
-
-### Vorbedingungen
-
-- Die Person ist angemeldet.
-- Die auswählbaren Schichten sind im System vorhanden.
-
-### Standardablauf
-
-1. Das System zeigt die verfügbaren Schichten an.
-2. Die Person wählt Frühschicht, Spätschicht oder Nachtschicht.
-3. Die Person bestätigt ihre Auswahl.
-4. Das System übernimmt die gewählte Schicht als aktuellen Arbeitskontext.
-5. Das System zeigt die zugehörige Übersichtsseite an.
-
-### Alternativablauf – Keine Schicht ausgewählt
-
-1. Die Person bestätigt das Formular ohne Auswahl.
-2. Das System übernimmt keine Schicht.
-3. Das System fordert zur Auswahl einer Schicht auf.
-
-### Nachbedingungen bei Erfolg
-
-- Für die aktuelle Sitzung ist eine Schicht ausgewählt.
-- Ein neu erstellter Report kann dieser Schicht zugeordnet werden.
-
-### Akzeptanzkriterien
-
-| ID | Gegeben | Wenn | Dann |
-|---|---|---|---|
-| AK-08 | Die Person ist angemeldet | eine gültige Schicht wird ausgewählt | die Schicht wird als aktueller Arbeitskontext übernommen |
-| AK-09 | Keine Schicht wurde ausgewählt | die Auswahl wird bestätigt | das System fordert zur Auswahl einer Schicht auf |
-| AK-10 | Eine Schicht wurde ausgewählt | die Report-Erfassung wird geöffnet | die ausgewählte Schicht ist dem neuen Report zugeordnet |
+Die Kennung `UC-03` bleibt aus Gründen der Nachverfolgbarkeit bestehen.
 
 ## 5. UC-04 – Report erstellen
 
@@ -177,21 +154,22 @@ strukturierten Report.
 ### Vorbedingungen
 
 - Die Person ist angemeldet.
-- Eine Schicht ist ausgewählt.
+- Die auswählbaren Schichten sind im System vorhanden.
 
 ### Standardablauf
 
 1. Die Person wählt „Report erstellen“.
 2. Das System zeigt das Report-Formular an.
-3. Die Person erfasst erledigte Aufgaben.
-4. Die Person erfasst offene Aufgaben.
-5. Die Person erfasst vorhandene Probleme oder Incidents und deren Priorität.
-6. Die Person ergänzt bei Bedarf wichtige Hinweise.
-7. Die Person bestätigt die Speicherung.
-8. Das System prüft die Eingaben.
-9. Das System ergänzt automatisch Schicht, Autor:in und Erstellungszeitpunkt.
-10. Das System speichert den Report.
-11. Das System zeigt eine Erfolgsbestätigung beziehungsweise den gespeicherten Report an.
+3. Die Person wählt im Reportformular die zugehörige Schicht aus.
+4. Die Person erfasst erledigte Aufgaben.
+5. Die Person erfasst offene Aufgaben.
+6. Die Person erfasst vorhandene Probleme oder Incidents und deren Priorität.
+7. Die Person ergänzt bei Bedarf wichtige Hinweise.
+8. Die Person bestätigt die Speicherung.
+9. Das System prüft die Eingaben.
+10. Das System ergänzt automatisch Autor:in und Erstellungszeitpunkt.
+11. Das System speichert den Report einschließlich der ausgewählten Schicht.
+12. Das System zeigt eine Erfolgsbestätigung beziehungsweise den gespeicherten Report an.
 
 ### Validierungsregel
 
@@ -425,8 +403,73 @@ Eine Schichtleitung löscht einen gespeicherten Report.
 | AK-24 | Ein:e Mitarbeiter:in ist angemeldet | die Person versucht einen Report zu löschen | die Löschung wird nicht durchgeführt |
 | AK-25 | Eine Schichtleitung startet eine Löschung | die Löschung wird nicht bestätigt | der Report bleibt gespeichert |
 
+## 10. UC-09 – Passwort bei Erstanmeldung festlegen
 
-## 10. Nicht enthaltene Anwendungsfälle
+### Ziel
+
+Eine Person legt bei der ersten Anmeldung für ihr vorbereitetes Benutzerkonto
+ein eigenes persönliches Passwort fest.
+
+### Primäre Akteur:innen
+
+- Mitarbeiter:in
+- Schichtleitung
+
+### Vorbedingungen
+
+- Für die Person wurde ein Benutzerkonto vorbereitet.
+- Für das Benutzerkonto ist eine erstmalige Passwortvergabe erforderlich.
+- Die Person hat sich mit dem für die Erstanmeldung vorgesehenen Zugang
+  authentifiziert.
+
+### Standardablauf
+
+1. Das System erkennt, dass für das Benutzerkonto eine erstmalige
+   Passwortvergabe erforderlich ist.
+2. Das System fordert die Person auf, ein eigenes Passwort festzulegen.
+3. Die Person gibt das gewünschte Passwort ein.
+4. Die Person wiederholt das Passwort zur Bestätigung.
+5. Das System prüft die Passwörter.
+6. Das System prüft, ob das Passwort mindestens 8 und höchstens 128 Zeichen
+   lang ist.
+7. Bei gültiger Eingabe wird das persönliche Passwort sicher übernommen.
+8. Die erstmalige Passwortvergabe wird als abgeschlossen gekennzeichnet.
+9. Die Person kann Reportify anschließend mit ihrem persönlichen Passwort
+   verwenden.
+
+### Alternativabläufe und Fehlerfälle
+
+#### A1 – Ungültige Passwortlänge
+
+1. Das eingegebene Passwort enthält weniger als 8 oder mehr als 128 Zeichen.
+2. Das System übernimmt das Passwort nicht.
+3. Das System weist auf die zulässige Länge von 8 bis 128 Zeichen hin.
+4. Die Person kann ein neues Passwort eingeben.
+
+#### A2 – Passwörter stimmen nicht überein
+
+1. Passwort und Passwortbestätigung stimmen nicht überein.
+2. Das System übernimmt das Passwort nicht.
+3. Das System weist auf die Abweichung hin.
+4. Die Person kann die Eingaben korrigieren.
+
+### Nachbedingungen bei Erfolg
+
+- Die Person besitzt ein selbst festgelegtes persönliches Passwort.
+- Die erstmalige Passwortvergabe ist abgeschlossen.
+- Das Passwort wird nicht als Klartext gespeichert.
+
+### Akzeptanzkriterien
+
+| ID | Gegeben | Wenn | Dann |
+|---|---|---|---|
+| AK-26 | Ein vorbereitetes Konto benötigt die erstmalige Passwortvergabe | die Person meldet sich erstmals an | sie wird zur Festlegung eines eigenen Passworts aufgefordert |
+| AK-27 | Die Person legt ein Passwort fest | das Passwort enthält 8 bis 128 Zeichen und beide Eingaben stimmen überein | das Passwort wird übernommen |
+| AK-28 | Die Person legt ein Passwort fest | das Passwort enthält weniger als 8 oder mehr als 128 Zeichen | das Passwort wird nicht übernommen und eine verständliche Meldung wird angezeigt |
+| AK-29 | Passwort und Bestätigung unterscheiden sich | die Person bestätigt die Eingabe | das Passwort wird nicht übernommen |
+
+
+## 11. Nicht enthaltene Anwendungsfälle
 
 Folgende Funktionen gehören nicht zum verbindlichen Minimalumfang:
 

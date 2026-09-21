@@ -28,6 +28,7 @@ beziehungsweise im Quellcode beschrieben.
 | AF-08 | Report-Details bereitstellen | UC-05, UC-06 |
 | AF-09 | Gespeicherten Report bearbeiten | UC-07 |
 | AF-10 | Gespeicherten Report löschen | UC-08 |
+| AF-11 | Persönliches Passwort erstmalig festlegen | UC-09 |
 
 
 ## 3. Funktionsbeschreibungen
@@ -89,9 +90,10 @@ Die auswählbaren Arbeitsschichten für einen Report bereitstellen.
 
 **Verarbeitung:**
 
-1. Das System stellt die verfügbaren Schichten zur Auswahl.
-2. Die ausgewählte Schicht wird für die weitere Reporterstellung übernommen.
-3. Ohne gültige Schichtauswahl kann kein Report gespeichert werden.
+1. Das System stellt die verfügbaren Schichten direkt im Reportformular zur Auswahl.
+2. Die Person wählt die Schicht aus, der der neue Report zugeordnet werden soll.
+3. Die ausgewählte Schicht wird dem Report zugeordnet.
+4. Ohne gültige Schichtauswahl kann der Report nicht gespeichert werden.
 
 **Ergebnis:**
 
@@ -261,6 +263,35 @@ Einen gespeicherten Report durch eine berechtigte Schichtleitung löschen.
 - erfolgreich gelöschter Report oder
 - Ablehnung der Löschung
 
+### AF-11 – Persönliches Passwort erstmalig festlegen
+
+**Zweck:**  
+Einer Person ermöglichen, bei der ersten Anmeldung für ihr vorbereitetes
+Benutzerkonto ein eigenes persönliches Passwort festzulegen.
+
+**Eingaben:**
+
+- neues Passwort
+- Passwortbestätigung
+
+**Verarbeitung:**
+
+1. Das System prüft, ob für das Benutzerkonto eine erstmalige Passwortvergabe
+   erforderlich ist.
+2. Das System prüft, ob das neue Passwort mindestens 8 und höchstens
+   128 Zeichen lang ist.
+3. Das System prüft, ob Passwort und Passwortbestätigung übereinstimmen.
+4. Bei ungültigen Eingaben wird das Passwort nicht übernommen.
+5. Bei gültigen Eingaben wird das Passwort sicher verarbeitet und darf nicht
+   als Klartext gespeichert werden.
+6. Die erstmalige Passwortvergabe wird anschließend als abgeschlossen
+   gekennzeichnet.
+
+**Ergebnis:**
+
+- erfolgreich festgelegtes persönliches Passwort oder
+- verständlicher Validierungsfehler
+
 ## 4. Abgrenzung
 
 Folgende Funktionen sind für die erste Version nicht vorgesehen:
@@ -276,7 +307,7 @@ werden, bevor sie implementiert werden.
 
 ## 5. Nachverfolgbarkeit
 
-Die Kennungen `AF-01` bis `AF-10` bleiben stabil. Sie werden später in folgenden
+Die Kennungen `AF-01` bis `AF-11` bleiben stabil. Sie werden später in folgenden
 Dokumenten wiederverwendet:
 
 - Datenmodell
