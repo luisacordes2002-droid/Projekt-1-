@@ -13,7 +13,7 @@
 | UC-04 | Report erstellen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-05 | Übergabe einsehen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-06 | Report-Historie anzeigen | Mitarbeiter:in, Schichtleitung | Muss |
-| UC-07 | Gespeicherten Report bearbeiten | Mitarbeiter:in, Schichtleitung | Muss 
+| UC-07 | Gespeicherten Report bearbeiten | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-08 | Gespeicherten Report löschen | Schichtleitung | Muss |
 | UC-09 | Passwort bei Erstanmeldung festlegen | Mitarbeiter:in, Schichtleitung | Muss |
 
@@ -430,7 +430,7 @@ ein eigenes persönliches Passwort fest.
 3. Die Person gibt das gewünschte Passwort ein.
 4. Die Person wiederholt das Passwort zur Bestätigung.
 5. Das System prüft die Passwörter.
-6. Das System prüft, ob das Passwort mindestens 8 und höchstens 126 Zeichen
+6. Das System prüft, ob das Passwort mindestens 8 und höchstens 128 Zeichen
    lang ist.
 7. Bei gültiger Eingabe wird das persönliche Passwort sicher übernommen.
 8. Die erstmalige Passwortvergabe wird als abgeschlossen gekennzeichnet.
@@ -441,9 +441,9 @@ ein eigenes persönliches Passwort fest.
 
 #### A1 – Ungültige Passwortlänge
 
-1. Das eingegebene Passwort enthält weniger als 8 oder mehr als 126 Zeichen.
+1. Das eingegebene Passwort enthält weniger als 8 oder mehr als 128 Zeichen.
 2. Das System übernimmt das Passwort nicht.
-3. Das System weist auf die zulässige Länge von 8 bis 126 Zeichen hin.
+3. Das System weist auf die zulässige Länge von 8 bis 128 Zeichen hin.
 4. Die Person kann ein neues Passwort eingeben.
 
 #### A2 – Passwörter stimmen nicht überein
@@ -464,8 +464,8 @@ ein eigenes persönliches Passwort fest.
 | ID | Gegeben | Wenn | Dann |
 |---|---|---|---|
 | AK-26 | Ein vorbereitetes Konto benötigt die erstmalige Passwortvergabe | die Person meldet sich erstmals an | sie wird zur Festlegung eines eigenen Passworts aufgefordert |
-| AK-27 | Die Person legt ein Passwort fest | das Passwort enthält 8 bis 126 Zeichen und beide Eingaben stimmen überein | das Passwort wird übernommen |
-| AK-28 | Die Person legt ein Passwort fest | das Passwort enthält weniger als 8 oder mehr als 126 Zeichen | das Passwort wird nicht übernommen und eine verständliche Meldung wird angezeigt |
+| AK-27 | Die Person legt ein Passwort fest | das Passwort enthält 8 bis 128 Zeichen und beide Eingaben stimmen überein | das Passwort wird übernommen |
+| AK-28 | Die Person legt ein Passwort fest | das Passwort enthält weniger als 8 oder mehr als 128 Zeichen | das Passwort wird nicht übernommen und eine verständliche Meldung wird angezeigt |
 | AK-29 | Passwort und Bestätigung unterscheiden sich | die Person bestätigt die Eingabe | das Passwort wird nicht übernommen |
 
 
