@@ -51,8 +51,7 @@ Protokollierung in einem gemeinsamen System.
 Der verbindliche Minimalumfang umfasst:
 
 1. Anmelden und Abmelden
-2. Schicht auswählen
-3. Report erstellen
+2. Schicht im Reportformular auswählen3. Report erstellen
 4. Letzte Übergabe einsehen
 5. Report-Historie anzeigen
 6. Gespeicherte Reports bearbeiten
