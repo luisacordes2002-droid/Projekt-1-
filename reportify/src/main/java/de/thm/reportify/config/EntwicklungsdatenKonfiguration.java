@@ -46,11 +46,20 @@ public class EntwicklungsdatenKonfiguration {
             String benutzername,
             String anzeigename,
             Rolle rolle) {
-        if (nutzerRepository.existsByBenutzernameIgnoreCase(
-                benutzername)) {
-            return;
-        }
+        Nutzer vorhandenerNutzer = nutzerRepository
+        .findByBenutzernameIgnoreCaseAndAktivTrue(benutzername)
+        .orElse(null);
 
+if (vorhandenerNutzer != null) {
+    vorhandenerNutzer.setRolle(rolle);
+    nutzerRepository.save(vorhandenerNutzer);
+    return;
+}
+
+if (nutzerRepository.existsByBenutzernameIgnoreCase(
+        benutzername)) {
+    return;
+}
         String passwortNachweis =
                 passwordEncoder.encode(DEMO_PASSWORT);
 

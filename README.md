@@ -18,6 +18,7 @@ Bereits umgesetzt sind:
 - Reportübersicht und Reportdetailansicht
 - Erstellen von Schichtreports mit Priorität
 - Kennzeichnen von Reports als erledigt
+- Löschen von Reports ausschließlich durch Benutzer mit der Rolle `SCHICHTLEITUNG`
 - dauerhafte Speicherung der Reports in der H2-Datenbank
 - direkte Weiterleitung zur Reportübersicht nach erfolgreicher Anmeldung
 - automatisierte Service- und Controller-Tests für die Reportverwaltung

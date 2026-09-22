@@ -1,10 +1,12 @@
 package de.thm.reportify.controller;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.flash;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -102,4 +104,36 @@ class ReportControllerTest {
                 Priority.HOCH,
                 "mitarbeiter");
     }
+
+    @Test
+    void deleteRedirectsToListAndShowsSuccessMessage()
+        throws Exception {
+
+         mockMvc.perform(post("/reports/7/delete"))
+            .andExpect(status().is3xxRedirection())
+            .andExpect(redirectedUrl("/reports"))
+            .andExpect(flash().attribute(
+                    "successMessage",
+                    "Der Report wurde gelöscht."));
+
+        verify(reportService).delete(7L);
+}
+
+@Test
+void deleteRedirectsToDetailAndShowsErrorMessage()
+        throws Exception {
+
+    doThrow(new IllegalArgumentException(
+            "Report mit ID 7 wurde nicht gefunden."))
+            .when(reportService)
+            .delete(7L);
+
+    mockMvc.perform(post("/reports/7/delete"))
+            .andExpect(status().is3xxRedirection())
+            .andExpect(redirectedUrl("/reports/7"))
+            .andExpect(flash().attribute(
+                    "errorMessage",
+                    "Report mit ID 7 wurde nicht gefunden."));
+}
+
 }

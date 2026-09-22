@@ -65,7 +65,14 @@ public class ReportService {
         report.setStatus(Status.ERLEDIGT);
         return report;
     }
+        @Transactional
+    public void delete(Long id) {
+        Report report = reportRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Report mit ID " + id + " wurde nicht gefunden."));
 
+        reportRepository.delete(report);
+    }
     private String requireText(String value, String errorMessage) {
         if (value == null || value.isBlank()) {
             throw new IllegalArgumentException(errorMessage);

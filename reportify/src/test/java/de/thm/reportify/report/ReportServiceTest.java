@@ -103,4 +103,31 @@ class ReportServiceTest {
 
         verify(report).setStatus(Status.ERLEDIGT);
     }
+
+    @Test
+void deleteRemovesExistingReport() {
+    Report report = mock(Report.class);
+
+    when(reportRepository.findById(1L))
+            .thenReturn(Optional.of(report));
+
+    reportService.delete(1L);
+
+    verify(reportRepository).delete(report);
+}
+
+@Test
+void deleteRejectsUnknownReport() {
+    when(reportRepository.findById(99L))
+            .thenReturn(Optional.empty());
+
+    IllegalArgumentException exception = assertThrows(
+            IllegalArgumentException.class,
+            () -> reportService.delete(99L));
+
+    assertEquals(
+            "Report mit ID 99 wurde nicht gefunden.",
+            exception.getMessage());
+}
+
 }

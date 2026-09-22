@@ -2,6 +2,7 @@ package de.thm.reportify.controller;
 
 import java.security.Principal;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -77,11 +78,19 @@ public class ReportController {
     public String detail(
             @PathVariable Long id,
             Model model,
+            Authentication authentication,
             RedirectAttributes redirectAttributes) {
 
         return reportService.findById(id)
                 .map(report -> {
                     model.addAttribute("report", report);
+                    model.addAttribute(
+                            "canDelete",
+                            authentication != null &&
+                            authentication.getAuthorities().stream()
+                                    .anyMatch(authority ->
+                                            authority.getAuthority()
+                                                    .equals("ROLE_SCHICHTLEITUNG")));
                     return "reports/detail";
                 })
                 .orElseGet(() -> {
@@ -109,5 +118,23 @@ public class ReportController {
         }
 
         return "redirect:/reports/" + id;
+    }
+    @PostMapping("/{id}/delete")
+    public String delete(
+            @PathVariable Long id,
+            RedirectAttributes redirectAttributes) {
+
+        try {
+            reportService.delete(id);
+            redirectAttributes.addFlashAttribute(
+                    "successMessage",
+                    "Der Report wurde gelöscht.");
+            return "redirect:/reports";
+        } catch (IllegalArgumentException exception) {
+            redirectAttributes.addFlashAttribute(
+                    "errorMessage",
+                    exception.getMessage());
+            return "redirect:/reports/" + id;
+        }
     }
 }

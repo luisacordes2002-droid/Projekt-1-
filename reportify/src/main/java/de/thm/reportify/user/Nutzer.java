@@ -70,6 +70,10 @@ public class Nutzer {
         return rolle;
     }
 
+    public void setRolle(Rolle rolle) {
+        this.rolle = rolle;
+    }
+
     public boolean isAktiv() {
         return aktiv;
     }
