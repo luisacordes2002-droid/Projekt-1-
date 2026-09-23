@@ -26,6 +26,12 @@ public class Report {
         HOCH
     }
 
+    public enum Shift {
+        FRUEHSCHICHT,
+        SPAETSCHICHT,
+        NACHTSCHICHT
+    }
+
     public enum Status {
         OFFEN,
         ERLEDIGT
@@ -40,6 +46,13 @@ public class Report {
 
     @Column(nullable = false, length = 4000)
     private String content;
+
+    @Enumerated(EnumType.STRING)
+    @Column(
+            nullable = false,
+            length = 20,
+            columnDefinition = "varchar(20) default 'FRUEHSCHICHT'")
+    private Shift shift = Shift.FRUEHSCHICHT;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
@@ -58,9 +71,10 @@ public class Report {
     protected Report() {
     }
 
-    public Report(String title, String content, Priority priority, String createdBy) {
+    public Report(String title,String content,Shift shift,Priority priority,String createdBy) {
         this.title = title;
         this.content = content;
+        this.shift = shift;
         this.priority = priority;
         this.createdBy = createdBy;
     }
@@ -69,6 +83,10 @@ public class Report {
     void prepareForInsert() {
         if (createdAt == null) {
             createdAt = LocalDateTime.now();
+        }
+
+        if (shift == null) {
+            shift = Shift.FRUEHSCHICHT;
         }
 
         if (priority == null) {
@@ -102,6 +120,14 @@ public class Report {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Shift getShift() {
+        return shift;
+    }
+
+    public void setShift(Shift shift) {
+        this.shift = shift;
     }
 
     public Priority getPriority() {

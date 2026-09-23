@@ -225,6 +225,29 @@
                     </option>
                 </select>
             </div>
+            <div class="field">
+    <label for="shift">Schicht</label>
+
+    <select id="shift" name="shift" required>
+        <option
+            value=""
+            disabled
+            th:selected="${selectedShift == null}">
+            Bitte Schicht auswählen
+        </option>
+
+        <option
+            th:each="shift : ${shifts}"
+            th:value="${shift}"
+            th:text="${shift.name() == 'FRUEHSCHICHT'
+                ? 'Frühschicht'
+                : (shift.name() == 'SPAETSCHICHT'
+                    ? 'Spätschicht'
+                    : 'Nachtschicht')}"
+            th:selected="${selectedShift != null and selectedShift == shift}">
+        </option>
+    </select>
+</div>
 
             <div class="field">
                 <label for="content">Inhalt der Übergabe</label>

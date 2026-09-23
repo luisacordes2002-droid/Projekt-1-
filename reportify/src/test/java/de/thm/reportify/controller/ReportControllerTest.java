@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import de.thm.reportify.report.Report;
 import de.thm.reportify.report.Report.Priority;
+import de.thm.reportify.report.Report.Shift;
 import de.thm.reportify.report.ReportService;
 
 class ReportControllerTest {
@@ -86,6 +87,7 @@ class ReportControllerTest {
         when(reportService.create(
                 "Übergabe",
                 "Maschine kontrollieren",
+                Shift.FRUEHSCHICHT,
                 Priority.HOCH,
                 "mitarbeiter"))
                 .thenReturn(report);
@@ -94,6 +96,7 @@ class ReportControllerTest {
                         .principal(() -> "mitarbeiter")
                         .param("title", "Übergabe")
                         .param("content", "Maschine kontrollieren")
+                        .param("shift", "FRUEHSCHICHT")
                         .param("priority", "HOCH"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/reports/7"));
@@ -101,6 +104,7 @@ class ReportControllerTest {
         verify(reportService).create(
                 "Übergabe",
                 "Maschine kontrollieren",
+                Shift.FRUEHSCHICHT,
                 Priority.HOCH,
                 "mitarbeiter");
     }
