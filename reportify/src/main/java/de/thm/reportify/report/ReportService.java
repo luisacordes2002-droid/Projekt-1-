@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.thm.reportify.report.Report.Priority;
+import de.thm.reportify.report.Report.Shift;
 import de.thm.reportify.report.Report.Status;
 
 @Service
@@ -31,11 +32,16 @@ public class ReportService {
     public Report create(
             String title,
             String content,
+            Shift shift,
             Priority priority,
             String createdBy) {
 
         String cleanTitle = requireText(title, "Der Titel darf nicht leer sein.");
         String cleanContent = requireText(content, "Der Inhalt darf nicht leer sein.");
+        if (shift == null) {
+            throw new IllegalArgumentException(
+                "Bitte wählen Sie eine Schicht aus.");
+        }
 
         if (cleanTitle.length() > 120) {
             throw new IllegalArgumentException(
@@ -50,6 +56,7 @@ public class ReportService {
         Report report = new Report(
                 cleanTitle,
                 cleanContent,
+                shift,
                 priority == null ? Priority.MITTEL : priority,
                 createdBy);
 

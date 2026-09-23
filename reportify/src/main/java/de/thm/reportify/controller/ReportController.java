@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import de.thm.reportify.report.Report;
 import de.thm.reportify.report.Report.Priority;
+import de.thm.reportify.report.Report.Shift;
 import de.thm.reportify.report.ReportService;
 
 @Controller
@@ -35,6 +36,7 @@ public class ReportController {
     @GetMapping("/new")
     public String showCreateForm(Model model) {
         model.addAttribute("priorities", Priority.values());
+        model.addAttribute("shifts", Shift.values());
         return "reports/form";
     }
 
@@ -42,6 +44,7 @@ public class ReportController {
     public String create(
             @RequestParam String title,
             @RequestParam String content,
+            @RequestParam Shift shift,
             @RequestParam(defaultValue = "MITTEL") Priority priority,
             Principal principal,
             Model model,
@@ -55,6 +58,7 @@ public class ReportController {
             Report report = reportService.create(
                     title,
                     content,
+                    shift,
                     priority,
                     username);
 
@@ -67,8 +71,10 @@ public class ReportController {
             model.addAttribute("errorMessage", exception.getMessage());
             model.addAttribute("title", title);
             model.addAttribute("content", content);
+            model.addAttribute("selectedShift", shift);
             model.addAttribute("selectedPriority", priority);
             model.addAttribute("priorities", Priority.values());
+            model.addAttribute("shifts", Shift.values());
 
             return "reports/form";
         }

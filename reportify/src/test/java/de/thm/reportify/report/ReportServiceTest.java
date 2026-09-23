@@ -19,6 +19,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import de.thm.reportify.report.Report.Priority;
+import de.thm.reportify.report.Report.Shift;
 import de.thm.reportify.report.Report.Status;
 
 @ExtendWith(MockitoExtension.class)
@@ -57,14 +58,32 @@ class ReportServiceTest {
         Report createdReport = reportService.create(
                 "  Übergabe Frühschicht  ",
                 "  Maschine kontrollieren  ",
+                Shift.FRUEHSCHICHT,
                 null,
                 "mitarbeiter");
 
         assertEquals("Übergabe Frühschicht", createdReport.getTitle());
         assertEquals("Maschine kontrollieren", createdReport.getContent());
         assertEquals(Priority.MITTEL, createdReport.getPriority());
+        assertEquals(Shift.FRUEHSCHICHT, createdReport.getShift());
         verify(reportRepository).save(createdReport);
     }
+
+    @Test
+    void createRejectsMissingShift() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> reportService.create(
+                        "Übergabe",
+                        "Maschine kontrollieren",
+                        null,
+                        Priority.MITTEL,
+                        "mitarbeiter"));
+
+        assertEquals(
+                "Bitte wählen Sie eine Schicht aus.",
+                exception.getMessage());
+     }
 
     @Test
     void createRejectsBlankTitle() {
@@ -73,6 +92,7 @@ class ReportServiceTest {
                 () -> reportService.create(
                         "   ",
                         "Inhalt",
+                        Shift.FRUEHSCHICHT,
                         Priority.HOCH,
                         "mitarbeiter"));
 
@@ -86,6 +106,7 @@ class ReportServiceTest {
                 () -> reportService.create(
                         "Übergabe",
                         "   ",
+                        Shift.FRUEHSCHICHT,
                         Priority.NIEDRIG,
                         "mitarbeiter"));
 
