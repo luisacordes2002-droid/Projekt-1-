@@ -107,6 +107,85 @@ public class ReportController {
                 });
     }
 
+    @GetMapping("/{id}/edit")
+public String showEditForm(
+        @PathVariable Long id,
+        Model model,
+        RedirectAttributes redirectAttributes) {
+
+    return reportService.findById(id)
+            .map(report -> {
+                model.addAttribute("reportId", report.getId());
+                model.addAttribute("title", report.getTitle());
+                model.addAttribute("content", report.getContent());
+                model.addAttribute(
+                        "selectedShift",
+                        report.getShift());
+                model.addAttribute(
+                        "selectedPriority",
+                        report.getPriority());
+                model.addAttribute("shifts", Shift.values());
+                model.addAttribute(
+                        "priorities",
+                        Priority.values());
+                model.addAttribute("editMode", true);
+
+                return "reports/form";
+            })
+            .orElseGet(() -> {
+                redirectAttributes.addFlashAttribute(
+                        "errorMessage",
+                        "Der Report wurde nicht gefunden.");
+
+                return "redirect:/reports";
+            });
+}
+
+@PostMapping("/{id}/edit")
+public String update(
+        @PathVariable Long id,
+        @RequestParam String title,
+        @RequestParam String content,
+        @RequestParam Shift shift,
+        @RequestParam(defaultValue = "MITTEL")
+        Priority priority,
+        Model model,
+        RedirectAttributes redirectAttributes) {
+
+    try {
+        reportService.update(
+                id,
+                title,
+                content,
+                shift,
+                priority);
+
+        redirectAttributes.addFlashAttribute(
+                "successMessage",
+                "Der Report wurde erfolgreich bearbeitet.");
+
+        return "redirect:/reports/" + id;
+    } catch (IllegalArgumentException exception) {
+        model.addAttribute(
+                "errorMessage",
+                exception.getMessage());
+        model.addAttribute("reportId", id);
+        model.addAttribute("title", title);
+        model.addAttribute("content", content);
+        model.addAttribute("selectedShift", shift);
+        model.addAttribute(
+                "selectedPriority",
+                priority);
+        model.addAttribute("shifts", Shift.values());
+        model.addAttribute(
+                "priorities",
+                Priority.values());
+        model.addAttribute("editMode", true);
+
+        return "reports/form";
+    }
+}
+
     @PostMapping("/{id}/complete")
     public String markAsCompleted(
             @PathVariable Long id,

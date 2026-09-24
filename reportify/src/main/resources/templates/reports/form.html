@@ -177,7 +177,12 @@
 
 <main>
     <section class="form-card">
-        <h2>Neuen Report erstellen</h2>
+       <h2
+    th:text="${editMode == true}
+        ? 'Report bearbeiten'
+        : 'Neuen Report erstellen'">
+    Neuen Report erstellen
+</h2>
 
         <p class="intro">
             Erfasse die wichtigsten Informationen für die nächste Schicht.
@@ -189,7 +194,11 @@
             th:text="${errorMessage}">
         </div>
 
-        <form th:action="@{/reports}" method="post">
+       <form
+    th:action="${editMode == true}
+        ? @{/reports/{id}/edit(id=${reportId})}
+        : @{/reports}"
+    method="post">
             <input
                 type="hidden"
                 th:name="${_csrf.parameterName}"
@@ -266,17 +275,22 @@
             </div>
 
             <div class="actions">
-                <a
-                    class="button button-secondary"
-                    th:href="@{/reports}">
-                    Abbrechen
-                </a>
+            <a
+                class="button button-secondary"
+                th:href="${editMode == true}
+                    ? @{/reports/{id}(id=${reportId})}
+                    : @{/reports}">
+                Abbrechen
+            </a>
 
-                <button
-                    class="button button-primary"
-                    type="submit">
-                    Report speichern
-                </button>
+               <button
+    class="button button-primary"
+    type="submit"
+    th:text="${editMode == true}
+        ? 'Änderungen speichern'
+        : 'Report speichern'">
+    Report speichern
+</button>
             </div>
         </form>
     </section>

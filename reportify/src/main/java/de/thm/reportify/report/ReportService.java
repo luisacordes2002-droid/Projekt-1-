@@ -64,6 +64,48 @@ public class ReportService {
     }
 
     @Transactional
+     public Report update(
+             Long id,
+             String title,
+             String content,
+             Shift shift,
+             Priority priority) {
+
+         Report report = reportRepository.findById(id)
+                 .orElseThrow(() -> new IllegalArgumentException(
+                    "Der Report wurde nicht gefunden."));
+                    String cleanTitle = requireText(
+                           title,
+                           "Der Titel darf nicht leer sein.");
+
+String cleanContent = requireText(
+        content,
+        "Der Inhalt darf nicht leer sein.");
+
+if (shift == null) {
+    throw new IllegalArgumentException(
+            "Bitte wählen Sie eine Schicht aus.");
+}
+
+if (cleanTitle.length() > 120) {
+    throw new IllegalArgumentException(
+            "Der Titel darf höchstens 120 Zeichen enthalten.");
+}
+
+if (cleanContent.length() > 4000) {
+    throw new IllegalArgumentException(
+            "Der Inhalt darf höchstens 4000 Zeichen enthalten.");
+}
+report.setTitle(cleanTitle);
+report.setContent(cleanContent);
+report.setShift(shift);
+report.setPriority(
+        priority == null ? Priority.MITTEL : priority);
+
+return reportRepository.save(report);
+}
+
+    @Transactional
     public Report markAsCompleted(Long id) {
         Report report = reportRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(
