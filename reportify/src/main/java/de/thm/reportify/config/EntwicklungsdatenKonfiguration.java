@@ -52,6 +52,11 @@ public class EntwicklungsdatenKonfiguration {
 
 if (vorhandenerNutzer != null) {
     vorhandenerNutzer.setRolle(rolle);
+    if (passwordEncoder.matches(
+            DEMO_PASSWORT,
+            vorhandenerNutzer.getPasswortNachweis())) {
+        vorhandenerNutzer.forderePasswortwechsel();
+    }
     nutzerRepository.save(vorhandenerNutzer);
     return;
 }
