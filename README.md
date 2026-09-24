@@ -16,6 +16,7 @@ Bereits umgesetzt sind:
 - lokale H2-Datenbank
 - automatische Tests für zentrale Authentifizierungsbestandteile
 - Reportübersicht und Reportdetailansicht
+- getrennte Darstellung der aktuellen Übergabe und der Report-Historie
 - Erstellen von Schichtreports mit Priorität
 - Bearbeiten gespeicherter Schichtreports
 - Auswahl und Anzeige der Schicht (Früh-, Spät- oder Nachtschicht)
