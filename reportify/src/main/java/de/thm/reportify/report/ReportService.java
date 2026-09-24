@@ -29,80 +29,119 @@ public class ReportService {
     }
 
     @Transactional
-    public Report create(
-            String title,
-            String content,
-            Shift shift,
-            Priority priority,
-            String createdBy) {
+public Report create(
+        String completedTasks,
+        String openTasks,
+        String problemsIncidents,
+        String importantNotes,
+        Shift shift,
+        Priority priority,
+        String createdBy) {
 
-        String cleanTitle = requireText(title, "Der Titel darf nicht leer sein.");
-        String cleanContent = requireText(content, "Der Inhalt darf nicht leer sein.");
-        if (shift == null) {
-            throw new IllegalArgumentException(
+    String cleanCompletedTasks = requireText(
+            completedTasks,
+            "Erledigte Aufgaben dürfen nicht leer sein.");
+
+    String cleanOpenTasks = optionalText(openTasks);
+    String cleanProblemsIncidents =
+            optionalText(problemsIncidents);
+    String cleanImportantNotes =
+            optionalText(importantNotes);
+
+    if (shift == null) {
+        throw new IllegalArgumentException(
                 "Bitte wählen Sie eine Schicht aus.");
-        }
-
-        if (cleanTitle.length() > 120) {
-            throw new IllegalArgumentException(
-                    "Der Titel darf höchstens 120 Zeichen enthalten.");
-        }
-
-        if (cleanContent.length() > 4000) {
-            throw new IllegalArgumentException(
-                    "Der Inhalt darf höchstens 4000 Zeichen enthalten.");
-        }
-
-        Report report = new Report(
-                cleanTitle,
-                cleanContent,
-                shift,
-                priority == null ? Priority.MITTEL : priority,
-                createdBy);
-
-        return reportRepository.save(report);
     }
 
+    validateReportText(
+            cleanCompletedTasks,
+            "Erledigte Aufgaben");
+    validateReportText(
+            cleanOpenTasks,
+            "Offene Aufgaben");
+    validateReportText(
+            cleanProblemsIncidents,
+            "Probleme und Incidents");
+    validateReportText(
+            cleanImportantNotes,
+            "Wichtige Hinweise");
+
+    if (cleanProblemsIncidents != null
+            && priority == null) {
+        throw new IllegalArgumentException(
+                "Bitte wählen Sie für Probleme oder Incidents "
+                        + "eine Priorität aus.");
+    }
+
+    Report report = new Report(
+            cleanCompletedTasks,
+            cleanOpenTasks,
+            cleanProblemsIncidents,
+            cleanImportantNotes,
+            shift,
+            priority,
+            createdBy);
+
+    return reportRepository.save(report);
+}
+
     @Transactional
-     public Report update(
-             Long id,
-             String title,
-             String content,
-             Shift shift,
-             Priority priority) {
+public Report update(
+        Long id,
+        String completedTasks,
+        String openTasks,
+        String problemsIncidents,
+        String importantNotes,
+        Shift shift,
+        Priority priority) {
 
-         Report report = reportRepository.findById(id)
-                 .orElseThrow(() -> new IllegalArgumentException(
+    Report report = reportRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException(
                     "Der Report wurde nicht gefunden."));
-                    String cleanTitle = requireText(
-                           title,
-                           "Der Titel darf nicht leer sein.");
 
-String cleanContent = requireText(
-        content,
-        "Der Inhalt darf nicht leer sein.");
+    String cleanCompletedTasks = requireText(
+            completedTasks,
+            "Erledigte Aufgaben dürfen nicht leer sein.");
 
-if (shift == null) {
-    throw new IllegalArgumentException(
-            "Bitte wählen Sie eine Schicht aus.");
-}
+    String cleanOpenTasks = optionalText(openTasks);
+    String cleanProblemsIncidents =
+            optionalText(problemsIncidents);
+    String cleanImportantNotes =
+            optionalText(importantNotes);
 
-if (cleanTitle.length() > 120) {
-    throw new IllegalArgumentException(
-            "Der Titel darf höchstens 120 Zeichen enthalten.");
-}
+    if (shift == null) {
+        throw new IllegalArgumentException(
+                "Bitte wählen Sie eine Schicht aus.");
+    }
 
-if (cleanContent.length() > 4000) {
-    throw new IllegalArgumentException(
-            "Der Inhalt darf höchstens 4000 Zeichen enthalten.");
-}
-report.setTitle(cleanTitle);
-report.setContent(cleanContent);
-report.setShift(shift);
-report.setPriority(
-        priority == null ? Priority.MITTEL : priority);
+    validateReportText(
+            cleanCompletedTasks,
+            "Erledigte Aufgaben");
+    validateReportText(
+            cleanOpenTasks,
+            "Offene Aufgaben");
+    validateReportText(
+            cleanProblemsIncidents,
+            "Probleme und Incidents");
+    validateReportText(
+            cleanImportantNotes,
+            "Wichtige Hinweise");
 
-return reportRepository.save(report);
+    if (cleanProblemsIncidents != null
+            && priority == null) {
+        throw new IllegalArgumentException(
+                "Bitte wählen Sie für Probleme oder Incidents "
+                        + "eine Priorität aus.");
+    }
+
+    report.setCompletedTasks(cleanCompletedTasks);
+    report.setOpenTasks(cleanOpenTasks);
+    report.setProblemsIncidents(cleanProblemsIncidents);
+    report.setImportantNotes(cleanImportantNotes);
+    report.setShift(shift);
+    report.setPriority(priority);
+
+    return reportRepository.save(report);
 }
 
     @Transactional
@@ -122,6 +161,25 @@ return reportRepository.save(report);
 
         reportRepository.delete(report);
     }
+
+    private String optionalText(String value) {
+    if (value == null || value.isBlank()) {
+        return null;
+    }
+
+    return value.trim();
+}
+
+private void validateReportText(
+        String value,
+        String fieldName) {
+
+    if (value != null && value.length() > 4000) {
+        throw new IllegalArgumentException(
+                fieldName
+                        + " dürfen höchstens 4000 Zeichen enthalten.");
+    }
+}
     private String requireText(String value, String errorMessage) {
         if (value == null || value.isBlank()) {
             throw new IllegalArgumentException(errorMessage);

@@ -204,36 +204,50 @@
                 th:name="${_csrf.parameterName}"
                 th:value="${_csrf.token}">
 
-            <div class="field">
-                <label for="title">Titel</label>
+           <div class="field">
+    <label for="completedTasks">
+        Erledigte Aufgaben *
+    </label>
 
-                <input
-                    id="title"
-                    name="title"
-                    type="text"
-                    maxlength="120"
-                    required
-                    autofocus
-                    placeholder="Zum Beispiel: Übergabe Spätschicht"
-                    th:value="${title}">
+    <textarea
+        id="completedTasks"
+        name="completedTasks"
+        maxlength="4000"
+        required
+        autofocus
+        placeholder="Welche Aufgaben wurden während der Schicht erledigt?"
+        th:text="${completedTasks}"></textarea>
 
-                <span class="help">
-                    Maximal 120 Zeichen.
-                </span>
-            </div>
+    <span class="help">
+        Pflichtfeld. Maximal 4000 Zeichen.
+    </span>
+</div>
 
-            <div class="field">
-                <label for="priority">Priorität</label>
+           <div class="field">
+    <label for="priority">
+        Priorität bei Problemen oder Incidents
+    </label>
 
-                <select id="priority" name="priority" required>
-                    <option
-                        th:each="priority : ${priorities}"
-                        th:value="${priority}"
-                        th:text="${priority}"
-                        th:selected="${(selectedPriority == null and priority.name() == 'MITTEL') or selectedPriority == priority}"
-                    </option>
-                </select>
-            </div>
+    <select id="priority" name="priority">
+        <option
+            value=""
+            th:selected="${selectedPriority == null}">
+            Keine Priorität
+        </option>
+
+        <option
+            th:each="priority : ${priorities}"
+            th:value="${priority}"
+            th:text="${priority}"
+            th:selected="${selectedPriority == priority}">
+        </option>
+    </select>
+
+    <span class="help">
+        Nur erforderlich, wenn Probleme oder Incidents
+        eingetragen wurden.
+    </span>
+</div>
             <div class="field">
     <label for="shift">Schicht</label>
 
@@ -259,20 +273,54 @@
 </div>
 
             <div class="field">
-                <label for="content">Inhalt der Übergabe</label>
+    <label for="openTasks">Offene Aufgaben</label>
 
-                <textarea
-                    id="content"
-                    name="content"
-                    maxlength="4000"
-                    required
-                    placeholder="Offene Aufgaben, Probleme und wichtige Hinweise..."
-                    th:text="${content}"></textarea>
+    <textarea
+        id="openTasks"
+        name="openTasks"
+        maxlength="4000"
+        placeholder="Welche Aufgaben muss die nächste Schicht fortführen?"
+        th:text="${openTasks}"></textarea>
 
-                <span class="help">
-                    Maximal 4000 Zeichen.
-                </span>
-            </div>
+    <span class="help">
+        Optional. Maximal 4000 Zeichen.
+    </span>
+</div>
+
+<div class="field">
+    <label for="problemsIncidents">
+        Probleme und Incidents
+    </label>
+
+    <textarea
+        id="problemsIncidents"
+        name="problemsIncidents"
+        maxlength="4000"
+        placeholder="Welche Probleme oder Incidents sind aufgetreten?"
+        th:text="${problemsIncidents}"></textarea>
+
+    <span class="help">
+        Optional. Bei einem Eintrag muss eine Priorität
+        ausgewählt werden.
+    </span>
+</div>
+
+<div class="field">
+    <label for="importantNotes">
+        Wichtige Hinweise
+    </label>
+
+    <textarea
+        id="importantNotes"
+        name="importantNotes"
+        maxlength="4000"
+        placeholder="Welche Hinweise sind für die nächste Schicht wichtig?"
+        th:text="${importantNotes}"></textarea>
+
+    <span class="help">
+        Optional. Maximal 4000 Zeichen.
+    </span>
+</div>
 
             <div class="actions">
             <a

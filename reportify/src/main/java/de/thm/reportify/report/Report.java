@@ -41,22 +41,27 @@ public class Report {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 120)
-    private String title;
+   @Column(nullable = false, length = 4000)
+        private String completedTasks;
 
-    @Column(nullable = false, length = 4000)
-    private String content;
+@Column(length = 4000)
+        private String openTasks;
+
+@Column(length = 4000)
+        private String problemsIncidents;
+
+@Column(length = 4000)
+        private String importantNotes;
 
     @Enumerated(EnumType.STRING)
     @Column(
             nullable = false,
             length = 20,
             columnDefinition = "varchar(20) default 'FRUEHSCHICHT'")
-    private Shift shift = Shift.FRUEHSCHICHT;
+    private Shift shift;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
-    private Priority priority = Priority.MITTEL;
+    @Column(length = 20)
+        private Priority priority;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
@@ -71,26 +76,28 @@ public class Report {
     protected Report() {
     }
 
-    public Report(String title,String content,Shift shift,Priority priority,String createdBy) {
-        this.title = title;
-        this.content = content;
+    public Report(
+            String completedTasks,
+            String openTasks,
+            String problemsIncidents,
+            String importantNotes,
+            Shift shift,
+            Priority priority,
+            String createdBy) {
+
+        this.completedTasks = completedTasks;
+        this.openTasks = openTasks;
+        this.problemsIncidents = problemsIncidents;
+        this.importantNotes = importantNotes;
         this.shift = shift;
         this.priority = priority;
         this.createdBy = createdBy;
-    }
+}
 
     @PrePersist
     void prepareForInsert() {
         if (createdAt == null) {
             createdAt = LocalDateTime.now();
-        }
-
-        if (shift == null) {
-            shift = Shift.FRUEHSCHICHT;
-        }
-
-        if (priority == null) {
-            priority = Priority.MITTEL;
         }
 
         if (status == null) {
@@ -106,21 +113,37 @@ public class Report {
         return id;
     }
 
-    public String getTitle() {
-        return title;
-    }
+   public String getCompletedTasks() {
+        return completedTasks;
+}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+public void setCompletedTasks(String completedTasks) {
+    this.completedTasks = completedTasks;
+}
 
-    public String getContent() {
-        return content;
-    }
+public String getOpenTasks() {
+    return openTasks;
+}
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+public void setOpenTasks(String openTasks) {
+    this.openTasks = openTasks;
+}
+
+public String getProblemsIncidents() {
+    return problemsIncidents;
+}
+
+public void setProblemsIncidents(String problemsIncidents) {
+    this.problemsIncidents = problemsIncidents;
+}
+
+public String getImportantNotes() {
+    return importantNotes;
+}
+
+public void setImportantNotes(String importantNotes) {
+    this.importantNotes = importantNotes;
+}
 
     public Shift getShift() {
         return shift;

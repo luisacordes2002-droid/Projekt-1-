@@ -98,34 +98,48 @@ class ReportControllerTest {
     }
 
     @Test
-    void createRedirectsToCreatedReport() throws Exception {
-        Report report = mock(Report.class);
+void createRedirectsToCreatedReport() throws Exception {
+    Report report = mock(Report.class);
 
-        when(report.getId()).thenReturn(7L);
-        when(reportService.create(
-                "Übergabe",
-                "Maschine kontrollieren",
-                Shift.FRUEHSCHICHT,
-                Priority.HOCH,
-                "mitarbeiter"))
-                .thenReturn(report);
+    when(report.getId()).thenReturn(7L);
+    when(reportService.create(
+            "Maschine kontrolliert",
+            "Dokumentation ergänzen",
+            "Sensor ausgefallen",
+            "Ersatzteil bestellt",
+            Shift.FRUEHSCHICHT,
+            Priority.HOCH,
+            "mitarbeiter"))
+            .thenReturn(report);
 
-        mockMvc.perform(post("/reports")
-                        .principal(() -> "mitarbeiter")
-                        .param("title", "Übergabe")
-                        .param("content", "Maschine kontrollieren")
-                        .param("shift", "FRUEHSCHICHT")
-                        .param("priority", "HOCH"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/reports/7"));
+    mockMvc.perform(post("/reports")
+                    .principal(() -> "mitarbeiter")
+                    .param(
+                            "completedTasks",
+                            "Maschine kontrolliert")
+                    .param(
+                            "openTasks",
+                            "Dokumentation ergänzen")
+                    .param(
+                            "problemsIncidents",
+                            "Sensor ausgefallen")
+                    .param(
+                            "importantNotes",
+                            "Ersatzteil bestellt")
+                    .param("shift", "FRUEHSCHICHT")
+                    .param("priority", "HOCH"))
+            .andExpect(status().is3xxRedirection())
+            .andExpect(redirectedUrl("/reports/7"));
 
-        verify(reportService).create(
-                "Übergabe",
-                "Maschine kontrollieren",
-                Shift.FRUEHSCHICHT,
-                Priority.HOCH,
-                "mitarbeiter");
-    }
+    verify(reportService).create(
+            "Maschine kontrolliert",
+            "Dokumentation ergänzen",
+            "Sensor ausgefallen",
+            "Ersatzteil bestellt",
+            Shift.FRUEHSCHICHT,
+            Priority.HOCH,
+            "mitarbeiter");
+}
 
     @Test
     void deleteRedirectsToListAndShowsSuccessMessage()
@@ -159,13 +173,20 @@ void deleteRedirectsToDetailAndShowsErrorMessage()
 }
 
 @Test
-void showEditFormDisplaysExistingReport() throws Exception {
+void showEditFormDisplaysExistingReport()
+        throws Exception {
+
     Report report = mock(Report.class);
 
     when(report.getId()).thenReturn(7L);
-    when(report.getTitle()).thenReturn("Übergabe");
-    when(report.getContent())
-            .thenReturn("Maschine kontrollieren");
+    when(report.getCompletedTasks())
+            .thenReturn("Maschine kontrolliert");
+    when(report.getOpenTasks())
+            .thenReturn("Dokumentation ergänzen");
+    when(report.getProblemsIncidents())
+            .thenReturn("Sensor ausgefallen");
+    when(report.getImportantNotes())
+            .thenReturn("Ersatzteil bestellt");
     when(report.getShift())
             .thenReturn(Shift.FRUEHSCHICHT);
     when(report.getPriority())
@@ -181,11 +202,17 @@ void showEditFormDisplaysExistingReport() throws Exception {
                     "reportId",
                     7L))
             .andExpect(model().attribute(
-                    "title",
-                    "Übergabe"))
+                    "completedTasks",
+                    "Maschine kontrolliert"))
             .andExpect(model().attribute(
-                    "content",
-                    "Maschine kontrollieren"))
+                    "openTasks",
+                    "Dokumentation ergänzen"))
+            .andExpect(model().attribute(
+                    "problemsIncidents",
+                    "Sensor ausgefallen"))
+            .andExpect(model().attribute(
+                    "importantNotes",
+                    "Ersatzteil bestellt"))
             .andExpect(model().attribute(
                     "selectedShift",
                     Shift.FRUEHSCHICHT))
@@ -200,12 +227,22 @@ void showEditFormDisplaysExistingReport() throws Exception {
 }
 
 @Test
-void updateRedirectsToEditedReport() throws Exception {
+void updateRedirectsToEditedReport()
+        throws Exception {
+
     mockMvc.perform(post("/reports/7/edit")
-                    .param("title", "Neue Übergabe")
                     .param(
-                            "content",
-                            "Maschine wurde kontrolliert")
+                            "completedTasks",
+                            "Maschine kontrolliert")
+                    .param(
+                            "openTasks",
+                            "Dokumentation ergänzen")
+                    .param(
+                            "problemsIncidents",
+                            "Sensor ausgefallen")
+                    .param(
+                            "importantNotes",
+                            "Ersatzteil bestellt")
                     .param("shift", "SPAETSCHICHT")
                     .param("priority", "HOCH"))
             .andExpect(status().is3xxRedirection())
@@ -216,8 +253,10 @@ void updateRedirectsToEditedReport() throws Exception {
 
     verify(reportService).update(
             7L,
-            "Neue Übergabe",
-            "Maschine wurde kontrolliert",
+            "Maschine kontrolliert",
+            "Dokumentation ergänzen",
+            "Sensor ausgefallen",
+            "Ersatzteil bestellt",
             Shift.SPAETSCHICHT,
             Priority.HOCH);
 }

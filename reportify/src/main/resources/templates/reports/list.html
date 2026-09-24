@@ -289,7 +289,11 @@
             th:classappend="${report.status.name() == 'ERLEDIGT' ? ' done' : ''}">
             <div class="report-top">
                 <div>
-                    <h3 th:text="${report.title}">Report-Titel</h3>
+                    <h3
+    th:text="${'Schichtübergabe vom '
+        + report.formattedCreatedAt}">
+    Schichtübergabe
+</h3>
 
                     <div class="badges">
                         <span

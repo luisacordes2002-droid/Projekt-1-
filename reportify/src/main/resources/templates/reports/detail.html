@@ -228,11 +228,16 @@
 
     <article class="report-card">
         <div class="title-row">
-            <h2 th:text="${report.title}">Report-Titel</h2>
+           <h2
+    th:text="${'Schichtübergabe vom '
+        + report.formattedCreatedAt}">
+    Schichtübergabe
+</h2>
 
             <div class="badges">
                 <span
                     class="badge"
+                    th:if="${report.priority != null}"
                     th:text="'Priorität: ' + ${report.priority}">
                     Priorität
                 </span>
@@ -254,27 +259,53 @@
             </div>
         </div>
 
-        <section class="meta">
-            <div>
-                <span class="meta-label">Erstellt von</span>
-                <span th:text="${report.createdBy}">Benutzername</span>
-            </div>
-
-            <div>
-                <span class="meta-label">Erstellt am</span>
-                <span th:text="${report.formattedCreatedAt}">Zeitpunkt</span>
-            </div>
-        </section>
-
         <section>
-            <span class="meta-label">Übergabe und Hinweise</span>
+    <span class="meta-label">
+        Erledigte Aufgaben
+    </span>
 
-            <div
-                class="content"
-                th:text="${report.content}">
-                Inhalt des Reports
-            </div>
-        </section>
+    <div
+        class="content"
+        th:text="${report.completedTasks}">
+        Erledigte Aufgaben
+    </div>
+</section>
+
+<section th:if="${report.openTasks != null}">
+    <span class="meta-label">
+        Offene Aufgaben
+    </span>
+
+    <div
+        class="content"
+        th:text="${report.openTasks}">
+        Offene Aufgaben
+    </div>
+</section>
+
+<section th:if="${report.problemsIncidents != null}">
+    <span class="meta-label">
+        Probleme und Incidents
+    </span>
+
+    <div
+        class="content"
+        th:text="${report.problemsIncidents}">
+        Probleme und Incidents
+    </div>
+</section>
+
+<section th:if="${report.importantNotes != null}">
+    <span class="meta-label">
+        Wichtige Hinweise
+    </span>
+
+    <div
+        class="content"
+        th:text="${report.importantNotes}">
+        Wichtige Hinweise
+    </div>
+</section>
 
         <div class="actions">
             <a
