@@ -41,20 +41,38 @@ class ReportControllerTest {
                 .build();
     }
 
-    @Test
-    void listShowsAllReports() throws Exception {
-        Report report = mock(Report.class);
-        List<Report> reports = List.of(report);
+   @Test
+    void listShowsCurrentReportAndHistory() throws Exception {
+    Report currentReport = mock(Report.class);
+    Report olderReportOne = mock(Report.class);
+    Report olderReportTwo = mock(Report.class);
 
-        when(reportService.findAll()).thenReturn(reports);
+    List<Report> reports = List.of(
+            currentReport,
+            olderReportOne,
+            olderReportTwo);
 
-        mockMvc.perform(get("/reports"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("reports/list"))
-                .andExpect(model().attribute("reports", reports));
+    List<Report> historyReports = List.of(
+            olderReportOne,
+            olderReportTwo);
 
-        verify(reportService).findAll();
-    }
+    when(reportService.findAll()).thenReturn(reports);
+
+    mockMvc.perform(get("/reports"))
+            .andExpect(status().isOk())
+            .andExpect(view().name("reports/list"))
+            .andExpect(model().attribute(
+                    "reports",
+                    reports))
+            .andExpect(model().attribute(
+                    "currentReport",
+                    currentReport))
+            .andExpect(model().attribute(
+                    "historyReports",
+                    historyReports));
+
+    verify(reportService).findAll();
+}
 
     @Test
     void newReportShowsFormAndPriorities() throws Exception {

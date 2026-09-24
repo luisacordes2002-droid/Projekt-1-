@@ -131,6 +131,19 @@
             gap: 16px;
         }
 
+        .section-title {
+            grid-column: 1 / -1;
+            margin: 0;
+            color: #17324d;
+            font-size: 22px;
+        }
+
+        .history-title {
+            margin-top: 18px;
+            padding-top: 24px;
+            border-top: 1px solid #dbe2ea;
+        }
+
         .report-card {
             display: block;
             border: 1px solid #dbe2ea;
@@ -251,13 +264,29 @@
         </a>
     </section>
 
-    <section class="report-list" th:unless="${#lists.isEmpty(reports)}">
+  <section
+    class="report-list"
+    th:unless="${#lists.isEmpty(reports)}">
+
+    <th:block
+        th:each="report, reportState : ${reports}">
+
+        <h2
+            class="section-title"
+            th:if="${reportState.first}">
+            Aktuelle Übergabe
+        </h2>
+
+        <h2
+            class="section-title history-title"
+            th:if="${reportState.index == 1}">
+            Report-Historie
+        </h2>
+
         <a
             class="report-card"
-            th:each="report : ${reports}"
             th:href="@{/reports/{id}(id=${report.id})}"
             th:classappend="${report.status.name() == 'ERLEDIGT' ? ' done' : ''}">
-
             <div class="report-top">
                 <div>
                     <h3 th:text="${report.title}">Report-Titel</h3>
@@ -299,6 +328,7 @@
                 Erstellt von
             </div>
         </a>
+        </th:block>
     </section>
 </main>
 </body>

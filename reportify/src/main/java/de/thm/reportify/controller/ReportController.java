@@ -27,11 +27,22 @@ public class ReportController {
         this.reportService = reportService;
     }
 
-    @GetMapping
-    public String list(Model model) {
-        model.addAttribute("reports", reportService.findAll());
-        return "reports/list";
-    }
+   @GetMapping
+public String list(Model model) {
+    var reports = reportService.findAll();
+
+    model.addAttribute("reports", reports);
+    model.addAttribute(
+            "currentReport",
+            reports.isEmpty() ? null : reports.get(0));
+    model.addAttribute(
+            "historyReports",
+            reports.subList(
+                    Math.min(1, reports.size()),
+                    reports.size()));
+
+    return "reports/list";
+}
 
     @GetMapping("/new")
     public String showCreateForm(Model model) {
