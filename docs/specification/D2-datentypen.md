@@ -251,7 +251,7 @@ Dieser Datentyp wird verwendet für:
 - Zeilenumbrüche sind zulässig.
 - HTML- oder Skriptcode darf nicht als ausführbarer Inhalt interpretiert werden.
 - Passwörter und andere Zugangsdaten dürfen nicht in Report-Texten erfasst werden.
-- Mindestens eines der fachlichen Report-Felder muss Inhalt besitzen.
+- Das Feld „Erledigte Aufgaben“ muss Inhalt besitzen; die übrigen fachlichen Report-Felder sind optional.
 
 ## 14. DT-12 – ZeitpunktDT
 

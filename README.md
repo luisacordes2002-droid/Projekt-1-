@@ -17,7 +17,7 @@ Bereits umgesetzt sind:
 - automatische Tests für zentrale Authentifizierungsbestandteile
 - Reportübersicht und Reportdetailansicht
 - getrennte Darstellung der aktuellen Übergabe und der Report-Historie
-- Erstellen von Schichtreports mit Priorität
+- Erstellen strukturierter Schichtreports mit erledigten und offenen Aufgaben, Problemen/Incidents,   wichtigen Hinweisen und bedingter Priorität
 - Bearbeiten gespeicherter Schichtreports
 - Auswahl und Anzeige der Schicht (Früh-, Spät- oder Nachtschicht)
 - Kennzeichnen von Reports als erledigt

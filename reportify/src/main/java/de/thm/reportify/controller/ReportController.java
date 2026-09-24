@@ -51,47 +51,68 @@ public String list(Model model) {
         return "reports/form";
     }
 
-    @PostMapping
-    public String create(
-            @RequestParam String title,
-            @RequestParam String content,
-            @RequestParam Shift shift,
-            @RequestParam(defaultValue = "MITTEL") Priority priority,
-            Principal principal,
-            Model model,
-            RedirectAttributes redirectAttributes) {
+   @PostMapping
+public String create(
+        @RequestParam String completedTasks,
+        @RequestParam(defaultValue = "")
+        String openTasks,
+        @RequestParam(defaultValue = "")
+        String problemsIncidents,
+        @RequestParam(defaultValue = "")
+        String importantNotes,
+        @RequestParam Shift shift,
+        @RequestParam(required = false)
+        Priority priority,
+        Principal principal,
+        Model model,
+        RedirectAttributes redirectAttributes) {
 
-        try {
-            String username = principal == null
-                    ? "unbekannt"
-                    : principal.getName();
+    try {
+        String username = principal == null
+                ? "unbekannt"
+                : principal.getName();
 
-            Report report = reportService.create(
-                    title,
-                    content,
-                    shift,
-                    priority,
-                    username);
+        Report report = reportService.create(
+                completedTasks,
+                openTasks,
+                problemsIncidents,
+                importantNotes,
+                shift,
+                priority,
+                username);
 
-            redirectAttributes.addFlashAttribute(
-                    "successMessage",
-                    "Der Report wurde erfolgreich erstellt.");
+        redirectAttributes.addFlashAttribute(
+                "successMessage",
+                "Der Report wurde erfolgreich erstellt.");
 
-            return "redirect:/reports/" + report.getId();
-        } catch (IllegalArgumentException exception) {
-            model.addAttribute("errorMessage", exception.getMessage());
-            model.addAttribute("title", title);
-            model.addAttribute("content", content);
-            model.addAttribute("selectedShift", shift);
-            model.addAttribute("selectedPriority", priority);
-            model.addAttribute("priorities", Priority.values());
-            model.addAttribute("shifts", Shift.values());
+        return "redirect:/reports/" + report.getId();
+    } catch (IllegalArgumentException exception) {
+        model.addAttribute(
+                "errorMessage",
+                exception.getMessage());
+        model.addAttribute(
+                "completedTasks",
+                completedTasks);
+        model.addAttribute("openTasks", openTasks);
+        model.addAttribute(
+                "problemsIncidents",
+                problemsIncidents);
+        model.addAttribute(
+                "importantNotes",
+                importantNotes);
+        model.addAttribute("selectedShift", shift);
+        model.addAttribute(
+                "selectedPriority",
+                priority);
+        model.addAttribute(
+                "priorities",
+                Priority.values());
+        model.addAttribute("shifts", Shift.values());
 
-            return "reports/form";
-        }
+        return "reports/form";
     }
-
-    @GetMapping("/{id}")
+}
+@GetMapping("/{id}")
     public String detail(
             @PathVariable Long id,
             Model model,
@@ -118,7 +139,7 @@ public String list(Model model) {
                 });
     }
 
-    @GetMapping("/{id}/edit")
+   @GetMapping("/{id}/edit")
 public String showEditForm(
         @PathVariable Long id,
         Model model,
@@ -126,16 +147,30 @@ public String showEditForm(
 
     return reportService.findById(id)
             .map(report -> {
-                model.addAttribute("reportId", report.getId());
-                model.addAttribute("title", report.getTitle());
-                model.addAttribute("content", report.getContent());
+                model.addAttribute(
+                        "reportId",
+                        report.getId());
+                model.addAttribute(
+                        "completedTasks",
+                        report.getCompletedTasks());
+                model.addAttribute(
+                        "openTasks",
+                        report.getOpenTasks());
+                model.addAttribute(
+                        "problemsIncidents",
+                        report.getProblemsIncidents());
+                model.addAttribute(
+                        "importantNotes",
+                        report.getImportantNotes());
                 model.addAttribute(
                         "selectedShift",
                         report.getShift());
                 model.addAttribute(
                         "selectedPriority",
                         report.getPriority());
-                model.addAttribute("shifts", Shift.values());
+                model.addAttribute(
+                        "shifts",
+                        Shift.values());
                 model.addAttribute(
                         "priorities",
                         Priority.values());
@@ -155,10 +190,15 @@ public String showEditForm(
 @PostMapping("/{id}/edit")
 public String update(
         @PathVariable Long id,
-        @RequestParam String title,
-        @RequestParam String content,
+        @RequestParam String completedTasks,
+        @RequestParam(defaultValue = "")
+        String openTasks,
+        @RequestParam(defaultValue = "")
+        String problemsIncidents,
+        @RequestParam(defaultValue = "")
+        String importantNotes,
         @RequestParam Shift shift,
-        @RequestParam(defaultValue = "MITTEL")
+        @RequestParam(required = false)
         Priority priority,
         Model model,
         RedirectAttributes redirectAttributes) {
@@ -166,8 +206,10 @@ public String update(
     try {
         reportService.update(
                 id,
-                title,
-                content,
+                completedTasks,
+                openTasks,
+                problemsIncidents,
+                importantNotes,
                 shift,
                 priority);
 
@@ -181,8 +223,16 @@ public String update(
                 "errorMessage",
                 exception.getMessage());
         model.addAttribute("reportId", id);
-        model.addAttribute("title", title);
-        model.addAttribute("content", content);
+        model.addAttribute(
+                "completedTasks",
+                completedTasks);
+        model.addAttribute("openTasks", openTasks);
+        model.addAttribute(
+                "problemsIncidents",
+                problemsIncidents);
+        model.addAttribute(
+                "importantNotes",
+                importantNotes);
         model.addAttribute("selectedShift", shift);
         model.addAttribute(
                 "selectedPriority",
