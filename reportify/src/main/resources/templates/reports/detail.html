@@ -282,6 +282,11 @@
                 th:href="@{/reports}">
                 Zurück zur Übersicht
             </a>
+            <a
+                class="button button-secondary"
+                th:href="@{/reports/{id}/edit(id=${report.id})}">
+                Report bearbeiten
+            </a>
 
             <form
                 th:if="${report.status.name() != 'ERLEDIGT'}"

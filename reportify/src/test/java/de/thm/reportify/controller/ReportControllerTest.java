@@ -140,4 +140,68 @@ void deleteRedirectsToDetailAndShowsErrorMessage()
                     "Report mit ID 7 wurde nicht gefunden."));
 }
 
+@Test
+void showEditFormDisplaysExistingReport() throws Exception {
+    Report report = mock(Report.class);
+
+    when(report.getId()).thenReturn(7L);
+    when(report.getTitle()).thenReturn("Übergabe");
+    when(report.getContent())
+            .thenReturn("Maschine kontrollieren");
+    when(report.getShift())
+            .thenReturn(Shift.FRUEHSCHICHT);
+    when(report.getPriority())
+            .thenReturn(Priority.HOCH);
+
+    when(reportService.findById(7L))
+            .thenReturn(Optional.of(report));
+
+    mockMvc.perform(get("/reports/7/edit"))
+            .andExpect(status().isOk())
+            .andExpect(view().name("reports/form"))
+            .andExpect(model().attribute(
+                    "reportId",
+                    7L))
+            .andExpect(model().attribute(
+                    "title",
+                    "Übergabe"))
+            .andExpect(model().attribute(
+                    "content",
+                    "Maschine kontrollieren"))
+            .andExpect(model().attribute(
+                    "selectedShift",
+                    Shift.FRUEHSCHICHT))
+            .andExpect(model().attribute(
+                    "selectedPriority",
+                    Priority.HOCH))
+            .andExpect(model().attribute(
+                    "editMode",
+                    true));
+
+    verify(reportService).findById(7L);
+}
+
+@Test
+void updateRedirectsToEditedReport() throws Exception {
+    mockMvc.perform(post("/reports/7/edit")
+                    .param("title", "Neue Übergabe")
+                    .param(
+                            "content",
+                            "Maschine wurde kontrolliert")
+                    .param("shift", "SPAETSCHICHT")
+                    .param("priority", "HOCH"))
+            .andExpect(status().is3xxRedirection())
+            .andExpect(redirectedUrl("/reports/7"))
+            .andExpect(flash().attribute(
+                    "successMessage",
+                    "Der Report wurde erfolgreich bearbeitet."));
+
+    verify(reportService).update(
+            7L,
+            "Neue Übergabe",
+            "Maschine wurde kontrolliert",
+            Shift.SPAETSCHICHT,
+            Priority.HOCH);
+}
+
 }

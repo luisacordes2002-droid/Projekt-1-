@@ -17,6 +17,7 @@ Bereits umgesetzt sind:
 - automatische Tests für zentrale Authentifizierungsbestandteile
 - Reportübersicht und Reportdetailansicht
 - Erstellen von Schichtreports mit Priorität
+- Bearbeiten gespeicherter Schichtreports
 - Auswahl und Anzeige der Schicht (Früh-, Spät- oder Nachtschicht)
 - Kennzeichnen von Reports als erledigt
 - Löschen von Reports ausschließlich durch Benutzer mit der Rolle `SCHICHTLEITUNG`

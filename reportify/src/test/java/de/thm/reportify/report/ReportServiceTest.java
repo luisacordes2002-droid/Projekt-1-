@@ -70,6 +70,37 @@ class ReportServiceTest {
     }
 
     @Test
+    void updateChangesReportData() {
+        Report existingReport = new Report(
+            "Alter Titel",
+            "Alter Inhalt",
+            Shift.FRUEHSCHICHT,
+            Priority.NIEDRIG,
+            "mitarbeiter");
+
+        when(reportRepository.findById(7L))
+            .thenReturn(Optional.of(existingReport));
+
+        when(reportRepository.save(any(Report.class)))
+            .thenAnswer(invocation -> invocation.getArgument(0));
+
+    Report updatedReport = reportService.update(
+            7L,
+            "  Neuer Titel  ",
+            "  Neuer Inhalt  ",
+            Shift.SPAETSCHICHT,
+            Priority.HOCH);
+
+    assertEquals("Neuer Titel", updatedReport.getTitle());
+    assertEquals("Neuer Inhalt", updatedReport.getContent());
+    assertEquals(Shift.SPAETSCHICHT, updatedReport.getShift());
+    assertEquals(Priority.HOCH, updatedReport.getPriority());
+
+    verify(reportRepository).findById(7L);
+    verify(reportRepository).save(existingReport);
+}
+
+    @Test
     void createRejectsMissingShift() {
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
