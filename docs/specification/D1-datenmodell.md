@@ -119,6 +119,9 @@ Arbeitsschicht.
 | `wichtigeHinweise` | Informationen für die nachfolgende Schicht | Nein |
 | `erstelltAm` | Datum und Uhrzeit der Speicherung | Ja |
 | `erstelltVon` | Verweis auf die erstellende Person | Ja |
+| `status` | Bearbeitungsstand des Reports (`OFFEN` oder `ERLEDIGT`) | Ja |
+| `geaendertAm` | Datum und Uhrzeit der letzten Bearbeitung | Nein |
+| `geaendertVon` | Person, die den Report zuletzt bearbeitet hat | Nein |
 
 **Bedingt** bedeutet, dass ein Feld einzeln leer bleiben darf. 
 
@@ -154,6 +157,17 @@ Der Wertetyp **Rolle** besitzt folgende zulässige Werte:
 
 Weitere Rollen sind für die erste Version nicht vorgesehen.
 
+### 6.4 Report-Status
+
+Der Wertetyp **Report-Status** besitzt folgende zulässige Werte:
+
+- `OFFEN`
+- `ERLEDIGT`
+
+Ein neu gespeicherter Report erhält den Status `OFFEN`. Eine angemeldete Person
+kann einen offenen Report als erledigt kennzeichnen. Ein erledigter Report
+bleibt weiterhin in der Historie sichtbar und kann geöffnet werden.
+
 ## 7. Fachliche Datenregeln
 
 | ID | Regel |
@@ -173,6 +187,9 @@ Weitere Rollen sind für die erste Version nicht vorgesehen.
 | DM-13 | Jedes Textfeld eines Reports darf maximal 4.000 Zeichen enthalten. |
 | DM-14 | Benutzerkonten werden vorab bereitgestellt. Bei der ersten Anmeldung muss die nutzende Person ein eigenes Passwort festlegen. |
 | DM-15 | Das selbst festgelegte Passwort muss mindestens 8 und darf höchstens 128 Zeichen lang sein. |
+| DM-16 | Ein neu gespeicherter Report besitzt den Status `OFFEN`. |
+| DM-17 | Eine angemeldete Person darf einen offenen Report als `ERLEDIGT` kennzeichnen. Der Report bleibt weiterhin gespeichert und in der Historie sichtbar. |
+| DM-18 | Bei der Bearbeitung eines Reports werden Änderungszeitpunkt und ändernde Person gespeichert. |
 
 ## 8. Lebenszyklus eines Reports
 

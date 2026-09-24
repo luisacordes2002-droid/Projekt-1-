@@ -2,7 +2,7 @@
 
 ## Status
 
-Proposed
+Accepted
 
 ## Kontext
 
@@ -12,7 +12,7 @@ Für die weitere Entwicklung muss festgelegt werden, welches fachliche Konzept d
 
 Nach dem derzeitigen fachlichen Verständnis bietet sich der Report als zentrale Entität an. Andere fachliche Konzepte, beispielsweise Aufgaben oder Informationen für Schichtübergaben, stehen in engem Zusammenhang mit den erfassten Berichten.
 
-Das endgültige Datenmodell der Spezifikation ist derzeit jedoch noch nicht vollständig ausgearbeitet. Ebenso existiert im aktuellen Quellcode noch keine implementierte `Report`-Entität. Aus diesem Grund wird diese Architekturentscheidung zunächst als `Proposed` dokumentiert.
+Das fachliche Datenmodell ist konkretisiert und die Entität `Report` ist im aktuellen Quellcode implementiert. Sie bildet strukturierte Schichtübergaben einschließlich Schicht, fachlicher Textfelder, Priorität, Status sowie Erstellungs- und Änderungsinformationen ab. Die Architekturentscheidung trägt deshalb den Status `Accepted`.
 
 ## Betrachtete Alternativen
 
@@ -71,11 +71,11 @@ Für das weitere Architektur- und Datenmodelldesign soll **Report als zentrale f
 
 Ein Report repräsentiert dabei eine dokumentierte Information aus dem Arbeitskontext und bildet einen zentralen Bestandteil für die Informationsweitergabe innerhalb der Anwendung.
 
-Die endgültigen Attribute und Beziehungen der Entität werden erst gemeinsam mit dem Datenmodell und den konkretisierten Anwendungsfällen festgelegt.
+Die Attribute der Entität richten sich nach dem Datenmodell in D1. Ein Report enthält die strukturierte Schichtübergabe, Schicht, optionale Priorität, Status, Erstellungsinformationen und Informationen zur letzten Bearbeitung.
 
 Eine mögliche fachliche Struktur ist:
 
-```text
+```texts
 User
   |
   | erstellt

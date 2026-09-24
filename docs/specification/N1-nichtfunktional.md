@@ -276,6 +276,9 @@ Mindestens folgende Fälle besitzen automatisierte Tests:
 - Der neueste Report wird als aktuelle Übergabe bestimmt.
 - Die Historie ist absteigend nach Zeitpunkt sortiert.
 - Geschützte Seiten sind ohne Anmeldung nicht erreichbar.
+- Ein offener Report kann als erledigt gekennzeichnet werden.
+- Ein erledigter Report bleibt in der Historie sichtbar.
+- Bei der Bearbeitung werden Änderungszeitpunkt und ändernde Person gespeichert.
 
 Der Befehl `./mvnw test` führt alle automatisierten Tests aus.
 

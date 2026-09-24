@@ -29,6 +29,7 @@ beziehungsweise im Quellcode beschrieben.
 | AF-09 | Gespeicherten Report bearbeiten | UC-07 |
 | AF-10 | Gespeicherten Report löschen | UC-08 |
 | AF-11 | Persönliches Passwort erstmalig festlegen | UC-09 |
+| AF-12 | Report als erledigt kennzeichnen | Report-Lebenszyklus |
 
 
 ## 3. Funktionsbeschreibungen
@@ -231,12 +232,12 @@ Einen bereits gespeicherten Report nachträglich ändern.
 1. Das System lädt den zu bearbeitenden Report.
 2. Die vorhandenen Report-Daten werden zur Bearbeitung bereitgestellt.
 3. Die geänderten Daten werden gemäß AF-04 validiert.
-4. Bei gültigen Eingaben werden die Änderungen dauerhaft gespeichert.
+4. Bei gültigen Eingaben werden die Änderungen zusammen mit Änderungszeitpunkt und ändernder Person dauerhaft gespeichert.
 5. Bei ungültigen Eingaben wird der Report nicht geändert und die fehlerhaften Felder werden gekennzeichnet.
 
 **Ergebnis:**
 
-- aktualisierter Report oder
+- aktualisierter Report mit Änderungszeitpunkt und ändernder Person oder
 - konkrete Validierungsfehler
 
 ### AF-10 – Gespeicherten Report löschen
@@ -291,6 +292,29 @@ Benutzerkonto ein eigenes persönliches Passwort festzulegen.
 
 - erfolgreich festgelegtes persönliches Passwort oder
 - verständlicher Validierungsfehler
+### AF-12 – Report als erledigt kennzeichnen
+
+**Zweck:**
+Den Bearbeitungsstand eines gespeicherten Reports von `OFFEN` auf `ERLEDIGT`
+setzen.
+
+**Eingaben:**
+
+- eindeutige Kennung des Reports
+- angemeldete Person
+
+**Verarbeitung:**
+
+1. Das System sucht den ausgewählten Report.
+2. Existiert der Report nicht, wird eine verständliche Fehlermeldung angezeigt.
+3. Ein vorhandener offener Report wird als `ERLEDIGT` gekennzeichnet.
+4. Der Report bleibt vollständig gespeichert und in der Historie sichtbar.
+5. Ein bereits erledigter Report bleibt unverändert erledigt.
+
+**Ergebnis:**
+
+- als erledigt gekennzeichneter Report oder
+- Meldung, dass der Report nicht gefunden wurde
 
 ## 4. Abgrenzung
 

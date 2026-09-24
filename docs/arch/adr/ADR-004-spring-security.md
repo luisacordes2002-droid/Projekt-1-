@@ -2,7 +2,7 @@
 
 ## Status
 
-Proposed
+Accepted
 
 ## Kontext
 
@@ -12,7 +12,7 @@ Darüber hinaus kann es notwendig werden, Zugriffsrechte abhängig von Benutzerr
 
 Für Spring-Boot-Anwendungen bietet sich Spring Security als etabliertes Sicherheitsframework an.
 
-Im aktuellen Projektstand ist Spring Security jedoch noch nicht als Dependency im `pom.xml` eingebunden. Deshalb wird diese Architekturentscheidung zunächst als `Proposed` dokumentiert.
+Spring Security ist im aktuellen Projektstand als Dependency eingebunden und wird für Anmeldung, Sitzungsverwaltung, Zugriffsschutz und rollenabhängige Berechtigungen verwendet.
 
 ## Betrachtete Alternativen
 
@@ -71,7 +71,9 @@ Spring Security wird als zentraler Mechanismus für Authentifizierung und Autori
 
 Für Reportify soll **Spring Security zur Umsetzung von Authentifizierung und Autorisierung verwendet werden**.
 
-Die Entscheidung ist derzeit noch nicht vollständig umgesetzt und trägt deshalb den Status `Proposed`.
+Die Entscheidung ist umgesetzt und trägt deshalb den Status `Accepted`.
+
+Spring Security übernimmt insbesondere folgende Aufgaben:
 
 Nach der Integration soll Spring Security insbesondere folgende Aufgaben übernehmen:
 
@@ -103,19 +105,24 @@ Die zentrale Konfiguration von Sicherheitsregeln unterstützt außerdem die ange
 ### Negative Konsequenzen
 
 - zusätzliche technische Komplexität
-- Spring Security muss zunächst in das Projekt integriert werden
+- Änderungen an der Sicherheitskonfiguration müssen besonders sorgfältig geprüft werden
 - Rollen und Zugriffsregeln müssen fachlich definiert werden
 - falsche Konfiguration kann zu unbeabsichtigten Zugriffsrechten führen
 - Tests für geschützte und öffentliche Endpunkte werden notwendig
 
 ## Auswirkungen auf die Implementierung
 
-Für die Umsetzung muss zunächst eine geeignete Spring-Security-Dependency in das Maven-Projekt aufgenommen werden.
+Die Spring-Security-Dependency ist im Maven-Projekt eingebunden.
 
-Die Sicherheitskonfiguration soll anschließend in einem eigenen Konfigurationsbereich gekapselt werden, beispielsweise:
+Die Sicherheitskonfiguration ist in einem eigenen Konfigurationsbereich gekapselt:
 
 ```text
 de.thm.reportify
 └── config
     └── SecurityConfig
     ```
+
+Die Benutzerkonten werden über einen eigenen `UserDetailsService` aus der
+Datenbank geladen. Passwörter werden als sichere Passwortnachweise gespeichert.
+Fachliche Seiten erfordern eine gültige Anmeldung. Das Löschen gespeicherter
+Reports ist auf die Rolle `SCHICHTLEITUNG` beschränkt.

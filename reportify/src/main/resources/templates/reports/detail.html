@@ -306,7 +306,31 @@
         Wichtige Hinweise
     </div>
 </section>
+<section>
+    <span class="meta-label">
+        Erstellt von
+    </span>
 
+    <div
+        class="content"
+        th:text="${report.createdBy}">
+        Benutzername
+    </div>
+</section>
+
+<section th:if="${report.updatedAt != null}">
+    <span class="meta-label">
+        Zuletzt bearbeitet
+    </span>
+
+    <div
+        class="content"
+        th:text="${report.formattedUpdatedAt
+            + ' von '
+            + report.updatedBy}">
+        Änderungszeitpunkt und Benutzername
+    </div>
+</section>
         <div class="actions">
             <a
                 class="button button-secondary"
