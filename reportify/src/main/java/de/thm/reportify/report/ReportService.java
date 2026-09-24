@@ -93,7 +93,8 @@ public Report update(
         String problemsIncidents,
         String importantNotes,
         Shift shift,
-        Priority priority) {
+Priority priority,
+String updatedBy) {
 
     Report report = reportRepository.findById(id)
             .orElseThrow(() -> new IllegalArgumentException(
@@ -140,7 +141,7 @@ public Report update(
     report.setImportantNotes(cleanImportantNotes);
     report.setShift(shift);
     report.setPriority(priority);
-
+    report.recordUpdate(updatedBy);
     return reportRepository.save(report);
 }
 

@@ -2,6 +2,7 @@ package de.thm.reportify.report;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
@@ -107,7 +108,8 @@ class ReportServiceTest {
             "  Sensor ausgefallen  ",
             "  Ersatzteil ist bestellt  ",
             Shift.SPAETSCHICHT,
-            Priority.HOCH);
+                Priority.HOCH,
+        "schichtleitung");
 
     assertEquals(
             "Maschine kontrolliert",
@@ -127,6 +129,10 @@ class ReportServiceTest {
     assertEquals(
             Priority.HOCH,
             updatedReport.getPriority());
+            assertEquals(
+        "schichtleitung",
+        updatedReport.getUpdatedBy());
+assertNotNull(updatedReport.getUpdatedAt());
 
     verify(reportRepository).findById(7L);
     verify(reportRepository).save(existingReport);

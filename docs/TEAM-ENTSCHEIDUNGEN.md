@@ -46,7 +46,8 @@ Architekturdatei enthält anschließend die verbindliche Beschreibung.
 | TD-015 | Leistungs- und Mengenziele | Welche Antwortzeit-, Mengen- und Testbedingungen sollen für die erste Version verbindlich gelten? | Mindestens 95 Prozent von 20 Aufrufen innerhalb von zwei Sekunden bei 1.000 Testreports; Mengenziele von mindestens 50 Benutzerkonten und 10.000 Reports | N1, Architektur, Tests | `EINGEARBEITET` |
 | TD-016 | Browser und Bildschirmbreite | Welche Browser und Versionen werden unterstützt und welche kleinste Bildschirmbreite muss bedienbar sein? | Prüfung mit aktuellen Versionen von Chrome und Safari; Bedienbarkeit ab 360 Pixeln Breite | B1, N1, Architektur, Tests | `EINGEARBEITET` |
 | TD-017 | Schichtauswahl | Die Schicht wird direkt im Reportformular ausgewählt | Die Schicht wird direkt im Reportformular ausgewählt | F1, F2, F3, B1, Architektur | `EINGEARBEITET` |
-| TD-018 | Änderungsnachverfolgung | Soll bei der Bearbeitung eines Reports gespeichert werden, wann und von wem er zuletzt geändert wurde? | Änderungszeitpunkt und ändernde Person werden gespeichert | D1, F2, F3, B1, Architektur | `OFFEN` |
+| TD-018 | Änderungsnachverfolgung | Soll bei der Bearbeitung eines Reports gespeichert werden, wann und von wem er zuletzt geändert wurde? | Änderungszeitpunkt und ändernde Person werden gespeichert | D1, F2, F3, B1, Architektur | `EINGEARBEITET`|
+| TD-019 | Report-Status | Sollen gespeicherte Reports als erledigt gekennzeichnet werden können? | Angemeldete Nutzer:innen dürfen Reports als erledigt kennzeichnen; der Status wird gespeichert und angezeigt. | P1, F1, F2, F3, D1, D2, B1, N1, Architektur | `EINGEARBEITET` |
 
 
 
@@ -74,12 +75,12 @@ Implementierung direkt beeinflussen:
 ## 5. Entscheidungshistorie
 
 | ID | Entscheidung | Kurze Begründung | Datum | Beteiligte |
-|---|---|---|---|---|
-| – | Noch keine Teamentscheidung eingetragen | – | – | – |
+| TD-018 | Bei der Bearbeitung werden Änderungszeitpunkt und ändernde Person gespeichert. | Änderungen bleiben nachvollziehbar. | 24.09.2026 | Souhaib Boujemaoui |
+| TD-019 | Gespeicherte Reports können als erledigt gekennzeichnet werden. | Der Bearbeitungsstand bleibt für nachfolgende Schichten sichtbar. | 24.09.2026 | Souhaib Boujemaoui |
 
 ## 6. Neue Entscheidung aufnehmen
 
-Neue offene Fragen erhalten die nächste freie Kennung `TD-018`, `TD-019` usw.
+Neue offene Fragen erhalten die nächste freie Kennung `TD-020`, `TD-021` usw.
 
 Jeder neue Eintrag benötigt:
 

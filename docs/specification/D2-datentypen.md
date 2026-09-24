@@ -29,6 +29,7 @@ Frameworks. Technische Abbildungen werden in der Architektur beschrieben.
 | DT-10 | `PrioritaetDT` | Dringlichkeit eines Problems oder Incidents |
 | DT-11 | `ReportTextDT` | Fachliche Textinhalte eines Reports |
 | DT-12 | `ZeitpunktDT` | Erstellungszeitpunkt eines Reports |
+| DT-13 | `ReportStatusDT` | Bearbeitungsstand eines Reports |
 
 ## 3. DT-01 – NutzerIdDT
 
@@ -275,8 +276,27 @@ Datum und Uhrzeit, zu denen ein Report gespeichert wurde.
 ```text
 30.08.2026, 14:35 Uhr
 ```
+## 15. DT-13 – ReportStatusDT
 
-## 15. Allgemeine Validierungsregeln
+### Bedeutung
+
+Kennzeichnet den aktuellen Bearbeitungsstand eines gespeicherten Reports.
+
+### Zulässige Werte
+
+| Schlüssel | Anzeige | Bedeutung |
+|---|---|---|
+| `OFFEN` | Offen | Der Report wurde noch nicht als erledigt gekennzeichnet |
+| `ERLEDIGT` | Erledigt | Der Report wurde als erledigt gekennzeichnet |
+
+### Regeln
+
+- Ein neu gespeicherter Report erhält den Status `OFFEN`.
+- Eine angemeldete Person darf einen offenen Report als `ERLEDIGT` kennzeichnen.
+- Ein erledigter Report bleibt vollständig gespeichert und in der Historie sichtbar.
+- Freie Statuswerte sind nicht zulässig.
+
+## 16. Allgemeine Validierungsregeln
 
 1. Pflichtwerte dürfen nicht fehlen.
 2. Nicht erlaubte Auswahlwerte werden zurückgewiesen.
@@ -286,7 +306,7 @@ Datum und Uhrzeit, zu denen ein Report gespeichert wurde.
 6. Interne Kennungen werden nicht durch frei eingegebene Werte ersetzt.
 7. Geheime Werte werden weder angezeigt noch protokolliert.
 
-## 16. Datenschutzklassifikation
+## 17. Datenschutzklassifikation
 
 | Datentyp | Klassifikation | Begründung |
 |---|---|---|
@@ -299,7 +319,7 @@ Datum und Uhrzeit, zu denen ein Report gespeichert wurde.
 | `ReportTextDT` | Intern/vertraulich | Kann betriebliche Informationen enthalten |
 | `ZeitpunktDT` | Intern | Bestandteil der Report-Historie |
 
-## 17. Offene Entscheidungen
+## 18. Offene Entscheidungen
 
 Die zu diesem Dokument gehörenden offenen Punkte werden zentral in
 [`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
@@ -316,7 +336,7 @@ Die maximale Länge der Report-Textfelder wurde mit `TD-013` auf 4.000 Zeichen
 je Feld festgelegt. Noch offene Entscheidungen werden zentral in
 [`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
 
-## 18. Nachverfolgbarkeit
+## 19. Nachverfolgbarkeit
 
 Die Datentypen konkretisieren:
 
@@ -324,4 +344,4 @@ Die Datentypen konkretisieren:
 - [F2 – Anwendungsfälle](F2-anwendungsfaelle.md)
 - [F3 – Anwendungsfunktionen](F3-anwendungsfunktionen.md)
 
-Die Kennungen `DT-01` bis `DT-12` bleiben bei späteren Überarbeitungen stabil.
+Die Kennungen `DT-01` bis `DT-13` bleiben bei späteren Überarbeitungen stabil.

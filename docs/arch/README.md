@@ -32,7 +32,7 @@ Für die Entwicklung von Reportify bestehen folgende technische und organisatori
 | Build-System | Maven |
 | Versionsverwaltung | Git und GitHub |
 
-Die genannten Technologien entsprechen dem aktuellen Stand des Projekts. Spring Security ist derzeit noch nicht in den Abhängigkeiten des Projekts enthalten und wird daher als geplante Erweiterung und nicht als bereits implementierter Bestandteil betrachtet.
+Die genannten Technologien entsprechen dem aktuellen Stand des Projekts. Spring Security ist implementiert und schützt die fachlichen Seiten durch formularbasierte Anmeldung und Sitzungsverwaltung. Rollenabhängige Berechtigungen werden insbesondere für das Löschen gespeicherter Reports verwendet.
 
 ## 3. Kontextabgrenzung
 
@@ -206,7 +206,7 @@ Die H2-Abhängigkeit ist bereits im Projekt vorhanden. Die H2-Datenbank ist im a
 
 Die Anwendung soll geschützte Funktionen nur authentifizierten beziehungsweise entsprechend berechtigten Benutzern zur Verfügung stellen. Als technische Lösung ist Spring Security vorgesehen.
 
-Spring Security ist im aktuellen Projektstand noch nicht als Dependency eingebunden. Das Sicherheitskonzept stellt daher derzeit eine Architekturentscheidung für die weitere Implementierung dar und darf erst nach entsprechender Umsetzung als implementiert betrachtet werden.
+Spring Security ist im aktuellen Projektstand implementiert. Die Sicherheitskonfiguration erlaubt öffentliche Zugriffe auf die Login-Seite und benötigte statische Ressourcen. Fachliche Seiten erfordern eine gültige Anmeldung. Das Löschen eines Reports ist zusätzlich auf die Rolle `SCHICHTLEITUNG` beschränkt. Passwörter werden ausschließlich als sichere Passwortnachweise gespeichert.
 
 ### 8.2 Persistenz
 
@@ -291,7 +291,7 @@ Der aktuelle Entwicklungsstand weist insbesondere folgende Risiken beziehungswei
 - Die fachliche Spezifikation ist in mehreren Bereichen noch nicht vollständig ausgearbeitet.
 - Das endgültige Datenmodell muss mit der Architektur und den JPA-Entitäten abgestimmt werden.
 - Die geplante Paketstruktur ist im Code noch nicht vollständig umgesetzt.
-- Spring Security ist noch nicht integriert.
+- Die automatisierten Sicherheitstests für geschützte und rollenabhängige Endpunkte müssen erweitert werden.
 - Die H2-Datenbank ist als dateibasierte Persistenz konfiguriert und wurde im aktuellen Projektstand erfolgreich mit dem Spring-Boot-Build getestet.
 - Laufzeitsichten müssen nach Fertigstellung der Anwendungsfälle erneut mit der Spezifikation abgeglichen werden.
 

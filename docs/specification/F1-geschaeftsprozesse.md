@@ -19,7 +19,7 @@ betrieblichen Aufgaben findet außerhalb der Anwendung statt.
 
 - meldet sich bei Reportify an,
 - wählt eine Schicht aus,
-- erstellt und bearbeitet Reports,
+- erstellt, bearbeitet und kennzeichnet Reports als erledigt,
 - sieht den letzten Report und die Historie ein.
 
 ### Schichtleitung
@@ -130,6 +130,12 @@ Bei jeder Bearbeitung gelten weiterhin die festgelegten Validierungsregeln.
 Gespeicherte Reports dürfen ausschließlich durch die Schichtleitung gelöscht werden.
 Mitarbeiter:innen dürfen keine Reports löschen.
 
+### GR-11 – Report-Status
+
+Ein neu gespeicherter Report besitzt den Status `OFFEN`. Eine angemeldete Person
+darf einen offenen Report als `ERLEDIGT` kennzeichnen. Der Report bleibt danach
+vollständig gespeichert und in der Historie sichtbar.
+
 ## 6. Ausnahmefälle
 
 ### Ungültige Zugangsdaten
@@ -161,6 +167,7 @@ Das System informiert die Person, dass noch kein Report vorhanden ist. Die
 - UC-04 – Report erstellen
 - UC-05 – Übergabe einsehen
 - UC-06 – Report-Historie anzeigen
+- UC-10 – Report als erledigt kennzeichnen
 
 
 

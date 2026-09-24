@@ -236,6 +236,9 @@ Die nachfolgende Schicht sieht den aktuellsten gespeicherten Report vollständig
 | Schicht | Bezeichnung der ausgewählten Schicht |
 | Ersteller:in | Anzeigename |
 | Erstellt am | Lokales Datum und Uhrzeit |
+| Status | Offen oder Erledigt |
+| Zuletzt geändert am | Lokales Datum und Uhrzeit, falls der Report bearbeitet wurde |
+| Zuletzt geändert von | Anzeigename der ändernden Person, falls der Report bearbeitet wurde |
 | Priorität | Sichtbare Prioritätskennzeichnung, falls vorhanden |
 | Erledigte Aufgaben | Vollständiger Text oder Leerhinweis |
 | Offene Aufgaben | Vollständiger Text oder Leerhinweis |
@@ -290,6 +293,7 @@ Jeder Listeneintrag zeigt mindestens:
 - Erstellungszeitpunkt
 - Ersteller:in
 - Priorität, falls vorhanden
+- Status
 - kurze Vorschau eines fachlichen Inhalts
 - Aktion „Details anzeigen“
 
@@ -336,11 +340,15 @@ angezeigt wird.
 | Aktion | Ergebnis |
 |---|---|
 | Bearbeiten | Öffnet den ausgewählten Report zur Bearbeitung |
+| Als erledigt markieren | Setzt den Status eines offenen Reports auf `ERLEDIGT` |
 | Löschen | Fordert die Schichtleitung zur Bestätigung der Löschung auf |
 | Zurück zur Historie | Öffnet DLG-05 |
 | Zur Startseite | Öffnet DLG-02 |
 | Neue Übergabe | Öffnet DLG-03 |
 
+Die Schaltfläche „Als erledigt markieren“ wird nur bei Reports mit dem Status
+`OFFEN` angezeigt. Nach erfolgreicher Ausführung bleibt der Report gespeichert
+und wird mit dem Status `ERLEDIGT` angezeigt.
 
 Eine Schaltfläche "Bearbeiten" ermöglicht die Bearbeitung des gespeicherten Reports.
 Die Schaltfläche „Löschen“ wird ausschließlich der Schichtleitung angeboten.
@@ -366,6 +374,8 @@ Die Person kann anschließend zur Historie oder Startseite wechseln.
 - `AF-08` – Report-Details bereitstellen
 - `TD-003` – Bearbeitung gespeicherter Reports
 - `TD-004` – Löschen gespeicherter Reports
+- `UC-10` – Report als erledigt kennzeichnen
+- `AF-12` – Report als erledigt kennzeichnen
 
 ## 10. DLG-07 – Passwort bei Erstanmeldung festlegen
 
