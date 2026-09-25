@@ -78,6 +78,10 @@ Als optionale Erweiterung außerhalb des ursprünglichen Minimalumfangs ist
 außerdem das Drucken beziehungsweise Speichern eines geöffneten Reports als PDF
 über den nativen Browserdialog umgesetzt (`UC-11`, `AF-13`, B3).
 
+Das Dashboard ergänzt den Überblick durch einfache Anzahlen nach Status, Schicht
+und Priorität (`AF-14`). Diese Kennzahlen stellen keine umfangreiche statistische
+Analyse dar.
+
 Die unterschiedliche Gruppierung der Funktionen und Anwendungsfälle begründet
 keinen zusätzlichen Anwendungsfall: Der Detailaufruf ist bereits in `UC-06`
 enthalten.

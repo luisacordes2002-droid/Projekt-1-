@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import de.thm.reportify.report.Report;
 import de.thm.reportify.report.Report.Priority;
 import de.thm.reportify.report.Report.Shift;
+import de.thm.reportify.report.Report.Status;
 import de.thm.reportify.report.ReportService;
 
 @Controller
@@ -46,6 +47,46 @@ public class ReportController {
         model.addAttribute("reports", reports);
         model.addAttribute("currentReport", currentReport);
         model.addAttribute("historyReports", historyReports);
+        model.addAttribute(
+                "openReportCount",
+                reports.stream()
+                        .filter(report -> report.getStatus() == Status.OFFEN)
+                        .count());
+        model.addAttribute(
+                "completedReportCount",
+                reports.stream()
+                        .filter(report -> report.getStatus() == Status.ERLEDIGT)
+                        .count());
+        model.addAttribute(
+                "earlyShiftCount",
+                reports.stream()
+                        .filter(report -> report.getShift() == Shift.FRUEHSCHICHT)
+                        .count());
+        model.addAttribute(
+                "lateShiftCount",
+                reports.stream()
+                        .filter(report -> report.getShift() == Shift.SPAETSCHICHT)
+                        .count());
+        model.addAttribute(
+                "nightShiftCount",
+                reports.stream()
+                        .filter(report -> report.getShift() == Shift.NACHTSCHICHT)
+                        .count());
+        model.addAttribute(
+                "lowPriorityCount",
+                reports.stream()
+                        .filter(report -> report.getPriority() == Priority.NIEDRIG)
+                        .count());
+        model.addAttribute(
+                "mediumPriorityCount",
+                reports.stream()
+                        .filter(report -> report.getPriority() == Priority.MITTEL)
+                        .count());
+        model.addAttribute(
+                "highPriorityCount",
+                reports.stream()
+                        .filter(report -> report.getPriority() == Priority.HOCH)
+                        .count());
         model.addAttribute("search", search == null ? "" : search);
         model.addAttribute("selectedHistoryShift", shift);
         model.addAttribute("shifts", Shift.values());

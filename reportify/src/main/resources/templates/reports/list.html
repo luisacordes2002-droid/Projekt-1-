@@ -62,6 +62,37 @@
         <div class="stat-card"><span class="stat-label">In der Historie</span><span class="stat-value" th:text="${#lists.size(historyReports)}">0</span></div>
     </section>
 
+    <section class="insights-section" th:if="${!#lists.isEmpty(reports)}" aria-labelledby="insights-title">
+        <div class="section-heading">
+            <div><h2 id="insights-title">Report-Auswertung</h2><p>Kompakter Überblick über Status, Schichten und Prioritäten.</p></div>
+        </div>
+        <div class="insights-grid">
+            <article class="insight-card">
+                <h3>Status</h3>
+                <dl class="insight-list">
+                    <div><dt><span class="insight-dot insight-dot--open"></span>Offen</dt><dd th:text="${openReportCount}">0</dd></div>
+                    <div><dt><span class="insight-dot insight-dot--done"></span>Erledigt</dt><dd th:text="${completedReportCount}">0</dd></div>
+                </dl>
+            </article>
+            <article class="insight-card">
+                <h3>Schichten</h3>
+                <dl class="insight-list">
+                    <div><dt>Frühschicht</dt><dd th:text="${earlyShiftCount}">0</dd></div>
+                    <div><dt>Spätschicht</dt><dd th:text="${lateShiftCount}">0</dd></div>
+                    <div><dt>Nachtschicht</dt><dd th:text="${nightShiftCount}">0</dd></div>
+                </dl>
+            </article>
+            <article class="insight-card">
+                <h3>Prioritäten</h3>
+                <dl class="insight-list">
+                    <div><dt>Niedrig</dt><dd th:text="${lowPriorityCount}">0</dd></div>
+                    <div><dt>Mittel</dt><dd th:text="${mediumPriorityCount}">0</dd></div>
+                    <div><dt>Hoch</dt><dd th:text="${highPriorityCount}">0</dd></div>
+                </dl>
+            </article>
+        </div>
+    </section>
+
     <section th:if="${#lists.isEmpty(reports)}" class="empty-state">
         <div class="empty-icon" aria-hidden="true">R</div>
         <h2>Noch keine Reports vorhanden</h2>

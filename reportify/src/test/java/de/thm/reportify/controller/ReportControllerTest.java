@@ -23,6 +23,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import de.thm.reportify.report.Report;
 import de.thm.reportify.report.Report.Priority;
 import de.thm.reportify.report.Report.Shift;
+import de.thm.reportify.report.Report.Status;
 import de.thm.reportify.report.ReportService;
 
 class ReportControllerTest {
@@ -57,6 +58,14 @@ class ReportControllerTest {
             olderReportTwo);
 
     when(reportService.findAll()).thenReturn(reports);
+    when(currentReport.getStatus()).thenReturn(Status.OFFEN);
+    when(currentReport.getShift()).thenReturn(Shift.FRUEHSCHICHT);
+    when(olderReportOne.getStatus()).thenReturn(Status.ERLEDIGT);
+    when(olderReportOne.getShift()).thenReturn(Shift.SPAETSCHICHT);
+    when(olderReportOne.getPriority()).thenReturn(Priority.HOCH);
+    when(olderReportTwo.getStatus()).thenReturn(Status.OFFEN);
+    when(olderReportTwo.getShift()).thenReturn(Shift.NACHTSCHICHT);
+    when(olderReportTwo.getPriority()).thenReturn(Priority.MITTEL);
 
     mockMvc.perform(get("/reports"))
             .andExpect(status().isOk())
@@ -69,7 +78,15 @@ class ReportControllerTest {
                     currentReport))
             .andExpect(model().attribute(
                     "historyReports",
-                    historyReports));
+                    historyReports))
+            .andExpect(model().attribute("openReportCount", 2L))
+            .andExpect(model().attribute("completedReportCount", 1L))
+            .andExpect(model().attribute("earlyShiftCount", 1L))
+            .andExpect(model().attribute("lateShiftCount", 1L))
+            .andExpect(model().attribute("nightShiftCount", 1L))
+            .andExpect(model().attribute("lowPriorityCount", 0L))
+            .andExpect(model().attribute("mediumPriorityCount", 1L))
+            .andExpect(model().attribute("highPriorityCount", 1L));
 
     verify(reportService).findAll();
 }

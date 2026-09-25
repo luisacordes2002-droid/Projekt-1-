@@ -79,6 +79,10 @@ Folgende Funktionen gehören nicht zum verbindlichen Umfang:
 
 Diese Punkte können als mögliche Weiterentwicklung dokumentiert werden.
 
+Die auf dem Dashboard dargestellten einfachen Anzahlen nach Status, Schicht und
+Priorität dienen ausschließlich dem schnellen Überblick. Sie sind keine
+umfangreiche statistische Auswertung im Sinne dieser Abgrenzung.
+
 ## 7. Fachliche Rahmenbedingungen
 
 - Es gibt die Rollen Mitarbeiter:in und Schichtleitung.
