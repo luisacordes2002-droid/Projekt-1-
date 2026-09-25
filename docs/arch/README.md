@@ -209,7 +209,8 @@ Die Entscheidungen sind als ADRs dokumentiert:
   wachsender Datenmenge wären serverseitige Suche und Seitennavigation nötig.
 - Konkrete Leistungsgrenzen wurden noch nicht durch Lasttests nachgewiesen.
 - Die Oberfläche wurde in Safari, Chrome und bei 360 Pixel Breite manuell
-  geprüft; eine vollständige Prüfung ausschließlich per Tastatur ist noch offen.
+  geprüft. Die Kernseiten und der Löschdialog wurden außerdem erfolgreich per
+  Tastatur bedient.
 - Komfortfunktionen im JavaScript besitzen noch keine automatisierten
   Browsertests.
 - `createdBy` und `updatedBy` sind bewusst nicht relational verknüpft; eine
