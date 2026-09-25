@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fehler – Reportify</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f3f6f9;
+            color: #1f2937;
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            width: min(560px, calc(100% - 32px));
+            border: 1px solid #dbe2ea;
+            border-radius: 12px;
+            background: white;
+            padding: 38px;
+            text-align: center;
+            box-shadow: 0 6px 22px rgba(15, 23, 42, 0.08);
+        }
+
+        .status {
+            margin: 0 0 10px;
+            color: #64748b;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin: 0 0 14px;
+            color: #17324d;
+        }
+
+        .description {
+            margin: 0 auto 26px;
+            max-width: 440px;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        a {
+            display: inline-block;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            padding: 12px 18px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <p class="status" th:text="|Fehler ${status}|">Fehler</p>
+
+    <h1 th:if="${status == 404}">Seite nicht gefunden</h1>
+    <h1 th:unless="${status == 404}">Ein Fehler ist aufgetreten</h1>
+
+    <p class="description" th:if="${status == 404}">
+        Die angeforderte Seite ist nicht vorhanden oder nicht mehr verfügbar.
+    </p>
+    <p class="description" th:unless="${status == 404}">
+        Die Anfrage konnte nicht verarbeitet werden. Bitte versuche es später
+        erneut oder kehre zur Reportübersicht zurück.
+    </p>
+
+    <a th:href="@{/reports}">Zur Reportübersicht</a>
+</main>
+</body>
+</html>

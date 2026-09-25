@@ -29,6 +29,7 @@ Architektur und Implementierung beschrieben.
 | DLG-05 | Report-Historie | Gespeicherte Reports durchsuchen | Ja |
 | DLG-06 | Report-Details | Vollständigen Report anzeigen | Ja |
 | DLG-07 | Passwort bei Erstanmeldung festlegen | Eigenes persönliches Passwort festlegen | Ja |
+| DLG-08 | Fehlerseite | Verständliche Rückmeldung bei nicht verfügbaren Seiten oder technischen Fehlern | Abhängig vom ursprünglichen Aufruf |
 
 ## 3. Grundlegende Navigation
 
@@ -427,15 +428,37 @@ Mögliche Meldungen:
 - `TD-008` – Anlage der Benutzerkonten
 - `TD-014` – Passwortregel
 
-## 11. Dialogübergreifende Regeln
+## 11. DLG-08 – Fehlerseite
 
-### 11.1 Zugriffsschutz
+### 11.1 Zweck
+
+Die Fehlerseite ersetzt technische Standardseiten und informiert verständlich,
+wenn eine Seite nicht gefunden oder eine Anfrage nicht verarbeitet werden kann.
+
+### 11.2 Darstellung und Verhalten
+
+- Bei Status `404` wird „Seite nicht gefunden“ angezeigt.
+- Bei anderen technischen Fehlern wird eine allgemeine Fehlermeldung angezeigt.
+- Interne Fehlermeldungen, Ausnahmeinformationen und Datenbankdetails werden
+  nicht ausgegeben.
+- Eine Schaltfläche führt zurück zur Reportübersicht.
+- Die Seite bleibt ab einer Bildschirmbreite von 360 Pixeln bedienbar.
+
+### 11.3 Bezug
+
+- `NFR-12d-02` – Keine Teilspeicherung
+- `N2` – Fehlerbehandlung
+- Architekturabschnitt 8.4 – Fehlerbehandlung
+
+## 12. Dialogübergreifende Regeln
+
+### 12.1 Zugriffsschutz
 
 - DLG-02 bis DLG-06 benötigen eine gültige Sitzung.
 - Ohne gültige Sitzung wird DLG-01 geöffnet.
 - Nach der Abmeldung dürfen zuvor geschützte Seiten nicht mehr verwendet werden.
 
-### 11.2 Rückmeldungen
+### 12.2 Rückmeldungen
 
 Reportify unterscheidet:
 
@@ -447,7 +470,7 @@ Reportify unterscheidet:
 Meldungen werden verständlich formuliert und enthalten, wenn möglich, eine
 nächste sinnvolle Aktion.
 
-### 11.3 Formulare
+### 12.3 Formulare
 
 - Jedes Eingabefeld besitzt eine sichtbare Beschriftung.
 - Pflichtfelder werden erkennbar gekennzeichnet.
@@ -455,7 +478,7 @@ nächste sinnvolle Aktion.
 - Die Bedienung ist mit Tastatur möglich.
 - Die Reihenfolge der Eingabefelder ist logisch und vorhersehbar.
 
-### 11.4 Responsive Darstellung
+### 12.4 Responsive Darstellung
 
 Die Anwendung muss ab einer Bildschirmbreite von 360 Pixeln vollständig
 bedienbar sein. Der Kernablauf wird mit aktuellen Versionen von Chrome und
@@ -468,7 +491,7 @@ Safari geprüft.
 - Tabellen dürfen auf kleinen Bildschirmen durch Karten ersetzt werden.
 - Texte und Fehlermeldungen müssen ohne Vergrößerung lesbar sein.
 
-### 11.5 Sprache
+### 12.5 Sprache
 
 Die Benutzeroberfläche von Reportify wird in deutscher und englischer Sprache
 bereitgestellt.
@@ -483,7 +506,7 @@ Sprache verwendet.
 Die fachliche Bedeutung von Feldern, Meldungen und Aktionen bleibt unabhängig
 von der gewählten Sprache gleich.
 
-## 12. Navigation zwischen den Dialogen
+## 13. Navigation zwischen den Dialogen
 
 | Ausgang | Aktion | Ziel |
 |---|---|---|
@@ -495,9 +518,11 @@ von der gewählten Sprache gleich.
 | DLG-04 | Historie anzeigen | DLG-05 |
 | DLG-05 | Details anzeigen | DLG-06 |
 | DLG-06 | Zurück zur Historie | DLG-05 |
+| DLG-02 bis DLG-07 | Seite nicht verfügbar oder technischer Fehler | DLG-08 |
+| DLG-08 | Zur Reportübersicht | DLG-04 / DLG-05 |
 | DLG-02 bis DLG-06 | Abmelden | DLG-01 |
 
-## 13. Noch zu ergänzende Darstellungen
+## 14. Noch zu ergänzende Darstellungen
 
 Sobald die ersten Seiten implementiert sind, werden diesem Dokument geprüfte
 Screenshots oder Wireframes hinzugefügt für:
@@ -508,12 +533,13 @@ Screenshots oder Wireframes hinzugefügt für:
 - aktuelle Übergabe
 - Historie
 - Report-Details
+- Fehlerseite
 - mobile Darstellung
 
 Die Screenshots müssen mit den beschriebenen Dialogen und dem tatsächlichen
 Programmstand übereinstimmen.
 
-## 14. Offene Entscheidungen
+## 15. Offene Entscheidungen
 
 Die offenen UI-Fragen werden zentral in
 [`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
@@ -531,7 +557,7 @@ Für B1 sind besonders relevant:
 - `TD-013` – Textlänge
 - `TD-014` – Passwortregel
 
-## 15. Nachverfolgbarkeit
+## 16. Nachverfolgbarkeit
 
 Diese Dialogspezifikation konkretisiert insbesondere:
 
@@ -540,4 +566,4 @@ Diese Dialogspezifikation konkretisiert insbesondere:
 - [D1 – Datenmodell](D1-datenmodell.md)
 - [D2 – Datentypenverzeichnis](D2-datentypen.md)
 
-Die Kennungen `DLG-01` bis `DLG-06` bleiben bei späteren Änderungen stabil.
+Die Kennungen `DLG-01` bis `DLG-08` bleiben bei späteren Änderungen stabil.

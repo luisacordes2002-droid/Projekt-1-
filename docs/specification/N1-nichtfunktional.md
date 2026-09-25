@@ -173,6 +173,9 @@ unvollständigen Report erzeugen.
 - Bei einem Speicherfehler wird kein teilweise gefüllter Report in der Historie
   angezeigt.
 - Nutzer:innen erhalten eine verständliche Fehlermeldung.
+- Nicht vorhandene Seiten zeigen eine eigene verständliche 404-Seite.
+- Unerwartete technische Fehler geben keine internen Ausnahme- oder
+  Datenbankdetails aus.
 - Nach Behebung des Fehlers kann die Eingabe erneut gespeichert werden.
 
 **Priorität:** A
