@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reportify</title>
+    <title>Reportify – Digitale Schichtübergabe</title>
+    <link rel="stylesheet" th:href="@{/css/reportify.css}" href="/css/reportify.css">
 </head>
 <body>
-    <main>
-        <h1>Reportify</h1>
-        <p>Die Anwendung läuft erfolgreich.</p>
-        <p><a href="/reports">Zur Reportübersicht</a></p>
-    </main>
+<main class="landing-page">
+    <section class="landing-card">
+        <a class="brand" th:href="@{/}"><span class="brand-mark" aria-hidden="true">R</span><span>Reportify</span></a>
+        <p class="eyebrow">Digitale Schichtübergabe</p>
+        <h1>Klar übergeben.<br>Sicher weiterarbeiten.</h1>
+        <p>Reportify bündelt Aufgaben, Probleme und wichtige Hinweise für eine nachvollziehbare Übergabe zwischen allen Schichten.</p>
+        <a class="button button-primary" th:href="@{/reports}">Zum Dashboard</a>
+    </section>
+</main>
 </body>
 </html>

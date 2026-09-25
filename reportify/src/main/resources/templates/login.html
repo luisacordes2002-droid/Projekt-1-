@@ -1,116 +1,48 @@
 <!DOCTYPE html>
 <html lang="de" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Reportify</title>
-
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            font-family: Arial, sans-serif;
-        }
-
-        .login-box {
-            text-align: center;
-        }
-
-        .login-box div {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input {
-            padding: 8px;
-            width: 250px;
-        }
-
-        button {
-            padding: 8px 20px;
-            cursor: pointer;
-        }
-
-        .message {
-            width: 280px;
-            margin: 0 auto 18px;
-            border-radius: 7px;
-            padding: 11px 13px;
-        }
-
-        .error {
-            border: 1px solid #fca5a5;
-            background: #fee2e2;
-            color: #991b1b;
-        }
-
-        .success {
-            border: 1px solid #86efac;
-            background: #dcfce7;
-            color: #166534;
-        }
-    </style>
+    <title>Anmelden – Reportify</title>
+    <link rel="stylesheet" th:href="@{/css/reportify.css}" href="/css/reportify.css">
 </head>
-
 <body>
-
-    <div class="login-box">
-
-        <h1>Reportify</h1>
-        <h2>Anmelden</h2>
-
-        <div
-            class="message error"
-            role="alert"
-            th:if="${param.error}">
-            Benutzername oder Passwort ist nicht korrekt.
+<main class="auth-page">
+    <section class="auth-brand-panel" aria-label="Reportify">
+        <a class="brand" th:href="@{/}">
+            <span class="brand-mark" aria-hidden="true">R</span>
+            <span>Reportify</span>
+        </a>
+        <div>
+            <p class="eyebrow">Digitale Schichtübergabe</p>
+            <h1>Wissen weitergeben. Schichten sicher übergeben.</h1>
+            <p>Alle wichtigen Aufgaben, Probleme und Hinweise zentral dokumentiert – klar, nachvollziehbar und aktuell.</p>
         </div>
-
-        <div
-            class="message success"
-            role="status"
-            th:if="${param.logout}">
-            Sie wurden erfolgreich abgemeldet.
+    </section>
+    <section class="auth-form-panel">
+        <div class="auth-card">
+            <p class="eyebrow">Willkommen zurück</p>
+            <h2>Anmelden</h2>
+            <p class="auth-copy">Melde dich mit deinem Reportify-Benutzerkonto an.</p>
+            <div class="message message-error" role="alert" th:if="${param.error}">Benutzername oder Passwort ist nicht korrekt.</div>
+            <div class="message message-success" role="status" th:if="${param.logout}">Sie wurden erfolgreich abgemeldet.</div>
+            <form th:action="@{/login}" method="post">
+                <div class="field">
+                    <label for="username">Benutzername</label>
+                    <input class="input" type="text" id="username" name="username" autocomplete="username" autofocus required>
+                </div>
+                <div class="field">
+                    <label for="password">Passwort</label>
+                    <div class="password-wrap">
+                        <input class="input" type="password" id="password" name="password" autocomplete="current-password" required>
+                        <button class="password-toggle" type="button" data-password-toggle="password" aria-pressed="false">Anzeigen</button>
+                    </div>
+                </div>
+                <button class="button button-primary" type="submit">Sicher anmelden</button>
+            </form>
         </div>
-
-        <form th:action="@{/login}" method="post">
-
-            <div>
-                <label for="username">Benutzername</label>
-                <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    autocomplete="username"
-                    autofocus
-                    required>
-            </div>
-
-            <div>
-                <label for="password">Passwort</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    autocomplete="current-password"
-                    required>
-            </div>
-
-            <button type="submit">Anmelden</button>
-
-        </form>
-
-    </div>
-
+    </section>
+</main>
+<script th:src="@{/js/reportify.js}" src="/js/reportify.js"></script>
 </body>
 </html>
