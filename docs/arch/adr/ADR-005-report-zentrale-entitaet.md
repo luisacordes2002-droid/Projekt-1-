@@ -61,8 +61,9 @@ Ein Report bildet eine dokumentierte Information beziehungsweise Zusammenfassung
 
 **Nachteile:**
 
-- Beziehungen zu Aufgaben, Benutzern und gegebenenfalls Schichten müssen eindeutig definiert werden
-- die genaue Struktur eines Reports hängt von der noch zu vervollständigenden fachlichen Spezifikation ab
+- Aufgaben und Incidents werden als strukturierte Reporttexte und nicht als
+  eigenständige Entitäten gespeichert
+- Beziehungen zu Benutzern und Schichten müssen eindeutig abgegrenzt werden
 - eine zu starke Zentralisierung könnte später zu einer überladenen Entität führen
 
 ## Entscheidung
@@ -73,16 +74,34 @@ Ein Report repräsentiert dabei eine dokumentierte Information aus dem Arbeitsko
 
 Die Attribute der Entität richten sich nach dem Datenmodell in D1. Ein Report enthält die strukturierte Schichtübergabe, Schicht, optionale Priorität, Status, Erstellungsinformationen und Informationen zur letzten Bearbeitung.
 
-Eine mögliche fachliche Struktur ist:
+## Begründung
 
-```texts
-User
-  |
-  | erstellt
-  v
-Report
-  |
-  | kann relevante Informationen enthalten oder referenzieren
-  v
-Task
-```
+Die fachliche Hauptleistung ist die vollständige Übergabe zwischen Schichten,
+nicht die Verwaltung einzelner Aufgaben. Eine zentrale Report-Entität bildet
+diesen Dokumentationscharakter direkt ab und vermeidet zusätzliche Entitäten,
+deren Lebenszyklen für Version 1 nicht benötigt werden.
+
+## Konsequenzen
+
+**Positiv:**
+
+- Ein Report kann als zusammenhängende Übergabe erstellt, angezeigt, bearbeitet,
+  abgeschlossen, gesucht, gedruckt und gelöscht werden.
+- Das Domänenmodell bleibt für den festgelegten Funktionsumfang kompakt.
+- Die aktuelle Übergabe und die Historie verwenden dieselbe fachliche Entität.
+
+**Negativ:**
+
+- Einzelne Aufgaben besitzen keinen eigenen Status oder Lebenszyklus.
+- Volltextsuchen und Auswertungen arbeiten auf den Reportfeldern.
+- Eine spätere eigenständige Aufgabenverwaltung würde eine Erweiterung des
+  Datenmodells und eine Datenmigration erfordern.
+
+## Auswirkungen auf die Implementierung
+
+- `Report` ist die zentrale JPA-Entity im Paket `de.thm.reportify.report`.
+- Schicht, Texte, Priorität und Status werden unmittelbar im Report gespeichert.
+- `createdBy` und `updatedBy` enthalten den jeweiligen Benutzernamen als Text;
+  zwischen Report und Nutzer besteht in Version 1 kein Fremdschlüssel.
+- `ReportService` kapselt Validierung und Zustandsänderungen, während
+  `ReportRepository` den Datenzugriff übernimmt.

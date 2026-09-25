@@ -10,8 +10,6 @@ Reportify benötigt eine relationale Datenbank, um Anwendungsdaten wie Berichte,
 
 Für die erste Version des Systems soll die Datenhaltung möglichst einfach in die bestehende Spring-Boot-Anwendung integriert werden können. Gleichzeitig soll der Entwicklungs- und Konfigurationsaufwand für das Hochschulprojekt überschaubar bleiben.
 
-Im aktuellen Projekt sind Spring Data JPA und H2 bereits als Dependencies eingebunden. Dadurch kann H2 ohne zusätzliche externe Datenbankinstallation zusammen mit der Anwendung verwendet werden.
-
 Im aktuellen Projekt sind Spring Data JPA und H2 bereits als Dependencies eingebunden. H2 ist in `application.properties` als dateibasierte Persistenz konfiguriert. Die Konfiguration wurde mit dem aktuellen Spring-Boot-Build erfolgreich getestet. Diese Architekturentscheidung legt H2 als Datenbanktechnologie für Version 1 fest.
 
 ## Betrachtete Alternativen
@@ -88,3 +86,34 @@ Spring Data JPA
    |
    v
 H2-Datenbank
+```
+
+## Begründung
+
+H2 erfüllt den für Version 1 benötigten Funktionsumfang und ermöglicht eine
+reproduzierbare lokale Inbetriebnahme ohne externen Datenbankserver. Durch JPA
+bleibt die Persistenzlogik von der konkreten Datenbank weitgehend getrennt. Der
+geringe Betriebsaufwand ist für die lokale Demonstrationsanwendung wichtiger
+als Skalierung und Mehrinstanzbetrieb.
+
+## Konsequenzen
+
+**Positiv:**
+
+- Das Projekt kann mit JDK und Maven Wrapper lokal gestartet werden.
+- Daten bleiben in einer lokalen Datei über Anwendungsneustarts hinweg erhalten.
+- Für Tests kann weiterhin eine isolierte H2-Datenbank verwendet werden.
+
+**Negativ:**
+
+- H2 ist nicht als Produktionsdatenbank für mehrere Anwendungsinstanzen vorgesehen.
+- Ein späterer Wechsel zu PostgreSQL oder MariaDB erfordert eigene Migrations-
+  und Kompatibilitätstests.
+- Backups und gleichzeitige externe Zugriffe werden in Version 1 nicht automatisiert.
+
+## Auswirkungen auf die Implementierung
+
+- Entities werden mit JPA annotiert und über Spring-Data-Repositories gespeichert.
+- Die dateibasierte Datenbank liegt lokal unter `reportify/data` und wird nicht
+  in Git eingecheckt.
+- Datenbankspezifische Logik wird außerhalb der Konfiguration vermieden.

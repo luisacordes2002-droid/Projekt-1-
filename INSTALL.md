@@ -100,6 +100,12 @@ eines persönlichen Passworts weitergeleitet. Das Passwort muss mindestens 8 und
 darf höchstens 128 Zeichen lang sein. Nach erfolgreicher Festlegung ist das
 jeweilige Startpasswort nicht mehr gültig.
 
+Das Entwicklungsprofil erzeugt ausschließlich diese beiden Demokonten. Ohne
+das Profil `dev` werden keine Benutzerkonten automatisch angelegt. Version 1
+enthält weder eine Selbstregistrierung noch eine administrative Oberfläche zum
+Anlegen, Umbenennen oder Deaktivieren von Konten. Eine spätere Passwortänderung
+über die Oberfläche ist ebenfalls nicht Bestandteil dieser Version.
+
 ## 7. Datenbank
 
 Reportify verwendet eine lokale H2-Dateidatenbank. Die Daten werden im Verzeichnis `reportify/data` gespeichert.

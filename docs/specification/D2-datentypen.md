@@ -1,7 +1,7 @@
 # D2 – Datentypenverzeichnis
 
-> **Status:** Mit der Implementierung abgeglichener Stand vom 25.09.2026.  
-> Die formale Teamfreigabe steht noch aus.
+> **Status:** Finaler, mit der Implementierung abgeglichener Abgabestand vom
+> 25.09.2026.
 
 ## 1. Zweck
 
@@ -320,12 +320,11 @@ Kennzeichnet den aktuellen Bearbeitungsstand eines gespeicherten Reports.
 | `ReportTextDT` | Intern/vertraulich | Kann betriebliche Informationen enthalten |
 | `ZeitpunktDT` | Intern | Bestandteil der Report-Historie |
 
-## 18. Offene Entscheidungen
+## 18. Entscheidungsbezug
 
-Die zu diesem Dokument gehörenden offenen Punkte werden zentral in
-[`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
-
-Besonders relevant sind:
+Die für dieses Dokument relevanten Entscheidungen sind in
+[`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) dokumentiert und in diesen
+Abgabestand eingearbeitet. Besonders relevant sind:
 
 - `TD-001` – Pflichtfelder eines Reports
 - `TD-002` – Bedeutung der Priorität
@@ -334,8 +333,7 @@ Besonders relevant sind:
 - `TD-008` – Anlage der Benutzerkonten
 
 Die maximale Länge der Report-Textfelder wurde mit `TD-013` auf 4.000 Zeichen
-je Feld festgelegt. Noch offene Entscheidungen werden zentral in
-[`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
+je Feld festgelegt.
 
 ## 19. Nachverfolgbarkeit
 

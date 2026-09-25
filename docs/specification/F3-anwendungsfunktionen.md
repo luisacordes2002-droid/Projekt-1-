@@ -1,7 +1,7 @@
 # F3 – Anwendungsfunktionen
 
-> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.  
-> Die formale Teamfreigabe steht noch aus.
+> **Status:** Finaler, mit Implementierung und Tests abgeglichener Abgabestand
+> vom 25.09.2026.
 
 ## 1. Zweck
 
@@ -37,7 +37,7 @@ beziehungsweise im Quellcode beschrieben.
 
 ### AF-01 – Zugangsdaten prüfen
 
-**Zweck:**  
+**Zweck:**
 Feststellen, ob sich eine berechtigte Person mit gültigen Zugangsdaten anmeldet.
 
 **Eingaben:**
@@ -59,7 +59,7 @@ Feststellen, ob sich eine berechtigte Person mit gültigen Zugangsdaten anmeldet
 
 ### AF-02 – Sitzung verwalten
 
-**Zweck:**  
+**Zweck:**
 Den Anmeldestatus einer Person während der Nutzung von Reportify verwalten.
 
 **Eingaben:**
@@ -81,7 +81,7 @@ Den Anmeldestatus einer Person während der Nutzung von Reportify verwalten.
 
 ### AF-03 – Schichten bereitstellen
 
-**Zweck:**  
+**Zweck:**
 Die auswählbaren Arbeitsschichten für einen Report bereitstellen.
 
 **Auswahlwerte:**
@@ -103,7 +103,7 @@ Die auswählbaren Arbeitsschichten für einen Report bereitstellen.
 
 ### AF-04 – Report-Eingaben validieren
 
-**Zweck:**  
+**Zweck:**
 Prüfen, ob ein Report fachlich gültig und speicherbar ist.
 
 **Eingaben:**
@@ -135,7 +135,7 @@ Prüfen, ob ein Report fachlich gültig und speicherbar ist.
 
 ### AF-05 – Report speichern
 
-**Zweck:**  
+**Zweck:**
 Einen fachlich gültigen Report dauerhaft sichern.
 
 **Vorbedingung:**
@@ -156,7 +156,7 @@ Einen fachlich gültigen Report dauerhaft sichern.
 
 ### AF-06 – Aktuelle Übergabe bestimmen
 
-**Zweck:**  
+**Zweck:**
 Den für die nächste Schicht aktuellsten Übergabereport bereitstellen.
 
 **Eingaben:**
@@ -178,7 +178,7 @@ Den für die nächste Schicht aktuellsten Übergabereport bereitstellen.
 
 ### AF-07 – Report-Historie bereitstellen
 
-**Zweck:**  
+**Zweck:**
 Alle gespeicherten Reports nachvollziehbar anzeigen.
 
 **Eingaben:**
@@ -206,7 +206,7 @@ Alle gespeicherten Reports nachvollziehbar anzeigen.
 
 ### AF-08 – Report-Details bereitstellen
 
-**Zweck:**  
+**Zweck:**
 Den vollständigen Inhalt eines ausgewählten Reports anzeigen.
 
 **Eingaben:**
@@ -224,9 +224,9 @@ Den vollständigen Inhalt eines ausgewählten Reports anzeigen.
 - vollständige Report-Details oder
 - Meldung, dass der Report nicht gefunden wurde
 
-### AF-09 - Gespeicherten Report bearbeiten 
+### AF-09 - Gespeicherten Report bearbeiten
 
-**Zweck:** 
+**Zweck:**
 Einen bereits gespeicherten Report nachträglich ändern.
 
 **Eingaben:**
@@ -249,7 +249,7 @@ Einen bereits gespeicherten Report nachträglich ändern.
 
 ### AF-10 – Gespeicherten Report löschen
 
-**Zweck:**  
+**Zweck:**
 
 Einen gespeicherten Report durch eine berechtigte Schichtleitung löschen.
 
@@ -273,7 +273,7 @@ Einen gespeicherten Report durch eine berechtigte Schichtleitung löschen.
 
 ### AF-11 – Persönliches Passwort erstmalig festlegen
 
-**Zweck:**  
+**Zweck:**
 Einer Person ermöglichen, bei der ersten Anmeldung für ihr vorbereitetes
 Benutzerkonto ein eigenes persönliches Passwort festzulegen.
 
@@ -325,7 +325,7 @@ setzen.
 
 ### AF-13 – Druckansicht bereitstellen
 
-**Zweck:**  
+**Zweck:**
 Die fachlichen Inhalte eines geöffneten Reports druckgeeignet darstellen.
 
 **Eingaben:**
@@ -344,7 +344,7 @@ Die fachlichen Inhalte eines geöffneten Reports druckgeeignet darstellen.
 
 ### AF-14 – Dashboard-Kennzahlen bereitstellen
 
-**Zweck:**  
+**Zweck:**
 Einen kompakten Überblick über die vorhandenen Reports geben, ohne eine
 eigenständige Analyse- oder Berichtsfunktion einzuführen.
 

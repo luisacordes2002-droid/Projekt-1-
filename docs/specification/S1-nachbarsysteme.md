@@ -1,10 +1,10 @@
-# S1 - Nachbarsysteme 
+# S1 - Nachbarsysteme
 
 > **Status:** Mit dem Umfang der Version 1 abgeglichener Stand vom 25.09.2026.
 > Für den aktuellen Umfang von Reportify sind keine externen Fachsysteme oder
 > fachlichen Schnittstellen vorgesehen.
 
-## 1. Zweck 
+## 1. Zweck
 
 Dieses Kapitel beschreibt die Abgrenzung von Reportify gegenüber externen
 Fachsystemen und Schnittstellen.
@@ -16,7 +16,7 @@ vorgesehenen Integrationen ausdrücklich zu dokumentieren.
 Die grundsätzliche Systemgrenze wird in
 [P2 – Architekturüberblick](P2-architekturueberblick.md) beschrieben.
 
-## 2. Nachbarsysteme im aktuellen Umfang 
+## 2. Nachbarsysteme im aktuellen Umfang
 
 Reportify besitzt im aktuellen Umfang keine angebundenen externen
 Fachsysteme.
@@ -37,7 +37,7 @@ Insbesondere sind keine Schnittstellen zu folgenden Systemarten vorgesehen:
 Diese Systeme sind für die fachlichen Abläufe der ersten Version weder
 Voraussetzung noch Bestandteil von Reportify.
 
-## 3. Benutzerkonten 
+## 3. Benutzerkonten
 
 Die für die Anmeldung benötigten Benutzerkonten werden für die erste Version
 vorbereitet bereitgestellt. Eine Selbstregistrierung ist nicht vorgesehen.
@@ -81,7 +81,7 @@ einem externen System verändert oder gelöscht. Für die erste Version ist
 außerdem keine automatische Löschung aufgrund einer Aufbewahrungsfrist
 vorgesehen.
 
-## 6. Benutzer und Webbrowser 
+## 6. Benutzer und Webbrowser
 
 Mitarbeiter:innen und Schichtleitungen greifen über einen Webbrowser auf
 Reportify zu.
@@ -94,7 +94,7 @@ Reportify.
 Die tatsächlichen betrieblichen Aufgaben, über die in einem Report berichtet
 wird, werden außerhalb von Reportify durchgeführt.
 
-## 7. Abgrenzung für spätere Erweiterungen 
+## 7. Abgrenzung für spätere Erweiterungen
 
 Eine spätere Version von Reportify könnte Schnittstellen zu externen
 Fachsystemen erhalten, beispielsweise zu einer Schichtplanung oder einem
@@ -105,7 +105,7 @@ eingeführt, müssen die jeweiligen Nachbarsysteme, ausgetauschten Daten,
 Verantwortlichkeiten und Schnittstellen in diesem Kapitel ergänzt und in der
 Architektur technisch konkretisiert werden.
 
-## 8. Ergebnis 
+## 8. Ergebnis
 
 Für die erste Version von Reportify bestehen keine fachlichen Nachbarsysteme
 und keine externen fachlichen Schnittstellen.

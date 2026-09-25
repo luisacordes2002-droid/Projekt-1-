@@ -1,7 +1,7 @@
 # F2 – Anwendungsfälle
 
-> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.
-> Die formale Teamfreigabe steht noch aus.
+> **Status:** Finaler, mit Implementierung und Tests abgeglichener Abgabestand
+> vom 25.09.2026.
 
 ## 1. Übersicht
 
@@ -42,7 +42,8 @@ Seite aufzurufen.
 - Reportify ist erreichbar.
 - Für die Person existiert ein gültiges Benutzerkonto.
 - Die Person ist noch nicht angemeldet.
-- - Die Benutzerkonten werden vorab bereitgestellt. Eine Selbstregistrierung ist nicht möglich.
+- Die Benutzerkonten werden vorab bereitgestellt. Eine Selbstregistrierung ist
+  nicht möglich.
 
 ### Standardablauf
 
@@ -318,17 +319,17 @@ Eine angemeldete Person kann vergangene Reports nachvollziehen.
 
 ## 8. UC-07 – Gespeicherten Report bearbeiten
 
-### Ziel 
+### Ziel
 
 Eine angemeldete Person bearbeitet einen bereits gespeicherten Report.
 
-### Vorbedingungen 
+### Vorbedingungen
 
 - Die Person ist angemeldet.
 - Der zu bearbeitende Report existiert.
 - Die Person ist zur Bearbeitung des Reports berechtigt.
 
-### Standardablauf 
+### Standardablauf
 
 1. Die Person öffnet einen gespeicherten Report.
 2. Die Person wählt "Bearbeiten"
@@ -339,7 +340,7 @@ Eine angemeldete Person bearbeitet einen bereits gespeicherten Report.
 7. Das System speichert die Änderungen.
 8. Das System zeigt den aktualisierten Report an.
 
-### Alternativablauf 
+### Alternativablauf
 
 1. Die geänderten Angaben erfüllen die Validierungsregeln nicht.
 2. Das System speichert die Änderungen nicht.
@@ -392,7 +393,7 @@ Eine Schichtleitung löscht einen gespeicherten Report.
 3. Die Schichtleitung bricht den Vorgang ab.
 4. Der Report bleibt unverändert gespeichert.
 
-#### A2 - Keine Löschberechtigung 
+#### A2 - Keine Löschberechtigung
 
 1. Ein:e Mitarbeiter:in versucht, einen Report zu löschen.
 2. Das System erkennt, dass die Person nicht die Rolle `SCHICHTLEITUNG` besitzt.

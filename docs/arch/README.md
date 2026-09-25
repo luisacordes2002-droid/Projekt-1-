@@ -106,6 +106,27 @@ de.thm.reportify
     └── Rolle
 ```
 
+### 5.3 Rückverfolgbarkeit von Spezifikation zu Code
+
+| Anwendungsfall | Architekturbausteine | Zentrale Umsetzung |
+|---|---|---|
+| `UC-01` Anmelden | Security-Konfiguration, Benutzerverwaltung, Login-Dialog | `SecurityConfig`, `ReportifyUserDetailsService`, `LoginController`, `login.html` |
+| `UC-02` Abmelden | Security-Konfiguration, gemeinsame Navigation | `SecurityConfig`, Abmeldeformulare in den Thymeleaf-Templates |
+| `UC-03` Schicht auswählen | in Reporterstellung integriert | `ReportController`, `reports/form.html` |
+| `UC-04` Report erstellen | Report-Controller, Service, Repository, Formular | `ReportController`, `ReportService`, `ReportRepository`, `reports/form.html` |
+| `UC-05` Übergabe einsehen | Report-Controller, Repository, Dashboard | `ReportController`, `ReportRepository`, `reports/list.html` |
+| `UC-06` Historie anzeigen und filtern | Report-Controller, Repository, Historienansicht, JavaScript | `ReportController`, `ReportRepository`, `reports/list.html`, `reportify.js` |
+| `UC-07` Report bearbeiten | Report-Controller, Service, Formular und Detailansicht | `ReportController`, `ReportService`, `reports/form.html`, `reports/detail.html` |
+| `UC-08` Report löschen | Security-Konfiguration, Controller, Service, Löschdialog | `SecurityConfig`, `ReportController`, `ReportService`, `reports/detail.html`, `reportify.js` |
+| `UC-09` Erstpasswort festlegen | Passwort-Controller und -Service, Interceptor, Passwortdialog | `PasswortController`, `PasswortService`, `PasswortwechselInterceptor`, `passwort-aendern.html` |
+| `UC-10` Report erledigen | Report-Controller, Service und Entity | `ReportController`, `ReportService`, `Report`, `reports/detail.html` |
+| `UC-11` Drucken/PDF | Detailansicht, Druck-Styles und JavaScript | `reports/detail.html`, `reportify.css`, `reportify.js` |
+
+Die Dashboard-Kennzahlen aus `AF-14` werden im `ReportController` berechnet und
+in `reports/list.html` dargestellt. Diese Zuordnung erlaubt es, von einer
+fachlichen Kennung über den Architekturbaustein bis zur Implementierung zu
+navigieren.
+
 ## 6. Laufzeitsichten
 
 ### 6.1 Report erstellen
@@ -221,14 +242,15 @@ Die Entscheidungen sind als ADRs dokumentiert:
 Der Stand umfasst 46 erfolgreiche automatisierte Tests. Sie prüfen unter anderem
 Security, Passwortwechsel, Reportvalidierung, CRUD-Abläufe, Statuswechsel,
 Rollenberechtigungen, CSRF und Fehlerseiten. Die manuell geprüften UI-Abläufe und
-offenen Zusatzprüfungen stehen im [Test- und Abnahmenachweis](../ABNAHME.md).
+empfohlenen zusätzlichen Qualitätsprüfungen stehen im
+[Test- und Abnahmenachweis](../ABNAHME.md).
 
 ## 13. Einsatz von KI-Werkzeugen
 
 KI-Werkzeuge wurden unterstützend für Entwürfe, Abgleiche und Formulierungen
 verwendet. Aussagen wurden anhand von Quellcode, Tests und laufender Anwendung
-überprüft. Fachliche Entscheidungen und die formale Freigabe bleiben Aufgabe des
-Projektteams.
+überprüft. Die fachliche Verantwortung für den Abgabestand liegt beim
+Projektteam.
 
 ## 14. Glossar
 

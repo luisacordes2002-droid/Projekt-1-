@@ -1,7 +1,7 @@
 # B1 – Dialogspezifikation
 
-> **Status:** Mit der implementierten Benutzeroberfläche abgeglichener Stand vom
-> 25.09.2026. Die formale Teamfreigabe steht noch aus.
+> **Status:** Finaler, mit der implementierten Benutzeroberfläche abgeglichener
+> Abgabestand vom 25.09.2026.
 
 ## 1. Zweck
 
@@ -548,13 +548,13 @@ Version ergänzt werden.
 ## 14. Darstellungsnachweis
 
 Die implementierten Dialoge wurden anhand der laufenden Anwendung manuell
-geprüft. Ergebnisse und noch offene Browser- beziehungsweise Responsive-Checks
-stehen im [Test- und Abnahmenachweis](../ABNAHME.md). Screenshots sind ergänzende
+geprüft. Ergebnisse der Browser-, Responsive- und Tastaturprüfungen stehen im
+[Test- und Abnahmenachweis](../ABNAHME.md). Screenshots sind ergänzende
 Anschauung, aber kein Ersatz für die dort dokumentierten Prüfungen.
 
-## 15. Offene Entscheidungen
+## 15. Entscheidungsbezug
 
-Die offenen UI-Fragen werden zentral in
+Die für die Benutzeroberfläche maßgeblichen Festlegungen werden zentral in
 [`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
 
 Für B1 sind besonders relevant:

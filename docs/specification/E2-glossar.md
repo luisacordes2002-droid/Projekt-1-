@@ -1,7 +1,7 @@
 # E2 – Glossar
 
-> **Status:** Mit Spezifikation und Implementierung abgeglichener Stand vom
-> 25.09.2026. Die formale Teamfreigabe steht noch aus.
+> **Status:** Finaler, mit Spezifikation und Implementierung abgeglichener
+> Abgabestand vom 25.09.2026.
 
 ## 1. Zweck und Verwendung
 
@@ -78,8 +78,8 @@ Bezug: [D1 – Report-Attribute](D1-datenmodell.md),
 
 Eine für die Schichtübergabe relevante Störung beziehungsweise ein Vorfall im
 Arbeitsablauf. Probleme und Incidents werden im MVP gemeinsam im Feld
-„Probleme/Incidents“ beschrieben. Eine getrennte fachliche Klassifikation wird
-im vorliegenden Entwurf nicht festgelegt.
+„Probleme/Incidents“ beschrieben. Eine getrennte fachliche Klassifikation ist
+für Version 1 nicht vorgesehen.
 
 Bezug: [D1 – Report-Attribute](D1-datenmodell.md),
 [B1 – DLG-03](B1-dialogspezifikationen.md).
@@ -87,9 +87,9 @@ Bezug: [D1 – Report-Attribute](D1-datenmodell.md),
 ### Priorität
 
 Kennzeichnung der Dringlichkeit mit den Werten Niedrig, Mittel oder Hoch.
-**Arbeitsannahme nach TD-002:** Die Priorität bezieht sich auf die im Report
-beschriebenen Probleme oder Incidents und ist bei einem solchen Eintrag
-verpflichtend. Ob sie stattdessen für den gesamten Report gelten soll, ist offen.
+**Festlegung nach TD-002:** Die Priorität bezieht sich auf die im Report
+beschriebenen Probleme oder Incidents und ist verpflichtend, sobald ein solcher
+Eintrag vorhanden ist. Ohne Probleme oder Incidents bleibt sie optional.
 
 Diese Priorität ist von der Gewichtung einer Anforderung zu unterscheiden:
 Die Kategorien A, B und C in N1 bewerten Anforderungen an Reportify, keine Reports.
@@ -100,9 +100,9 @@ Bezug: [D2 – DT-10](D2-datentypen.md), [N1 – Prioritäten](N1-nichtfunktiona
 ### Aktuelle Übergabe / letzte Übergabe
 
 Der Report, den Reportify beim Aufruf der Übergabeansicht als aktuellen
-Informationsstand bereitstellt. **Arbeitsannahme nach TD-005:** Maßgeblich ist
-der zuletzt gespeicherte Report anhand seines Erstellungszeitpunkts.
-Ob zusätzlich die Reihenfolge der Schichten berücksichtigt werden soll, ist offen.
+Informationsstand bereitstellt. **Festlegung nach TD-005:** Maßgeblich ist der
+zuletzt gespeicherte Report anhand seines Erstellungszeitpunkts. Die Reihenfolge
+der Schichten verändert diese Auswahl nicht.
 
 Die aktuelle Übergabe ist eine Ansicht eines Reports, kein zusätzliches Datenobjekt.
 Existiert noch kein Report, wird ein erklärender Hinweis angezeigt.
@@ -247,17 +247,16 @@ Bezug: [F3 – AF-06 bis AF-08](F3-anwendungsfunktionen.md),
 | Begriff / Kennung | Bedeutung und Verwendung in Reportify |
 |---|---|
 | MVP | Minimum Viable Product; vereinbarter Mindestfunktionsumfang der ersten Version. Report-Details sind über UC-06, AF-08 und DLG-06 abgedeckt. |
-| Arbeitsannahme | Vorläufige Grundlage für einen Entwurf; keine bestätigte Teamentscheidung. |
 | Z | Projektziel aus P1, beispielsweise Z-08 für einheitliche Fachbegriffe. |
 | GR | Geschäftsregel aus F1, beispielsweise GR-02 für die Schichtzuordnung. |
-| UC | Use Case; Anwendungsfall aus Sicht einer nutzenden Person. In F2 werden UC-01 bis UC-06 beschrieben. |
-| AF | Anwendungsfunktion; fachliche Leistung des Systems zur Umsetzung eines oder mehrerer Anwendungsfälle. In F3 werden AF-01 bis AF-08 beschrieben. |
-| AK | Akzeptanzkriterium; überprüfbare Bedingung für die Erfüllung einer Anforderung. Die Kennungen AK-01 bis AK-20 werden in F2 verwendet. |
+| UC | Use Case; Anwendungsfall aus Sicht einer nutzenden Person. In F2 werden UC-01 bis UC-11 beschrieben. |
+| AF | Anwendungsfunktion; fachliche Leistung des Systems zur Umsetzung eines oder mehrerer Anwendungsfälle. In F3 werden AF-01 bis AF-14 beschrieben. |
+| AK | Akzeptanzkriterium; überprüfbare Bedingung für die Erfüllung einer Anforderung. Die Kennungen AK-01 bis AK-32 werden in F2 verwendet. |
 | DM | Fachliche Datenregel aus D1, beispielsweise DM-02 für die Zuordnung eines Reports zu seiner erstellenden Person. |
-| DT | Datentyp; beschreibt zulässige fachliche Werte und Regeln. D2 enthält DT-01 bis DT-12. |
-| DLG | Dialog; fachlich beschriebene Seite beziehungsweise Interaktionsansicht. B1 enthält DLG-01 bis DLG-06. |
+| DT | Datentyp; beschreibt zulässige fachliche Werte und Regeln. D2 enthält DT-01 bis DT-13. |
+| DLG | Dialog; fachlich beschriebene Seite beziehungsweise Interaktionsansicht. B1 enthält DLG-01 bis DLG-08. |
 | NFR | Non-functional Requirement; Qualitätsanforderung aus N1 mit überprüfbaren Akzeptanzkriterien, etwa zur Zuverlässigkeit oder Bedienbarkeit. |
-| TD | Teamentscheidung; zentral geführter Abstimmungspunkt. Eine TD-Kennung allein bedeutet nicht, dass bereits entschieden wurde. |
+| TD | Teamentscheidung; zentral dokumentierte fachliche, technische oder organisatorische Festlegung. Der Status steht in `TEAM-ENTSCHEIDUNGEN.md`. |
 | ADR | Architecture Decision Record; Dokumentation einer Architekturentscheidung mit Alternativen und Begründung. ADR-Kennungen sind für die spätere Architektur vorgesehen. |
 | Nachverfolgbarkeit | Verknüpfung von Zielen, Anforderungen, Daten, Dialogen, Architektur, Code und Tests über eindeutige Verweise. |
 

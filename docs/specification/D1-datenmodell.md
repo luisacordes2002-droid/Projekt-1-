@@ -1,7 +1,7 @@
 # D1 – Datenmodell
 
-> **Status:** Mit der Implementierung abgeglichener Stand vom 25.09.2026.  
-> Die formale Teamfreigabe steht noch aus.
+> **Status:** Finaler, mit der Implementierung abgeglichener Abgabestand vom
+> 25.09.2026.
 
 ## 1. Zweck
 
@@ -93,7 +93,7 @@ Für die erste Version sind folgende Rollen vorgesehen:
 - `MITARBEITER`
 - `SCHICHTLEITUNG`
 
-Beide Rollen dürfen die allgemeinen Kernfunktionen der ersten Version verwenden. 
+Beide Rollen dürfen die allgemeinen Kernfunktionen der ersten Version verwenden.
 Die Schichtleitung besitzt zusätzlich die Berechtigung, gespeicherte Reports zu löschen.
 Mitarbeiter:innen dürfen keine Reports löschen.
 
@@ -121,12 +121,12 @@ Arbeitsschicht.
 | `prioritaet` | Dringlichkeit der enthaltenen Probleme | Bedingt |
 | `wichtigeHinweise` | Informationen für die nachfolgende Schicht | Nein |
 | `erstelltAm` | Datum und Uhrzeit der Speicherung | Ja |
-| `erstelltVon` | Verweis auf die erstellende Person | Ja |
+| `erstelltVon` | Gespeicherter Benutzername der erstellenden Person | Ja |
 | `status` | Bearbeitungsstand des Reports (`OFFEN` oder `ERLEDIGT`) | Ja |
 | `geaendertAm` | Datum und Uhrzeit der letzten Bearbeitung | Nein |
-| `geaendertVon` | Person, die den Report zuletzt bearbeitet hat | Nein |
+| `geaendertVon` | Gespeicherter Benutzername der zuletzt ändernden Person | Nein |
 
-**Bedingt** bedeutet, dass ein Feld einzeln leer bleiben darf. 
+**Bedingt** bedeutet, dass ein Feld einzeln leer bleiben darf.
 
 ## 6. Fachliche Wertetypen
 
@@ -206,8 +206,11 @@ Ein Report durchläuft in der ersten Version folgende fachliche Schritte:
    neuer Report gespeichert wird, wird der vorherige Report Teil der Historie.
 6. Ein gespeicherter Report kann nachträglich bearbeitet werden.
 7. Geänderte Report-Daten werden erneut validiert und anschließend gespeichert.
-8. Ein gespeicherter Report kann durch die Schichtleitung gelöscht werden.
-9. Nach der Löschung steht der Report nicht mehr in der Historie und als Übergabe zur Verfügung.
+8. Ein offener Report kann als `ERLEDIGT` gekennzeichnet werden. Er bleibt
+   vollständig gespeichert und in der Historie sichtbar.
+9. Ein gespeicherter Report kann durch die Schichtleitung manuell gelöscht werden.
+10. Nach der Löschung steht der Report nicht mehr in der Historie und als
+    Übergabe zur Verfügung.
 
 Nicht gespeicherte Eingaben sind noch kein Report im Sinne dieses Datenmodells.
 Ein gesonderter Entwurfsstatus ist für die erste Version nicht vorgesehen.
@@ -219,7 +222,8 @@ Ein gesonderter Entwurfsstatus ist für die erste Version nicht vorgesehen.
 - Passwörter und andere Anmeldedaten gehören niemals in einen Report.
 - Reportify speichert für einen Report die fachlichen Inhalte, Status, Schicht,
   Priorität sowie Erstellungs- und gegebenenfalls Änderungsinformationen.
-- Eine automatische Löschfrist ist für die erste Version noch nicht festgelegt.
+- In Version 1 werden Reports nicht automatisch gelöscht. Sie bleiben
+  gespeichert, bis eine berechtigte Schichtleitung sie manuell löscht.
 
 ## 10. Abgrenzung
 

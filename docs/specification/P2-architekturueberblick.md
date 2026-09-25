@@ -1,7 +1,7 @@
 # P2 – Architekturüberblick
 
-> **Status:** Mit der technischen Architektur und dem Quellcode abgeglichener
-> Stand vom 25.09.2026. Die formale Teamfreigabe steht noch aus.
+> **Status:** Finaler, mit der technischen Architektur und dem Quellcode
+> abgeglichener Abgabestand vom 25.09.2026.
 
 ## 1. Zweck und Einordnung
 
@@ -68,7 +68,7 @@ Person eine geschützte Seite direkt aufruft. Das Diagramm zeigt diesen
 
 | Bereich | Verantwortung | Bezug zur Spezifikation |
 |---|---|---|
-| Dialoge und Rückmeldungen | Eingaben ermöglichen, Informationen darstellen und Erfolg, Fehler sowie Leerzustände erklären | B1: DLG-01 bis DLG-06 |
+| Dialoge und Rückmeldungen | Eingaben ermöglichen, Informationen darstellen und Erfolg, Fehler sowie Leerzustände erklären | B1: DLG-01 bis DLG-08 |
 | Anmeldung und Sitzung | Zugangsdaten prüfen, angemeldete Sitzungen verwalten und Abmeldungen verarbeiten | F2: UC-01, UC-02; F3: AF-01, AF-02 |
 | Schichtauswahl und Reporterstellung | Auswahlwerte bereitstellen, Eingaben validieren und gültige Reports speichern | F2: UC-03, UC-04; F3: AF-03 bis AF-05; B1: DLG-03 |
 | Übergabe, Historie und Details | Aktuelle Übergabe bestimmen, Reports zeitlich geordnet auflisten und einzelne Reports vollständig anzeigen | F2: UC-05, UC-06; F3: AF-06 bis AF-08; B1: DLG-04 bis DLG-06 |
@@ -120,8 +120,9 @@ Ausgestaltung besonders relevant:
   der Kernregeln sowie eine nachvollziehbare Zuordnung von Ersteller:in und Zeitpunkt.
 - **Bedienbarkeit und Leistung:** `NFR-10a-01`, `NFR-13a-01`, `NFR-12a-01`
   und `NFR-12e-01` beeinflussen die Darstellung und die Verarbeitung gespeicherter
-  Daten. Die Browser-, Breiten-, Leistungs- und Mengenziele aus `TD-015` und
-  `TD-016` sind vereinbart; noch offene Nachweise stehen in `docs/ABNAHME.md`.
+  Daten. Die Browser- und Breitenziele aus `TD-016` sind nachgewiesen. Für die
+  Leistungs- und Mengenziele aus `TD-015` ist im Abgabestand kein Last- oder
+  Mengentest dokumentiert; der genaue Stand steht in `docs/ABNAHME.md`.
 
 Die Prioritäten und vollständigen Akzeptanzkriterien bleiben in N1 maßgeblich.
 Ihre Nennung in P2 ändert ihre Priorität nicht.
