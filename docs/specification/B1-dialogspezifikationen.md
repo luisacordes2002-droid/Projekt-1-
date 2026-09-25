@@ -173,7 +173,10 @@ Eine angemeldete Person erfasst einen neuen Report für eine Schichtübergabe.
 - Das Feld "Erledigte Aufgaben" muss ausgefüllt sein.
 - Reine Leerzeichen gelten nicht als Inhalt.
 - Bei einem Problem oder Incident muss eine Priorität ausgewählt sein.
-- Jedes Textfeld besitzt vorläufig eine Maximallänge von 4.000 Zeichen.
+- Jedes Report-Textfeld besitzt eine Maximallänge von 4.000 Zeichen.
+- Unter jedem Report-Textfeld wird ein sichtbarer Zeichenzähler im Format „aktuelle Zeichenanzahl / 4000 Zeichen“ angezeigt.
+- Der Zeichenzähler wird während der Eingabe unmittelbar aktualisiert.
+- Beim Bearbeiten eines gespeicherten Reports zeigt der Zeichenzähler direkt die Zeichenanzahl des bereits vorhandenen Inhalts an.
 - Mehrzeilige Eingaben sind erlaubt.
 
 ### 6.4 Speicherung
@@ -301,7 +304,23 @@ Jeder Listeneintrag zeigt mindestens:
 Auf kleinen Bildschirmen dürfen Listeneinträge als Karten statt als Tabelle
 dargestellt werden.
 
-### 8.4 Aktionen
+### 8.4 Suche und Filter
+
+Für die historischen Reports stehen folgende Bedienelemente zur Verfügung:
+
+| Element | Typ | Beschreibung |
+|---|---|---|
+| Textsuche | Eingabefeld | Durchsucht die Textinhalte der historischen Reports |
+| Schichtfilter | Auswahlliste | Filtert die Historie nach Früh-, Spät- oder Nachtschicht |
+| Zurücksetzen | Schaltfläche | Entfernt Suchbegriff und Schichtfilter |
+
+Textsuche und Schichtfilter können gleichzeitig verwendet werden. Ein historischer Report wird nur angezeigt, wenn er alle gesetzten Kriterien erfüllt.
+
+Die Filterung betrifft ausschließlich die Report-Historie. Die aktuelle Übergabe bleibt unabhängig von den gewählten Such- und Filterkriterien sichtbar.
+
+Wenn kein historischer Report den gewählten Kriterien entspricht, wird ein verständlicher Hinweis angezeigt.
+
+### 8.5 Aktionen
 
 | Aktion | Ergebnis |
 |---|---|
@@ -309,7 +328,7 @@ dargestellt werden.
 | Neue Übergabe | Öffnet DLG-03 |
 | Zur Startseite | Öffnet DLG-02 |
 
-### 8.5 Leerer Zustand
+### 8.6 Leerer Zustand
 
 Wenn keine Reports existieren, erscheint:
 
@@ -317,7 +336,7 @@ Wenn keine Reports existieren, erscheint:
 
 Zusätzlich wird „Neue Übergabe erstellen“ angeboten.
 
-### 8.6 Bezug
+### 8.7 Bezug
 
 - `UC-06` – Report-Historie anzeigen
 - `AF-07` – Report-Historie bereitstellen

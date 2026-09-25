@@ -161,6 +161,8 @@ Den für die nächste Schicht aktuellsten Übergabereport bereitstellen.
 **Eingaben:**
 
 - gespeicherte Reports
+- optionaler Suchbegriff
+- optional ausgewählte Schicht
 
 **Verarbeitung:**
 
@@ -186,16 +188,24 @@ Alle gespeicherten Reports nachvollziehbar anzeigen.
 
 **Verarbeitung:**
 
+**Verarbeitung:**
+
 1. Das System lädt alle vorhandenen Reports.
 2. Die Reports werden absteigend nach ihrem Erstellungszeitpunkt sortiert.
-3. Der neueste Report steht an erster Stelle.
-4. Jeder Eintrag zeigt mindestens Schicht, Zeitpunkt, Ersteller:in und Priorität.
-5. Wenn keine Reports vorhanden sind, wird ein verständlicher Leerzustand angezeigt.
+3. Der neueste Report steht als aktuelle Übergabe an erster Stelle.
+4. Die übrigen Reports bilden die Report-Historie.
+5. Die historischen Reports können anhand ihres Textinhalts durchsucht werden.
+6. Die historischen Reports können nach Früh-, Spät- oder Nachtschicht gefiltert werden.
+7. Textsuche und Schichtfilter können miteinander kombiniert werden.
+8. Die aktuelle Übergabe wird durch Suche und Schichtfilter nicht ausgeblendet.
+9. Jeder Eintrag zeigt mindestens Schicht, Zeitpunkt, Ersteller:in und Priorität.
+10. Wenn keine historischen Reports den gewählten Kriterien entsprechen, wird ein verständlicher Hinweis angezeigt.
 
 **Ergebnis:**
 
-- chronologisch sortierte Report-Liste oder
-- Hinweis, dass noch keine Reports vorhanden sind
+- aktuelle Übergabe und chronologisch sortierte Report-Historie,
+- entsprechend Suchbegriff und/oder Schicht gefilterte historische Reports oder
+- verständlicher Hinweis, wenn keine historischen Reports den gewählten Kriterien entsprechen
 
 ### AF-08 – Report-Details bereitstellen
 
