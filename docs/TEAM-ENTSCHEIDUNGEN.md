@@ -1,8 +1,8 @@
-# Offene Teamentscheidungen – Reportify
+# Teamentscheidungen – Reportify
 
-> **Stand:** 30.08.2026  
-> Diese Datei ist die zentrale Übersicht für fachliche, technische und
-> organisatorische Entscheidungen, die das Team noch abstimmen muss.
+> **Stand:** 25.09.2026  
+> Diese Datei ist die zentrale Übersicht über fachliche, technische und
+> organisatorische Entscheidungen und deren Einarbeitungsstatus.
 
 ## 1. Verwendung
 
@@ -51,30 +51,20 @@ Architekturdatei enthält anschließend die verbindliche Beschreibung.
 
 
 
-## 4. Priorität für das nächste Teamtreffen
+## 4. Noch zu klären
 
-Folgende Entscheidungen müssen zuerst getroffen werden, weil sie die weitere
-Implementierung direkt beeinflussen:
+Die fachlichen und technischen Entscheidungen `TD-001` bis `TD-019` sind in die
+betroffenen Dokumente eingearbeitet. Nur `TD-010` benötigt noch eine formale
+Bestätigung der dauerhaften Projektrollen in `TEAMINFO.md`.
 
-1. `TD-001` – Report-Pflichtfelder
-2. `TD-002` – Bedeutung der Priorität
-3. `TD-003` – Bearbeitung gespeicherter Reports
-4. `TD-005` – Bestimmung der aktuellen Übergabe
-5. `TD-006` – Berechtigungen der Rollen
-6. `TD-008` – Anlage der Benutzerkonten
-7. `TD-009` – endgültige Datenbank
-8. `TD-010` – Projektrollen
-9. `TD-013` – maximale Länge der Report-Textfelder
-10. `TD-014` – Passwortregel
-11. `TD-015` – Leistungs- und Mengenziele
-12. `TD-016` – unterstützte Browser und kleinste Bildschirmbreite
-13. `TD-017` – Schichtauswahl und Arbeitskontext
-
-**Zieltermin für diese Entscheidungen:** 01.09.2026
+Die zu `TD-015` und `TD-016` vereinbarten Qualitätsziele sind dokumentiert, aber
+noch nicht vollständig durch Last- und browserübergreifende Tests nachgewiesen.
+Diese fehlenden Nachweise werden im Test- und Abnahmenachweis transparent geführt.
 
 ## 5. Entscheidungshistorie
 
 | ID | Entscheidung | Kurze Begründung | Datum | Beteiligte |
+|---|---|---|---|---|
 | TD-018 | Bei der Bearbeitung werden Änderungszeitpunkt und ändernde Person gespeichert. | Änderungen bleiben nachvollziehbar. | 24.09.2026 | Souhaib Boujemaoui |
 | TD-019 | Gespeicherte Reports können als erledigt gekennzeichnet werden. | Der Bearbeitungsstand bleibt für nachfolgende Schichten sichtbar. | 24.09.2026 | Souhaib Boujemaoui |
 

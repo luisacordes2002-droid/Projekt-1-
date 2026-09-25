@@ -1,322 +1,241 @@
 # Architektur von Reportify
 
+> **Stand:** Mit Quellcode und Tests abgeglichen am 25.09.2026.
+
 ## 1. Einführung und Ziele
 
-Dieses Dokument beschreibt die Softwarearchitektur der Anwendung Reportify. Es orientiert sich an der Struktur des arc42-Templates und dient dazu, die wesentlichen Architekturentscheidungen, Systembausteine und technischen Zusammenhänge nachvollziehbar zu dokumentieren.
+Reportify ist eine serverseitig gerenderte Webanwendung für digitale
+Schichtübergaben. Die Architektur unterstützt eine übersichtliche Umsetzung,
+einfache lokale Inbetriebnahme, persistente Speicherung und eine angemessene
+Absicherung der fachlichen Funktionen.
 
-Reportify ist als webbasierte Anwendung vorgesehen, mit der Mitarbeitende Informationen aus ihrem Arbeitsalltag digital erfassen und für nachfolgende Schichten bereitstellen können. Die Anwendung soll insbesondere die Dokumentation von Berichten, die Verwaltung von Aufgaben und die Informationsweitergabe bei Schichtwechseln unterstützen.
-
-Ziel der Architektur ist eine übersichtliche und für den Projektumfang angemessene Struktur. Die Anwendung wird deshalb als modular strukturierter Spring-Boot-Monolith entwickelt. Die einzelnen Verantwortlichkeiten sollen innerhalb der Anwendung klar voneinander getrennt werden, ohne die zusätzliche technische Komplexität einer verteilten Architektur einzuführen.
-
-Die Architektur soll insbesondere folgende Ziele unterstützen:
-
-- klare Trennung der Verantwortlichkeiten innerhalb der Anwendung,
-- einfache Wartbarkeit und Erweiterbarkeit,
-- nachvollziehbare Zuordnung zwischen Anforderungen, Architektur und Quellcode,
-- serverseitige Bereitstellung der Benutzeroberfläche,
-- persistente Speicherung der Anwendungsdaten,
-- angemessene Absicherung und Validierung der Anwendung.
+Die Anwendung ist als modular strukturierter Spring-Boot-Monolith umgesetzt.
+Verantwortlichkeiten sind nach Konfiguration, Websteuerung, Reportverwaltung und
+Benutzerverwaltung getrennt, ohne die zusätzliche Komplexität verteilter Dienste.
 
 ## 2. Randbedingungen
-
-Für die Entwicklung von Reportify bestehen folgende technische und organisatorische Randbedingungen:
 
 | Bereich | Festlegung |
 |---|---|
 | Programmiersprache | Java 21 |
 | Framework | Spring Boot 4.0.8 |
-| Web-Technologie | Spring MVC |
-| Benutzeroberfläche | Thymeleaf |
+| Web | Spring MVC und Thymeleaf |
+| Sicherheit | Spring Security |
 | Persistenz | Spring Data JPA |
-| Datenbank | H2 |
-| Build-System | Maven |
+| Datenbank | dateibasierte H2-Datenbank |
+| Build und Tests | Maven Wrapper und JUnit |
+| Oberfläche | HTML, zentrales CSS und ergänzendes JavaScript |
 | Versionsverwaltung | Git und GitHub |
 
-Die genannten Technologien entsprechen dem aktuellen Stand des Projekts. Spring Security ist implementiert und schützt die fachlichen Seiten durch formularbasierte Anmeldung und Sitzungsverwaltung. Rollenabhängige Berechtigungen werden insbesondere für das Löschen gespeicherter Reports verwendet.
+## 3. Kontext und Systemgrenze
 
-## 3. Kontextabgrenzung
-
-Reportify wird über einen Webbrowser verwendet. Der Browser stellt die Benutzerschnittstelle dar und kommuniziert über HTTP mit der Spring-Boot-Anwendung. Die Anwendung verarbeitet die Anfragen, führt die Anwendungslogik aus und greift für persistente Daten über Spring Data JPA auf die Datenbank zu.
+Angemeldete Mitarbeiter:innen und Schichtleitungen bedienen Reportify im
+Browser. Die Anwendung verarbeitet Login- und Reportdaten und speichert sie in
+einer lokalen H2-Datenbank. Externe APIs, Benachrichtigungsdienste und
+Fremdsysteme gehören nicht zur Version 1.
 
 ```mermaid
 flowchart LR
-    U[Mitarbeitende] -->|verwenden| B[Webbrowser]
-    B -->|HTTP-Anfragen| R[Reportify]
-    R -->|HTML-Antworten| B
-    R -->|JPA| DB[(H2-Datenbank)]
+    U["Mitarbeiter:in / Schichtleitung"] -->|HTTP im Browser| R["Reportify"]
+    R -->|JPA| D[("H2-Dateidatenbank")]
 ```
-
-Externe Nachbarsysteme sind im aktuellen Projektstand nicht vorgesehen. Reportify bildet damit zunächst ein in sich geschlossenes Anwendungssystem.
 
 ## 4. Lösungsstrategie
 
-Für Reportify wird ein modular strukturierter Monolith auf Basis von Spring Boot verwendet. Alle Bestandteile der Anwendung werden gemeinsam entwickelt, gebaut und ausgeführt. Innerhalb des Monolithen werden die Verantwortlichkeiten jedoch durch klar getrennte Schichten beziehungsweise Pakete strukturiert.
-
-Die grundlegende Verarbeitung einer Anfrage soll nach folgendem Prinzip erfolgen:
-
-```text
-Webbrowser
-    |
-    v
-Controller
-    |
-    v
-Service
-    |
-    v
-Repository
-    |
-    v
-Datenmodell / Datenbank
-```
-
-Die Darstellung der Benutzeroberfläche erfolgt serverseitig mit Thymeleaf. Controller nehmen HTTP-Anfragen entgegen und koordinieren die Verarbeitung. Die eigentliche Geschäftslogik wird in Services gekapselt. Repository-Komponenten übernehmen mithilfe von Spring Data JPA den Datenzugriff.
-
-Diese Struktur wurde gewählt, da sie für den Umfang des Projekts eine klare Trennung der Verantwortlichkeiten ermöglicht, ohne die Komplexität einer Microservice- oder separaten SPA-Architektur einzuführen.
+- Spring MVC verarbeitet HTTP-Anfragen über Controller.
+- Thymeleaf rendert HTML auf dem Server.
+- Serviceklassen kapseln fachliche Validierung und Zustandsänderungen.
+- Spring Data JPA übernimmt den Datenzugriff.
+- Spring Security schützt alle fachlichen Seiten, prüft Rollen und CSRF-Token.
+- Ein Interceptor erzwingt vor der fachlichen Nutzung den ersten
+  Passwortwechsel.
+- Zentrales CSS sorgt für ein konsistentes responsives Design.
+- JavaScript verbessert die Bedienung durch mobiles Menü, Passwortanzeige,
+  Zeichenzähler, clientseitige Historienfilter und Löschdialog. Die fachliche
+  Autorisierung bleibt unabhängig davon serverseitig erzwungen.
 
 ## 5. Bausteinsicht
 
-### 5.1 Übersicht
-
-Die geplante interne Struktur von Reportify besteht aus folgenden Bausteinen:
-
 ```mermaid
-flowchart TD
-    B[Webbrowser] --> C[Controller]
-    C --> V[Thymeleaf Templates]
-    C --> S[Service]
-    S --> R[Repository]
-    R --> M[Domänenmodell]
-    R --> DB[(H2-Datenbank)]
+flowchart TB
+    B["Browser"] --> C["Controller"]
+    C --> S["Report- und Passwort-Services"]
+    S --> P["JPA-Repositories"]
+    P --> H[("H2")]
+    C --> T["Thymeleaf-Templates"]
+    T --> A["CSS / JavaScript"]
 ```
 
-### 5.2 Controller
+### 5.1 Pakete und Verantwortlichkeiten
 
-Die Controller bilden die Schnittstelle zwischen Webbrowser und Anwendungslogik. Sie nehmen HTTP-Anfragen entgegen, verarbeiten Eingaben und wählen die darzustellenden Thymeleaf-Templates aus.
+| Paket/Bereich | Verantwortung |
+|---|---|
+| `de.thm.reportify.config` | Security-Konfiguration, Entwicklungsdaten und Passwortwechsel-Interceptor |
+| `de.thm.reportify.controller` | Login-, Passwort-, Startseiten- und Report-Endpunkte |
+| `de.thm.reportify.report` | Report-Entity, fachliche Reportlogik und Repository |
+| `de.thm.reportify.user` | Nutzer-Entity, Rollen, Passwortregeln und UserDetailsService |
+| `templates` | Serverseitig gerenderte Seiten und Formulare |
+| `static/css` | gemeinsames Erscheinungsbild einschließlich responsiver Regeln |
+| `static/js` | progressive Bedienfunktionen ohne fachliche Berechtigungslogik |
 
-Im aktuellen Stand existiert bereits der `StartseiteController`. Dieser verarbeitet einen GET-Aufruf auf `/` und liefert das Template `startseite` zurück.
-
-### 5.3 Service
-
-Die Service-Schicht soll die fachliche Anwendungslogik enthalten. Dadurch wird verhindert, dass Geschäftslogik direkt in Controllern oder Repository-Klassen implementiert wird.
-
-Für die zentralen fachlichen Funktionen sind beispielsweise Services für Berichte und Aufgaben vorgesehen.
-
-### 5.4 Repository
-
-Die Repository-Schicht kapselt den Zugriff auf persistente Daten. Hierfür wird Spring Data JPA verwendet. Controller sollen nicht unmittelbar auf die Datenbank zugreifen, sondern über Service- und Repository-Komponenten.
-
-### 5.5 Domänenmodell
-
-Das Domänenmodell enthält die fachlichen Entitäten der Anwendung. Nach aktuellem Planungsstand gehören insbesondere Berichte, Aufgaben und Benutzer zu den relevanten fachlichen Konzepten. Die endgültige Ausgestaltung der Entitäten muss mit dem Datenmodell der Spezifikation und dem tatsächlich implementierten Code synchron gehalten werden.
-
-### 5.6 Benutzeroberfläche
-
-Die Benutzeroberfläche wird serverseitig mit Thymeleaf erzeugt. Die Templates befinden sich unter `src/main/resources/templates`. Dadurch ist für die erste Version kein separates JavaScript-Frontend notwendig.
-
-## 6. Laufzeitsicht
-
-Die folgenden Laufzeitsichten zeigen die vorgesehene Verarbeitung zentraler Anwendungsfälle. Da die fachliche Implementierung noch nicht vollständig vorliegt, beschreiben sie die Zielarchitektur und müssen bei der weiteren Implementierung mit den endgültigen Anwendungsfällen abgeglichen werden.
-
-### 6.1 Bericht erstellen
-
-```mermaid
-sequenceDiagram
-    actor M as Mitarbeiter
-    participant B as Browser
-    participant C as ReportController
-    participant S as ReportService
-    participant R as ReportRepository
-    participant DB as H2-Datenbank
-
-    M->>B: Berichtsdaten eingeben
-    B->>C: Bericht absenden
-    C->>C: Eingaben validieren
-    C->>S: Bericht erstellen
-    S->>R: Bericht speichern
-    R->>DB: Daten persistieren
-    DB-->>R: Speicherung erfolgreich
-    R-->>S: gespeicherter Bericht
-    S-->>C: Ergebnis
-    C-->>B: aktualisierte Ansicht
-```
-
-### 6.2 Informationen für die Schichtübergabe anzeigen
-
-```mermaid
-sequenceDiagram
-    actor M as Mitarbeiter
-    participant B as Browser
-    participant C as ReportController
-    participant S as ReportService
-    participant R as ReportRepository
-    participant DB as H2-Datenbank
-
-    M->>B: Schichtinformationen aufrufen
-    B->>C: GET-Anfrage
-    C->>S: relevante Informationen anfordern
-    S->>R: Daten abfragen
-    R->>DB: Abfrage ausführen
-    DB-->>R: Daten
-    R-->>S: relevante Berichte
-    S-->>C: aufbereitete Informationen
-    C-->>B: Thymeleaf-Ansicht
-```
-
-### 6.3 Aufgabenstatus aktualisieren
-
-```mermaid
-sequenceDiagram
-    actor M as Mitarbeiter
-    participant B as Browser
-    participant C as TaskController
-    participant S as TaskService
-    participant R as TaskRepository
-    participant DB as H2-Datenbank
-
-    M->>B: Aufgabenstatus ändern
-    B->>C: Statusänderung senden
-    C->>C: Eingabe validieren
-    C->>S: Status aktualisieren
-    S->>R: Aufgabe speichern
-    R->>DB: Änderung persistieren
-    DB-->>R: Speicherung erfolgreich
-    R-->>S: aktualisierte Aufgabe
-    S-->>C: Ergebnis
-    C-->>B: aktualisierte Ansicht
-```
-
-## 7. Deployment-Sicht
-
-Reportify ist für die erste Version als einzelne Spring-Boot-Anwendung vorgesehen. Der Benutzer benötigt lediglich einen Webbrowser. Die Anwendung enthält die Web-, Geschäftslogik- und Persistenzkomponenten.
-
-```mermaid
-flowchart LR
-    B[Webbrowser] -->|HTTP| A[Spring-Boot-Anwendung Reportify]
-    A -->|JPA / JDBC| D[(H2-Datenbank)]
-```
-
-Die Spring-Boot-Anwendung wird als eine deploybare Einheit ausgeführt. Dadurch bleibt das Deployment für den Projektumfang einfach. Eine Aufteilung auf mehrere unabhängig deploybare Dienste ist für Version 1 nicht vorgesehen.
-
-Die H2-Abhängigkeit ist bereits im Projekt vorhanden. Die H2-Datenbank ist im aktuellen Projektstand als dateibasierte Persistenz konfiguriert. Die Konfiguration erfolgt über `application.properties`. Dadurch bleiben die gespeicherten Daten auch nach einem Neustart der Anwendung erhalten. Die Konfiguration wurde mit dem aktuellen Spring-Boot-Build erfolgreich getestet.
-
-## 8. Querschnittskonzepte
-
-### 8.1 Security
-
-Die Anwendung soll geschützte Funktionen nur authentifizierten beziehungsweise entsprechend berechtigten Benutzern zur Verfügung stellen. Als technische Lösung ist Spring Security vorgesehen.
-
-Spring Security ist im aktuellen Projektstand implementiert. Die Sicherheitskonfiguration erlaubt öffentliche Zugriffe auf die Login-Seite und benötigte statische Ressourcen. Fachliche Seiten erfordern eine gültige Anmeldung. Das Löschen eines Reports ist zusätzlich auf die Rolle `SCHICHTLEITUNG` beschränkt. Passwörter werden ausschließlich als sichere Passwortnachweise gespeichert.
-
-### 8.2 Persistenz
-
-Für die Persistenz wird Spring Data JPA verwendet. Der Datenzugriff erfolgt über Repository-Komponenten. Als Datenbank wird in der ersten Version H2 verwendet. Die H2-Datenbank ist als dateibasierte Persistenz konfiguriert, sodass die gespeicherten Daten auch nach einem Neustart der Anwendung erhalten bleiben.
-
-Dadurch bleibt die Persistenzlogik von der Web- und Geschäftslogik getrennt. Eine spätere Umstellung auf ein anderes relationales Datenbanksystem wird dadurch erleichtert.
-
-### 8.3 Validierung
-
-Benutzereingaben müssen vor ihrer Verarbeitung geprüft werden. Fachlich ungültige oder unvollständige Daten dürfen nicht ungeprüft persistiert werden.
-
-Die Validierung soll möglichst an den Eingabeobjekten beziehungsweise an den Grenzen der Anwendung erfolgen. Zusätzliche fachliche Prüfungen werden in der Service-Schicht durchgeführt.
-
-### 8.4 Fehlerbehandlung
-
-Technische und fachliche Fehler sollen kontrolliert behandelt werden. Benutzer sollen verständliche Fehlermeldungen erhalten, ohne interne technische Details der Anwendung offenzulegen.
-
-Wiederkehrende Fehlerbehandlung soll möglichst zentral umgesetzt werden, beispielsweise durch Spring-MVC-Mechanismen zur zentralen Behandlung von Exceptions.
-
-Für HTTP-Fehler verwendet Reportify eine eigene responsive Fehleransicht. Sie
-unterscheidet eine nicht gefundene Seite (`404`) von sonstigen technischen
-Fehlern, zeigt keine internen Ausnahmeinformationen und bietet den Rückweg zur
-Reportübersicht an.
-
-## 9. Paketstruktur
-
-Für die weitere Entwicklung wird folgende Zielstruktur innerhalb des Basispakets `de.thm.reportify` vorgesehen:
+### 5.2 Tatsächliche Projektstruktur
 
 ```text
 de.thm.reportify
-├── controller
-│   ├── StartseiteController
-│   ├── ReportController
-│   └── TaskController
-├── service
-│   ├── ReportService
-│   └── TaskService
-├── repository
-│   ├── ReportRepository
-│   └── TaskRepository
-├── model
-│   ├── Report
-│   ├── Task
-│   └── User
+├── ReportifyApplication
 ├── config
-│   └── SecurityConfig
-└── ReportifyApplication
+│   ├── EntwicklungsdatenKonfiguration
+│   ├── PasswortwechselInterceptor
+│   ├── SecurityConfig
+│   └── WebConfig
+├── controller
+│   ├── LoginController
+│   ├── PasswortController
+│   ├── ReportController
+│   └── StartseiteController
+├── report
+│   ├── Report
+│   ├── ReportRepository
+│   └── ReportService
+└── user
+    ├── Nutzer
+    ├── NutzerRepository
+    ├── PasswortRegeln
+    ├── PasswortService
+    ├── ReportifyUserDetailsService
+    └── Rolle
 ```
 
-Diese Struktur stellt die Zielarchitektur dar. Der `StartseiteController` wurde bereits in das vorgesehene Package `de.thm.reportify.controller` verschoben. `ReportifyApplication` verbleibt als zentrale Startklasse im Basis-Package `de.thm.reportify`. Die weiteren vorgesehenen Packages und Komponenten werden im Verlauf der Implementierung ergänzt. Architektur und Quellcode müssen dabei weiterhin synchron gehalten werden.
+## 6. Laufzeitsichten
 
-## 10. Architektur und Implementierung
+### 6.1 Report erstellen
 
-Die Architekturdokumentation wird gemeinsam mit dem Quellcode weiterentwickelt. Architekturentscheidungen dürfen nicht lediglich dokumentiert werden, sondern müssen sich im tatsächlichen Code widerspiegeln.
+1. Eine angemeldete Person öffnet `GET /reports/new`.
+2. `ReportController` rendert das Erfassungsformular.
+3. Das Formular sendet `POST /reports` mit CSRF-Token.
+4. `ReportService` bereinigt und validiert die Eingaben.
+5. `ReportRepository` speichert die Entity.
+6. Der Controller leitet zur Detailseite des neuen Reports weiter.
 
-Für die weitere Entwicklung gelten insbesondere folgende Zuordnungen:
+### 6.2 Erster Passwortwechsel
 
-| Architekturkonzept | Umsetzung im Code |
-|---|---|
-| Web-Schicht | Controller |
-| Geschäftslogik | Service-Klassen |
-| Persistenzzugriff | Repository-Klassen |
-| Fachliche Daten | Model-/Entity-Klassen |
-| Benutzeroberfläche | Thymeleaf-Templates |
-| Konfiguration | Spring-Konfiguration und `application.properties` |
+1. Spring Security authentifiziert Benutzername und Startpasswort.
+2. Der Interceptor erkennt `passwortwechselErforderlich`.
+3. Die Person wird zu `/passwort-aendern` geleitet.
+4. `PasswortService` prüft Länge und Bestätigung, hasht das Passwort und beendet
+   den erzwungenen Passwortwechsel.
+5. Danach sind die geschützten Reportseiten erreichbar.
 
-Bei Änderungen am Code muss geprüft werden, ob die Architekturdokumentation ebenfalls angepasst werden muss. Umgekehrt dürfen geplante Architekturbausteine nicht als bereits implementiert dargestellt werden, solange sie im Quellcode noch nicht vorhanden sind.
+### 6.3 Report löschen
 
-## 11. Architekturentscheidungen
+1. Nur für die Schichtleitung zeigt die Detailseite die Löschaktion.
+2. Vor dem Absenden fragt ein nativer Dialog nach Bestätigung.
+3. `POST /reports/{id}/delete` wird mit CSRF-Token gesendet.
+4. Spring Security prüft serverseitig `ROLE_SCHICHTLEITUNG`.
+5. Der Service löscht den Report oder liefert eine verständliche Fehlermeldung.
 
-Wesentliche Architekturentscheidungen werden als Architecture Decision Records (ADRs) im Unterordner `docs/arch/adr` dokumentiert.
+### 6.4 Report als erledigt markieren
 
-Folgende Entscheidungen sind für Reportify relevant:
+1. Eine angemeldete Person sendet `POST /reports/{id}/complete`.
+2. Der Service lädt den Report und setzt den Status auf `ERLEDIGT`.
+3. Die Detailseite zeigt den aktualisierten Status; der Report bleibt gespeichert.
 
-1. modular strukturierter Spring-Boot-Monolith,
-2. Thymeleaf anstelle einer separaten Single-Page-Application,
-3. H2 als Datenbank für Version 1,
-4. Spring Security für Authentifizierung und Autorisierung,
-5. Report als zentrale fachliche Entität.
+## 7. Verteilungssicht
 
-Der Status der einzelnen Entscheidungen wird in den jeweiligen ADRs dokumentiert. Entscheidungen, deren technische oder fachliche Umsetzung noch nicht abschließend feststeht, werden zunächst als `Proposed` gekennzeichnet.
+Version 1 läuft als einzelner Java-Prozess. Thymeleaf-Templates und statische
+Assets werden aus demselben Artefakt ausgeliefert. Die H2-Datenbank wird lokal im
+Verzeichnis `reportify/data` gespeichert. Für die Entwicklungszugänge muss das
+Profil `dev` aktiviert sein.
 
-## 12. Risiken und technische Schulden
+## 8. Querschnittskonzepte
 
-Der aktuelle Entwicklungsstand weist insbesondere folgende Risiken beziehungsweise offene Punkte auf:
+### 8.1 Sicherheit
 
-- Die fachliche Spezifikation ist in mehreren Bereichen noch nicht vollständig ausgearbeitet.
-- Das endgültige Datenmodell muss mit der Architektur und den JPA-Entitäten abgestimmt werden.
-- Die geplante Paketstruktur ist im Code noch nicht vollständig umgesetzt.
-- Die automatisierten Sicherheitstests für geschützte und rollenabhängige Endpunkte müssen erweitert werden.
-- Die H2-Datenbank ist als dateibasierte Persistenz konfiguriert und wurde im aktuellen Projektstand erfolgreich mit dem Spring-Boot-Build getestet.
-- Laufzeitsichten müssen nach Fertigstellung der Anwendungsfälle erneut mit der Spezifikation abgeglichen werden.
+- formularbasierte Anmeldung und serverseitige Sitzung,
+- PBKDF2-Passworthashes statt Klartextpasswörtern,
+- erzwungener persönlicher Passwortwechsel bei der ersten Anmeldung,
+- serverseitige Rollenprüfung für das Löschen,
+- CSRF-Schutz für schreibende Anfragen,
+- öffentliche Freigabe nur für Login und statische CSS-/JavaScript-Ressourcen,
+- Fehlerseiten ohne Stacktrace oder interne Details.
 
-Diese Punkte werden im weiteren Projektverlauf überprüft und die Dokumentation entsprechend aktualisiert.
+### 8.2 Validierung
+
+Reporttexte werden serverseitig bereinigt und auf maximal 4.000 Zeichen geprüft.
+„Erledigte Aufgaben“ und Schicht sind verpflichtend. Bei Problemen oder Incidents
+ist eine Priorität erforderlich. HTML-Attribute und Zeichenzähler geben bereits
+im Browser Rückmeldung, ersetzen aber nicht die serverseitige Prüfung.
+
+### 8.3 Persistenz und Zeit
+
+`Report` und `Nutzer` sind JPA-Entities. Report-IDs und Nutzer-IDs werden von der
+Datenbank erzeugt. Zeitpunkte werden als `LocalDateTime` ohne separate
+Zeitzoneninformation gespeichert. `createdBy` und `updatedBy` enthalten den
+Benutzernamen als Text; zwischen Report und Nutzer besteht in Version 1 kein
+Fremdschlüssel.
+
+### 8.4 Oberflächenlogik
+
+Suche und Schichtfilter arbeiten clientseitig ausschließlich auf den bereits
+geladenen Historienkarten. Die aktuelle Übergabe bleibt sichtbar. Ohne
+JavaScript bleiben die serverseitigen Kernfunktionen zugänglich; Komfortfunktionen
+wie Live-Zähler, mobiler Navigationsschalter und Dialog sind dann eingeschränkt.
+
+## 9. Architekturentscheidungen
+
+Die Entscheidungen sind als ADRs dokumentiert:
+
+- [ADR-001: Modularer Monolith](adr/ADR-001-modularer-monolith.md)
+- [ADR-002: Thymeleaf statt SPA](adr/ADR-002-thymeleaf-statt-spa.md)
+- [ADR-003: H2-Datenbank](adr/ADR-003-h2-datenbank.md)
+- [ADR-004: Spring Security](adr/ADR-004-spring-security.md)
+- [ADR-005: Report als zentrale Entität](adr/ADR-005-report-zentrale-entitaet.md)
+
+## 10. Qualitätsanforderungen
+
+| Ziel | Architekturbeitrag | Nachweis |
+|---|---|---|
+| Verständlichkeit | klare Pakete, serverseitige Navigation, einheitliches Design | manuelle Abnahme |
+| Sicherheit | Spring Security, Rollenprüfung, CSRF, PBKDF2 | Integrations- und Servicetests |
+| Datenintegrität | Servicevalidierung, Transaktionen, JPA-Constraints | Service- und Controllertests |
+| Wartbarkeit | modularer Monolith, zentrale CSS-/JS-Dateien | Code- und Dokumentationsabgleich |
+| Portabilität | Maven Wrapper, Java 21, lokales Profil | Installationsanleitung |
+
+## 11. Risiken und technische Schulden
+
+- H2 ist für lokale Entwicklung und Demonstration geeignet, nicht als
+  Produktionsdatenbank für mehrere Instanzen.
+- Die Historienfilterung lädt alle Reports und filtert im Browser. Bei stark
+  wachsender Datenmenge wären serverseitige Suche und Seitennavigation nötig.
+- Konkrete Leistungsgrenzen wurden noch nicht durch Lasttests nachgewiesen.
+- Die Oberfläche wurde in Safari manuell geprüft; eine zusätzliche Prüfung in
+  Chrome, bei 360 Pixel Breite und per Tastatur ist noch offen.
+- Komfortfunktionen im JavaScript besitzen noch keine automatisierten
+  Browsertests.
+- `createdBy` und `updatedBy` sind bewusst nicht relational verknüpft; eine
+  spätere Umbenennung von Benutzerkonten würde bestehende Texte nicht ändern.
+
+## 12. Tests und Nachweise
+
+Der Stand umfasst 46 erfolgreiche automatisierte Tests. Sie prüfen unter anderem
+Security, Passwortwechsel, Reportvalidierung, CRUD-Abläufe, Statuswechsel,
+Rollenberechtigungen, CSRF und Fehlerseiten. Die manuell geprüften UI-Abläufe und
+offenen Zusatzprüfungen stehen im [Test- und Abnahmenachweis](../ABNAHME.md).
 
 ## 13. Einsatz von KI-Werkzeugen
 
-Bei der Erstellung und Überarbeitung der Architekturdokumentation wurden KI-Werkzeuge unterstützend eingesetzt. Die erzeugten Inhalte wurden anhand des vorhandenen Projektstands, der verwendeten Technologien und des Quellcodes überprüft und angepasst.
-
-Architekturentscheidungen und technische Aussagen müssen vor der Übernahme in die finale Abgabe mit der tatsächlichen Implementierung und der Spezifikation abgeglichen werden.
+KI-Werkzeuge wurden unterstützend für Entwürfe, Abgleiche und Formulierungen
+verwendet. Aussagen wurden anhand von Quellcode, Tests und laufender Anwendung
+überprüft. Fachliche Entscheidungen und die formale Freigabe bleiben Aufgabe des
+Projektteams.
 
 ## 14. Glossar
 
 | Begriff | Bedeutung |
 |---|---|
-| ADR | Architecture Decision Record; Dokumentation einer wesentlichen Architekturentscheidung |
-| Controller | Komponente zur Verarbeitung von HTTP-Anfragen |
-| H2 | Relationale Java-Datenbank, die in Reportify für die erste Version als dateibasierte Persistenz verwendet wird |
-| JPA | Java Persistence API; Schnittstelle zur Abbildung von Java-Objekten auf relationale Daten |
-| Repository | Komponente für den Zugriff auf persistente Daten |
-| Service | Komponente zur Kapselung der Geschäftslogik |
-| Spring Boot | Framework zur Entwicklung und Ausführung der Java-Webanwendung |
-| Thymeleaf | Serverseitige Template-Engine zur Erzeugung von HTML-Seiten |
+| ADR | Architecture Decision Record |
+| Controller | Verarbeitung von HTTP-Anfragen und Auswahl der Antwortansicht |
+| H2 | relationale Java-Datenbank für die lokale Version 1 |
+| JPA | Abbildung von Java-Entities auf relationale Daten |
+| Repository | Datenzugriff auf persistente Entities |
+| Service | Kapselung fachlicher Validierung und Zustandsänderungen |

@@ -1,8 +1,7 @@
 # D2 – Datentypenverzeichnis
 
-> **Status:** Arbeitsentwurf vom 30.08.2026.  
-> Die Werte und Grenzen sind Arbeitsannahmen und müssen vom Projektteam geprüft
-> werden.
+> **Status:** Mit der Implementierung abgeglichener Stand vom 25.09.2026.  
+> Die formale Teamfreigabe steht noch aus.
 
 ## 1. Zweck
 
@@ -48,7 +47,8 @@ Eindeutige und unveränderliche Kennung eines Benutzerkontos.
 ### Verwendung
 
 - `Nutzer.nutzerId`
-- `Report.erstelltVon`
+- technische Kennung des Benutzerkontos; Reports speichern in Version 1
+  stattdessen den Benutzernamen als Text
 
 ## 4. DT-02 – ReportIdDT
 
@@ -162,13 +162,13 @@ Fachliche Rolle einer Person innerhalb von Reportify.
 | Technischer Schlüssel | Anzeige | Bedeutung |
 |---|---|---|
 | `MITARBEITER` | Mitarbeiter:in | Erstellt und liest Schichtreports |
-| `SCHICHTLEITUNG` | Schichtleitung | Erstellt und liest Schichtreports |
+| `SCHICHTLEITUNG` | Schichtleitung | Erstellt und liest Schichtreports und darf Reports löschen |
 
 ### Regeln
 
 - Jedes Benutzerkonto besitzt genau eine Rolle.
 - Weitere Rollen sind in der ersten Version nicht vorgesehen.
-- Zusätzliche Rechte der Schichtleitung sind Gegenstand von `TD-006`.
+- Die zusätzliche Löschberechtigung der Schichtleitung ist in `TD-006` entschieden.
 
 ## 10. DT-08 – AktivDT
 
@@ -229,7 +229,7 @@ Beschreibt die Dringlichkeit eines Problems oder Incidents.
 - Wenn `problemeIncidents` ausgefüllt ist, muss eine Priorität angegeben werden.
 - Ohne Problem oder Incident darf die Priorität leer bleiben.
 - Freie Prioritätsangaben sind nicht zulässig.
-- Die genaue fachliche Zuordnung ist Gegenstand von `TD-002`.
+- Die fachliche Zuordnung ist in `TD-002` entschieden.
 
 ## 13. DT-11 – ReportTextDT
 
@@ -264,7 +264,8 @@ Datum und Uhrzeit, zu denen ein Report gespeichert wurde.
 
 - Der Zeitpunkt wird durch Reportify vergeben.
 - Nutzer:innen können den Erstellungszeitpunkt nicht frei eingeben.
-- Der Zeitpunkt enthält Datum, Uhrzeit und eine eindeutige Zeitzoneninformation.
+- Der Zeitpunkt enthält Datum und Uhrzeit. Version 1 speichert ihn als lokale
+  Zeit ohne eigene Zeitzoneninformation.
 - In der Benutzeroberfläche wird der Zeitpunkt in verständlicher lokaler Form
   angezeigt.
 - Für die Sortierung wird der vollständige Zeitpunkt verwendet.

@@ -1,6 +1,6 @@
 # B3 – Druckausgaben
 
-> **Status:** Arbeitsentwurf vom 30.08.2026. Die Prüfung durch das Projektteam steht aus.  
+> **Status:** Mit dem Umfang der Version 1 abgeglichener Stand vom 25.09.2026.  
 > **Anwendbarkeit:** Nicht anwendbar im festgelegten MVP.
 
 ## 1. Einordnung

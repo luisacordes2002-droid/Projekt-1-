@@ -1,7 +1,7 @@
 # F1 – Geschäftsprozesse
 
-> **Status:** Entwurf vom 29. August 2026. Noch nicht vom Team abschließend
-> geprüft und freigegeben.
+> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.
+> Die formale Teamfreigabe steht noch aus.
 
 ## 1. Zweck
 
@@ -168,7 +168,6 @@ Das System informiert die Person, dass noch kein Report vorhanden ist. Die
 - UC-05 – Übergabe einsehen
 - UC-06 – Report-Historie anzeigen
 - UC-10 – Report als erledigt kennzeichnen
-
 
 
 

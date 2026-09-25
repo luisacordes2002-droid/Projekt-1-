@@ -1,6 +1,6 @@
 # N2 – Querschnittskonzepte
 
-> **Status:** Arbeitsentwurf.  
+> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.  
 > Dieses Kapitel fasst fachliche Regeln zusammen, die mehrere Funktionen und
 > Dialoge von Reportify betreffen. Detaillierte Definitionen verbleiben in den
 > jeweils zuständigen Spezifikationskapiteln.

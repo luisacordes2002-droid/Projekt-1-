@@ -1,7 +1,7 @@
 # F2 – Anwendungsfälle
 
-> **Status:** Entwurf vom 29. August 2026. Noch nicht vom Team abschließend
-> geprüft und freigegeben.
+> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.
+> Die formale Teamfreigabe steht noch aus.
 
 ## 1. Übersicht
 

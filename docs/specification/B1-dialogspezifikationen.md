@@ -1,8 +1,7 @@
 # B1 – Dialogspezifikation
 
-> **Status:** Arbeitsentwurf vom 30.08.2026.  
-> Die Dialoge beschreiben die geplante Benutzeroberfläche der ersten
-> Reportify-Version. Gestaltung und Feldregeln müssen vom Team geprüft werden.
+> **Status:** Mit der implementierten Benutzeroberfläche abgeglichener Stand vom
+> 25.09.2026. Die formale Teamfreigabe steht noch aus.
 
 ## 1. Zweck
 
@@ -23,7 +22,7 @@ Architektur und Implementierung beschrieben.
 | ID | Dialog | Zweck | Anmeldung erforderlich |
 |---|---|---|---|
 | DLG-01 | Anmeldung | Zugang zu Reportify erhalten | Nein |
-| DLG-02 | Startseite | Überblick und zentrale Navigation | Ja |
+| DLG-02 | Dashboard und Reportübersicht | Überblick, aktuelle Übergabe und Historie | Ja |
 | DLG-03 | Report erstellen | Neue Schichtübergabe erfassen | Ja |
 | DLG-04 | Aktuelle Übergabe | Neuesten Report anzeigen | Ja |
 | DLG-05 | Report-Historie | Gespeicherte Reports durchsuchen | Ja |
@@ -38,10 +37,10 @@ Navigation.
 
 | Navigationselement | Ziel |
 |---|---|
-| Reportify-Logo oder Titel | DLG-02 – Startseite |
-| Neue Übergabe | DLG-03 – Report erstellen |
-| Aktuelle Übergabe | DLG-04 – Aktuelle Übergabe |
-| Historie | DLG-05 – Report-Historie |
+| Reportify-Logo oder Titel | DLG-02 – Dashboard und Reportübersicht |
+| Dashboard | DLG-02 – oberer Übersichtsbereich |
+| Reports | DLG-02 – aktuelle Übergabe und Historie |
+| Neuer Report | DLG-03 – Report erstellen |
 | Abmelden | Sitzung beenden und DLG-01 öffnen |
 
 Auf kleinen Bildschirmen darf die Navigation als aufklappbares Menü dargestellt
@@ -101,22 +100,26 @@ Der Dialog wird angezeigt, wenn:
 - `TD-008` – Anlage der Benutzerkonten
 - `TD-014` – Passwortregel
 
-## 5. DLG-02 – Startseite
+## 5. DLG-02 – Dashboard und Reportübersicht
 
 ### 5.1 Zweck
 
-Die Startseite gibt einer angemeldeten Person einen schnellen Überblick und Zugang
-zu den wichtigsten Funktionen.
+Das Dashboard kombiniert Einstieg, aktuelle Übergabe und Report-Historie auf
+einer Seite. Es gibt einer angemeldeten Person einen schnellen Überblick und
+Zugang zu den wichtigsten Funktionen. Die fachlichen Bereiche DLG-04 und DLG-05
+sind in diese gemeinsame Seite integriert.
 
 ### 5.2 Dialogelemente
 
 | Element | Typ | Beschreibung |
 |---|---|---|
-| Begrüßung | Text | Zeigt den Anzeigenamen der angemeldeten Person |
+| Benutzerkontext | Text | Zeigt Benutzername und Rolle der angemeldeten Person |
 | Aktuelle Übergabe | Zusammenfassung | Zeigt Kerndaten des neuesten Reports |
 | Neue Übergabe erstellen | Schaltfläche | Öffnet DLG-03 |
 | Aktuelle Übergabe ansehen | Schaltfläche | Öffnet DLG-04 |
-| Historie öffnen | Schaltfläche | Öffnet DLG-05 |
+| Kennzahlen | Zusammenfassung | Zeigt Gesamtzahl, aktuellen Status und Anzahl historischer Reports |
+| Report-Historie | Liste | Zeigt alle Reports außer der aktuellen Übergabe |
+| Suche und Schichtfilter | Filter | Filtert ausschließlich die Report-Historie |
 | Abmelden | Schaltfläche | Beendet die Sitzung |
 
 ### 5.3 Zusammenfassung der aktuellen Übergabe
@@ -127,16 +130,15 @@ Wenn mindestens ein Report vorhanden ist, werden angezeigt:
 - Erstellungszeitpunkt
 - Ersteller:in
 - Priorität, falls vorhanden
-- gekürzte Vorschau der offenen Aufgaben
-- gekürzte Vorschau der wichtigen Hinweise
+- Status und Priorität, falls vorhanden
 
-Die vollständigen Inhalte werden erst in DLG-04 angezeigt.
+Die fachlichen Textinhalte werden auf der Detailseite DLG-06 vollständig angezeigt.
 
 ### 5.4 Leerer Zustand
 
 Wenn noch kein Report vorhanden ist, erscheint:
 
-**„Es ist noch keine Übergabe vorhanden.“**
+**„Noch keine Reports vorhanden.“**
 
 Zusätzlich wird die Schaltfläche „Neue Übergabe erstellen“ angeboten.
 
@@ -190,7 +192,7 @@ Eine angemeldete Person erfasst einen neuen Report für eine Schichtübergabe.
 
 Vorgesehene Erfolgsmeldung:
 
-**„Der Report wurde erfolgreich gespeichert.“**
+**„Der Report wurde erfolgreich erstellt.“**
 
 ### 6.5 Validierungsfehler
 
@@ -204,16 +206,14 @@ Mögliche Meldungen:
 - **„Bitte wählen Sie für das Problem eine Priorität aus.“**
 - **„Das Feld darf höchstens 4.000 Zeichen enthalten.“**
 
-Die Fehlermeldung wird direkt beim betroffenen Feld und zusätzlich in einem
-allgemeinen Fehlerbereich angezeigt.
+Browserseitige Pflichtfeld- und Längenfehler werden am jeweiligen Feld angezeigt.
+Serverseitige fachliche Fehler erscheinen in einem allgemeinen Fehlerbereich und
+nennen das betroffene Feld in verständlicher Form.
 
 ### 6.6 Abbrechen
 
-Wenn noch keine Eingabe erfolgt ist, führt „Abbrechen“ direkt zur Startseite.
-
-Wenn bereits Daten eingegeben wurden, muss vor dem Verlassen bestätigt werden:
-
-**„Nicht gespeicherte Eingaben verwerfen?“**
+„Abbrechen“ führt ohne Speicherung zum Dashboard. Eine zusätzliche Abfrage für
+nicht gespeicherte Formulareingaben ist in Version 1 nicht umgesetzt.
 
 ### 6.7 Bezug
 
@@ -376,7 +376,7 @@ Mitarbeiter:innen können gespeicherte Reports nicht löschen.
 
 Vor der Löschung muss eine Bestätigung erfolgen:
 
-„Möchten Sie diesen Report wirklich löschen?“
+**„Report wirklich löschen? Dieser Vorgang kann nicht rückgängig gemacht werden.“**
 
 Wird die Löschung nicht bestätigt, bleibt der Report unverändert gespeichert.
 
@@ -384,7 +384,7 @@ Wird die Löschung nicht bestätigt, bleibt der Report unverändert gespeichert.
 
 Wenn die angeforderte Report-Kennung nicht existiert, erscheint:
 
-**„Der angeforderte Report wurde nicht gefunden.“**
+**„Der Report wurde nicht gefunden.“**
 
 Die Person kann anschließend zur Historie oder Startseite wechseln.
 
@@ -539,22 +539,12 @@ Version ergänzt werden.
 | DLG-08 | Zur Reportübersicht | DLG-04 / DLG-05 |
 | DLG-02 bis DLG-06 | Abmelden | DLG-01 |
 
-## 14. Noch zu ergänzende Darstellungen
+## 14. Darstellungsnachweis
 
-Sobald die ersten Seiten implementiert sind, werden diesem Dokument geprüfte
-Screenshots oder Wireframes hinzugefügt für:
-
-- Anmeldung
-- Startseite
-- Report-Formular
-- aktuelle Übergabe
-- Historie
-- Report-Details
-- Fehlerseite
-- mobile Darstellung
-
-Die Screenshots müssen mit den beschriebenen Dialogen und dem tatsächlichen
-Programmstand übereinstimmen.
+Die implementierten Dialoge wurden anhand der laufenden Anwendung manuell
+geprüft. Ergebnisse und noch offene Browser- beziehungsweise Responsive-Checks
+stehen im [Test- und Abnahmenachweis](../ABNAHME.md). Screenshots sind ergänzende
+Anschauung, aber kein Ersatz für die dort dokumentierten Prüfungen.
 
 ## 15. Offene Entscheidungen
 

@@ -19,7 +19,7 @@ Bereits umgesetzt sind:
 - getrennte Darstellung der aktuellen Übergabe und der Report-Historie
 - Textsuche innerhalb der Report-Historie
 - Filterung der Report-Historie nach Früh-, Spät- oder Nachtschicht
-- Erstellen strukturierter Schichtreports mit erledigten und offenen Aufgaben, Problemen/Incidents,   wichtigen Hinweisen und bedingter Priorität
+- Erstellen strukturierter Schichtreports mit erledigten und offenen Aufgaben, Problemen/Incidents, wichtigen Hinweisen und bedingter Priorität
 - Live-Zeichenzähler für alle Report-Textfelder mit einer Maximallänge von 4.000 Zeichen
 - Bearbeiten gespeicherter Schichtreports
 - Auswahl und Anzeige der Schicht (Früh-, Spät- oder Nachtschicht)
@@ -28,6 +28,9 @@ Bereits umgesetzt sind:
 - dauerhafte Speicherung der Reports in der H2-Datenbank
 - direkte Weiterleitung zur Reportübersicht nach erfolgreicher Anmeldung
 - automatisierte Service- und Controller-Tests für die Reportverwaltung
+- responsives, einheitliches Oberflächendesign für Dashboard, Formulare und Detailseiten
+- Anzeige von Benutzername und Rolle sowie rollenabhängige Bedienaktionen
+- Sicherheitsabfrage vor dem endgültigen Löschen eines Reports
 
 Version 1 deckt die spezifizierten Kernfunktionen zur Erstellung, Anzeige und Verwaltung von Schichtreports ab.
 
@@ -41,7 +44,7 @@ Version 1 deckt die spezifizierten Kernfunktionen zur Erstellung, Anzeige und Ve
 - Thymeleaf
 - H2 Database
 - Maven
-- HTML und CSS
+- HTML, CSS und JavaScript
 
 ## Dokumentation
 
@@ -52,6 +55,7 @@ Version 1 deckt die spezifizierten Kernfunktionen zur Erstellung, Anzeige und Ve
 | [Architektur](docs/arch/README.md) | Architekturbeschreibung nach arc42 |
 | [Architekturentscheidungen](docs/arch/adr/) | Architecture Decision Records |
 | [Installation](INSTALL.md) | Einrichtung, Tests und lokaler Start |
+| [Test- und Abnahmenachweis](docs/ABNAHME.md) | Automatisierte und manuelle Prüfungen |
 
 ## Schnellstart
 
@@ -125,6 +129,10 @@ Unter Linux und macOS:
 ```
 
 Ein erfolgreicher Testlauf endet mit `BUILD SUCCESS`.
+
+Der aktuelle Stand umfasst 46 automatisierte Tests. Ergänzende manuelle
+Oberflächenprüfungen sind im [Test- und Abnahmenachweis](docs/ABNAHME.md)
+dokumentiert.
 
 ## Mitarbeit
 
