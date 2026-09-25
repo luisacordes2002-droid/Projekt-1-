@@ -226,6 +226,11 @@ Technische und fachliche Fehler sollen kontrolliert behandelt werden. Benutzer s
 
 Wiederkehrende Fehlerbehandlung soll möglichst zentral umgesetzt werden, beispielsweise durch Spring-MVC-Mechanismen zur zentralen Behandlung von Exceptions.
 
+Für HTTP-Fehler verwendet Reportify eine eigene responsive Fehleransicht. Sie
+unterscheidet eine nicht gefundene Seite (`404`) von sonstigen technischen
+Fehlern, zeigt keine internen Ausnahmeinformationen und bietet den Rückweg zur
+Reportübersicht an.
+
 ## 9. Paketstruktur
 
 Für die weitere Entwicklung wird folgende Zielstruktur innerhalb des Basispakets `de.thm.reportify` vorgesehen:
