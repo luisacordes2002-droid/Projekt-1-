@@ -101,7 +101,7 @@
         <p id="historyEmpty" class="history-empty" role="status">Keine passenden Reports in der Historie gefunden.</p>
         <div class="report-list">
             <a class="report-card" th:each="report : ${historyReports}" th:href="@{/reports/{id}(id=${report.id})}" th:classappend="${report.status.name() == 'ERLEDIGT' ? ' is-completed' : ''}"
-               th:attr="data-history=true, data-shift=${report.shift.name()}, data-search=${(report.completedTasks ?: '') + ' ' + (report.openTasks ?: '') + ' ' + (report.problemsIncidents ?: '') + ' ' + (report.importantNotes ?: '') + ' ' + report.createdBy}">
+               th:attr="data-history=true, data-shift=${report.shift.name()}, data-search=${(report.completedTasks ?: '') + ' ' + (report.openTasks ?: '') + ' ' + (report.problemsIncidents ?: '') + ' ' + (report.importantNotes ?: '')}">
                 <div class="report-top">
                     <div>
                         <h3 th:text="${'Schichtübergabe vom ' + report.formattedCreatedAt}">Schichtübergabe</h3>
