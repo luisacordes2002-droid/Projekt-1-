@@ -231,6 +231,7 @@ void updateRedirectsToEditedReport()
         throws Exception {
 
     mockMvc.perform(post("/reports/7/edit")
+    .principal(() -> "schichtleitung")
                     .param(
                             "completedTasks",
                             "Maschine kontrolliert")
@@ -258,7 +259,8 @@ void updateRedirectsToEditedReport()
             "Sensor ausgefallen",
             "Ersatzteil bestellt",
             Shift.SPAETSCHICHT,
-            Priority.HOCH);
+                Priority.HOCH,
+                "schichtleitung");
 }
 
 }

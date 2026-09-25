@@ -205,10 +205,14 @@ public String update(
         @RequestParam Shift shift,
         @RequestParam(required = false)
         Priority priority,
+        Principal principal,
         Model model,
         RedirectAttributes redirectAttributes) {
 
     try {
+        String username = principal == null
+        ? "unbekannt"
+        : principal.getName();
         reportService.update(
                 id,
                 completedTasks,
@@ -216,7 +220,8 @@ public String update(
                 problemsIncidents,
                 importantNotes,
                 shift,
-                priority);
+                priority,
+                username);
 
         redirectAttributes.addFlashAttribute(
                 "successMessage",

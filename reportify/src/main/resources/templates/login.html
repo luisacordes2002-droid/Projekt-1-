@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Reportify</title>
 
     <style>
@@ -39,6 +40,25 @@
             padding: 8px 20px;
             cursor: pointer;
         }
+
+        .message {
+            width: 280px;
+            margin: 0 auto 18px;
+            border-radius: 7px;
+            padding: 11px 13px;
+        }
+
+        .error {
+            border: 1px solid #fca5a5;
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .success {
+            border: 1px solid #86efac;
+            background: #dcfce7;
+            color: #166534;
+        }
     </style>
 </head>
 
@@ -49,6 +69,20 @@
         <h1>Reportify</h1>
         <h2>Anmelden</h2>
 
+        <div
+            class="message error"
+            role="alert"
+            th:if="${param.error}">
+            Benutzername oder Passwort ist nicht korrekt.
+        </div>
+
+        <div
+            class="message success"
+            role="status"
+            th:if="${param.logout}">
+            Sie wurden erfolgreich abgemeldet.
+        </div>
+
         <form th:action="@{/login}" method="post">
 
             <div>
@@ -57,6 +91,8 @@
                     type="text"
                     id="username"
                     name="username"
+                    autocomplete="username"
+                    autofocus
                     required>
             </div>
 
@@ -66,6 +102,7 @@
                     type="password"
                     id="password"
                     name="password"
+                    autocomplete="current-password"
                     required>
             </div>
 

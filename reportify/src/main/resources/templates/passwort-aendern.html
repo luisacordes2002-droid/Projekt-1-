@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persönliches Passwort festlegen – Reportify</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f3f6f9;
+            color: #1f2937;
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            width: min(420px, calc(100% - 32px));
+            border: 1px solid #dbe2ea;
+            border-radius: 12px;
+            background: white;
+            padding: 32px;
+            box-shadow: 0 6px 22px rgba(15, 23, 42, 0.08);
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            color: #17324d;
+        }
+
+        .intro {
+            margin: 0 0 24px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        .field {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            padding: 11px 12px;
+            font: inherit;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            border: 1px solid #fca5a5;
+            border-radius: 8px;
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 12px;
+        }
+
+        button {
+            width: 100%;
+            border: 0;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            padding: 12px 18px;
+            font: inherit;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Persönliches Passwort festlegen</h1>
+    <p class="intro">
+        Lege bei deiner ersten Anmeldung ein persönliches Passwort
+        mit 8 bis 128 Zeichen fest.
+    </p>
+
+    <div
+        class="message"
+        role="alert"
+        th:if="${errorMessage}"
+        th:text="${errorMessage}">
+        Das Passwort konnte nicht übernommen werden.
+    </div>
+
+    <form th:action="@{/passwort-aendern}" method="post">
+        <div class="field">
+            <label for="neuesPasswort">Neues Passwort</label>
+            <input
+                id="neuesPasswort"
+                name="neuesPasswort"
+                type="password"
+                minlength="8"
+                maxlength="128"
+                autocomplete="new-password"
+                required>
+        </div>
+
+        <div class="field">
+            <label for="passwortBestaetigung">
+                Passwort bestätigen
+            </label>
+            <input
+                id="passwortBestaetigung"
+                name="passwortBestaetigung"
+                type="password"
+                minlength="8"
+                maxlength="128"
+                autocomplete="new-password"
+                required>
+        </div>
+
+        <button type="submit">Passwort festlegen</button>
+    </form>
+</main>
+</body>
+</html>

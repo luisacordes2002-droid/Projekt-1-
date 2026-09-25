@@ -59,7 +59,7 @@ public class Report {
             length = 20,
             columnDefinition = "varchar(20) default 'FRUEHSCHICHT'")
     private Shift shift;
-
+@Enumerated(EnumType.STRING)
     @Column(length = 20)
         private Priority priority;
 
@@ -72,6 +72,11 @@ public class Report {
 
     @Column(nullable = false, updatable = false, length = 100)
     private String createdBy;
+@Column
+private LocalDateTime updatedAt;
+
+@Column(length = 100)
+private String updatedBy;
 
     protected Report() {
     }
@@ -179,5 +184,25 @@ public void setImportantNotes(String importantNotes) {
     public String getFormattedCreatedAt() {
         return createdAt == null ? "" : createdAt.format(DISPLAY_FORMAT);
     }
+public void recordUpdate(String updatedBy) {
+    this.updatedAt = LocalDateTime.now();
+    this.updatedBy =
+            updatedBy == null || updatedBy.isBlank()
+                    ? "unbekannt"
+                    : updatedBy;
+}
 
+public LocalDateTime getUpdatedAt() {
+    return updatedAt;
+}
+
+public String getUpdatedBy() {
+    return updatedBy;
+}
+
+public String getFormattedUpdatedAt() {
+    return updatedAt == null
+            ? ""
+            : updatedAt.format(DISPLAY_FORMAT);
+}
 }

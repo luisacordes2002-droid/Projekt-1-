@@ -16,7 +16,7 @@
 | UC-07 | Gespeicherten Report bearbeiten | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-08 | Gespeicherten Report löschen | Schichtleitung | Muss |
 | UC-09 | Passwort bei Erstanmeldung festlegen | Mitarbeiter:in, Schichtleitung | Muss |
-
+| UC-10 | Report als erledigt kennzeichnen | Mitarbeiter:in, Schichtleitung | Muss |
 
 ## 2. UC-01 – Anmelden
 
@@ -468,8 +468,61 @@ ein eigenes persönliches Passwort fest.
 | AK-28 | Die Person legt ein Passwort fest | das Passwort enthält weniger als 8 oder mehr als 128 Zeichen | das Passwort wird nicht übernommen und eine verständliche Meldung wird angezeigt |
 | AK-29 | Passwort und Bestätigung unterscheiden sich | die Person bestätigt die Eingabe | das Passwort wird nicht übernommen |
 
+## 11. UC-10 – Report als erledigt kennzeichnen
 
-## 11. Nicht enthaltene Anwendungsfälle
+### Ziel
+
+Eine angemeldete Person kennzeichnet einen offenen Report als erledigt.
+
+### Primäre Akteur:innen
+
+- Mitarbeiter:in
+- Schichtleitung
+
+### Vorbedingungen
+
+- Die Person ist angemeldet.
+- Der Report existiert.
+- Der Report besitzt den Status `OFFEN`.
+
+### Standardablauf
+
+1. Die Person öffnet die Detailansicht eines offenen Reports.
+2. Das System zeigt die Aktion „Als erledigt markieren“ an.
+3. Die Person löst die Aktion aus.
+4. Das System setzt den Status des Reports auf `ERLEDIGT`.
+5. Das System speichert den geänderten Status.
+6. Das System zeigt den Report mit dem Status `ERLEDIGT` an.
+
+### Alternativabläufe und Fehlerfälle
+
+#### A1 – Report nicht gefunden
+
+1. Der angeforderte Report existiert nicht.
+2. Das System ändert keine Daten.
+3. Das System zeigt eine verständliche Fehlermeldung an.
+
+#### A2 – Report bereits erledigt
+
+1. Der Report besitzt bereits den Status `ERLEDIGT`.
+2. Das System lässt den Status unverändert.
+3. Der Report bleibt weiterhin in der Historie sichtbar.
+
+### Nachbedingungen bei Erfolg
+
+- Der Report besitzt den Status `ERLEDIGT`.
+- Der Report bleibt vollständig gespeichert.
+- Der Report bleibt in der Historie sichtbar.
+
+### Akzeptanzkriterien
+
+| ID | Gegeben | Wenn | Dann |
+|---|---|---|---|
+| AK-30 | Eine angemeldete Person öffnet einen Report mit Status `OFFEN` | sie wählt „Als erledigt markieren“ | der Report erhält den Status `ERLEDIGT` |
+| AK-31 | Ein Report besitzt den Status `ERLEDIGT` | die Historie wird geöffnet | der Report bleibt weiterhin sichtbar |
+| AK-32 | Die angeforderte Report-Kennung existiert nicht | die Aktion wird ausgelöst | es werden keine Daten geändert und eine verständliche Meldung wird angezeigt |
+
+## 12. Nicht enthaltene Anwendungsfälle
 
 Folgende Funktionen gehören nicht zum verbindlichen Minimalumfang:
 

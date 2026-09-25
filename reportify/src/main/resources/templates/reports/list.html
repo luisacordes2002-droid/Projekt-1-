@@ -387,6 +387,7 @@
                     <div class="badges">
                         <span
                             class="badge"
+                            th:if="${report.priority != null}"
                             th:text="'Priorität: ' + ${report.priority}">
                             Priorität
                         </span>

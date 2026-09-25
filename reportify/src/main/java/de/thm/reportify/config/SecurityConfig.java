@@ -27,7 +27,7 @@ public class SecurityConfig {
             )
             .formLogin(form -> form
                 .loginPage("/login")
-                .defaultSuccessUrl("/reports", true)
+                .defaultSuccessUrl("/passwort-aendern", true)
                 .permitAll()
             )
             .logout(logout -> logout

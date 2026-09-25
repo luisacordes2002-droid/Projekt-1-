@@ -33,6 +33,9 @@ public class Nutzer {
     @Column(nullable = false)
     private boolean aktiv;
 
+    @Column(nullable = false, columnDefinition = "boolean default true")
+    private boolean passwortwechselErforderlich;
+
     protected Nutzer() {
         // Dieser Konstruktor wird von JPA benötigt.
     }
@@ -48,6 +51,7 @@ public class Nutzer {
         this.passwortNachweis = passwortNachweis;
         this.rolle = rolle;
         this.aktiv = aktiv;
+        this.passwortwechselErforderlich = true;
     }
 
     public Long getNutzerId() {
@@ -76,5 +80,25 @@ public class Nutzer {
 
     public boolean isAktiv() {
         return aktiv;
+    }
+
+    public boolean isPasswortwechselErforderlich() {
+        return passwortwechselErforderlich;
+    }
+
+    public void forderePasswortwechsel() {
+        this.passwortwechselErforderlich = true;
+    }
+
+    public void legePersoenlichesPasswortFest(
+            String passwortNachweis) {
+        if (passwortNachweis == null
+                || passwortNachweis.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Der Passwortnachweis darf nicht leer sein.");
+        }
+
+        this.passwortNachweis = passwortNachweis;
+        this.passwortwechselErforderlich = false;
     }
 }

@@ -57,6 +57,7 @@ Der verbindliche Minimalumfang umfasst:
 5. Report-Historie anzeigen
 6. Gespeicherte Reports bearbeiten
 7. Gespeicherte Reports durch die Schichtleitung löschen
+8. Gespeicherte Reports als erledigt kennzeichnen
 
 Zusätzliche Funktionen werden nur umgesetzt, wenn der vollständige
 Minimalumfang funktioniert, getestet und dokumentiert ist.
@@ -117,7 +118,7 @@ Diese Punkte können als mögliche Weiterentwicklung dokumentiert werden.
 
 Reportify gilt im vereinbarten Umfang als erfolgreich umgesetzt, wenn:
 
-- alle sieben Funktionen des Minimalumfangs Ende-zu-Ende funktionieren,
+- alle acht Funktionen des Minimalumfangs Ende-zu-Ende funktionieren,
 - die wichtigsten Abläufe durch automatisierte oder dokumentierte Tests geprüft sind,
 - keine kritischen Fehler den Kernprozess der Schichtübergabe verhindern,
 - eine fremde Person die Anwendung mithilfe der Installationsanleitung starten kann,
