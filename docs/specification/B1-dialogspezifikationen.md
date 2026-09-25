@@ -493,18 +493,16 @@ Safari geprüft.
 
 ### 12.5 Sprache
 
-Die Benutzeroberfläche von Reportify wird in deutscher und englischer Sprache
-bereitgestellt.
+Die Benutzeroberfläche von Reportify wird in Version 1 vollständig in deutscher
+Sprache bereitgestellt.
 
 Alle für Nutzer:innen sichtbaren Bezeichnungen, Schaltflächen, Hinweise,
-Erfolgs- und Fehlermeldungen müssen in beiden Sprachen verfügbar sein.
+Erfolgs- und Fehlermeldungen werden einheitlich auf Deutsch dargestellt.
 
 Technische Schlüssel wie `FRUEHSCHICHT` werden Nutzer:innen nicht angezeigt.
-Stattdessen werden verständliche Bezeichnungen in der jeweils ausgewählten
-Sprache verwendet.
-
-Die fachliche Bedeutung von Feldern, Meldungen und Aktionen bleibt unabhängig
-von der gewählten Sprache gleich.
+Stattdessen werden verständliche deutsche Bezeichnungen verwendet.
+Mehrsprachigkeit ist nicht Bestandteil von Version 1 und kann in einer späteren
+Version ergänzt werden.
 
 ## 13. Navigation zwischen den Dialogen
 

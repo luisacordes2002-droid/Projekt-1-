@@ -191,11 +191,11 @@ fachlichen Kapitel nicht doppelt spezifiziert.
 
 ## 10. Sprache und Darstellung
 
-Die Benutzeroberfläche ist für eine Verwendung in deutscher und englischer
-Sprache vorgesehen.
+Die Benutzeroberfläche ist in Version 1 vollständig für eine Verwendung in
+deutscher Sprache vorgesehen.
 
-Die fachliche Bedeutung von Feldern, Meldungen und Aktionen muss unabhängig von
-der gewählten Sprache erhalten bleiben.
+Felder, Meldungen und Aktionen werden einheitlich und verständlich auf Deutsch
+dargestellt. Mehrsprachigkeit kann in einer späteren Version ergänzt werden.
 
 Die konkreten Dialoge und sichtbaren Rückmeldungen werden in
 [B1 – Dialogspezifikation](B1-dialogspezifikationen.md) beschrieben.

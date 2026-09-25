@@ -88,12 +88,17 @@ Nicht angemeldete Personen werden automatisch auf die Login-Seite weitergeleitet
 
 Das Profil `dev` stellt folgende lokale Testbenutzer bereit:
 
-| Benutzername | Passwort | Rolle |
+| Benutzername | Startpasswort | Rolle |
 |---|---|---|
 | `mitarbeiter` | `Reportify!2026` | `MITARBEITER` |
 | `schichtleitung` | `Reportify!2026` | `SCHICHTLEITUNG` |
 
 Diese Zugangsdaten sind ausschließlich für die lokale Entwicklung und Demonstration vorgesehen.
+
+Bei der ersten Anmeldung wird die nutzende Person automatisch zur Festlegung
+eines persönlichen Passworts weitergeleitet. Das Passwort muss mindestens 8 und
+darf höchstens 128 Zeichen lang sein. Nach erfolgreicher Festlegung ist das
+jeweilige Startpasswort nicht mehr gültig.
 
 ## 7. Datenbank
 
@@ -129,6 +134,10 @@ Die Anwendung muss für die lokalen Testbenutzer mit dem Profil `dev` gestartet 
 
 Außerdem müssen Groß- und Kleinschreibung sowie das Ausrufezeichen im Passwort beachtet werden.
 
+Wurde für das Benutzerkonto bereits ein persönliches Passwort festgelegt, muss
+dieses verwendet werden. Das ursprüngliche Startpasswort ist anschließend nicht
+mehr gültig.
+
 ### Falsche Java-Version
 
 Mit folgendem Befehl wird die aktive Java-Version geprüft:
@@ -151,5 +160,8 @@ Die lokale Inbetriebnahme ist erfolgreich, wenn:
 2. die Anwendung ohne Fehlermeldung startet,
 3. <http://localhost:8080> erreichbar ist,
 4. die eigene Login-Seite angezeigt wird,
-5. die Anmeldung mit einem Entwicklungsbenutzer funktioniert und
-6. anschließend die geschützte Startseite erscheint.
+5. die erste Anmeldung mit einem Entwicklungsbenutzer zur persönlichen
+   Passwortvergabe weiterleitet,
+6. ein gültiges persönliches Passwort festgelegt werden kann,
+7. anschließend die geschützte Reportübersicht erscheint und
+8. die erneute Anmeldung mit dem persönlichen Passwort funktioniert.

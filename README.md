@@ -4,7 +4,7 @@ Reportify ist eine Webanwendung für digitale Schichtübergaben. Mitarbeitende s
 
 ## Projektstatus
 
-Das Projekt befindet sich in Entwicklung.
+Reportify liegt als abgabefähige Version 1 vor.
 
 Bereits umgesetzt sind:
 
@@ -26,7 +26,7 @@ Bereits umgesetzt sind:
 - direkte Weiterleitung zur Reportübersicht nach erfolgreicher Anmeldung
 - automatisierte Service- und Controller-Tests für die Reportverwaltung
 
-Die fachlichen Funktionen zur Erstellung, Anzeige und Verwaltung von Schichtreports werden schrittweise ergänzt.
+Version 1 deckt die spezifizierten Kernfunktionen zur Erstellung, Anzeige und Verwaltung von Schichtreports ab.
 
 ## Technologien
 
@@ -79,12 +79,15 @@ Weitere Informationen stehen in der [Installationsanleitung](INSTALL.md).
 
 ## Lokale Entwicklungszugänge
 
-| Benutzername | Passwort | Rolle |
+| Benutzername | Startpasswort | Rolle |
 |---|---|---|
 | `mitarbeiter` | `Reportify!2026` | `MITARBEITER` |
 | `schichtleitung` | `Reportify!2026` | `SCHICHTLEITUNG` |
 
 Die Zugangsdaten sind ausschließlich für die lokale Entwicklung und Demonstration vorgesehen. Sie werden nur beim Start mit dem Profil `dev` bereitgestellt.
+
+Bei der ersten Anmeldung muss ein persönliches Passwort mit 8 bis 128 Zeichen
+festgelegt werden. Anschließend ist das jeweilige Startpasswort nicht mehr gültig.
 
 ## Projektstruktur
 

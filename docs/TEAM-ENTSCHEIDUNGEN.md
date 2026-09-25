@@ -39,7 +39,7 @@ Architekturdatei enthält anschließend die verbindliche Beschreibung.
 | TD-008 | Benutzerkonten | Wie werden Benutzerkonten angelegt und verwaltet? | Vorbereitete Benutzerkonten; keine Selbstregistrierung | F2, D1, B1, Architektur | `EINGEARBEITET` |
 | TD-009 | Datenbank | Welche Datenbank wird für die finale Version eingesetzt? | Für Version 1 wird H2 als relationale Datenbank verwendet. Die Datenbankentscheidung ist in ADR-003 der Architekturdokumentation festgelegt. | TEAMINFO, Architektur, Inbetriebnahme | `EINGEARBEITET` |
 | TD-010 | Projektrollen | Wer übernimmt dauerhaft welche Projektrolle? | Bestehende TEAMINFO gilt bis zur gemeinsamen Abstimmung | TEAMINFO | `ENTSCHIEDEN` |
-| TD-011 | Sprache | Welche Sprache verwendet die Benutzeroberfläche? | Deutsche und englische Benutzeroberfläche | B1, N1 | `EINGEARBEITET` |
+| TD-011 | Sprache | Welche Sprache verwendet die Benutzeroberfläche? | Die Benutzeroberfläche von Version 1 ist vollständig deutsch; Mehrsprachigkeit ist als spätere Erweiterung möglich | B1, N1, N2 | `EINGEARBEITET` |
 | TD-012 | Git-Arbeitsweise | Wie gelangen Feature- und Dokumentationsbranches nach `main`? | Branch, Prüfung, Pull Request und anschließend Merge | README, Teamarbeitsweise | `EINGEARBEITET` |
 | TD-013 | Textlänge | Welche maximale Länge darf ein Report-Textfeld besitzen? | Höchstens 4.000 Zeichen je Textfeld | D2, B1, N1 | `EINGEARBEITET` |
 | TD-014 | Passwortregel | Welche Mindest- und Höchstlänge gilt für Passwörter? | Benutzerkonten werden vorab bereitgestellt. Bei der ersten Anmeldung legt die nutzende Person ihr eigenes Passwort fest. Das Passwort muss mindestens 8 und darf höchstens 128 Zeichen lang sein. | F2, D2, B1, N1, Architektur | `EINGEARBEITET` |
