@@ -52,13 +52,14 @@ Google Chrome geprüft:
 | Dashboard und mobiles Menü bei 360 Pixel Breite prüfen | Erfolgreich |
 | Reportformular bei 360 Pixel Breite prüfen | Erfolgreich |
 | Reportdetail und Aktionsbuttons bei 360 Pixel Breite prüfen | Erfolgreich |
+| Login, Dashboard, Formular und Reportdetails per Tastatur bedienen | Erfolgreich |
+| Löschdialog per Tastatur öffnen und ohne Löschung schließen | Erfolgreich |
 | Abmelden | Erfolgreich |
 
 ## 3. Noch offene Qualitätsprüfungen
 
 Vor einer endgültigen formalen Freigabe werden empfohlen:
 
-- vollständige Prüfung aller Kernfunktionen ausschließlich per Tastatur,
 - automatisierte Browsertests für Suche, Schichtfilter, Zeichenzähler,
   mobiles Menü und Löschdialog,
 - Lastmessung, bevor konkrete Leistungsgrenzen zugesichert werden.

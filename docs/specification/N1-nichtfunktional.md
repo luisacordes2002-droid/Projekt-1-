@@ -115,6 +115,10 @@ Reportify muss Erfolg, Fehler und leere Zustände verständlich erklären.
 
 ### NFR-11d-01 – Tastaturbedienung und Beschriftungen
 
+> **Nachweisstatus:** Login, Dashboard, Reportformular, Reportdetails und
+> Löschdialog wurden am 25.09.2026 erfolgreich per Tastatur geprüft. Unter der
+> verwendeten macOS-Konfiguration werden Links mit `Option + Tab` fokussiert.
+
 **Anforderung:**  
 Die Kernfunktionen müssen ohne Maus bedienbar sein.
 
