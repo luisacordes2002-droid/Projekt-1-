@@ -122,8 +122,9 @@ Die technische Umsetzung der Querschnittskonzepte wird in der
 Architekturdokumentation beschrieben.
 
 Der Abgleich mit Architektur, Quellcode und Tests wurde am 25.09.2026
-durchgeführt. Vor der formalen Freigabe bleiben eine abschließende Teamprüfung
-und die Prüfung der Darstellung in einem zweiten Browser offen.
+durchgeführt. Die Darstellung wurde in Safari, Chrome und bei 360 Pixel Breite
+manuell geprüft. Vor der formalen Freigabe bleibt eine abschließende Teamprüfung
+offen.
 
 ## 5. Entscheidungen und Nachverfolgbarkeit
 

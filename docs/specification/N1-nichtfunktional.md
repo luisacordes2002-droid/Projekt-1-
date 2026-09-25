@@ -202,8 +202,10 @@ verwalten können.
 
 ### NFR-13a-01 – Browser-Kompatibilität
 
-> **Nachweisstatus:** Safari wurde manuell geprüft. Chrome und die vollständige
-> Prüfung bei 360 Pixel Breite stehen noch aus.
+> **Nachweisstatus:** Der Kernablauf wurde am 25.09.2026 manuell in aktuellen
+> Versionen von Safari und Chrome geprüft. Dashboard, mobiles Menü,
+> Reportformular und Detailansicht wurden zusätzlich bei 360 Pixel Breite
+> erfolgreich geprüft.
 
 **Anforderung:**  
 Reportify muss in aktuellen Desktop- und Mobilbrowsern funktionieren.
