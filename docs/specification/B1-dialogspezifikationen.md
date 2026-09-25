@@ -359,6 +359,7 @@ angezeigt wird.
 
 | Aktion | Ergebnis |
 |---|---|
+| Drucken / als PDF speichern | Öffnet den Druckdialog des Browsers mit einer druckoptimierten Reportansicht |
 | Bearbeiten | Öffnet den ausgewählten Report zur Bearbeitung |
 | Als erledigt markieren | Setzt den Status eines offenen Reports auf `ERLEDIGT` |
 | Löschen | Fordert die Schichtleitung zur Bestätigung der Löschung auf |
@@ -379,6 +380,10 @@ Vor der Löschung muss eine Bestätigung erfolgen:
 **„Report wirklich löschen? Dieser Vorgang kann nicht rückgängig gemacht werden.“**
 
 Wird die Löschung nicht bestätigt, bleibt der Report unverändert gespeichert.
+
+Die Druckaktion gibt ausschließlich die Reportdetails aus. Navigation,
+Rückmeldungen und Aktionsschaltflächen werden im Drucklayout ausgeblendet. Über
+den Browserdruckdialog kann die Ausgabe gedruckt oder als PDF gespeichert werden.
 
 ### 9.4 Nicht gefundener Report
 

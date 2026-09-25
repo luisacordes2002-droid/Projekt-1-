@@ -31,6 +31,7 @@ Bereits umgesetzt sind:
 - responsives, einheitliches Oberflächendesign für Dashboard, Formulare und Detailseiten
 - Anzeige von Benutzername und Rolle sowie rollenabhängige Bedienaktionen
 - Sicherheitsabfrage vor dem endgültigen Löschen eines Reports
+- druckoptimierte Reportdetails mit Ausgabe über den Browser oder als PDF
 
 Version 1 deckt die spezifizierten Kernfunktionen zur Erstellung, Anzeige und Verwaltung von Schichtreports ab.
 

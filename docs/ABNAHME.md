@@ -45,6 +45,7 @@ Die folgenden Fälle wurden am 25.09.2026 lokal in Safari geprüft:
 | Meldung bei leerem Suchergebnis | Erfolgreich |
 | Mitarbeiter:in kann keinen Report löschen | Erfolgreich |
 | Schichtleitung erhält Löschaktion mit Sicherheitsabfrage | Erfolgreich |
+| Report drucken und über Safari als PDF sichern | Erfolgreich |
 | Abmelden | Erfolgreich |
 
 ## 3. Noch offene Qualitätsprüfungen

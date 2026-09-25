@@ -17,6 +17,7 @@
 | UC-08 | Gespeicherten Report löschen | Schichtleitung | Muss |
 | UC-09 | Passwort bei Erstanmeldung festlegen | Mitarbeiter:in, Schichtleitung | Muss |
 | UC-10 | Report als erledigt kennzeichnen | Mitarbeiter:in, Schichtleitung | Muss |
+| UC-11 | Report drucken oder als PDF speichern | Mitarbeiter:in, Schichtleitung | Optional |
 
 ## 2. UC-01 – Anmelden
 
@@ -530,7 +531,31 @@ Eine angemeldete Person kennzeichnet einen offenen Report als erledigt.
 | AK-31 | Ein Report besitzt den Status `ERLEDIGT` | die Historie wird geöffnet | der Report bleibt weiterhin sichtbar |
 | AK-32 | Die angeforderte Report-Kennung existiert nicht | die Aktion wird ausgelöst | es werden keine Daten geändert und eine verständliche Meldung wird angezeigt |
 
-## 12. Nicht enthaltene Anwendungsfälle
+## 12. UC-11 – Report drucken oder als PDF speichern
+
+### Ziel
+
+Eine angemeldete Person gibt einen geöffneten Report in einer druckoptimierten
+Darstellung aus oder speichert ihn über den Browser als PDF.
+
+### Vorbedingungen
+
+- Die Person ist angemeldet.
+- Der gewünschte Report ist gespeichert und in der Detailansicht geöffnet.
+
+### Standardablauf
+
+1. Die Person wählt „Drucken / als PDF speichern“.
+2. Reportify bereitet die Detailseite für den Druck auf.
+3. Der Browser öffnet seinen nativen Druckdialog.
+4. Die Person wählt einen Drucker oder „Als PDF speichern“.
+
+### Ergebnis
+
+- Der Report kann gedruckt oder lokal als PDF gespeichert werden.
+- Die gespeicherten Reportdaten bleiben unverändert.
+
+## 13. Nicht enthaltene Anwendungsfälle
 
 Folgende Funktionen gehören nicht zum verbindlichen Minimalumfang:
 

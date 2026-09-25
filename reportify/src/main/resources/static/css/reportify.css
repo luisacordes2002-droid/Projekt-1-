@@ -459,3 +459,103 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
+
+@page {
+    size: A4;
+    margin: 15mm;
+}
+
+@media print {
+    body {
+        min-height: auto;
+        background: white;
+        color: black;
+        font-size: 10.5pt;
+    }
+
+    .skip-link,
+    .app-header,
+    .page-heading,
+    .message,
+    .detail-actions,
+    .confirm-dialog {
+        display: none !important;
+    }
+
+    .page-shell,
+    .page-shell--narrow {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .surface,
+    .detail-card {
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .detail-header {
+        border-bottom: 1px solid #94a3b8;
+        background: white;
+        padding: 0 0 8mm;
+    }
+
+    .detail-header h1 {
+        color: black;
+        font-size: 20pt;
+    }
+
+    .detail-title-row {
+        align-items: flex-start;
+    }
+
+    .detail-meta {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 3mm;
+        margin-top: 6mm;
+    }
+
+    .meta-item {
+        break-inside: avoid;
+        border: 1px solid #cbd5e1;
+        box-shadow: none;
+        padding: 3mm;
+    }
+
+    .meta-label,
+    .meta-value,
+    .content-section h2,
+    .content-text {
+        color: black;
+    }
+
+    .detail-body {
+        gap: 4mm;
+        padding: 7mm 0 0;
+    }
+
+    .content-section {
+        break-inside: avoid;
+        border: 1px solid #94a3b8;
+        border-radius: 0;
+        padding: 5mm;
+    }
+
+    .content-section h2 {
+        font-size: 12pt;
+    }
+
+    .content-text {
+        line-height: 1.5;
+    }
+
+    .badge {
+        border: 1px solid #64748b;
+        background: white !important;
+        color: black !important;
+    }
+}

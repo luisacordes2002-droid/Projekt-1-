@@ -29,6 +29,7 @@ beziehungsweise im Quellcode beschrieben.
 | AF-10 | Gespeicherten Report löschen | UC-08 |
 | AF-11 | Persönliches Passwort erstmalig festlegen | UC-09 |
 | AF-12 | Report als erledigt kennzeichnen | Report-Lebenszyklus |
+| AF-13 | Druckansicht bereitstellen | UC-11 |
 
 
 ## 3. Funktionsbeschreibungen
@@ -323,6 +324,25 @@ setzen.
 
 ## 4. Abgrenzung
 
+### AF-13 – Druckansicht bereitstellen
+
+**Zweck:**  
+Die fachlichen Inhalte eines geöffneten Reports druckgeeignet darstellen.
+
+**Eingaben:**
+
+- der aktuell geöffnete Report
+
+**Verarbeitung:**
+
+1. Das System blendet Navigation, Meldungen und Bedienaktionen für den Druck aus.
+2. Metadaten, Status, Priorität und vorhandene Reporttexte bleiben sichtbar.
+3. Der native Druckdialog des Browsers wird geöffnet.
+
+**Ergebnis:**
+
+- druckoptimierte Ausgabe des Reports
+
 Folgende Funktionen sind für die erste Version nicht vorgesehen:
 
 - Datei- oder Bildanhänge
@@ -336,7 +356,7 @@ werden, bevor sie implementiert werden.
 
 ## 5. Nachverfolgbarkeit
 
-Die Kennungen `AF-01` bis `AF-12` bleiben stabil. Sie werden in folgenden
+Die Kennungen `AF-01` bis `AF-13` bleiben stabil. Sie werden in folgenden
 Dokumenten wiederverwendet:
 
 - Datenmodell

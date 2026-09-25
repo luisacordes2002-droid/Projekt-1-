@@ -84,4 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (event.target === deleteDialog) deleteDialog.close();
         });
     }
+
+    const printReportButton = document.querySelector("[data-print-report]");
+    if (printReportButton) {
+        printReportButton.addEventListener("click", () => window.print());
+    }
 });
