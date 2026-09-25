@@ -59,6 +59,7 @@
         </div>
 
         <footer class="detail-actions">
+            <button class="button button-secondary" type="button" data-print-report>Drucken / als PDF speichern</button>
             <a class="button button-secondary" th:href="@{/reports/{id}/edit(id=${report.id})}">Report bearbeiten</a>
             <form th:if="${report.status.name() != 'ERLEDIGT'}" th:action="@{/reports/{id}/complete(id=${report.id})}" method="post">
                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">

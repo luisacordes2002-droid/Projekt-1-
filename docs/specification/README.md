@@ -74,6 +74,10 @@ Der MVP umfasst:
 10. Reports als erledigt kennzeichnen – `UC-10`.
 11. Die Historie nach Reporttext durchsuchen und nach Schicht filtern.
 
+Als optionale Erweiterung außerhalb des ursprünglichen Minimalumfangs ist
+außerdem das Drucken beziehungsweise Speichern eines geöffneten Reports als PDF
+über den nativen Browserdialog umgesetzt (`UC-11`, `AF-13`, B3).
+
 Die unterschiedliche Gruppierung der Funktionen und Anwendungsfälle begründet
 keinen zusätzlichen Anwendungsfall: Der Detailaufruf ist bereits in `UC-06`
 enthalten.
