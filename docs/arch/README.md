@@ -208,8 +208,8 @@ Die Entscheidungen sind als ADRs dokumentiert:
 - Die Historienfilterung lädt alle Reports und filtert im Browser. Bei stark
   wachsender Datenmenge wären serverseitige Suche und Seitennavigation nötig.
 - Konkrete Leistungsgrenzen wurden noch nicht durch Lasttests nachgewiesen.
-- Die Oberfläche wurde in Safari manuell geprüft; eine zusätzliche Prüfung in
-  Chrome, bei 360 Pixel Breite und per Tastatur ist noch offen.
+- Die Oberfläche wurde in Safari, Chrome und bei 360 Pixel Breite manuell
+  geprüft; eine vollständige Prüfung ausschließlich per Tastatur ist noch offen.
 - Komfortfunktionen im JavaScript besitzen noch keine automatisierten
   Browsertests.
 - `createdBy` und `updatedBy` sind bewusst nicht relational verknüpft; eine

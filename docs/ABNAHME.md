@@ -29,7 +29,8 @@ Der geprüfte Stand umfasst **46 erfolgreiche Tests** und endet mit
 
 ## 2. Manuelle Oberflächenprüfung
 
-Die folgenden Fälle wurden am 25.09.2026 lokal in Safari geprüft:
+Die folgenden Fälle wurden am 25.09.2026 lokal in Safari und ergänzend in
+Google Chrome geprüft:
 
 | Prüffall | Ergebnis |
 |---|---|
@@ -47,14 +48,17 @@ Die folgenden Fälle wurden am 25.09.2026 lokal in Safari geprüft:
 | Schichtleitung erhält Löschaktion mit Sicherheitsabfrage | Erfolgreich |
 | Report drucken und über Safari als PDF sichern | Erfolgreich |
 | Dashboard-Auswertung nach Status, Schicht und Priorität prüfen | Erfolgreich |
+| Kernablauf in einer aktuellen Chrome-Version prüfen | Erfolgreich |
+| Dashboard und mobiles Menü bei 360 Pixel Breite prüfen | Erfolgreich |
+| Reportformular bei 360 Pixel Breite prüfen | Erfolgreich |
+| Reportdetail und Aktionsbuttons bei 360 Pixel Breite prüfen | Erfolgreich |
 | Abmelden | Erfolgreich |
 
 ## 3. Noch offene Qualitätsprüfungen
 
 Vor einer endgültigen formalen Freigabe werden empfohlen:
 
-- Sichtprüfung in einer aktuellen Chrome-Version,
-- Sichtprüfung bei 360 Pixel Breite und per Tastaturbedienung,
+- vollständige Prüfung aller Kernfunktionen ausschließlich per Tastatur,
 - automatisierte Browsertests für Suche, Schichtfilter, Zeichenzähler,
   mobiles Menü und Löschdialog,
 - Lastmessung, bevor konkrete Leistungsgrenzen zugesichert werden.
