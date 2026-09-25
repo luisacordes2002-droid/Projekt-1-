@@ -75,8 +75,6 @@ Die Entscheidung ist umgesetzt und trägt deshalb den Status `Accepted`.
 
 Spring Security übernimmt insbesondere folgende Aufgaben:
 
-Nach der Integration soll Spring Security insbesondere folgende Aufgaben übernehmen:
-
 - Anmeldung von Benutzern,
 - Verwaltung authentifizierter Sitzungen,
 - Schutz nicht öffentlicher Seiten,
@@ -120,7 +118,7 @@ Die Sicherheitskonfiguration ist in einem eigenen Konfigurationsbereich gekapsel
 de.thm.reportify
 └── config
     └── SecurityConfig
-    ```
+```
 
 Die Benutzerkonten werden über einen eigenen `UserDetailsService` aus der
 Datenbank geladen. Passwörter werden als sichere Passwortnachweise gespeichert.

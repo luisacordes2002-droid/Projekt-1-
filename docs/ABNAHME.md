@@ -56,14 +56,14 @@ Google Chrome geprüft:
 | Löschdialog per Tastatur öffnen und ohne Löschung schließen | Erfolgreich |
 | Abmelden | Erfolgreich |
 
-## 3. Noch offene Qualitätsprüfungen
+## 3. Empfohlene zusätzliche Qualitätsprüfungen
 
-Vor einer endgültigen formalen Freigabe werden empfohlen:
+Über den dokumentierten Abgabestand hinaus werden empfohlen:
 
 - automatisierte Browsertests für Suche, Schichtfilter, Zeichenzähler,
   mobiles Menü und Löschdialog,
 - Lastmessung, bevor konkrete Leistungsgrenzen zugesichert werden.
 
-Diese offenen Prüfungen betreffen zusätzliche Qualitätssicherung. Die in
+Diese zusätzlichen Prüfungen betreffen weiterführende Qualitätssicherung. Die in
 Abschnitt 1 genannten automatisierten Tests und die in Abschnitt 2 genannten
 Kernabläufe waren im geprüften Stand erfolgreich.

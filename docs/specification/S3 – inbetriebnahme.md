@@ -1,6 +1,6 @@
 # S3 – Inbetriebnahme
 
-> **Status:** Mit Installation und Anwendung abgeglichener Stand vom 25.09.2026.  
+> **Status:** Mit Installation und Anwendung abgeglichener Stand vom 25.09.2026.
 > Dieses Kapitel beschreibt die fachlichen Voraussetzungen und den vorgesehenen
 > Ausgangszustand für die erstmalige Inbetriebnahme von Reportify.
 

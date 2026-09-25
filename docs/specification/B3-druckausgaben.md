@@ -1,7 +1,7 @@
 # B3 – Druckausgaben
 
 > **Status:** Als optionale Erweiterung umgesetzt und mit der Benutzeroberfläche
-> abgeglichen am 25.09.2026.  
+> abgeglichen am 25.09.2026.
 > **Anwendbarkeit:** Zusatzfunktion außerhalb des ursprünglichen Minimalumfangs.
 
 ## 1. Einordnung

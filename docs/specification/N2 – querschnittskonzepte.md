@@ -1,6 +1,6 @@
 # N2 – Querschnittskonzepte
 
-> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.  
+> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.
 > Dieses Kapitel fasst fachliche Regeln zusammen, die mehrere Funktionen und
 > Dialoge von Reportify betreffen. Detaillierte Definitionen verbleiben in den
 > jeweils zuständigen Spezifikationskapiteln.
@@ -163,16 +163,10 @@ Für eine Bearbeitung gelten weiterhin die fachlichen Validierungsregeln.
 Eine Änderung darf daher nicht dazu führen, dass ein Report anschließend einen
 fachlich ungültigen Zustand besitzt.
 
-Für Änderungen an gespeicherten Reports ist eine Nachvollziehbarkeit
-vorgesehen. Dazu gehören insbesondere der Zeitpunkt einer Änderung und die
-Person, die die Änderung durchgeführt hat.
-
-Die genaue Ausgestaltung dieser Änderungsnachverfolgung richtet sich nach der
-zugehörigen Teamentscheidung und den Festlegungen im Datenmodell.
-
-Solange eine entsprechende Teamentscheidung noch offen ist, dürfen aus diesem
-Kapitel keine zusätzlichen technischen Anforderungen an eine vollständige
-Versionshistorie abgeleitet werden.
+Für Änderungen an gespeicherten Reports werden gemäß `TD-018` der Zeitpunkt der
+letzten Änderung und der Benutzername der ändernden Person gespeichert. Eine
+vollständige Versionshistorie einzelner Bearbeitungsstände gehört nicht zum
+Funktionsumfang von Version 1.
 
 ## 9. Benutzerkonten und Passwörter
 

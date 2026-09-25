@@ -1,6 +1,6 @@
 # N1 – Nichtfunktionale Anforderungen
 
-> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.  
+> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.
 > Nicht vollständig nachgewiesene Qualitätsziele sind ausdrücklich markiert.
 
 ## 1. Zweck
@@ -54,7 +54,7 @@ sicher und zuverlässig diese Funktion ausgeführt werden muss.
 
 ### NFR-10a-01 – Responsive Darstellung
 
-**Anforderung:**  
+**Anforderung:**
 Alle Dialoge müssen auf Desktop- und Mobilbildschirmen ohne Verlust der
 Kernfunktionen nutzbar sein.
 
@@ -69,7 +69,7 @@ Kernfunktionen nutzbar sein.
 
 ### NFR-10a-02 – Einheitliche Gestaltung
 
-**Anforderung:**  
+**Anforderung:**
 Navigation, Formulare, Meldungen und Schaltflächen müssen in allen Dialogen
 einheitlich gestaltet und bezeichnet sein.
 
@@ -86,7 +86,7 @@ einheitlich gestaltet und bezeichnet sein.
 
 ### NFR-11a-01 – Schnelle Reporterstellung
 
-**Anforderung:**  
+**Anforderung:**
 Eine angemeldete Person muss ohne Schulung einen Report erstellen können.
 
 **Akzeptanzkriterien:**
@@ -100,7 +100,7 @@ Eine angemeldete Person muss ohne Schulung einen Report erstellen können.
 
 ### NFR-11a-02 – Verständliche Rückmeldungen
 
-**Anforderung:**  
+**Anforderung:**
 Reportify muss Erfolg, Fehler und leere Zustände verständlich erklären.
 
 **Akzeptanzkriterien:**
@@ -119,7 +119,7 @@ Reportify muss Erfolg, Fehler und leere Zustände verständlich erklären.
 > Löschdialog wurden am 25.09.2026 erfolgreich per Tastatur geprüft. Unter der
 > verwendeten macOS-Konfiguration werden Links mit `Option + Tab` fokussiert.
 
-**Anforderung:**  
+**Anforderung:**
 Die Kernfunktionen müssen ohne Maus bedienbar sein.
 
 **Akzeptanzkriterien:**
@@ -136,9 +136,10 @@ Die Kernfunktionen müssen ohne Maus bedienbar sein.
 
 ### NFR-12a-01 – Antwortzeiten
 
-> **Nachweisstatus:** Ziel vereinbart, Lastmessung mit 1.000 Testreports noch offen.
+> **Nachweisstatus:** Ziel vereinbart; eine Lastmessung mit 1.000 Testreports
+> wurde für den Abgabestand nicht durchgeführt.
 
-**Anforderung:**  
+**Anforderung:**
 Lokale Standardaktionen sollen ohne störende Wartezeit ausgeführt werden.
 
 **Akzeptanzkriterien:**
@@ -154,7 +155,7 @@ Lokale Standardaktionen sollen ohne störende Wartezeit ausgeführt werden.
 
 ### NFR-12d-01 – Verlässliche Speicherung
 
-**Anforderung:**  
+**Anforderung:**
 Ein erfolgreich bestätigter Report darf nicht verloren gehen.
 
 **Akzeptanzkriterien:**
@@ -168,7 +169,7 @@ Ein erfolgreich bestätigter Report darf nicht verloren gehen.
 
 ### NFR-12d-02 – Keine Teilspeicherung
 
-**Anforderung:**  
+**Anforderung:**
 Ein ungültiger oder technisch fehlgeschlagener Speichervorgang darf keinen
 unvollständigen Report erzeugen.
 
@@ -187,9 +188,10 @@ unvollständigen Report erzeugen.
 
 ### NFR-12e-01 – Datenmenge
 
-> **Nachweisstatus:** Ziel vereinbart, Last- und Mengentest noch offen.
+> **Nachweisstatus:** Ziel vereinbart; ein Last- und Mengentest wurde für den
+> Abgabestand nicht durchgeführt.
 
-**Anforderung:**  
+**Anforderung:**
 Die erste Version soll eine für den Projektbetrieb ausreichende Datenmenge
 verwalten können.
 
@@ -211,7 +213,7 @@ verwalten können.
 > Reportformular und Detailansicht wurden zusätzlich bei 360 Pixel Breite
 > erfolgreich geprüft.
 
-**Anforderung:**  
+**Anforderung:**
 Reportify muss in aktuellen Desktop- und Mobilbrowsern funktionieren.
 
 **Akzeptanzkriterien:**
@@ -227,7 +229,7 @@ Reportify muss in aktuellen Desktop- und Mobilbrowsern funktionieren.
 
 ### NFR-13b-01 – Reproduzierbarer Build
 
-**Anforderung:**  
+**Anforderung:**
 Das Projekt muss mit den im Repository vorhandenen Werkzeugen reproduzierbar gebaut
 und getestet werden können.
 
@@ -243,7 +245,7 @@ und getestet werden können.
 
 ### NFR-13d-01 – Nachvollziehbare Inbetriebnahme
 
-**Anforderung:**  
+**Anforderung:**
 Eine nicht am Projekt beteiligte Person muss Reportify anhand einer Anleitung
 starten können.
 
@@ -261,7 +263,7 @@ starten können.
 
 ### NFR-14a-01 – Verständliche Codegliederung
 
-**Anforderung:**  
+**Anforderung:**
 Der Quellcode muss fachlich nachvollziehbar und eindeutig gegliedert sein.
 
 **Akzeptanzkriterien:**
@@ -276,7 +278,7 @@ Der Quellcode muss fachlich nachvollziehbar und eindeutig gegliedert sein.
 
 ### NFR-14b-01 – Automatisierte Tests
 
-**Anforderung:**  
+**Anforderung:**
 Die zentralen fachlichen Regeln müssen automatisiert geprüft werden.
 
 **Akzeptanzkriterien:**
@@ -301,7 +303,7 @@ Der Befehl `./mvnw test` führt alle automatisierten Tests aus.
 
 ### NFR-14c-01 – Austauschbare Persistenz
 
-**Anforderung:**  
+**Anforderung:**
 Die fachliche Verarbeitung soll nicht vollständig von einer konkreten Datenbank
 abhängig sein.
 
@@ -319,7 +321,7 @@ abhängig sein.
 
 ### NFR-15a-01 – Schutz nichtöffentlicher Seiten
 
-**Anforderung:**  
+**Anforderung:**
 Alle fachlichen Report-Funktionen dürfen nur nach erfolgreicher Anmeldung verwendet
 werden.
 
@@ -335,7 +337,7 @@ werden.
 
 ### NFR-15a-02 – Sichere Anmeldung
 
-**Anforderung:**  
+**Anforderung:**
 Die Anmeldung darf keine unnötigen Informationen über Benutzerkonten preisgeben.
 
 **Akzeptanzkriterien:**
@@ -351,7 +353,7 @@ Die Anmeldung darf keine unnötigen Informationen über Benutzerkonten preisgebe
 
 ### NFR-15a-03 – Sichere Abmeldung
 
-**Anforderung:**  
+**Anforderung:**
 Eine Abmeldung muss die bestehende Sitzung wirksam beenden.
 
 **Akzeptanzkriterien:**
@@ -365,7 +367,7 @@ Eine Abmeldung muss die bestehende Sitzung wirksam beenden.
 
 ### NFR-15b-01 – Sichere Passwortspeicherung
 
-**Anforderung:**  
+**Anforderung:**
 Passwörter dürfen niemals im Klartext gespeichert werden.
 
 **Akzeptanzkriterien:**
@@ -380,7 +382,7 @@ Passwörter dürfen niemals im Klartext gespeichert werden.
 
 ### NFR-15b-02 – Schutz vor manipulierten Eingaben
 
-**Anforderung:**  
+**Anforderung:**
 Eingaben dürfen keine fremden Befehle oder ausführbaren Inhalte in Reportify
 einschleusen.
 
@@ -396,7 +398,7 @@ einschleusen.
 
 ### NFR-15c-01 – Datensparsamkeit
 
-**Anforderung:**  
+**Anforderung:**
 Reportify speichert nur für Anmeldung und Schichtübergabe notwendige Daten.
 
 **Akzeptanzkriterien:**
@@ -412,7 +414,7 @@ Reportify speichert nur für Anmeldung und Schichtübergabe notwendige Daten.
 
 ### NFR-15c-02 – Schutz von Protokolldaten
 
-**Anforderung:**  
+**Anforderung:**
 Anwendungsprotokolle dürfen keine geheimen oder unnötigen fachlichen Inhalte
 enthalten.
 
@@ -427,7 +429,7 @@ enthalten.
 
 ### NFR-15d-01 – Nachvollziehbare Reporterstellung
 
-**Anforderung:**  
+**Anforderung:**
 Für jeden Report muss nachvollziehbar sein, wann und durch wen er erstellt wurde.
 
 **Akzeptanzkriterien:**
@@ -443,7 +445,7 @@ Für jeden Report muss nachvollziehbar sein, wann und durch wen er erstellt wurd
 
 ### NFR-16a-01 – Einheitliche deutsche Benutzeroberfläche
 
-**Anforderung:**  
+**Anforderung:**
 Die Benutzeroberfläche von Reportify muss in Version 1 vollständig und
 einheitlich in deutscher Sprache bereitgestellt werden.
 
@@ -462,7 +464,7 @@ einheitlich in deutscher Sprache bereitgestellt werden.
 
 ### NFR-17b-01 – Nachvollziehbare Git-Historie
 
-**Anforderung:**  
+**Anforderung:**
 Projektänderungen müssen den Teammitgliedern und der Bewertung nachvollziehbar
 zugeordnet werden können.
 
@@ -493,9 +495,9 @@ Für die erste Version werden folgende Qualitätsziele nicht zugesichert:
 Diese Punkte sind bewusst außerhalb des Projektumfangs und nicht versehentlich
 vergessen worden.
 
-## 19. Offene Entscheidungen
+## 19. Entscheidungsbezug
 
-Die offenen Qualitätsentscheidungen werden in
+Die maßgeblichen Qualitätsentscheidungen werden in
 [`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
 
 Besonders relevant sind:

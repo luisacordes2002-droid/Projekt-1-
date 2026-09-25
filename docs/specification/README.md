@@ -1,7 +1,7 @@
 # Reportify – Spezifikation
 
-> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.  
-> Eine formale Freigabe durch das gesamte Projektteam steht noch aus.
+> **Status:** Finaler, mit Implementierung und Tests abgeglichener Abgabestand
+> vom 25.09.2026.
 
 Reportify unterstützt digitale Schichtübergaben. Mitarbeitende dokumentieren
 erledigte und offene Aufgaben, Probleme beziehungsweise Incidents, Prioritäten
@@ -29,8 +29,9 @@ fachlich zusammen; die technische Beschreibung steht unter `docs/arch`.
 
 ## 2. Vorhandene Kapitel
 
-Die folgenden Kapitel wurden mit dem Stand der Version 1 abgeglichen. Noch nicht
-formal freigegebene Punkte sind ausdrücklich gekennzeichnet.
+Die folgenden Kapitel wurden mit dem Abgabestand der Version 1 abgeglichen.
+Nicht vollständig nachgewiesene Qualitätsziele sind in N1 und im
+[Test- und Abnahmenachweis](../ABNAHME.md) ausdrücklich gekennzeichnet.
 
 | Baustein | Dokument | Inhalt |
 |---|---|---|
@@ -43,7 +44,7 @@ formal freigegebene Punkte sind ausdrücklich gekennzeichnet.
 | D2 | [Datentypenverzeichnis](D2-datentypen.md) | Zulässige Werte, Formate und Validierungsregeln |
 | B1 | [Dialogspezifikation](B1-dialogspezifikationen.md) | Seiten, Eingaben, Navigation und Rückmeldungen |
 | B2 | [Batch](B2-batch.md) | Nicht anwendbar im MVP; Begründung und Abgrenzung |
-| B3 | [Druckausgaben](B3-druckausgaben.md) | Nicht anwendbar im MVP; Abgrenzung zu Browserdruck und Export |
+| B3 | [Druckausgaben](B3-druckausgaben.md) | Optionale Druck- und PDF-Ausgabe über den nativen Browserdialog |
 | N1 | [Nichtfunktionale Anforderungen](N1-nichtfunktional.md) | Qualitätsziele und überprüfbare Akzeptanzkriterien |
 | N2 | [Querschnittskonzepte](N2%20%E2%80%93%20querschnittskonzepte.md) | Übergreifende Regeln zu Zugriff, Berechtigungen, Validierung und Fehlerbehandlung |
 | E2 | [Glossar](E2-glossar.md) | Gemeinsame Fachbegriffe und verwendete Kennungen |
@@ -98,7 +99,7 @@ Dateianhänge, externe APIs, Statistiken, Selbstregistrierung und eine komplexe
 Rollenverwaltung. Benutzerkonten werden für die erste Version vorbereitet
 bereitgestellt.
 
-## 4. Bearbeitungsstand und ausstehende Arbeiten
+## 4. Abgabestand und Nachverfolgbarkeit
 
 Die für die Spezifikation vorgesehenen Bausteine sind als eigene Kapitel
 beziehungsweise als Bestandteil dieses README angelegt.
@@ -123,14 +124,14 @@ Architekturdokumentation beschrieben.
 
 Der Abgleich mit Architektur, Quellcode und Tests wurde am 25.09.2026
 durchgeführt. Die Darstellung wurde in Safari, Chrome und bei 360 Pixel Breite
-manuell geprüft. Vor der formalen Freigabe bleibt eine abschließende Teamprüfung
-offen.
+manuell geprüft. Damit bildet die Spezifikation den finalen dokumentierten
+Abgabestand der Version 1.
 
 ## 5. Entscheidungen und Nachverfolgbarkeit
 
-Offene fachliche, technische und organisatorische Fragen werden zentral in
-[TEAM-ENTSCHEIDUNGEN.md](../TEAM-ENTSCHEIDUNGEN.md) geführt. Eine Arbeitsannahme
-ist keine bestätigte Teamentscheidung. Maßgeblich ist der dort dokumentierte Status.
+Fachliche, technische und organisatorische Entscheidungen werden zentral in
+[TEAM-ENTSCHEIDUNGEN.md](../TEAM-ENTSCHEIDUNGEN.md) geführt. Maßgeblich ist der
+dort dokumentierte Status.
 
 Die bereits getroffenen Teamentscheidungen werden in den jeweils betroffenen
 Spezifikationskapiteln eingearbeitet. Dazu gehören insbesondere die Regeln zur
@@ -138,9 +139,8 @@ Bearbeitung und Löschung gespeicherter Reports, zur Bestimmung der aktuellen
 Übergabe, zu den Rollen und Berechtigungen, zur Aufbewahrung von Reports sowie
 zur Bereitstellung vorbereiteter Benutzerkonten.
 
-Noch offene Entscheidungen werden weiterhin zentral in
-[TEAM-ENTSCHEIDUNGEN.md](../TEAM-ENTSCHEIDUNGEN.md) geführt und nach ihrer
-Entscheidung in allen betroffenen Dokumenten nachvollziehbar eingearbeitet.
+Zum Abgabestand sind `TD-001` bis `TD-019` entschieden und eingearbeitet. Neue
+Fragen würden dort mit der nächsten freien Kennung dokumentiert.
 
 Die Kennungen ermöglichen Verweise zwischen den Kapiteln. Beispielsweise wird
 die Reporterstellung aus `UC-04` durch `AF-03` bis `AF-05` konkretisiert.
@@ -158,13 +158,12 @@ Dokumentationsentwürfen, den Abgleich von Begriffen, Kennungen und Verweisen
 sowie die Formulierung von Git-Befehlen. Dazu gehören unter anderem die Entwürfe
 für Glossar, Architekturüberblick und dieses README.
 
-Die Entwürfe werden mit dem vereinbarten MVP und den vorliegenden
-Spezifikationskapiteln abgeglichen. Bei der Übernahme werden Dateilänge, Dateiende
-und Git-Diff kontrolliert; erkannte Fehler werden gesondert korrigiert.
-Die fachliche Freigabe durch das gesamte Team steht noch aus. Der Abgleich gegen
-Architektur, Quellcode und Tests wurde am 25.09.2026 durchgeführt.
+Die Entwürfe wurden mit dem vereinbarten MVP und den vorliegenden
+Spezifikationskapiteln abgeglichen. Bei der Übernahme wurden Dateilänge,
+Dateiende und Git-Diff kontrolliert; erkannte Fehler wurden gesondert
+korrigiert. Der Abgleich gegen Architektur, Quellcode und Tests wurde am
+25.09.2026 durchgeführt.
 
-Weitere tatsächlich eingesetzte KI-Werkzeuge und Nutzungszwecke werden ergänzt.
 KI-Vorschläge ersetzen weder eine Teamentscheidung noch das eigene Verständnis
 der dokumentierten Anforderungen.
 

@@ -1,6 +1,6 @@
 # B2 – Batch
 
-> **Status:** Mit dem Umfang der Version 1 abgeglichener Stand vom 25.09.2026.  
+> **Status:** Mit dem Umfang der Version 1 abgeglichener Stand vom 25.09.2026.
 > **Anwendbarkeit:** Nicht anwendbar im festgelegten MVP.
 
 ## 1. Einordnung

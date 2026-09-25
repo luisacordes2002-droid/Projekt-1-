@@ -1,6 +1,6 @@
 # S2 – Datenmigration
 
-> **Status:** Mit dem Umfang der Version 1 abgeglichener Stand vom 25.09.2026.  
+> **Status:** Mit dem Umfang der Version 1 abgeglichener Stand vom 25.09.2026.
 > Eine Migration von Daten aus einem bestehenden Altsystem ist für die erste
 > Version von Reportify nicht vorgesehen.
 

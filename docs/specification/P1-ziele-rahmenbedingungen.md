@@ -1,7 +1,7 @@
 # P1 – Ziele und Rahmenbedingungen
 
-> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.
-> Die formale Teamfreigabe steht noch aus.
+> **Status:** Finaler, mit Implementierung und Tests abgeglichener Abgabestand
+> vom 25.09.2026.
 
 ## 1. Ausgangssituation
 
@@ -76,6 +76,8 @@ Folgende Funktionen gehören nicht zum verbindlichen Umfang:
 - Echtzeit-Chat
 - umfangreiche statistische Auswertungen
 - produktiver Betrieb in einem realen Unternehmen
+- Selbstregistrierung oder eine administrative Benutzerverwaltung
+- nachträgliche Änderung von Benutzername oder Passwort über die Oberfläche
 
 Diese Punkte können als mögliche Weiterentwicklung dokumentiert werden.
 
@@ -95,6 +97,10 @@ umfangreiche statistische Auswertung im Sinne dieser Abgrenzung.
 - Probleme können die Priorität niedrig, mittel oder hoch besitzen.
 - Ein Report enthält Erstellungszeitpunkt und verantwortliche Person.
 - Die Historie zeigt vergangene Reports in zeitlicher Reihenfolge.
+- Benutzerkonten werden für Version 1 vorbereitet bereitgestellt. Die
+  Oberfläche unterstützt weder Selbstregistrierung noch Benutzerverwaltung.
+- Das persönliche Passwort wird einmalig bei der ersten Anmeldung festgelegt.
+  Eine spätere Passwortänderung über die Oberfläche gehört nicht zu Version 1.
 
 ## 8. Technische Rahmenbedingungen
 

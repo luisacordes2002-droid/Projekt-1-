@@ -1,7 +1,7 @@
 # F1 – Geschäftsprozesse
 
-> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.
-> Die formale Teamfreigabe steht noch aus.
+> **Status:** Finaler, mit Implementierung und Tests abgeglichener Abgabestand
+> vom 25.09.2026.
 
 ## 1. Zweck
 
@@ -125,7 +125,7 @@ Hinweis statt einer leeren oder fehlerhaften Seite an.
 Gespeicherte Reports dürfen nachträglich bearbeitet werden.
 Bei jeder Bearbeitung gelten weiterhin die festgelegten Validierungsregeln.
 
-### GR-10 - löschen gespeicherter Reports 
+### GR-10 - löschen gespeicherter Reports
 
 Gespeicherte Reports dürfen ausschließlich durch die Schichtleitung gelöscht werden.
 Mitarbeiter:innen dürfen keine Reports löschen.
@@ -168,6 +168,3 @@ Das System informiert die Person, dass noch kein Report vorhanden ist. Die
 - UC-05 – Übergabe einsehen
 - UC-06 – Report-Historie anzeigen
 - UC-10 – Report als erledigt kennzeichnen
-
-
-

@@ -98,6 +98,19 @@ Die Zugangsdaten sind ausschließlich für die lokale Entwicklung und Demonstrat
 Bei der ersten Anmeldung muss ein persönliches Passwort mit 8 bis 128 Zeichen
 festgelegt werden. Anschließend ist das jeweilige Startpasswort nicht mehr gültig.
 
+### Benutzerverwaltung in Version 1
+
+`MITARBEITER` und `SCHICHTLEITUNG` sind Rollen; das Datenmodell kann mehrere
+Benutzerkonten mit diesen Rollen speichern. Das Entwicklungsprofil legt für die
+lokale Demonstration ausschließlich die beiden oben genannten Konten an.
+
+Eine Selbstregistrierung oder administrative Benutzerverwaltung über die
+Oberfläche gehört nicht zu Version 1. Benutzernamen können dort nicht geändert
+werden. Auch die Passwortfunktion ist auf die einmalige persönliche Vergabe bei
+der ersten Anmeldung begrenzt; eine spätere Passwortänderung über die Oberfläche
+ist nicht umgesetzt. Der produktive Betrieb mit einer betrieblichen
+Kontenverwaltung ist ausdrücklich nicht Bestandteil dieser Abgabe.
+
 ## Projektstruktur
 
 ```text
