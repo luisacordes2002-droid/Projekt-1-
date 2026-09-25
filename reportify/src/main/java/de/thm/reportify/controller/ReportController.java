@@ -28,18 +28,23 @@ public class ReportController {
     }
 
    @GetMapping
-public String list(Model model) {
+public String list(
+        @RequestParam(required = false) String search,
+        @RequestParam(required = false) Shift shift,
+        Model model) {
+
     var reports = reportService.findAll();
+    var currentReport = reports.isEmpty() ? null : reports.get(0);
+    var historyReports = reports.subList(
+            Math.min(1, reports.size()),
+            reports.size());
 
     model.addAttribute("reports", reports);
-    model.addAttribute(
-            "currentReport",
-            reports.isEmpty() ? null : reports.get(0));
-    model.addAttribute(
-            "historyReports",
-            reports.subList(
-                    Math.min(1, reports.size()),
-                    reports.size()));
+    model.addAttribute("currentReport", currentReport);
+    model.addAttribute("historyReports", historyReports);
+    model.addAttribute("search", search == null ? "" : search);
+    model.addAttribute("selectedHistoryShift", shift);
+    model.addAttribute("shifts", Shift.values());
 
     return "reports/list";
 }

@@ -121,6 +121,14 @@
             font-size: 13px;
         }
 
+        .character-counter {
+            display: block;
+            margin-top: 5px;
+            color: #64748b;
+            font-size: 13px;
+            text-align: right;
+        }
+
         .actions {
             display: flex;
             justify-content: flex-end;
@@ -218,6 +226,8 @@
         placeholder="Welche Aufgaben wurden während der Schicht erledigt?"
         th:text="${completedTasks}"></textarea>
 
+    <span class="character-counter" data-counter-for="completedTasks">0 / 4000 Zeichen</span>
+
     <span class="help">
         Pflichtfeld. Maximal 4000 Zeichen.
     </span>
@@ -282,6 +292,8 @@
         placeholder="Welche Aufgaben muss die nächste Schicht fortführen?"
         th:text="${openTasks}"></textarea>
 
+    <span class="character-counter" data-counter-for="openTasks">0 / 4000 Zeichen</span>
+
     <span class="help">
         Optional. Maximal 4000 Zeichen.
     </span>
@@ -298,6 +310,8 @@
         maxlength="4000"
         placeholder="Welche Probleme oder Incidents sind aufgetreten?"
         th:text="${problemsIncidents}"></textarea>
+
+    <span class="character-counter" data-counter-for="problemsIncidents">0 / 4000 Zeichen</span>
 
     <span class="help">
         Optional. Bei einem Eintrag muss eine Priorität
@@ -316,6 +330,8 @@
         maxlength="4000"
         placeholder="Welche Hinweise sind für die nächste Schicht wichtig?"
         th:text="${importantNotes}"></textarea>
+
+    <span class="character-counter" data-counter-for="importantNotes">0 / 4000 Zeichen</span>
 
     <span class="help">
         Optional. Maximal 4000 Zeichen.
@@ -343,5 +359,20 @@
         </form>
     </section>
 </main>
+
+<script>
+    document.querySelectorAll("textarea[maxlength='4000']").forEach((textarea) => {
+        const counter = document.querySelector(
+            `[data-counter-for="${textarea.id}"]`
+        );
+
+        const updateCounter = () => {
+            counter.textContent = `${textarea.value.length} / 4000 Zeichen`;
+        };
+
+        textarea.addEventListener("input", updateCounter);
+        updateCounter();
+    });
+</script>
 </body>
 </html>
