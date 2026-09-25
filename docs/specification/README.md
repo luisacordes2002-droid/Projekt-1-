@@ -1,8 +1,7 @@
 # Reportify – Spezifikation
 
-> **Status:** Arbeitsentwurf vom 30.08.2026.  
-> Die vorhandenen Kapitel beschreiben den geplanten MVP. Die Spezifikation ist
-> noch nicht vollständig und noch nicht vom gesamten Projektteam freigegeben.
+> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.  
+> Eine formale Freigabe durch das gesamte Projektteam steht noch aus.
 
 Reportify unterstützt digitale Schichtübergaben. Mitarbeitende dokumentieren
 erledigte und offene Aufgaben, Probleme beziehungsweise Incidents, Prioritäten
@@ -23,14 +22,15 @@ Für den Einstieg empfiehlt sich folgende Reihenfolge:
 5. **B1, N1 und N2:** Dialoge, Rückmeldungen, Qualitätsanforderungen und übergreifende fachliche Regeln.
 6. **E2:** Fachbegriffe bei Bedarf nachschlagen.
 
-Die Kapitel beschreiben Anforderungen und Planungen. Eine vorhandene Beschreibung
-ist kein Nachweis einer bereits implementierten oder erfolgreich getesteten Funktion.
-P2 ersetzt nicht die spätere detaillierte Architekturdokumentation.
+Die Kapitel beschreiben Anforderungen und den umgesetzten Umfang der Version 1.
+Der technische Stand wird zusätzlich durch Quellcode, automatisierte Tests und den
+[Test- und Abnahmenachweis](../ABNAHME.md) belegt. P2 fasst die Architektur nur
+fachlich zusammen; die technische Beschreibung steht unter `docs/arch`.
 
 ## 2. Vorhandene Kapitel
 
-Alle folgenden Kapitel liegen als Arbeitsentwürfe vor. Der jeweilige Inhalt ist
-zusammen mit den offenen Teamentscheidungen zu lesen.
+Die folgenden Kapitel wurden mit dem Stand der Version 1 abgeglichen. Noch nicht
+formal freigegebene Punkte sind ausdrücklich gekennzeichnet.
 
 | Baustein | Dokument | Inhalt |
 |---|---|---|
@@ -45,11 +45,11 @@ zusammen mit den offenen Teamentscheidungen zu lesen.
 | B2 | [Batch](B2-batch.md) | Nicht anwendbar im MVP; Begründung und Abgrenzung |
 | B3 | [Druckausgaben](B3-druckausgaben.md) | Nicht anwendbar im MVP; Abgrenzung zu Browserdruck und Export |
 | N1 | [Nichtfunktionale Anforderungen](N1-nichtfunktional.md) | Qualitätsziele und überprüfbare Akzeptanzkriterien |
-| N2 | [Querschnittskonzepte](N2-querschnittskonzepte.md) | Übergreifende Regeln zu Zugriff, Berechtigungen, Validierung und Fehlerbehandlung |
+| N2 | [Querschnittskonzepte](N2%20%E2%80%93%20querschnittskonzepte.md) | Übergreifende Regeln zu Zugriff, Berechtigungen, Validierung und Fehlerbehandlung |
 | E2 | [Glossar](E2-glossar.md) | Gemeinsame Fachbegriffe und verwendete Kennungen |
 | S1 | [Nachbarsysteme](S1-nachbarsysteme.md) | Abgrenzung gegenüber externen Fachsystemen und Schnittstellen |
-| S2 – Datenmigration | [Datenmigration](S2-datenmigration.md) | Keine Altdatenmigration; Abgrenzung zur erstmaligen Bereitstellung vorbereiteter Benutzerkonten |
-| S3 | [Inbetriebnahme](S3-inbetriebnahme.md) | Fachliche Voraussetzungen und Ausgangszustand für den ersten Einsatz |
+| S2 – Datenmigration | [Datenmigration](S2%20%E2%80%93%20datenmigration.md) | Keine Altdatenmigration; Abgrenzung zur erstmaligen Bereitstellung vorbereiteter Benutzerkonten |
+| S3 | [Inbetriebnahme](S3%20%E2%80%93%20inbetriebnahme.md) | Fachliche Voraussetzungen und Ausgangszustand für den ersten Einsatz |
 
 
 
@@ -70,9 +70,9 @@ Der MVP umfasst:
    `AF-08` und `DLG-06`.
 7. Gespeicherte Reports bearbeiten.
 8. Gespeicherte Reports durch die Schichtleitung löschen.
-
-Die unterschiedliche Gruppierung der Funktionen und Anwendungsfälle begründet
-keinen zusätzlichen Anwendungsfall: Der Detailaufruf ist bereits in UC-06 enthalten.
+9. Bei der ersten Anmeldung ein persönliches Passwort festlegen – `UC-09`.
+10. Reports als erledigt kennzeichnen – `UC-10`.
+11. Die Historie nach Reporttext durchsuchen und nach Schicht filtern.
 
 Die unterschiedliche Gruppierung der Funktionen und Anwendungsfälle begründet
 keinen zusätzlichen Anwendungsfall: Der Detailaufruf ist bereits in `UC-06`
@@ -113,9 +113,9 @@ der ersten Version nicht benötigt wird.
 Die technische Umsetzung der Querschnittskonzepte wird in der
 Architekturdokumentation beschrieben.
 
-Vor der fachlichen Freigabe stehen weiterhin die Teamprüfung, die Abstimmung
-noch offener Entscheidungen, die in B1 vorgesehenen Darstellungen sowie der
-Abgleich der Spezifikation mit Architektur, Quellcode und Tests aus.
+Der Abgleich mit Architektur, Quellcode und Tests wurde am 25.09.2026
+durchgeführt. Vor der formalen Freigabe bleiben eine abschließende Teamprüfung
+und die Prüfung der Darstellung in einem zweiten Browser offen.
 
 ## 5. Entscheidungen und Nachverfolgbarkeit
 
@@ -137,7 +137,7 @@ Die Kennungen ermöglichen Verweise zwischen den Kapiteln. Beispielsweise wird
 die Reporterstellung aus `UC-04` durch `AF-03` bis `AF-05` konkretisiert.
 Die betroffenen Daten stehen in D1 und D2, der Erfassungsdialog ist `DLG-03`.
 `NFR-12d-01` und `NFR-12d-02` ergänzen Anforderungen an die Speicherung.
-Diese Bezüge müssen später in Architektur, Implementierung und Tests fortgeführt werden.
+Diese Bezüge werden in Architektur, Implementierung und Tests fortgeführt.
 
 Vorhandene Kennungen bleiben bei Überarbeitungen erhalten. Die Bedeutung der
 Kennungsgruppen wird im [Glossar](E2-glossar.md) erklärt.
@@ -152,8 +152,8 @@ für Glossar, Architekturüberblick und dieses README.
 Die Entwürfe werden mit dem vereinbarten MVP und den vorliegenden
 Spezifikationskapiteln abgeglichen. Bei der Übernahme werden Dateilänge, Dateiende
 und Git-Diff kontrolliert; erkannte Fehler werden gesondert korrigiert.
-Die fachliche Freigabe durch das gesamte Team sowie die Prüfung gegen Architektur,
-Quellcode und Tests stehen noch aus.
+Die fachliche Freigabe durch das gesamte Team steht noch aus. Der Abgleich gegen
+Architektur, Quellcode und Tests wurde am 25.09.2026 durchgeführt.
 
 Weitere tatsächlich eingesetzte KI-Werkzeuge und Nutzungszwecke werden ergänzt.
 KI-Vorschläge ersetzen weder eine Teamentscheidung noch das eigene Verständnis

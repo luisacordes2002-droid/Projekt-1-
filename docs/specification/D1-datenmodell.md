@@ -1,8 +1,7 @@
 # D1 – Datenmodell
 
-> **Status:** Arbeitsentwurf vom 29.08.2026.  
-> Das Datenmodell beschreibt den fachlichen Informationsbedarf der ersten
-> Reportify-Version. Es muss vom Projektteam geprüft werden.
+> **Status:** Mit der Implementierung abgeglichener Stand vom 25.09.2026.  
+> Die formale Teamfreigabe steht noch aus.
 
 ## 1. Zweck
 
@@ -28,19 +27,18 @@ benötigen im fachlichen Modell keine eigenen Objekte.
 
 ```mermaid
 erDiagram
-    NUTZER ||--o{ REPORT : erstellt
-
     NUTZER {
-        string nutzerId PK
+        long nutzerId PK
         string benutzername
         string anzeigename
         string passwortNachweis
         string rolle
         boolean aktiv
+        boolean passwortwechselErforderlich
     }
 
     REPORT {
-        string reportId PK
+        long reportId PK
         string schicht
         text erledigteAufgaben
         text offeneAufgaben
@@ -48,12 +46,17 @@ erDiagram
         string prioritaet
         text wichtigeHinweise
         datetime erstelltAm
-        string erstelltVon FK
+        string erstelltVon
+        string status
+        datetime geaendertAm
+        string geaendertVon
     }
 
 ```
-Ein:e Nutzer:in kann keinen, einen oder mehrere Reports erstellen. Jeder Report
-gehört genau zu einer erstellenden Person.
+Die Report-Entity speichert den Benutzernamen der erstellenden und gegebenenfalls
+ändernden Person als Text. In Version 1 besteht daher bewusst keine technische
+Fremdschlüsselbeziehung zwischen `NUTZER` und `REPORT`. Dadurch bleiben die
+Urheberangaben auch erhalten, wenn ein Benutzerkonto später deaktiviert wird.
 
 ## 4. Datenobjekt Nutzer:in
 
@@ -100,7 +103,7 @@ Mitarbeiter:innen dürfen keine Reports löschen.
 - Passwörter dürfen niemals im Klartext gespeichert werden.
 - Ein inaktives Benutzerkonto darf sich nicht anmelden.
 - Bereits erstellte Reports bleiben erhalten, wenn ein Benutzerkonto deaktiviert wird.
-- Ein Report zeigt den Anzeigenamen der erstellenden Person, nicht deren Passwort
+- Ein Report zeigt den gespeicherten Benutzernamen der erstellenden Person, nicht deren Passwort
   oder andere Anmeldedaten.
 
 ## 5. Datenobjekt Report
@@ -199,8 +202,8 @@ Ein Report durchläuft in der ersten Version folgende fachliche Schritte:
 2. Die Person wählt eine Schicht und trägt fachliche Inhalte ein.
 3. Reportify validiert die Eingaben.
 4. Bei gültigen Eingaben wird der Report gespeichert.
-5. Der gespeicherte Report erscheint in der aktuellen Übergabe und in der
-   Report-Historie.
+5. Der gespeicherte Report erscheint zunächst als aktuelle Übergabe. Sobald ein
+   neuer Report gespeichert wird, wird der vorherige Report Teil der Historie.
 6. Ein gespeicherter Report kann nachträglich bearbeitet werden.
 7. Geänderte Report-Daten werden erneut validiert und anschließend gespeichert.
 8. Ein gespeicherter Report kann durch die Schichtleitung gelöscht werden.
@@ -214,8 +217,8 @@ Ein gesonderter Entwurfsstatus ist für die erste Version nicht vorgesehen.
 - In Reports sollen nur für die Schichtübergabe notwendige Informationen erfasst
   werden.
 - Passwörter und andere Anmeldedaten gehören niemals in einen Report.
-- Reportify speichert für einen Report nur die fachlichen Inhalte, die erstellende
-  Person und den Erstellungszeitpunkt.
+- Reportify speichert für einen Report die fachlichen Inhalte, Status, Schicht,
+  Priorität sowie Erstellungs- und gegebenenfalls Änderungsinformationen.
 - Eine automatische Löschfrist ist für die erste Version noch nicht festgelegt.
 
 ## 10. Abgrenzung

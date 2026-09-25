@@ -1,8 +1,7 @@
 # E2 – Glossar
 
-> **Status:** Arbeitsentwurf vom 30.08.2026.  
-> Die Begriffe sind mit dem vorliegenden Spezifikationsentwurf abgeglichen.
-> Die fachliche Prüfung und Freigabe durch das Projektteam stehen noch aus.
+> **Status:** Mit Spezifikation und Implementierung abgeglichener Stand vom
+> 25.09.2026. Die formale Teamfreigabe steht noch aus.
 
 ## 1. Zweck und Verwendung
 

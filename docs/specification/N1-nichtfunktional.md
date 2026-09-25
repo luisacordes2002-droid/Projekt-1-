@@ -1,8 +1,7 @@
 # N1 – Nichtfunktionale Anforderungen
 
-> **Status:** Arbeitsentwurf vom 30.08.2026.  
-> Die Anforderungen sind auf die erste Reportify-Version begrenzt und müssen vom
-> Projektteam geprüft werden.
+> **Status:** Mit Implementierung und Tests abgeglichener Stand vom 25.09.2026.  
+> Nicht vollständig nachgewiesene Qualitätsziele sind ausdrücklich markiert.
 
 ## 1. Zweck
 
@@ -133,6 +132,8 @@ Die Kernfunktionen müssen ohne Maus bedienbar sein.
 
 ### NFR-12a-01 – Antwortzeiten
 
+> **Nachweisstatus:** Ziel vereinbart, Lastmessung mit 1.000 Testreports noch offen.
+
 **Anforderung:**  
 Lokale Standardaktionen sollen ohne störende Wartezeit ausgeführt werden.
 
@@ -182,6 +183,8 @@ unvollständigen Report erzeugen.
 
 ### NFR-12e-01 – Datenmenge
 
+> **Nachweisstatus:** Ziel vereinbart, Last- und Mengentest noch offen.
+
 **Anforderung:**  
 Die erste Version soll eine für den Projektbetrieb ausreichende Datenmenge
 verwalten können.
@@ -198,6 +201,9 @@ verwalten können.
 ## 13. Betriebsumgebung
 
 ### NFR-13a-01 – Browser-Kompatibilität
+
+> **Nachweisstatus:** Safari wurde manuell geprüft. Chrome und die vollständige
+> Prüfung bei 360 Pixel Breite stehen noch aus.
 
 **Anforderung:**  
 Reportify muss in aktuellen Desktop- und Mobilbrowsern funktionieren.

@@ -1,6 +1,6 @@
 # S3 – Inbetriebnahme
 
-> **Status:** Arbeitsentwurf.  
+> **Status:** Mit Installation und Anwendung abgeglichener Stand vom 25.09.2026.  
 > Dieses Kapitel beschreibt die fachlichen Voraussetzungen und den vorgesehenen
 > Ausgangszustand für die erstmalige Inbetriebnahme von Reportify.
 
@@ -51,7 +51,7 @@ Reports zu löschen. Nutzer:innen ohne diese Rolle dürfen keine Reports lösche
 
 Die erstmalige Bereitstellung der Benutzerkonten ist keine Datenmigration.
 Die entsprechende Abgrenzung wird in
-[S2 – Datenmigration](S2-datenmigration.md) beschrieben.
+[S2 – Datenmigration](S2%20%E2%80%93%20datenmigration.md) beschrieben.
 
 ## 4. Ausgangszustand der Report-Daten
 
@@ -125,7 +125,7 @@ werden. Für Version 1 ist H2 als relationale Datenbank festgelegt.
 Nicht Bestandteil dieses Kapitels sind:
 
 - die Migration bestehender Fachdaten; siehe
-  [S2 – Datenmigration](S2-datenmigration.md),
+  [S2 – Datenmigration](S2%20%E2%80%93%20datenmigration.md),
 - externe Fachsysteme und Schnittstellen; siehe
   [S1 – Nachbarsysteme](S1-nachbarsysteme.md),
 - die detaillierte Beschreibung einzelner Benutzerabläufe; siehe

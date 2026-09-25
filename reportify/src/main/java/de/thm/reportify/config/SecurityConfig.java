@@ -2,11 +2,11 @@ package de.thm.reportify.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.http.HttpMethod;
 
 @Configuration
 public class SecurityConfig {
@@ -21,8 +21,11 @@ public class SecurityConfig {
             throws Exception {
         http
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/css/**").permitAll()
-                .requestMatchers(HttpMethod.POST, "/reports/*/delete").hasRole("SCHICHTLEITUNG")
+                .requestMatchers("/css/**", "/js/**").permitAll()
+                .requestMatchers(
+                        HttpMethod.POST,
+                        "/reports/*/delete")
+                .hasRole("SCHICHTLEITUNG")
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form

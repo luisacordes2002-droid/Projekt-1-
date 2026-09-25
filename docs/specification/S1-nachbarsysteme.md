@@ -1,6 +1,6 @@
 # S1 - Nachbarsysteme 
 
-> **Status:** Arbeitsentwurf.
+> **Status:** Mit dem Umfang der Version 1 abgeglichener Stand vom 25.09.2026.
 > Für den aktuellen Umfang von Reportify sind keine externen Fachsysteme oder
 > fachlichen Schnittstellen vorgesehen.
 

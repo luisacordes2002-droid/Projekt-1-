@@ -164,4 +164,10 @@ Die lokale Inbetriebnahme ist erfolgreich, wenn:
    Passwortvergabe weiterleitet,
 6. ein gültiges persönliches Passwort festgelegt werden kann,
 7. anschließend die geschützte Reportübersicht erscheint und
-8. die erneute Anmeldung mit dem persönlichen Passwort funktioniert.
+8. die erneute Anmeldung mit dem persönlichen Passwort funktioniert,
+9. ein Report erstellt, geöffnet, bearbeitet und als erledigt markiert werden kann,
+10. Suche und Schichtfilter ausschließlich die Report-Historie filtern und
+11. nur die Rolle `SCHICHTLEITUNG` einen Report nach einer Sicherheitsabfrage
+    löschen kann.
+
+Die vollständige Prüfliste steht im [Test- und Abnahmenachweis](docs/ABNAHME.md).
