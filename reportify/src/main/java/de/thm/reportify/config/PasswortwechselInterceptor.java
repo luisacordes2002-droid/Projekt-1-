@@ -56,6 +56,7 @@ public class PasswortwechselInterceptor
                 || pfad.equals("/logout")
                 || pfad.equals("/login")
                 || pfad.equals("/error")
-                || pfad.startsWith("/css/");
+                || pfad.startsWith("/css/")
+                || pfad.startsWith("/js/");
     }
 }
