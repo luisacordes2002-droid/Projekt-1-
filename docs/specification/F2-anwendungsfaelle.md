@@ -286,8 +286,12 @@ Eine angemeldete Person kann vergangene Reports nachvollziehen.
 2. Das System lädt die gespeicherten Reports.
 3. Das System zeigt die Reports absteigend nach Erstellungszeitpunkt an.
 4. Jeder Listeneintrag zeigt mindestens Schicht, Autor:in und Erstellungszeitpunkt.
-5. Die Person wählt einen Report aus.
-6. Das System zeigt dessen vollständige Inhalte an.
+5. Die Person kann die historischen Reports über eine Textsuche durchsuchen.
+6. Die Person kann die historischen Reports nach Früh-, Spät- oder Nachtschicht filtern.
+7. Textsuche und Schichtfilter können miteinander kombiniert werden.
+8. Die aktuelle Übergabe bleibt von der Filterung der Historie unberührt.
+9. Die Person wählt einen Report aus.
+10. Das System zeigt dessen vollständige Inhalte an.
 
 ### Alternativablauf – Historie ist leer
 
@@ -306,6 +310,10 @@ Eine angemeldete Person kann vergangene Reports nachvollziehen.
 | AK-18 | Mehrere Reports existieren | die Historie wird geöffnet | die neuesten Reports stehen zuerst |
 | AK-19 | Die Historie wird angezeigt | ein Report wird ausgewählt | sämtliche Inhalte des Reports werden angezeigt |
 | AK-20 | Es existiert kein Report | die Historie wird geöffnet | ein verständlicher Hinweis wird angezeigt |
+| AK-20a | Mehrere historische Reports existieren | ein Suchbegriff eingegeben wird | nur historische Reports mit passendem Text werden angezeigt |
+| AK-20b | Historische Reports verschiedener Schichten existieren | eine Schicht ausgewählt wird | nur historische Reports der ausgewählten Schicht werden angezeigt |
+| AK-20c | Textsuche und Schichtfilter sind gesetzt | beide Kriterien treffen nur auf bestimmte historische Reports zu | nur Reports angezeigt werden, die beide Kriterien erfüllen |
+| AK-20d | Suche oder Schichtfilter schränken die Historie ein | die Filterung ausgeführt wird | die aktuelle Übergabe bleibt unverändert sichtbar |
 
 ## 8. UC-07 – Gespeicherten Report bearbeiten
 
