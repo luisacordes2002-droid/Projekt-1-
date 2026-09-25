@@ -29,6 +29,7 @@ Bereits umgesetzt sind:
 - direkte Weiterleitung zur Reportübersicht nach erfolgreicher Anmeldung
 - automatisierte Service- und Controller-Tests für die Reportverwaltung
 - responsives, einheitliches Oberflächendesign für Dashboard, Formulare und Detailseiten
+- kompakte Dashboard-Auswertung nach Status, Schicht und Priorität
 - Anzeige von Benutzername und Rolle sowie rollenabhängige Bedienaktionen
 - Sicherheitsabfrage vor dem endgültigen Löschen eines Reports
 - druckoptimierte Reportdetails mit Ausgabe über den Browser oder als PDF

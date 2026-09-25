@@ -30,6 +30,7 @@ beziehungsweise im Quellcode beschrieben.
 | AF-11 | Persönliches Passwort erstmalig festlegen | UC-09 |
 | AF-12 | Report als erledigt kennzeichnen | Report-Lebenszyklus |
 | AF-13 | Druckansicht bereitstellen | UC-11 |
+| AF-14 | Dashboard-Kennzahlen bereitstellen | UC-05, UC-06 |
 
 
 ## 3. Funktionsbeschreibungen
@@ -322,8 +323,6 @@ setzen.
 - als erledigt gekennzeichneter Report oder
 - Meldung, dass der Report nicht gefunden wurde
 
-## 4. Abgrenzung
-
 ### AF-13 – Druckansicht bereitstellen
 
 **Zweck:**  
@@ -343,20 +342,43 @@ Die fachlichen Inhalte eines geöffneten Reports druckgeeignet darstellen.
 
 - druckoptimierte Ausgabe des Reports
 
+### AF-14 – Dashboard-Kennzahlen bereitstellen
+
+**Zweck:**  
+Einen kompakten Überblick über die vorhandenen Reports geben, ohne eine
+eigenständige Analyse- oder Berichtsfunktion einzuführen.
+
+**Eingaben:**
+
+- alle gespeicherten Reports
+
+**Verarbeitung:**
+
+1. Das System zählt offene und erledigte Reports.
+2. Das System zählt Reports je Früh-, Spät- und Nachtschicht.
+3. Das System zählt Reports mit niedriger, mittlerer und hoher Priorität.
+4. Reports ohne Priorität werden keiner Prioritätsstufe zugerechnet.
+
+**Ergebnis:**
+
+- kompakte Kennzahlen auf dem Dashboard
+
+## 4. Abgrenzung
+
 Folgende Funktionen sind für die erste Version nicht vorgesehen:
 
 - Datei- oder Bildanhänge
 - automatische Benachrichtigungen
 - Chat zwischen Mitarbeitenden
 - externe Schnittstellen
-- statistische Auswertungen
+- umfangreiche statistische Auswertungen
 
 Änderungen an dieser Abgrenzung müssen zuerst in der Spezifikation dokumentiert
 werden, bevor sie implementiert werden.
 
 ## 5. Nachverfolgbarkeit
 
-Die Kennungen `AF-01` bis `AF-13` bleiben stabil. Sie werden in folgenden
+Die Kennungen `AF-01` bis `AF-14` bleiben stabil. Sie werden in folgenden
 Dokumenten wiederverwendet:
 
 - Datenmodell

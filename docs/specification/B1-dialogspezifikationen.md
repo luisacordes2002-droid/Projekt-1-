@@ -118,6 +118,7 @@ sind in diese gemeinsame Seite integriert.
 | Neue Übergabe erstellen | Schaltfläche | Öffnet DLG-03 |
 | Aktuelle Übergabe ansehen | Schaltfläche | Öffnet DLG-04 |
 | Kennzahlen | Zusammenfassung | Zeigt Gesamtzahl, aktuellen Status und Anzahl historischer Reports |
+| Report-Auswertung | Zusammenfassung | Zeigt Anzahlen nach Status, Schicht und vorhandener Priorität |
 | Report-Historie | Liste | Zeigt alle Reports außer der aktuellen Übergabe |
 | Suche und Schichtfilter | Filter | Filtert ausschließlich die Report-Historie |
 | Abmelden | Schaltfläche | Beendet die Sitzung |
