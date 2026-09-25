@@ -144,6 +144,49 @@
             border-top: 1px solid #dbe2ea;
         }
 
+        .history-filter {
+            display: grid;
+            grid-template-columns: 1fr 220px auto;
+            gap: 12px;
+            align-items: end;
+            margin-bottom: 16px;
+            padding: 16px;
+            border: 1px solid #dbe2ea;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .history-filter label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .history-filter input,
+        .history-filter select {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 10px;
+            font: inherit;
+        }
+
+        .filter-button {
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 10px 14px;
+            background: white;
+            color: #334155;
+            font: inherit;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .history-empty {
+            display: none;
+            color: #64748b;
+        }
+
         .report-card {
             display: block;
             border: 1px solid #dbe2ea;
@@ -207,6 +250,10 @@
 
             nav {
                 flex-wrap: wrap;
+            }
+
+            .history-filter {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -283,10 +330,52 @@
             Report-Historie
         </h2>
 
+        <div
+            class="history-filter"
+            th:if="${reportState.index == 1}">
+            <div>
+                <label for="historySearch">Suche</label>
+                <input
+                    id="historySearch"
+                    type="search"
+                    placeholder="Reporttexte durchsuchen">
+            </div>
+
+            <div>
+                <label for="historyShift">Schicht</label>
+                <select id="historyShift">
+                    <option value="">Alle Schichten</option>
+                    <option value="FRUEHSCHICHT">Frühschicht</option>
+                    <option value="SPAETSCHICHT">Spätschicht</option>
+                    <option value="NACHTSCHICHT">Nachtschicht</option>
+                </select>
+            </div>
+
+            <button
+                id="historyReset"
+                class="filter-button"
+                type="button">
+                Zurücksetzen
+            </button>
+        </div>
+
+        <p
+            id="historyEmpty"
+            class="history-empty"
+            th:if="${reportState.index == 1}">
+            Keine passenden Reports in der Historie gefunden.
+        </p>
+
         <a
             class="report-card"
             th:href="@{/reports/{id}(id=${report.id})}"
-            th:classappend="${report.status.name() == 'ERLEDIGT' ? ' done' : ''}">
+            th:classappend="${report.status.name() == 'ERLEDIGT' ? ' done' : ''}"
+            th:attr="data-history=${!reportState.first},
+                     data-shift=${report.shift.name()},
+                     data-search=${(report.completedTasks ?: '') + ' '
+                         + (report.openTasks ?: '') + ' '
+                         + (report.problemsIncidents ?: '') + ' '
+                         + (report.importantNotes ?: '')}">
             <div class="report-top">
                 <div>
                     <h3
@@ -335,5 +424,47 @@
         </th:block>
     </section>
 </main>
+
+<script>
+    const searchInput = document.getElementById("historySearch");
+    const shiftSelect = document.getElementById("historyShift");
+    const resetButton = document.getElementById("historyReset");
+    const emptyMessage = document.getElementById("historyEmpty");
+    const historyCards = Array.from(
+        document.querySelectorAll('.report-card[data-history="true"]')
+    );
+
+    function filterHistory() {
+        const search = searchInput.value.trim().toLowerCase();
+        const shift = shiftSelect.value;
+        let visibleCount = 0;
+
+        historyCards.forEach((card) => {
+            const matchesSearch =
+                card.dataset.search.toLowerCase().includes(search);
+            const matchesShift =
+                shift === "" || card.dataset.shift === shift;
+            const visible = matchesSearch && matchesShift;
+
+            card.hidden = !visible;
+            if (visible) {
+                visibleCount++;
+            }
+        });
+
+        emptyMessage.style.display =
+            visibleCount === 0 ? "block" : "none";
+    }
+
+    if (searchInput && shiftSelect && resetButton && emptyMessage) {
+        searchInput.addEventListener("input", filterHistory);
+        shiftSelect.addEventListener("change", filterHistory);
+        resetButton.addEventListener("click", () => {
+            searchInput.value = "";
+            shiftSelect.value = "";
+            filterHistory();
+        });
+    }
+</script>
 </body>
 </html>
