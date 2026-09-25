@@ -1,7 +1,7 @@
-# F1 – Geschäftsprozesse
+﻿# F1 – Geschäftsprozesse
 
-> **Status:** Entwurf vom 29. August 2026. Noch nicht vom Team abschließend
-> geprüft und freigegeben.
+  **Status:** Entwurf vom 29. August 2026. Noch nicht vom Team abschließend
+  geprüft und freigegeben.
 
 ## 1. Zweck
 
@@ -48,20 +48,20 @@ die nachfolgende Schicht und die Historie zur Verfügung.
 
 ```mermaid
 flowchart TD
-    A([Schicht beginnt]) --> B[UC-01 Anmelden]
-    B --> C{Zugangsdaten gültig?}
-    C -- Nein --> D[Fehlermeldung anzeigen]
-    D --> B
-   C -- Ja --> F[UC-05 Letzte Übergabe einsehen]
-    F --> G[Arbeit während der Schicht]
-    G --> H[UC-04 Report erstellen]
-    H --> I{Pflichtangaben vollständig?}
-    I -- Nein --> H
-    I -- Ja --> J[Report speichern]
-    J --> K[Report für Folgeschicht bereitstellen]
-    K --> L[Nächste Schicht meldet sich an]
-    L --> M[Letzten Report einsehen]
-    M --> N([Übergabe abgeschlossen])
+    A([Schicht beginnt]) --  B[UC-01 Anmelden]
+    B --  C{Zugangsdaten gültig?}
+    C -- Nein --  D[Fehlermeldung anzeigen]
+    D --  B
+   C -- Ja --  F[UC-05 Letzte Übergabe einsehen]
+    F --  G[Arbeit während der Schicht]
+    G --  H[UC-04 Report erstellen]
+    H --  I{Pflichtangaben vollständig?}
+    I -- Nein --  H
+    I -- Ja --  J[Report speichern]
+    J --  K[Report für Folgeschicht bereitstellen]
+    K --  L[Nächste Schicht meldet sich an]
+    L --  M[Letzten Report einsehen]
+    M --  N([Übergabe abgeschlossen])
 ```
 
 ### Beschreibung des Ablaufs
@@ -168,7 +168,3 @@ Das System informiert die Person, dass noch kein Report vorhanden ist. Die
 - UC-05 – Übergabe einsehen
 - UC-06 – Report-Historie anzeigen
 - UC-10 – Report als erledigt kennzeichnen
-
-
-
-

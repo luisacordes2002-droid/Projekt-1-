@@ -41,7 +41,7 @@ Seite aufzurufen.
 - Reportify ist erreichbar.
 - Für die Person existiert ein gültiges Benutzerkonto.
 - Die Person ist noch nicht angemeldet.
-- - Die Benutzerkonten werden vorab bereitgestellt. Eine Selbstregistrierung ist nicht möglich.
+- Die Benutzerkonten werden vorab bereitgestellt. Eine Selbstregistrierung ist nicht möglich.
 
 ### Standardablauf
 

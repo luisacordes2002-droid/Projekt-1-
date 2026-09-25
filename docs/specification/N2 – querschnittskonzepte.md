@@ -1,6 +1,6 @@
 # N2 – Querschnittskonzepte
 
-> **Status:** Arbeitsentwurf.  
+> **Status:** Aktualisierter Stand vom 25.09.2026.
 > Dieses Kapitel fasst fachliche Regeln zusammen, die mehrere Funktionen und
 > Dialoge von Reportify betreffen. Detaillierte Definitionen verbleiben in den
 > jeweils zuständigen Spezifikationskapiteln.
@@ -164,24 +164,25 @@ Eine Änderung darf daher nicht dazu führen, dass ein Report anschließend eine
 fachlich ungültigen Zustand besitzt.
 
 Für Änderungen an gespeicherten Reports ist eine Nachvollziehbarkeit
-vorgesehen. Dazu gehören insbesondere der Zeitpunkt einer Änderung und die
-Person, die die Änderung durchgeführt hat.
+vorgesehen. Bei einer erfolgreichen Bearbeitung werden der Zeitpunkt der
+letzten Änderung und die Person gespeichert, die die Änderung durchgeführt hat.
 
-Die genaue Ausgestaltung dieser Änderungsnachverfolgung richtet sich nach der
-zugehörigen Teamentscheidung und den Festlegungen im Datenmodell.
+Der ursprüngliche Erstellungszeitpunkt und die erstellende Person bleiben
+erhalten.
 
-Solange eine entsprechende Teamentscheidung noch offen ist, dürfen aus diesem
-Kapitel keine zusätzlichen technischen Anforderungen an eine vollständige
-Versionshistorie abgeleitet werden.
+Eine vollständige Versionshistorie aller früheren Bearbeitungsstände ist für
+die erste Version nicht vorgesehen.
 
 ## 9. Benutzerkonten und Passwörter
 
 Benutzerkonten werden für die erste Version vorbereitet bereitgestellt.
 Eine Selbstregistrierung gehört nicht zum vorgesehenen Funktionsumfang.
 
-Für Passwörter gelten die in den Anforderungen festgelegten
-Längenbeschränkungen. Die fachlichen Regeln für Benutzerkonten und die
-zugehörigen Datentypen werden in
+Bei der ersten Anmeldung legt die nutzende Person für das vorbereitete
+Benutzerkonto ein eigenes persönliches Passwort fest. Das Passwort muss
+mindestens 8 und darf höchstens 128 Zeichen lang sein.
+
+Die fachlichen Regeln für Benutzerkonten und die zugehörigen Datentypen werden in
 [D1 – Datenmodell](D1-datenmodell.md) und
 [D2 – Datentypenverzeichnis](D2-datentypen.md) beschrieben.
 

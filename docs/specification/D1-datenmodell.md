@@ -1,8 +1,9 @@
 # D1 – Datenmodell
 
-> **Status:** Arbeitsentwurf vom 29.08.2026.  
+> **Status:** Aktualisierter Stand vom 25.09.2026.
+
 > Das Datenmodell beschreibt den fachlichen Informationsbedarf der ersten
-> Reportify-Version. Es muss vom Projektteam geprüft werden.
+> Reportify-Version.
 
 ## 1. Zweck
 
@@ -49,6 +50,9 @@ erDiagram
         text wichtigeHinweise
         datetime erstelltAm
         string erstelltVon FK
+        string status
+        datetime geaendertAm
+        string geaendertVon FK
     }
 
 ```
@@ -193,18 +197,17 @@ bleibt weiterhin in der Historie sichtbar und kann geöffnet werden.
 
 ## 8. Lebenszyklus eines Reports
 
-Ein Report durchläuft in der ersten Version folgende fachliche Schritte:
-
-1. Eine angemeldete Person beginnt die Reporterstellung.
+Ein Report durchläuft in der ersten Version folgende fachliche Schritte:1. Eine angemeldete Person beginnt die Reporterstellung.
 2. Die Person wählt eine Schicht und trägt fachliche Inhalte ein.
 3. Reportify validiert die Eingaben.
-4. Bei gültigen Eingaben wird der Report gespeichert.
-5. Der gespeicherte Report erscheint in der aktuellen Übergabe und in der
-   Report-Historie.
+4. Bei gültigen Eingaben wird der Report mit dem Status `OFFEN` gespeichert.
+5. Der gespeicherte Report erscheint in der aktuellen Übergabe und in der Report-Historie.
 6. Ein gespeicherter Report kann nachträglich bearbeitet werden.
-7. Geänderte Report-Daten werden erneut validiert und anschließend gespeichert.
-8. Ein gespeicherter Report kann durch die Schichtleitung gelöscht werden.
-9. Nach der Löschung steht der Report nicht mehr in der Historie und als Übergabe zur Verfügung.
+7. Geänderte Report-Daten werden erneut validiert. Bei erfolgreicher Speicherung werden Änderungszeitpunkt und ändernde Person gespeichert.
+8. Ein offener Report kann von einer angemeldeten Person als `ERLEDIGT` gekennzeichnet werden.
+9. Ein als `ERLEDIGT` gekennzeichneter Report bleibt gespeichert und weiterhin in der Historie sichtbar.
+10. Ein gespeicherter Report kann durch die Schichtleitung gelöscht werden.
+11. Nach der Löschung steht der Report nicht mehr in der Historie und als Übergabe zur Verfügung.
 
 Nicht gespeicherte Eingaben sind noch kein Report im Sinne dieses Datenmodells.
 Ein gesonderter Entwurfsstatus ist für die erste Version nicht vorgesehen.
@@ -216,7 +219,7 @@ Ein gesonderter Entwurfsstatus ist für die erste Version nicht vorgesehen.
 - Passwörter und andere Anmeldedaten gehören niemals in einen Report.
 - Reportify speichert für einen Report nur die fachlichen Inhalte, die erstellende
   Person und den Erstellungszeitpunkt.
-- Eine automatische Löschfrist ist für die erste Version noch nicht festgelegt.
+- Für die erste Version findet keine automatische Löschung von Reports statt. Reports bleiben gespeichert, bis eine berechtigte Schichtleitung sie manuell löscht.
 
 ## 10. Abgrenzung
 

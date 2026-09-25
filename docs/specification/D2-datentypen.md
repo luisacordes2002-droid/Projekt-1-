@@ -1,8 +1,9 @@
 # D2 – Datentypenverzeichnis
 
-> **Status:** Arbeitsentwurf vom 30.08.2026.  
-> Die Werte und Grenzen sind Arbeitsannahmen und müssen vom Projektteam geprüft
-> werden.
+> **Status:** Aktualisierter Stand vom 25.09.2026.
+
+> Dieses Dokument beschreibt die für die erste Reportify-Version festgelegten
+> fachlichen Datentypen, Werte und Validierungsregeln.
 
 ## 1. Zweck
 
@@ -28,7 +29,7 @@ Frameworks. Technische Abbildungen werden in der Architektur beschrieben.
 | DT-09 | `SchichtDT` | Zuordnung eines Reports zu einer Schicht |
 | DT-10 | `PrioritaetDT` | Dringlichkeit eines Problems oder Incidents |
 | DT-11 | `ReportTextDT` | Fachliche Textinhalte eines Reports |
-| DT-12 | `ZeitpunktDT` | Erstellungszeitpunkt eines Reports |
+| DT-12 | `ZeitpunktDT` | Erstellungs- und Änderungszeitpunkte eines Reports |
 | DT-13 | `ReportStatusDT` | Bearbeitungsstand eines Reports |
 
 ## 3. DT-01 – NutzerIdDT
@@ -49,6 +50,7 @@ Eindeutige und unveränderliche Kennung eines Benutzerkontos.
 
 - `Nutzer.nutzerId`
 - `Report.erstelltVon`
+- `Report.geaendertVon`
 
 ## 4. DT-02 – ReportIdDT
 
@@ -258,7 +260,8 @@ Dieser Datentyp wird verwendet für:
 
 ### Bedeutung
 
-Datum und Uhrzeit, zu denen ein Report gespeichert wurde.
+Datum und Uhrzeit eines fachlich relevanten Zeitpunkts eines Reports, insbesondere des Erstellungs- oder letzten
+Änderungszeitpunkts
 
 ### Regeln
 
@@ -319,22 +322,21 @@ Kennzeichnet den aktuellen Bearbeitungsstand eines gespeicherten Reports.
 | `ReportTextDT` | Intern/vertraulich | Kann betriebliche Informationen enthalten |
 | `ZeitpunktDT` | Intern | Bestandteil der Report-Historie |
 
-## 18. Offene Entscheidungen
+## 18. Relevante Teamentscheidungen
 
-Die zu diesem Dokument gehörenden offenen Punkte werden zentral in
-[`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
+Die für die Datentypen relevanten fachlichen und technischen Entscheidungen werden zentral in
+[`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) dokumentiert.
 
-Besonders relevant sind:
+Für D2 sind insbesondere folgende Entscheidungen relevant:
 
 - `TD-001` – Pflichtfelder eines Reports
 - `TD-002` – Bedeutung der Priorität
 - `TD-006` – Berechtigungen der Rollen
 - `TD-007` – Aufbewahrungsdauer
 - `TD-008` – Anlage der Benutzerkonten
+- `TD-013` – Maximale Länge der Report-Textfelder
 
-Die maximale Länge der Report-Textfelder wurde mit `TD-013` auf 4.000 Zeichen
-je Feld festgelegt. Noch offene Entscheidungen werden zentral in
-[`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
+Die maximale Länge der Report-Textfelder ist gemäß `TD-013` auf 4.000 Zeichen je Feld festgelegt.
 
 ## 19. Nachverfolgbarkeit
 

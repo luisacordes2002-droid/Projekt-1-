@@ -1,6 +1,6 @@
-# Offene Teamentscheidungen – Reportify
+# Teamentscheidungen – Reportify
 
-> **Stand:** 30.08.2026  
+> **Stand:** 25.09.2026
 > Diese Datei ist die zentrale Übersicht für fachliche, technische und
 > organisatorische Entscheidungen, die das Team noch abstimmen muss.
 
@@ -49,36 +49,13 @@ Architekturdatei enthält anschließend die verbindliche Beschreibung.
 | TD-018 | Änderungsnachverfolgung | Soll bei der Bearbeitung eines Reports gespeichert werden, wann und von wem er zuletzt geändert wurde? | Änderungszeitpunkt und ändernde Person werden gespeichert | D1, F2, F3, B1, Architektur | `EINGEARBEITET`|
 | TD-019 | Report-Status | Sollen gespeicherte Reports als erledigt gekennzeichnet werden können? | Angemeldete Nutzer:innen dürfen Reports als erledigt kennzeichnen; der Status wird gespeichert und angezeigt. | P1, F1, F2, F3, D1, D2, B1, N1, Architektur | `EINGEARBEITET` |
 
-
-
-## 4. Priorität für das nächste Teamtreffen
-
-Folgende Entscheidungen müssen zuerst getroffen werden, weil sie die weitere
-Implementierung direkt beeinflussen:
-
-1. `TD-001` – Report-Pflichtfelder
-2. `TD-002` – Bedeutung der Priorität
-3. `TD-003` – Bearbeitung gespeicherter Reports
-4. `TD-005` – Bestimmung der aktuellen Übergabe
-5. `TD-006` – Berechtigungen der Rollen
-6. `TD-008` – Anlage der Benutzerkonten
-7. `TD-009` – endgültige Datenbank
-8. `TD-010` – Projektrollen
-9. `TD-013` – maximale Länge der Report-Textfelder
-10. `TD-014` – Passwortregel
-11. `TD-015` – Leistungs- und Mengenziele
-12. `TD-016` – unterstützte Browser und kleinste Bildschirmbreite
-13. `TD-017` – Schichtauswahl und Arbeitskontext
-
-**Zieltermin für diese Entscheidungen:** 01.09.2026
-
-## 5. Entscheidungshistorie
+## 4. Letzte Änderungen
 
 | ID | Entscheidung | Kurze Begründung | Datum | Beteiligte |
 | TD-018 | Bei der Bearbeitung werden Änderungszeitpunkt und ändernde Person gespeichert. | Änderungen bleiben nachvollziehbar. | 24.09.2026 | Souhaib Boujemaoui |
 | TD-019 | Gespeicherte Reports können als erledigt gekennzeichnet werden. | Der Bearbeitungsstand bleibt für nachfolgende Schichten sichtbar. | 24.09.2026 | Souhaib Boujemaoui |
 
-## 6. Neue Entscheidung aufnehmen
+## 5. Neue Entscheidung aufnehmen
 
 Neue offene Fragen erhalten die nächste freie Kennung `TD-020`, `TD-021` usw.
 

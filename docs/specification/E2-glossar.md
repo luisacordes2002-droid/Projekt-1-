@@ -1,8 +1,9 @@
 # E2 – Glossar
 
-> **Status:** Arbeitsentwurf vom 30.08.2026.  
-> Die Begriffe sind mit dem vorliegenden Spezifikationsentwurf abgeglichen.
-> Die fachliche Prüfung und Freigabe durch das Projektteam stehen noch aus.
+> **Status:** Aktualisierter Stand vom 25.09.2026.
+
+> Die Begriffe sind mit dem aktuellen Stand der Reportify-Spezifikation
+> und den dokumentierten Teamentscheidungen abgeglichen.
 
 ## 1. Zweck und Verwendung
 
@@ -14,9 +15,9 @@ Die Verweise führen zu den Beschreibungen, aus denen die Begriffe abgeleitet si
 Feldgrenzen und vollständige Abläufe werden dort gepflegt, nicht im Glossar
 wiederholt. Technische Umsetzungsentscheidungen gehören in die Architektur.
 
-Offene Regeln bleiben Arbeitsannahmen. Dieses Glossar ersetzt keine
-Teamentscheidung; deren Status wird zentral in
-[TEAM-ENTSCHEIDUNGEN.md](../TEAM-ENTSCHEIDUNGEN.md) geführt.
+Fachliche und technische Teamentscheidungen werden zentral in
+[TEAM-ENTSCHEIDUNGEN.md](../TEAM-ENTSCHEIDUNGEN.md) dokumentiert und bei
+Änderungen im Glossar nachvollziehbar berücksichtigt.
 
 ## 2. Schichtübergabe und Reports
 
@@ -88,9 +89,9 @@ Bezug: [D1 – Report-Attribute](D1-datenmodell.md),
 ### Priorität
 
 Kennzeichnung der Dringlichkeit mit den Werten Niedrig, Mittel oder Hoch.
-**Arbeitsannahme nach TD-002:** Die Priorität bezieht sich auf die im Report
-beschriebenen Probleme oder Incidents und ist bei einem solchen Eintrag
-verpflichtend. Ob sie stattdessen für den gesamten Report gelten soll, ist offen.
+Gemäß `TD-002` bezieht sich die Priorität auf die im Report beschriebenen
+Probleme oder Incidents und ist bei einem solchen Eintrag verpflichtend.
+Ohne Problem oder Incident darf die Priorität leer bleiben.
 
 Diese Priorität ist von der Gewichtung einer Anforderung zu unterscheiden:
 Die Kategorien A, B und C in N1 bewerten Anforderungen an Reportify, keine Reports.
@@ -101,9 +102,8 @@ Bezug: [D2 – DT-10](D2-datentypen.md), [N1 – Prioritäten](N1-nichtfunktiona
 ### Aktuelle Übergabe / letzte Übergabe
 
 Der Report, den Reportify beim Aufruf der Übergabeansicht als aktuellen
-Informationsstand bereitstellt. **Arbeitsannahme nach TD-005:** Maßgeblich ist
-der zuletzt gespeicherte Report anhand seines Erstellungszeitpunkts.
-Ob zusätzlich die Reihenfolge der Schichten berücksichtigt werden soll, ist offen.
+Informationsstand bereitstellt. Gemäß `TD-005` ist der zuletzt gespeicherte
+Report anhand seines Erstellungszeitpunkts maßgeblich.
 
 Die aktuelle Übergabe ist eine Ansicht eines Reports, kein zusätzliches Datenobjekt.
 Existiert noch kein Report, wird ein erklärender Hinweis angezeigt.
@@ -155,7 +155,7 @@ Person. Das Benutzerkonto enthält die zur Anmeldung und Zuordnung benötigten
 Angaben. Im Datenmodell werden diese als Datenobjekt „Nutzer:in“ beschrieben.
 
 Ein aktives Konto darf sich anmelden; es bedeutet nicht, dass die Person bereits
-angemeldet ist. **Arbeitsannahme nach TD-008:** Konten werden vorbereitet, eine
+angemeldet ist. Gemäß `TD-008` werden Benutzerkonten vorbereitet; eine
 Selbstregistrierung über Reportify ist nicht vorgesehen.
 
 Bezug: [D1 – Nutzer:in](D1-datenmodell.md), [D2 – DT-08](D2-datentypen.md),
@@ -173,8 +173,9 @@ Bezug: [D2 – DT-03 und DT-04](D2-datentypen.md).
 ### Fachliche Rolle
 
 Zuordnung eines Benutzerkontos zu Mitarbeiter:in oder Schichtleitung.
-**Arbeitsannahme nach TD-006:** Beide Rollen können dieselben Kernfunktionen
-verwenden. Zusätzliche Berechtigungen der Schichtleitung sind noch nicht beschlossen.
+Gemäß `TD-006` können beide Rollen die allgemeinen Kernfunktionen verwenden.
+Die Schichtleitung besitzt zusätzlich die Berechtigung, gespeicherte Reports
+zu löschen. Mitarbeiter:innen dürfen keine Reports löschen.
 
 Die fachliche Rolle ist von einer Projektrolle im Entwicklungsteam zu unterscheiden.
 Beispielsweise ist die Projektleitung aus TEAMINFO keine Rolle innerhalb von
@@ -214,9 +215,9 @@ Bezug: [D2 – DT-06](D2-datentypen.md), [N1 – NFR-15b-01](N1-nichtfunktional.
 ### Pflichtangabe / bedingte Pflichtangabe
 
 Eine Pflichtangabe muss für einen gültigen Vorgang vorhanden sein. Eine bedingte
-Pflicht hängt von anderen Eingaben ab. **Arbeitsannahme nach TD-001:** Beim
-Report sind eine Schicht und Inhalt in mindestens einem der vier fachlichen
-Textfelder erforderlich. Nicht jedes Textfeld muss einzeln ausgefüllt sein.
+Pflicht hängt von anderen Eingaben ab. Gemäß `TD-001` sind beim Report die
+Schicht und das Feld „Erledigte Aufgaben“ verpflichtend. Die übrigen fachlichen
+Textfelder sind optional.
 Die bedingte Pflicht einer Priorität gehört zu `TD-002`.
 
 Bezug: [F3 – AF-04](F3-anwendungsfunktionen.md),
@@ -252,10 +253,10 @@ Bezug: [F3 – AF-06 bis AF-08](F3-anwendungsfunktionen.md),
 | Z | Projektziel aus P1, beispielsweise Z-08 für einheitliche Fachbegriffe. |
 | GR | Geschäftsregel aus F1, beispielsweise GR-02 für die Schichtzuordnung. |
 | UC | Use Case; Anwendungsfall aus Sicht einer nutzenden Person. In F2 werden UC-01 bis UC-06 beschrieben. |
-| AF | Anwendungsfunktion; fachliche Leistung des Systems zur Umsetzung eines oder mehrerer Anwendungsfälle. In F3 werden AF-01 bis AF-08 beschrieben. |
-| AK | Akzeptanzkriterium; überprüfbare Bedingung für die Erfüllung einer Anforderung. Die Kennungen AK-01 bis AK-20 werden in F2 verwendet. |
+| AF | Anwendungsfunktion; fachliche Leistung des Systems zur Umsetzung eines oder mehrerer Anwendungsfälle. In F3 werden AF-01 bis AF-12 beschrieben. |
+| AK | Akzeptanzkriterium; überprüfbare Bedingung für die Erfüllung einer Anforderung. Die Akzeptanzkriterien werden in F2 den jeweiligen Anwendungsfällen zugeordnet. |
 | DM | Fachliche Datenregel aus D1, beispielsweise DM-02 für die Zuordnung eines Reports zu seiner erstellenden Person. |
-| DT | Datentyp; beschreibt zulässige fachliche Werte und Regeln. D2 enthält DT-01 bis DT-12. |
+| DT | Datentyp; beschreibt zulässige fachliche Werte und Regeln. D2 enthält DT-01 bis DT-13. |
 | DLG | Dialog; fachlich beschriebene Seite beziehungsweise Interaktionsansicht. B1 enthält DLG-01 bis DLG-06. |
 | NFR | Non-functional Requirement; Qualitätsanforderung aus N1 mit überprüfbaren Akzeptanzkriterien, etwa zur Zuverlässigkeit oder Bedienbarkeit. |
 | TD | Teamentscheidung; zentral geführter Abstimmungspunkt. Eine TD-Kennung allein bedeutet nicht, dass bereits entschieden wurde. |

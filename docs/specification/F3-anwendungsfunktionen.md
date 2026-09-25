@@ -1,8 +1,9 @@
 # F3 – Anwendungsfunktionen
 
-> **Status:** Arbeitsentwurf vom 29.08.2026.  
-> Die Inhalte müssen vom Projektteam fachlich geprüft und bei Änderungen an den
-> Anwendungsfällen aktualisiert werden.
+> **Status:** Aktualisierter Stand vom 25.09.2026.
+
+> Die Anwendungsfunktionen sind mit dem aktuellen Stand der Anwendungsfälle,
+> Datenregeln und dokumentierten Teamentscheidungen abgeglichen..
 
 ## 1. Zweck
 
@@ -161,8 +162,6 @@ Den für die nächste Schicht aktuellsten Übergabereport bereitstellen.
 **Eingaben:**
 
 - gespeicherte Reports
-- optionaler Suchbegriff
-- optional ausgewählte Schicht
 
 **Verarbeitung:**
 
@@ -185,8 +184,6 @@ Alle gespeicherten Reports nachvollziehbar anzeigen.
 **Eingaben:**
 
 - gespeicherte Reports
-
-**Verarbeitung:**
 
 **Verarbeitung:**
 
@@ -341,7 +338,7 @@ werden, bevor sie implementiert werden.
 
 ## 5. Nachverfolgbarkeit
 
-Die Kennungen `AF-01` bis `AF-11` bleiben stabil. Sie werden später in folgenden
+Die Kennungen `AF-01` bis `AF-12` bleiben stabil. Sie werden später in folgenden
 Dokumenten wiederverwendet:
 
 - Datenmodell

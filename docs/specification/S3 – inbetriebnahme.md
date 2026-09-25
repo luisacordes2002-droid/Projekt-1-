@@ -1,6 +1,6 @@
 # S3 – Inbetriebnahme
 
-> **Status:** Arbeitsentwurf.  
+> **Status:** Aktualisierter Stand vom 25.09.2026.
 > Dieses Kapitel beschreibt die fachlichen Voraussetzungen und den vorgesehenen
 > Ausgangszustand für die erstmalige Inbetriebnahme von Reportify.
 

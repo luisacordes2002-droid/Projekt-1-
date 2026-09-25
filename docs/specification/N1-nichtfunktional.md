@@ -1,8 +1,9 @@
 # N1 – Nichtfunktionale Anforderungen
 
-> **Status:** Arbeitsentwurf vom 30.08.2026.  
-> Die Anforderungen sind auf die erste Reportify-Version begrenzt und müssen vom
-> Projektteam geprüft werden.
+> **Status:** Aktualisierter Stand vom 25.09.2026.
+
+> Die Anforderungen beziehen sich auf die erste Reportify-Version und
+> berücksichtigen die dokumentierten Teamentscheidungen.
 
 ## 1. Zweck
 
@@ -332,7 +333,7 @@ Die Anmeldung darf keine unnötigen Informationen über Benutzerkonten preisgebe
   Fehlermeldung.
 - Passwortfelder werden verdeckt dargestellt.
 - Passwörter erscheinen nicht in der URL.
-- Die Passwortlänge folgt nach Teamentscheidung `TD-014`.
+- Persönliche Passwörter müssen mindestens 8 und dürfen höchstens 128 Zeichen lang sein.
 - Eine Selbstregistrierung ist in der ersten Version nicht verfügbar.
 
 **Priorität:** A
@@ -481,12 +482,12 @@ Für die erste Version werden folgende Qualitätsziele nicht zugesichert:
 Diese Punkte sind bewusst außerhalb des Projektumfangs und nicht versehentlich
 vergessen worden.
 
-## 19. Offene Entscheidungen
+## 19. Relevante Teamentscheidungen
 
-Die offenen Qualitätsentscheidungen werden in
-[`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
+Die für die nichtfunktionalen Anforderungen relevanten fachlichen und technischen Entscheidungen werden zentral in
+[`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) dokumentiert.
 
-Besonders relevant sind:
+Für N1 sind insbesondere folgende Entscheidungen relevant:
 
 - `TD-006` – Rollenberechtigungen
 - `TD-007` – Aufbewahrungsdauer
@@ -494,6 +495,8 @@ Besonders relevant sind:
 - `TD-011` – Sprache
 - `TD-013` – Textlänge
 - `TD-014` – Passwortregel
+- `TD-015` – Leistungs- und Mengenziele
+- `TD-016` – Browser- und Darstellungsziele
 
 ## 20. Nachverfolgbarkeit
 

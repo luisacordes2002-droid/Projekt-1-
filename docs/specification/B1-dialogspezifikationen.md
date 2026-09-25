@@ -1,8 +1,8 @@
 # B1 – Dialogspezifikation
 
-> **Status:** Arbeitsentwurf vom 30.08.2026.  
+> **Status:** Aktualisierter Stand vom 25.09.2026.
 > Die Dialoge beschreiben die geplante Benutzeroberfläche der ersten
-> Reportify-Version. Gestaltung und Feldregeln müssen vom Team geprüft werden.
+> Reportify-Version. Gestaltung und Feldregeln berücksichtigen den aktuellen Stand der Spezifikation und Teamentscheidungen.
 
 ## 1. Zweck
 
@@ -556,12 +556,12 @@ Screenshots oder Wireframes hinzugefügt für:
 Die Screenshots müssen mit den beschriebenen Dialogen und dem tatsächlichen
 Programmstand übereinstimmen.
 
-## 15. Offene Entscheidungen
+## 15. Relevante Teamentscheidungen
 
-Die offenen UI-Fragen werden zentral in
-[`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) verwaltet.
+Die für die Dialoggestaltung relevanten fachlichen und technischen Entscheidungen werden zentral in
+[`TEAM-ENTSCHEIDUNGEN.md`](../TEAM-ENTSCHEIDUNGEN.md) dokumentiert.
 
-Für B1 sind besonders relevant:
+Für B1 sind insbesondere folgende Entscheidungen relevant:
 
 - `TD-001` – Report-Pflichtfelder
 - `TD-002` – Bedeutung der Priorität

@@ -1,9 +1,9 @@
 # P2 – Architekturüberblick
 
-> **Status:** Arbeitsentwurf vom 30.08.2026.  
-> Dieses Dokument beschreibt den geplanten fachlichen Aufbau der ersten Version.
-> Es ist kein Nachweis bereits implementierter Komponenten. Die Freigabe durch
-> das Team und der Abgleich mit dem Quellcode stehen noch aus.
+> **Status:** Aktualisierter Stand vom 25.09.2026.
+
+> Dieses Dokument beschreibt den fachlichen Architekturüberblick der ersten
+> Reportify-Version und berücksichtigt die dokumentierten Teamentscheidungen.
 
 ## 1. Zweck und Einordnung
 
@@ -74,7 +74,7 @@ Person eine geschützte Seite direkt aufruft. Das Diagramm zeigt diesen
 | Anmeldung und Sitzung | Zugangsdaten prüfen, angemeldete Sitzungen verwalten und Abmeldungen verarbeiten | F2: UC-01, UC-02; F3: AF-01, AF-02 |
 | Schichtauswahl und Reporterstellung | Auswahlwerte bereitstellen, Eingaben validieren und gültige Reports speichern | F2: UC-03, UC-04; F3: AF-03 bis AF-05; B1: DLG-03 |
 | Übergabe, Historie und Details | Aktuelle Übergabe bestimmen, Reports zeitlich geordnet auflisten und einzelne Reports vollständig anzeigen | F2: UC-05, UC-06; F3: AF-06 bis AF-08; B1: DLG-04 bis DLG-06 |
-| Benutzerkonten und Reports | Die für Anmeldung, Zuordnung und spätere Anzeige benötigten Informationen aufbewahren | D1: Nutzer:in und Report; D2: DT-01 bis DT-12 |
+| Benutzerkonten und Reports | Die für Anmeldung, Zuordnung und spätere Anzeige benötigten Informationen aufbewahren | D1: Nutzer:in und Report; D2: DT-01 bis DT-13 |
 
 Die Datenobjekte und ihre Beziehungen werden ausschließlich in
 [D1 – Datenmodell](D1-datenmodell.md) beschrieben. Insbesondere sind Schicht,
@@ -101,9 +101,9 @@ Die Historie, die aktuelle Übergabe und die Detailansicht greifen auf dieselben
 gespeicherten Reports zu. Sie sind unterschiedliche Ansichten und erzeugen beim
 Lesen keine zusätzlichen Reports oder Änderungen an bestehenden Reports.
 
-Der genaue Ort der Schichtauswahl bleibt offen: `TD-017` klärt, ob sie als
-vorgelagerter Sitzungskontext oder direkt im Reportformular erfolgt.
-Die Gliederung in Abschnitt 3 nimmt diese Entscheidung nicht vorweg.
+Gemäß `TD-017` erfolgt die Schichtauswahl direkt im Reportformular.
+Ein vorgelagerter Sitzungskontext für die Schichtauswahl ist in der ersten
+Version nicht vorgesehen.
 
 ## 5. Anforderungen mit Einfluss auf die Architektur
 
@@ -124,17 +124,17 @@ technische Ausarbeitung besonders relevant:
   der Kernregeln sowie eine nachvollziehbare Zuordnung von Ersteller:in und Zeitpunkt.
 - **Bedienbarkeit und Leistung:** `NFR-10a-01`, `NFR-13a-01`, `NFR-12a-01`
   und `NFR-12e-01` beeinflussen die Darstellung und die Verarbeitung gespeicherter
-  Daten. Die vorläufigen Browser-, Breiten-, Leistungs- und Mengenziele müssen
-  über `TD-015` und `TD-016` bestätigt werden.
+  Daten. Die Browser-, Breiten-, Leistungs- und Mengenziele sind
+über `TD-015` und `TD-016` festgelegt.
 
 Die Prioritäten und vollständigen Akzeptanzkriterien bleiben in N1 maßgeblich.
-Ihre Nennung in P2 ändert weder ihre Priorität noch den Status als Arbeitsentwurf.
+Ihre Nennung in P2 ändert weder ihre Priorität noch ihren fachlichen Inhalt.
 
 ## 6. Teamentscheidungen und ihre Auswirkungen
 
 Der jeweils aktuelle Status der Teamentscheidungen steht in
-[TEAM-ENTSCHEIDUNGEN.md](../TEAM-ENTSCHEIDUNGEN.md). Für diesen Überblick sind
-insbesondere folgende Entscheidungen und noch offene Abstimmungen relevant:
+[TEAM-ENTSCHEIDUNGEN.md](../TEAM-ENTSCHEIDUNGEN.md). Für diesen Überblick sind insbesondere folgende dokumentierte
+Teamentscheidungen relevant:
 
 - `TD-001`, `TD-002` und `TD-013`: beeinflussen Pflichtangaben, die Bedeutung
   der Priorität und die Validierung der Report-Texte.
@@ -144,17 +144,18 @@ insbesondere folgende Entscheidungen und noch offene Abstimmungen relevant:
   allgemeinen Funktionen von Reportify verwenden. Die Schichtleitung besitzt
   zusätzlich die Berechtigung, gespeicherte Reports zu löschen.
   Benutzerkonten werden vorbereitet bereitgestellt; eine Selbstregistrierung ist nicht   vorgesehen.
-- `TD-007`: In der ersten Version findet keine automatische Löschung gespeicherter n Reports statt.
+- `TD-007`: In der ersten Version findet keine automatische Löschung gespeicherter Reports statt.
 - `TD-009`: Für Version 1 wird H2 als relationale Datenbank verwendet.
   Die Architekturentscheidung ist in `ADR-003 – H2-Datenbank für Version 1`
   dokumentiert. Der Datenzugriff erfolgt über Spring Data JPA.
 - `TD-014`: betrifft die Passwortregel und ihre technische Umsetzung.
-- `TD-015` und `TD-016`: bestimmen die zu bestätigenden Qualitäts- und Testziele.
-- `TD-017`: betrifft die Schichtauswahl und den Zusammenhang zwischen den Dialogen.
+- `TD-015` und `TD-016`: legen die Leistungs-, Mengen-, Browser- und
+  Darstellungsziele für die erste Version fest.
+- `TD-017`: Die Schichtauswahl erfolgt direkt im Reportformular.
 
-Diese Punkte werden nicht durch den Architekturüberblick entschieden.
-Nach einer Teamentscheidung müssen die betroffenen Spezifikationskapitel und
-anschließend Architektur, Implementierung und Tests zusammenpassen.
+Diese Entscheidungen werden im Architekturüberblick berücksichtigt und müssen
+mit den betroffenen Spezifikationskapiteln, der technischen Architektur,
+der Implementierung und den Tests konsistent bleiben.
 
 ## 7. Übergang zur detaillierten Architektur
 

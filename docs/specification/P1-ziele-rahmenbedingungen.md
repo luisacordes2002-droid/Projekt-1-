@@ -1,7 +1,7 @@
-# P1 – Ziele und Rahmenbedingungen
+﻿# P1 – Ziele und Rahmenbedingungen
 
-> **Status:** Entwurf vom 29. August 2026. Noch nicht vom Team abschließend
-> geprüft und freigegeben.
+  **Status:** Entwurf vom 29. August 2026. Noch nicht vom Team abschließend
+  geprüft und freigegeben.
 
 ## 1. Ausgangssituation
 

@@ -1,6 +1,6 @@
 # S2 – Datenmigration
 
-> **Status:** Arbeitsentwurf.  
+> **Status:** Aktualisierter Stand vom 25.09.2026.
 > Eine Migration von Daten aus einem bestehenden Altsystem ist für die erste
 > Version von Reportify nicht vorgesehen.
 
@@ -37,7 +37,7 @@ Die erstmalige Bereitstellung der für die Anmeldung benötigten
 Benutzerkonten ist keine Datenmigration.
 
 Für die erste Version werden Benutzerkonten vorbereitet bereitgestellt.
-Eine Selbstregistrierung durch Nutzer:innen ist nicht vorgesehen.
+Eine Selbstregistrierung durch Nutzer:innen ist nicht vorgesehen. Bei der ersten Anmeldung legt die nutzende Person für das vorbereitete Benutzerkonto ein eigenes persönliches Passwort fest.
 
 Die vorbereiteten Konten enthalten die für die Anmeldung und
 Berechtigungsprüfung benötigten Informationen. Jedem Benutzerkonto wird eine
